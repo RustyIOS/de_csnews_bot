@@ -4,16 +4,14 @@
   python3 scripts/gha_run.py announce --dry-run
   python3 scripts/gha_run.py results --dry-run
   python3 scripts/gha_run.py live --dry-run
-  python3 scripts/gha_run.py --preflight          # schedule/dispatch: print action=run|skip
+  python3 scripts/gha_run.py tick                 # same decision as cron / job=auto
+  python3 scripts/gha_run.py --preflight
 
-Schedule (UTC, Moscow is UTC+3 year-round):
-  4 7 * * *        announce at 10:04 MSK, catch-up until 12:00
-  34 20 * * *      results at 23:34 MSK, catch-up until 23:59
-  */10 7-20 * * *  tick: catch-up for those windows, otherwise a live check
-  59 20 * * *      last tick of the day (23:59 MSK)
-
-POSTING_ENABLED must be true/1/yes or a real send is turned into a dry-run.
-workflow_dispatch sets GHA_DRY_RUN=true to force a dry-run even when posting is on.
+Schedule (UTC, Moscow is UTC+3 year-round) and workflow_dispatch with no inputs
+or job=auto share one decision: Moscow time picks announce, results or live.
+A real send happens only when POSTING_ENABLED is true and dry_run is not set.
+Calling that path often is safe: one announce and one results post per day, live
+posts nothing when there is nothing new, and a second overlapping run waits.
 """
 import os, subprocess, sys, time
 
@@ -67,12 +65,26 @@ def posting_enabled():
     return os.environ.get("POSTING_ENABLED", "").strip().lower() in ("1", "true", "yes", "on")
 
 
+def dispatch_job():
+    """job input, or the legacy mode input. Empty / auto / tick follow the clock."""
+    job = (os.environ.get("GHA_JOB") or os.environ.get("GHA_MODE") or "auto").strip().lower()
+    if job in ("", "auto", "tick", "schedule"):
+        return "tick", "schedule"
+    if job in ("announce", "results", "live"):
+        return job, "dispatch"
+    print(f"unknown job {job!r}; using auto", flush=True)
+    return "tick", "schedule"
+
+
 def resolve(cli_mode):
     if cli_mode:
+        # CLI `tick` is the same clock decision as cron and job=auto.
+        if cli_mode == "tick":
+            return "tick", "schedule"
         return cli_mode, "cli"
     event = os.environ.get("GITHUB_EVENT_NAME", "")
     if event == "workflow_dispatch":
-        return (os.environ.get("GHA_MODE") or "announce"), "dispatch"
+        return dispatch_job()
     if event == "schedule":
         sched = (os.environ.get("GITHUB_EVENT_SCHEDULE") or "").strip()
         if sched == "4 7 * * *":

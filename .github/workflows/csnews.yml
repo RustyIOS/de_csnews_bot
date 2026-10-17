@@ -11,20 +11,21 @@ on:
     - cron: '59 20 * * *'      # 23:59 MSK last catch-up
   workflow_dispatch:
     inputs:
-      mode:
-        description: 'Что прогнать'
+      job:
+        description: 'auto — как cron, по времени МСК (безопасно вызывать каждые 10 мин). announce/results/live — только вручную.'
         type: choice
-        required: true
-        default: announce
+        required: false
+        default: auto
         options:
+          - auto
           - announce
           - results
           - live
       dry_run:
         description: 'Сухой прогон: текст в лог, карточка в артефакт, без отправки'
         type: boolean
-        required: true
-        default: true
+        required: false
+        default: false
 
 concurrency:
   group: de-csnews
@@ -53,9 +54,10 @@ jobs:
       NO_COLLECTOR: "1"
       NO_NEWS_QUEUE: "1"
       STATE_BRANCH: cursor/csnews-state-a760
-      # event payload strings: "true"/"false" and the cron text. Empty on the other event type.
+      # Empty on schedule. On dispatch, omitted inputs arrive as the defaults (job=auto, dry_run=false).
       GHA_DRY_RUN: ${{ github.event.inputs.dry_run }}
-      GHA_MODE: ${{ github.event.inputs.mode }}
+      GHA_JOB: ${{ github.event.inputs.job }}
+      GHA_MODE: ${{ github.event.inputs.job }}
       GITHUB_EVENT_SCHEDULE: ${{ github.event.schedule }}
     steps:
       - uses: actions/checkout@v4

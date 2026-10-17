@@ -12,7 +12,7 @@
 
 Лайв пишет старт матча и финальный счёт (карточка `result`). Половина, старт карты и результат карты не пишутся: на десятиминутном шаге эти счета уже бывали неверными, и опоздавший запуск не должен высыпать цепочку. Стримерская лига и Stake Pulse в лайв не входят — они остаются в анонсе и в итогах. Опросы выключены.
 
-Пока переменная `POSTING_ENABLED` не равна `true`, расписание молчит и в канал ничего не уходит.
+Пока переменная `POSTING_ENABLED` не равна `true`, ни cron, ни внешний вызов ничего не отправляют.
 
 ### Секрет
 
@@ -35,16 +35,52 @@
 
 Остаются прежние предохранители: `check_post.py`, проверка картинки, отказ от дубля за 3 часа, пауза 75 с между постами, один анонс и одни итоги на дату.
 
-### Сухой прогон
+### Внешний таймер (cron-job.org)
 
-Actions → CS2 news → Run workflow:
+Собственный cron GitHub часто пропускает слоты. Каждые 10 минут внешний таймер вызывает тот же workflow. Запрос без `inputs` или с `"job": "auto"` ведёт себя как плановый запуск: по московскому времени решает, что пора (анонс 10:04–12:00, итоги 23:34–23:59, иначе лайв 10:00–23:59), и при `POSTING_ENABLED=true` отправляет по-настоящему. Повторные вызовы безопасны: один анонс и одни итоги в сутки, лайв молчит, если нового нет, параллельный запуск ждёт в группе `de-csnews`.
 
-- mode: `announce`, `results` или `live`
-- dry_run: включён (так и стоит по умолчанию)
+```
+POST https://api.github.com/repos/RustyIOS/de_csnews_bot/actions/workflows/csnews.yml/dispatches
+```
 
-В логе будет текст поста на русском, карточка — в артефакте `csnews-dry-run`. В канал ничего не отправляется, даже если `POSTING_ENABLED=true`. Галочку dry_run снимайте только когда секрет уже добавлен и публикации включены.
+Заголовки:
 
-Локально то же самое: `python3 scripts/gha_run.py announce --dry-run` и `python3 scripts/gha_run.py results --dry-run`.
+```
+Accept: application/vnd.github+json
+Authorization: Bearer <FINE_GRAINED_PAT>
+X-GitHub-Api-Version: 2022-11-28
+Content-Type: application/json
+```
+
+Тело (явно то же, что и пустой `inputs`):
+
+```json
+{"ref":"main","inputs":{"job":"auto"}}
+```
+
+Без inputs тоже достаточно — сработают значения по умолчанию `job=auto` и `dry_run=false`:
+
+```json
+{"ref":"main"}
+```
+
+Ответ API — `204` без тела. Это нормально, не ошибка.
+
+Токен: fine-grained PAT только на этот репозиторий (`RustyIOS/de_csnews_bot`). Права: **Actions — Read and write**. Других прав не нужно (Contents, Administration и остальные — No access).
+
+Сухой прогон тем же вызовом, в канал ничего не уходит:
+
+```json
+{"ref":"main","inputs":{"job":"auto","dry_run":"true"}}
+```
+
+`dry_run` в API — строка `"true"` или `"false"`. В логе будет текст, карточка — в артефакте `csnews-dry-run`. Кнопка Run workflow в интерфейсе GitHub с настройками по умолчанию тоже отправляет, если что-то уже пора и `POSTING_ENABLED=true`; для проверки включите dry_run.
+
+В таймер кладите `job=auto` или тело без `inputs`. Значения `announce` и `results` — ручной прогон: они не смотрят на окно 10:04 / 23:34.
+
+Итоги 17 октября уже отмечены в `auto_state.json` (пост с бокса, https://t.me/de_csnews/147), повторный догон их не отправит.
+
+Локально: `python3 scripts/gha_run.py tick` (решение по часам) и `python3 results_auto.py --dry-run --date 2026-10-17`.
 
 Sources: HLTV RSS, Dust2.us RSS, PC Gamer CS2 tag RSS, Dexerto (all-news RSS, filtered to CS), Steam official CS2 announcements (app 730),
 Reddit r/GlobalOffensive (in fetch.py), X/Twitter (fetched by the routine agent via x MCP tools -> x_ingest.py).

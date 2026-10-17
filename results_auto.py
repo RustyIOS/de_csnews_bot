@@ -1,31 +1,96 @@
 #!/usr/bin/env python3
-"""Daily results recap, no AI (cron 23:34 MSK). day_results card + caption via post.py (all guards).
-   python3 results_auto.py [--dry-run] [--hours 24] [--force]
-Takes notable matches finished in the last N hours that were not in a previous recap (auto_state.json).
-None -> posts nothing. Streamer-league map names (cybersport.ru) are omitted, only map scores are shown."""
-import argparse, html, json, os, sys
+"""Daily results recap, no AI (23:34 MSK). day_results card + caption via post.py (all guards).
+   python3 results_auto.py [--dry-run] [--date YYYY-MM-DD] [--hours 36] [--force]
+One post per Moscow day: every notable match played that day, plus every media/streamer
+league match (BetBoom Streamers Battle and the rest of events.json notable_events).
+Live stays top-tier (matches.py --live is not used here). Streamer map names from
+cybersport.ru are omitted; only the map scores are shown.
+None finished -> posts nothing."""
+import argparse, datetime, html, json, os, sys
+from datetime import timezone
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from auto_lib import *
-from common import now_msk
+from common import MSK, now_msk
 
 ap = argparse.ArgumentParser()
-ap.add_argument("--dry-run", action="store_true"); ap.add_argument("--hours", type=int, default=24)
+ap.add_argument("--dry-run", action="store_true")
+ap.add_argument("--date", help="Moscow day to recap (default: today)")
+ap.add_argument("--hours", type=int, default=36, help="lookback when merging matches that finished this day but started earlier")
 ap.add_argument("--force", action="store_true")
 a = ap.parse_args()
 lock = single_instance("results_auto")
-day = now_msk().date()
+day = datetime.date.fromisoformat(a.date) if a.date else now_msk().date()
 st = state()
 if str(day) in st.get("results_dates", []) and not (a.force or a.dry_run):
     log(f"results for {day} already posted"); sys.exit(0)
 
 cfg = load_events_cfg()
-data = run_json(["matches.py", "--results", "--hours", str(a.hours)])
-done = set(st.get("recapped_keys", []))
-ms = [m for m in data.get("matches", []) if m.get("status") == "finished" and m.get("score")
-      and m["key"] not in done and not demoted(m, cfg)]
+
+
+def _ts(s):
+    if not s:
+        return None
+    dt = datetime.datetime.fromisoformat(str(s).replace("Z", "+00:00"))
+    if dt.tzinfo is None:
+        dt = dt.replace(tzinfo=timezone.utc)
+    return dt
+
+
+def on_day(m):
+    """Played this Moscow day: scheduled then, or the series ended then."""
+    if (m.get("date_msk") or "")[:10] == str(day):
+        return True
+    end = _ts(m.get("end_utc"))
+    return bool(end) and end.astimezone(MSK).date() == day
+
+
+def score_ok(m):
+    if m.get("status") not in ("finished", "defwin"):
+        return False
+    sc = (m.get("score") or "").strip()
+    try:
+        x, y = sc.split(":")
+        int(x); int(y)
+    except ValueError:
+        return False
+    return True
+
+
+def keep(m):
+    """Streamer/media leagues are never dropped. Stake Pulse still follows demote_events."""
+    if not score_ok(m) or not on_day(m):
+        return False
+    if m.get("tier") == "MEDIA" or m.get("media"):
+        return True
+    return not demoted(m, cfg)
+
+
+def load_day():
+    """Calendar day, not a rolling 24 h slice, so a morning series is still in the 23:34 post.
+    --today carries that day's streamer rows; --results adds a series that started the evening
+    before and ended after midnight."""
+    today = run_json(["matches.py", "--today", "--date", str(day)])
+    recent = run_json(["matches.py", "--results", "--hours", str(a.hours), "--date", str(day)])
+    by = {}
+    for src in (today, recent):
+        for m in src.get("matches") or []:
+            k = m.get("key")
+            if not k:
+                continue
+            prev = by.get(k)
+            if prev is None or len(m.get("maps") or []) >= len(prev.get("maps") or []):
+                by[k] = m
+    errors = (today.get("errors") or []) + (recent.get("errors") or [])
+    return list(by.values()), errors
+
+
+rows, errors = load_day()
+ms = [m for m in rows if keep(m)]
 if not ms:
-    log(f"no finished notable matches to recap (errors: {data.get('errors')}) -> nothing posted"); sys.exit(0)
+    log(f"no finished matches to recap for {day} (errors: {errors}) -> nothing posted"); sys.exit(0)
 ms.sort(key=lambda m: m.get("start_utc") or "")
+n_media = sum(1 for m in ms if m.get("tier") == "MEDIA" or m.get("media"))
+log(f"{day}: {len(ms)} matches, {n_media} streamer/media")
 
 
 def oriented(m):
@@ -84,7 +149,7 @@ if rc != 0 or not os.path.isfile(cp):
     log(f"card failed ({err[-300:]}) -> text-only post"); cp = ""
 log(f"text:\n{text}\ncard: {cp or '-'}")
 ok = check_and_post(f"res-{day}", tp, cp, a.dry_run, ms[-1].get("url") or "https://bo3.gg/matches",
-                    check_args=["--since-hours", str(a.hours + 6)])  # rematch-safe score check (17.10)
+                    check_args=["--since-hours", str(max(a.hours, 30))])  # rematch-safe score check (17.10)
 if ok and not a.dry_run:
     st = state()
     st["recapped_keys"] = (st.get("recapped_keys", []) + [m["key"] for m in ms])[-500:]

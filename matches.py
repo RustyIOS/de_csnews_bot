@@ -525,10 +525,22 @@ def main():
             import media_league
             mrows, merr = media_league.rows(day.isoformat())
             errors += merr
-            if a.results:
+            if a.results and not a.date:
+                # Rolling window only when the caller did not pin a Moscow day.
+                # A finished streamer match with no start time stays in; one that
+                # clearly started before the window is left out.
                 cutoff = datetime.now(timezone.utc) - timedelta(hours=a.hours)
-                mrows = [x for x in mrows if x["status"] == "finished" and x.get("start_utc")
-                         and parse_ts(x["start_utc"]) >= cutoff - timedelta(hours=4)]
+                kept = []
+                for x in mrows:
+                    if x.get("status") not in ("finished", "defwin"):
+                        continue
+                    start = parse_ts(x["start_utc"]) if x.get("start_utc") else None
+                    if start and start < cutoff - timedelta(hours=4):
+                        continue
+                    kept.append(x)
+                mrows = kept
+            elif a.results:
+                mrows = [x for x in mrows if x.get("status") in ("finished", "defwin")]
             matches += mrows
         except Exception as e:
             errors.append(f"media_league: {e}")

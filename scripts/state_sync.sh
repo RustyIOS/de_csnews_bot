@@ -24,6 +24,18 @@ pull() {
   fi
 }
 
+# Worktree path must be global. A `local` here is gone when the EXIT trap runs
+# after push() returns, and `set -u` then aborts the job with "tmp: unbound variable"
+# (the 23:24 MSK run on 17 Oct died this way, after the state commit had succeeded).
+STATE_TMP=""
+cleanup_state_tmp() {
+  if [[ -z "${STATE_TMP:-}" || ! -d "${STATE_TMP}" ]]; then
+    return 0
+  fi
+  git worktree remove --force "$STATE_TMP" >/dev/null 2>&1 || rm -rf "$STATE_TMP"
+  STATE_TMP=""
+}
+
 push() {
   if [[ "${GHA_DRY_RUN:-}" == "true" || "${DRY_RUN:-}" == "1" ]]; then
     echo "state: dry-run, not committing"
@@ -33,38 +45,36 @@ push() {
     echo "state: not on Actions, not committing"
     return 0
   fi
-  local tmp
-  tmp=$(mktemp -d)
-  cleanup() { git worktree remove --force "$tmp" >/dev/null 2>&1 || rm -rf "$tmp"; }
-  trap cleanup EXIT
+  STATE_TMP=$(mktemp -d)
+  trap cleanup_state_tmp EXIT
   if git fetch --depth=20 origin "+refs/heads/${BRANCH}:refs/remotes/origin/${BRANCH}"; then
-    git worktree add --detach "$tmp" "origin/${BRANCH}"
+    git worktree add --detach "$STATE_TMP" "origin/${BRANCH}"
   else
     echo "state: creating ${BRANCH} from this commit"
-    git worktree add --detach "$tmp" HEAD
+    git worktree add --detach "$STATE_TMP" HEAD
   fi
   local f
   for f in "${FILES[@]}"; do
-    cp "$f" "$tmp/$f"
+    cp "$f" "$STATE_TMP/$f"
   done
-  git -C "$tmp" config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-  git -C "$tmp" config user.name "github-actions[bot]"
-  git -C "$tmp" add -- "${FILES[@]}"
-  if git -C "$tmp" diff --cached --quiet; then
+  git -C "$STATE_TMP" config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+  git -C "$STATE_TMP" config user.name "github-actions[bot]"
+  git -C "$STATE_TMP" add -- "${FILES[@]}"
+  if git -C "$STATE_TMP" diff --cached --quiet; then
     echo "state: unchanged"
     return 0
   fi
-  git -C "$tmp" commit -m "state: ${GHA_MODE:-${GITHUB_EVENT_SCHEDULE:-run}} $(date -u +%Y-%m-%dT%H:%MZ)"
+  git -C "$STATE_TMP" commit -m "state: ${GHA_JOB:-${GHA_MODE:-${GITHUB_EVENT_SCHEDULE:-run}}} $(date -u +%Y-%m-%dT%H:%MZ)"
   local i
   for i in 1 2 3 4 5; do
-    if git -C "$tmp" push origin "HEAD:${BRANCH}"; then
+    if git -C "$STATE_TMP" push origin "HEAD:${BRANCH}"; then
       echo "state: pushed ${BRANCH}"
       return 0
     fi
     echo "state: push failed (try ${i}), refetching"
     sleep $((i * 3))
-    if git -C "$tmp" fetch --depth=20 origin "${BRANCH}"; then
-      git -C "$tmp" rebase FETCH_HEAD
+    if git -C "$STATE_TMP" fetch --depth=20 origin "${BRANCH}"; then
+      git -C "$STATE_TMP" rebase FETCH_HEAD
     fi
   done
   echo "state: push failed after retries" >&2

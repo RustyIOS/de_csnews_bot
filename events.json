@@ -1,0 +1,22 @@
+{
+  "_doc": "Event rules for matches.py/collector.py. live_tiers: \"top\" = live/collector cover only S/A (and B with top teams); notable_events (media/streamer) and demote_events are excluded from live entirely (reversible: set \"all\" to restore). \"all\" = previous behaviour: notable_events always live, demote_events only if no team ranked <= min_rank. Daily announce/results use matches.py without --live and still see media + demoted-with-top teams. See README 'Event rules'.",
+  "live_tiers": "top",
+  "notable_events": [
+    {
+      "name": "BETBOOM Streamers Battle CS #6",
+      "short": "BetBoom Streamers Battle",
+      "kind": "media",
+      "source": "cybersport.ru",
+      "tournament_id": 10003322,
+      "url": "https://www.cybersport.ru/tournaments/cs2/betboom-streamers-battle-cs-6",
+      "match_ids": [10099322, 10099345],
+      "start": "2026-10-12",
+      "end": "2026-10-17",
+      "importance": "medium",
+      "hashtags": ["#BetBoomStreamersBattle", "#стримеры"]
+    }
+  ],
+  "demote_events": [
+    {"match": "Stake Pulse", "min_rank": 10}
+  ]
+}

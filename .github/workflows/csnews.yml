@@ -1,0 +1,107 @@
+# Announce (10:04 MSK), daily results (23:34 MSK) and a lightweight top-tier live check.
+# Cron is UTC; Moscow is UTC+3 with no daylight-saving shift.
+# Schedule runs do nothing until the repository variable POSTING_ENABLED is true.
+name: CS2 news
+
+on:
+  schedule:
+    - cron: '4 7 * * *'        # 10:04 MSK announce
+    - cron: '34 20 * * *'      # 23:34 MSK results
+    - cron: '*/10 7-20 * * *'  # 10:00–23:50 MSK tick (catch-up + live)
+    - cron: '59 20 * * *'      # 23:59 MSK last catch-up
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'Что прогнать'
+        type: choice
+        required: true
+        default: announce
+        options:
+          - announce
+          - results
+          - live
+      dry_run:
+        description: 'Сухой прогон: текст в лог, карточка в артефакт, без отправки'
+        type: boolean
+        required: true
+        default: true
+
+concurrency:
+  group: de-csnews
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  csnews:
+    # Cron stays dark until POSTING_ENABLED=true. A manual run is always allowed;
+    # with dry_run it cannot send, and without it the script still refuses while
+    # the variable is off.
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      vars.POSTING_ENABLED == 'true' ||
+      vars.POSTING_ENABLED == '1' ||
+      vars.POSTING_ENABLED == 'yes'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      TZ: Europe/Moscow
+      PYTHONUNBUFFERED: "1"
+      POSTING_ENABLED: ${{ vars.POSTING_ENABLED }}
+      NO_SCHED: "1"
+      NO_COLLECTOR: "1"
+      NO_NEWS_QUEUE: "1"
+      STATE_BRANCH: cursor/csnews-state-a760
+      # event payload strings: "true"/"false" and the cron text. Empty on the other event type.
+      GHA_DRY_RUN: ${{ github.event.inputs.dry_run }}
+      GHA_MODE: ${{ github.event.inputs.mode }}
+      GITHUB_EVENT_SCHEDULE: ${{ github.event.schedule }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          persist-credentials: true
+
+      - name: Load state
+        run: bash scripts/state_sync.sh pull
+
+      - name: Preflight
+        id: plan
+        run: python3 scripts/gha_run.py --preflight
+
+      - uses: actions/setup-python@v5
+        if: steps.plan.outputs.action == 'run'
+        with:
+          python-version: '3.12'
+          cache: pip
+
+      - name: Install dependencies
+        if: steps.plan.outputs.action == 'run'
+        run: pip install -r requirements.txt
+
+      - name: Announce, results or live
+        id: exec
+        if: steps.plan.outputs.action == 'run'
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+        run: python3 scripts/gha_run.py
+
+      - name: Upload dry-run card
+        if: steps.plan.outputs.action == 'run' && github.event.inputs.dry_run == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: csnews-dry-run
+          path: |
+            drafts/**
+            cards/out/**
+          if-no-files-found: ignore
+          retention-days: 14
+
+      - name: Save state
+        if: >-
+          always() &&
+          steps.plan.outputs.action == 'run' &&
+          steps.exec.outcome != 'skipped' &&
+          env.GHA_DRY_RUN != 'true'
+        run: bash scripts/state_sync.sh push

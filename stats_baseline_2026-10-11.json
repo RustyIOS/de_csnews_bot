@@ -1,0 +1,252 @@
+{
+  "ok": true,
+  "channel": "de_csnews",
+  "days": 7,
+  "generated_msk": "2026-10-11 15:47",
+  "subscribers": 3,
+  "subscribers_error": null,
+  "growth": null,
+  "posts_count": 11,
+  "avg_views": 3.0,
+  "view_rate_pct": 100.0,
+  "reactions_total": 1,
+  "top5": [
+    {
+      "id": 3,
+      "url": "https://t.me/de_csnews/3",
+      "date_msk": "2026-10-11 01:51",
+      "ts": "2026-10-10T22:51:06+00:00",
+      "views": 3,
+      "reactions": {
+        "🔥": 1
+      },
+      "reactions_total": 1,
+      "has_photo": true,
+      "type": "news",
+      "title": "MOUZ обыграли Spirit и вышли в финал ESL Pro League S24"
+    },
+    {
+      "id": 5,
+      "url": "https://t.me/de_csnews/5",
+      "date_msk": "2026-10-11 02:04",
+      "ts": "2026-10-10T23:04:26+00:00",
+      "views": 3,
+      "reactions": {},
+      "reactions_total": 0,
+      "has_photo": false,
+      "type": "welcome",
+      "title": "Добро пожаловать в de_csnews!"
+    },
+    {
+      "id": 7,
+      "url": "https://t.me/de_csnews/7",
+      "date_msk": "2026-10-11 09:58",
+      "ts": "2026-10-11T06:58:14+00:00",
+      "views": 3,
+      "reactions": {},
+      "reactions_total": 0,
+      "has_photo": true,
+      "type": "news",
+      "title": "Sashi расстались с chelleos спустя два дня"
+    },
+    {
+      "id": 8,
+      "url": "https://t.me/de_csnews/8",
+      "date_msk": "2026-10-11 09:58",
+      "ts": "2026-10-11T06:58:15+00:00",
+      "views": 3,
+      "reactions": {},
+      "reactions_total": 0,
+      "has_photo": true,
+      "type": "news",
+      "title": "s-chilla: Passion UA могли подписать s1mple"
+    },
+    {
+      "id": 9,
+      "url": "https://t.me/de_csnews/9",
+      "date_msk": "2026-10-11 09:58",
+      "ts": "2026-10-11T06:58:15+00:00",
+      "views": 3,
+      "reactions": {},
+      "reactions_total": 0,
+      "has_photo": false,
+      "type": "results",
+      "title": "Vitality 2:1 Aurora"
+    }
+  ],
+  "by_type": [
+    {
+      "type": "news",
+      "posts": 4,
+      "avg_views": 3.0,
+      "avg_reactions": 0.25
+    },
+    {
+      "type": "welcome",
+      "posts": 1,
+      "avg_views": 3.0,
+      "avg_reactions": 0.0
+    },
+    {
+      "type": "results",
+      "posts": 1,
+      "avg_views": 3.0,
+      "avg_reactions": 0.0
+    },
+    {
+      "type": "announce",
+      "posts": 1,
+      "avg_views": 3.0,
+      "avg_reactions": 0.0
+    },
+    {
+      "type": "poll",
+      "posts": 2,
+      "avg_views": 3.0,
+      "avg_reactions": 0.0
+    },
+    {
+      "type": "live",
+      "posts": 2,
+      "avg_views": 3.0,
+      "avg_reactions": 0.0
+    }
+  ],
+  "posts": [
+    {
+      "id": 3,
+      "url": "https://t.me/de_csnews/3",
+      "date_msk": "2026-10-11 01:51",
+      "ts": "2026-10-10T22:51:06+00:00",
+      "views": 3,
+      "reactions": {
+        "🔥": 1
+      },
+      "reactions_total": 1,
+      "has_photo": true,
+      "type": "news",
+      "title": "MOUZ обыграли Spirit и вышли в финал ESL Pro League S24"
+    },
+    {
+      "id": 5,
+      "url": "https://t.me/de_csnews/5",
+      "date_msk": "2026-10-11 02:04",
+      "ts": "2026-10-10T23:04:26+00:00",
+      "views": 3,
+      "reactions": {},
+      "reactions_total": 0,
+      "has_photo": false,
+      "type": "welcome",
+      "title": "Добро пожаловать в de_csnews!"
+    },
+    {
+      "id": 7,
+      "url": "https://t.me/de_csnews/7",
+      "date_msk": "2026-10-11 09:58",
+      "ts": "2026-10-11T06:58:14+00:00",
+      "views": 3,
+      "reactions": {},
+      "reactions_total": 0,
+      "has_photo": true,
+      "type": "news",
+      "title": "Sashi расстались с chelleos спустя два дня"
+    },
+    {
+      "id": 8,
+      "url": "https://t.me/de_csnews/8",
+      "date_msk": "2026-10-11 09:58",
+      "ts": "2026-10-11T06:58:15+00:00",
+      "views": 3,
+      "reactions": {},
+      "reactions_total": 0,
+      "has_photo": true,
+      "type": "news",
+      "title": "s-chilla: Passion UA могли подписать s1mple"
+    },
+    {
+      "id": 9,
+      "url": "https://t.me/de_csnews/9",
+      "date_msk": "2026-10-11 09:58",
+      "ts": "2026-10-11T06:58:15+00:00",
+      "views": 3,
+      "reactions": {},
+      "reactions_total": 0,
+      "has_photo": false,
+      "type": "results",
+      "title": "Vitality 2:1 Aurora"
+    },
+    {
+      "id": 10,
+      "url": "https://t.me/de_csnews/10",
+      "date_msk": "2026-10-11 10:07",
+      "ts": "2026-10-11T07:07:09+00:00",
+      "views": 3,
+      "reactions": {},
+      "reactions_total": 0,
+      "has_photo": false,
+      "type": "announce",
+      "title": "Матчи дня, 11 октября"
+    },
+    {
+      "id": 11,
+      "url": "https://t.me/de_csnews/11",
+      "date_msk": "2026-10-11 10:07",
+      "ts": "2026-10-11T07:07:09+00:00",
+      "views": 3,
+      "reactions": {},
+      "reactions_total": 0,
+      "has_photo": false,
+      "type": "poll",
+      "title": "Кто выиграет гранд-финал ESL Pro League Season 24?"
+    },
+    {
+      "id": 12,
+      "url": "https://t.me/de_csnews/12",
+      "date_msk": "2026-10-11 10:55",
+      "ts": "2026-10-11T07:55:43+00:00",
+      "views": 3,
+      "reactions": {},
+      "reactions_total": 0,
+      "has_photo": true,
+      "type": "news",
+      "title": "sycrone о победе над Spirit: «MOUZ много раз ломались в такой момент»"
+    },
+    {
+      "id": 14,
+      "url": "https://t.me/de_csnews/14",
+      "date_msk": "2026-10-11 15:41",
+      "ts": "2026-10-11T12:41:27+00:00",
+      "views": 3,
+      "reactions": {},
+      "reactions_total": 0,
+      "has_photo": false,
+      "type": "live",
+      "title": "Матч начался: Aurora vs Spirit"
+    },
+    {
+      "id": 15,
+      "url": "https://t.me/de_csnews/15",
+      "date_msk": "2026-10-11 15:41",
+      "ts": "2026-10-11T12:41:27+00:00",
+      "views": 3,
+      "reactions": {},
+      "reactions_total": 0,
+      "has_photo": false,
+      "type": "poll",
+      "title": "Кто победит: Aurora или Spirit?"
+    },
+    {
+      "id": 16,
+      "url": "https://t.me/de_csnews/16",
+      "date_msk": "2026-10-11 15:41",
+      "ts": "2026-10-11T12:41:28+00:00",
+      "views": 3,
+      "reactions": {},
+      "reactions_total": 0,
+      "has_photo": false,
+      "type": "live",
+      "title": "Aurora забирают Mirage — 13:9"
+    }
+  ],
+  "summary_ru": "📊 Статистика @de_csnews за 7 дн. (11.10.2026)\nПодписчиков: 3\nПостов: 11, в среднем 3 просмотра на пост (~100% от подписчиков), реакций всего: 1\nТоп по просмотрам:\n1. MOUZ обыграли Spirit и вышли в финал ESL Pro League S24 — 3 👁, 1 реакц.\n2. Добро пожаловать в de_csnews! — 3 👁\n3. Sashi расстались с chelleos спустя два дня — 3 👁\n4. s-chilla: Passion UA могли подписать s1mple — 3 👁\n5. Vitality 2:1 Aurora — 3 👁\nЛучше всего заходят: новости (3 👁), приветствие (3 👁), результаты (3 👁)\nПока разницы между типами постов нет: просмотры у всех одинаковые."
+}

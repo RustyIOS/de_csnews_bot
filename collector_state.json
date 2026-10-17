@@ -1,0 +1,64 @@
+{
+  "day": "2026-10-14",
+  "matches": {
+    "bo3:131666": {
+      "lp_titles": {
+        "Thunderpick World Championship 2026": [
+          "Thunderpick/World Championship/2026",
+          "Thunderpick/World Championship/2026/Europe/1",
+          "Thunderpick/World Championship/2026/Europe/1",
+          "Thunderpick/World Championship/2026/Europe/2",
+          "Thunderpick/World Championship/2026/North America",
+          "Thunderpick/World Championship/2026/Qualifier",
+          "Thunderpick/World Championship/2026/South America/1",
+          "Thunderpick/World Championship/2026/South America/2"
+        ]
+      },
+      "status": "finished",
+      "updated": "2026-10-14T14:24:44+03:00",
+      "live_score": null,
+      "lp_rev": "2026-10-14T11:20:11Z",
+      "lp_url": "https://liquipedia.net/counterstrike/Thunderpick/World_Championship/2026",
+      "lp_final_done": true
+    },
+    "bo3:131331": {
+      "lp_titles": {
+        "Stake Pulse Beat III": [
+          "Stake Pulse/Beat III"
+        ]
+      },
+      "live_score": null,
+      "lp_rev": "2026-10-14T12:08:25Z",
+      "lp_url": "https://liquipedia.net/counterstrike/Stake_Pulse/Beat_III",
+      "status": "finished",
+      "updated": "2026-10-14T15:13:33+03:00",
+      "lp_final_done": true
+    },
+    "bo3:131667": {
+      "lp_titles": {
+        "Thunderpick World Championship 2026": [
+          "Thunderpick/World Championship/2026",
+          "Thunderpick/World Championship/2026/Europe/1",
+          "Thunderpick/World Championship/2026/Europe/1",
+          "Thunderpick/World Championship/2026/Europe/2",
+          "Thunderpick/World Championship/2026/North America",
+          "Thunderpick/World Championship/2026/Qualifier",
+          "Thunderpick/World Championship/2026/South America/1",
+          "Thunderpick/World Championship/2026/South America/2"
+        ]
+      },
+      "live_score": null,
+      "lp_rev": "2026-10-14T14:40:27Z",
+      "lp_url": "https://liquipedia.net/counterstrike/Thunderpick/World_Championship/2026",
+      "status": "finished",
+      "updated": "2026-10-14T17:43:23+03:00",
+      "lp_final_done": true
+    }
+  },
+  "done": [
+    "bo3:131666",
+    "bo3:131331",
+    "bo3:131667"
+  ],
+  "last_error": null
+}

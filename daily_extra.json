@@ -1,0 +1,25 @@
+{
+  "date": "2026-10-14",
+  "note": "live_tiers=top (14.10): stopped live coverage of BETBOOM Streamers Battle. Include unfinished/ongoing streamer results in the evening daily recap (scores from cybersport.ru / media_league.py --today; map names only if confirmed).",
+  "items": [
+    {
+      "teams": "Team Hooch vs Team Ct0m",
+      "event": "BETBOOM Streamers Battle CS #6",
+      "key": "cs:10099330",
+      "note": "was live map3 Dust2 ~1:1 series when live stopped; take final from media_league"
+    },
+    {
+      "teams": "Team SCADE vs Team VladRagovsky",
+      "event": "BETBOOM Streamers Battle CS #6",
+      "key": "cs:10099331",
+      "note": "was live / just started when live stopped"
+    },
+    {
+      "teams": "Team StRoGo vs Team SEREGA PIRAT",
+      "event": "BETBOOM Streamers Battle CS #6",
+      "key": "cs:10099328",
+      "note": "upcoming 18:00 MSK — no live posts; result → daily recap"
+    }
+  ],
+  "updated_msk": "2026-10-14T17:59:04+03:00"
+}

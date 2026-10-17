@@ -1,0 +1,229 @@
+{
+ "verified_at": "2026-10-11",
+ "note": "IDs resolved via x get_users_by_usernames; all had posts within the last ~2 weeks. multigame=true -> x_ingest.py requires a CS signal and drops other-game posts.",
+ "accounts": [
+  {
+   "username": "CounterStrike",
+   "id": "353780675",
+   "group": "core",
+   "multigame": false,
+   "note": "official CS2 (Valve)"
+  },
+  {
+   "username": "HLTVorg",
+   "id": "55386535",
+   "group": "core",
+   "multigame": false,
+   "note": "HLTV.org"
+  },
+  {
+   "username": "ESLCS",
+   "id": "34002876",
+   "group": "core",
+   "multigame": false,
+   "note": "ESL Counter-Strike (EPL, IEM, Cologne/Katowice)"
+  },
+  {
+   "username": "BLASTPremier",
+   "id": "851767989250772992",
+   "group": "core",
+   "multigame": false,
+   "note": "BLAST"
+  },
+  {
+   "username": "pglesports",
+   "id": "481220035",
+   "group": "core",
+   "multigame": true,
+   "note": "PGL (also Dota 2)"
+  },
+  {
+   "username": "Sheep_VALORANT",
+   "id": "1932752522663415808",
+   "group": "core",
+   "multigame": true,
+   "note": "insider: posts [SOURCES - CS2] transfer scoops (also Valorant)"
+  },
+  {
+   "username": "Mauisnake",
+   "id": "813864870332354560",
+   "group": "core",
+   "multigame": false,
+   "note": "CS broadcast talent / insider-ish"
+  },
+  {
+   "username": "Thorin",
+   "id": "73100160",
+   "group": "core",
+   "multigame": false,
+   "note": "CS analyst/historian (opinions, sometimes news)"
+  },
+  {
+   "username": "TeamVitalityCS",
+   "id": "1782329280363384832",
+   "group": "teams",
+   "multigame": false,
+   "note": "Team Vitality CS"
+  },
+  {
+   "username": "mousesports",
+   "id": "21648994",
+   "group": "teams",
+   "multigame": false,
+   "note": "MOUZ"
+  },
+  {
+   "username": "Team__Spirit",
+   "id": "3814210037",
+   "group": "teams",
+   "multigame": false,
+   "note": "Team Spirit CS2"
+  },
+  {
+   "username": "natusvincere",
+   "id": "207120515",
+   "group": "teams",
+   "multigame": true,
+   "note": "NAVI"
+  },
+  {
+   "username": "FaZeEsports",
+   "id": "535756639",
+   "group": "teams",
+   "multigame": false,
+   "note": "FaZe CS"
+  },
+  {
+   "username": "G2CSGO",
+   "id": "1622586990016208904",
+   "group": "teams",
+   "multigame": false,
+   "note": "G2 CS"
+  },
+  {
+   "username": "FURIA",
+   "id": "894704535037513729",
+   "group": "teams",
+   "multigame": true,
+   "note": "FURIA (also LoL, Valorant, etc.)"
+  },
+  {
+   "username": "FalconsEsport",
+   "id": "1329463960194723847",
+   "group": "teams",
+   "multigame": true,
+   "note": "Team Falcons (all games)"
+  },
+  {
+   "username": "AuroraCS2_GG",
+   "id": "1562422300141834240",
+   "group": "teams",
+   "multigame": false,
+   "note": "Aurora CS2"
+  },
+  {
+   "username": "1mongolz",
+   "id": "4865943441",
+   "group": "teams",
+   "multigame": false,
+   "note": "The MongolZ"
+  },
+  {
+   "username": "parivisiongg",
+   "id": "1703095718347423746",
+   "group": "teams",
+   "multigame": true,
+   "note": "PARIVISION (also Dota)"
+  },
+  {
+   "username": "AstralisCS",
+   "id": "4613834835",
+   "group": "teams",
+   "multigame": false,
+   "note": "Astralis CS"
+  },
+  {
+   "username": "TeamLiquidCS",
+   "id": "2288689224",
+   "group": "teams",
+   "multigame": false,
+   "note": "Team Liquid CS"
+  },
+  {
+   "username": "heroicgg",
+   "id": "748284237359513600",
+   "group": "teams",
+   "multigame": true,
+   "note": "HEROIC"
+  },
+  {
+   "username": "3DMAXGaming",
+   "id": "163104183",
+   "group": "teams",
+   "multigame": false,
+   "note": "3DMAX"
+  },
+  {
+   "username": "MIBR",
+   "id": "17392584",
+   "group": "teams",
+   "multigame": true,
+   "note": "MIBR"
+  },
+  {
+   "username": "GamerLegion",
+   "id": "745017877976223744",
+   "group": "teams",
+   "multigame": true,
+   "note": "GamerLegion"
+  },
+  {
+   "username": "NIPCS",
+   "id": "1350514588635320324",
+   "group": "teams",
+   "multigame": false,
+   "note": "NIP CS"
+  },
+  {
+   "username": "B8esportsGG",
+   "id": "1204082438185668608",
+   "group": "teams",
+   "multigame": true,
+   "note": "B8"
+  },
+  {
+   "username": "virtuspro",
+   "id": "283906817",
+   "group": "teams",
+   "multigame": true,
+   "note": "Virtus.pro"
+  },
+  {
+   "username": "eternalfiregg",
+   "id": "1424075280386232321",
+   "group": "teams",
+   "multigame": true,
+   "note": "Eternal Fire"
+  },
+  {
+   "username": "9zTeam",
+   "id": "1027193008243056641",
+   "group": "teams",
+   "multigame": true,
+   "note": "9z (multigame; seen in X includes 14.10)"
+  }
+ ],
+ "not_used": {
+  "FaZeClan": "lifestyle brand; FaZeEsports is the esports account",
+  "TeamVitality": "multigame; TeamVitalityCS used",
+  "AuroraGaming_GG": "multigame parent; AuroraCS2_GG used",
+  "G2esports": "multigame; G2CSGO used",
+  "TeamLiquid": "multigame; TeamLiquidCS used",
+  "IEM": "covered by ESLCS",
+  "Dexerto/dust2us": "already ingested via RSS",
+  "CS2Updates": "inactive since 2023",
+  "cs2news": "aggregator, unverified",
+  "Neil_CSGO": "does not exist",
+  "3DMAX handles 3DMAXgg/3DMAX_": "wrong/nonexistent"
+ }
+}

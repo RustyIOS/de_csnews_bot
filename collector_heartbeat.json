@@ -1,0 +1,24 @@
+{
+  "started_msk": "2026-10-14T17:06:06+03:00",
+  "ticks": 47,
+  "status": "stopped",
+  "last_error": "cs:10099330: RemoteDisconnected('Remote end closed connection without response')",
+  "pid": 1075442,
+  "last_tick_ts": 1791989945.415427,
+  "last_tick_msk": "2026-10-14T17:59:05+03:00",
+  "needed": [
+    "bo3:131333",
+    "cs:10099330",
+    "cs:10099331",
+    "cs:10099328"
+  ],
+  "polled": [
+    "bo3:131333=current",
+    "cs:10099330=current",
+    "cs:10099331=current"
+  ],
+  "last_added": [],
+  "queue_pending": 0,
+  "lp_backoff_until": 1791988047.4219966,
+  "stop_reason": "SIGTERM"
+}

@@ -1,0 +1,137 @@
+{
+ "date": "2026-10-10",
+ "matches": [
+  {
+   "key": "bo3:130752",
+   "source": "bo3.gg",
+   "url": "https://bo3.gg/matches/mouz-cs2-vs-spirit-10-10-2026",
+   "status": "finished",
+   "team1": "MOUZ",
+   "team2": "Spirit",
+   "team1_rank": 4,
+   "team2_rank": 1,
+   "team1_logo": "https://files.bo3.gg/uploads/team/765/image/bcbdcf50fb2c79b6ab45b0014300b9e0.png",
+   "team2_logo": "https://files.bo3.gg/uploads/team/654/image/webp-41b22d18a871d982f8ff87652bbb0fe6.webp",
+   "start_msk": "20:45",
+   "date_msk": "2026-10-10",
+   "start_utc": "2026-10-10T17:45:00+00:00",
+   "end_utc": "2026-10-10T20:46:42+00:00",
+   "event": "ESL Pro League Season 24",
+   "event_logo": "https://files.bo3.gg/uploads/tournament/5110/image/webp-8e019c35557e43a47a0f2b1f6695d5cb.webp",
+   "stage": "Playoffs / Semifinal",
+   "format": "BO3",
+   "tier": "S",
+   "stars": 5,
+   "importance": "high",
+   "score": "2:1",
+   "winner": "MOUZ",
+   "maps": [
+    {
+     "map": "Dust2",
+     "score": "13:7",
+     "winner": "MOUZ"
+    },
+    {
+     "map": "Mirage",
+     "score": "5:13",
+     "winner": "Spirit"
+    },
+    {
+     "map": "Nuke",
+     "score": "13:11",
+     "winner": "MOUZ"
+    }
+   ],
+   "announced": false,
+   "result_posted": true
+  },
+  {
+   "key": "bo3:130751",
+   "source": "bo3.gg",
+   "url": "https://bo3.gg/matches/aurora-gaming-vs-vitality-10-10-2026",
+   "status": "finished",
+   "team1": "Aurora",
+   "team2": "Vitality",
+   "team1_rank": 9,
+   "team2_rank": 3,
+   "team1_logo": "https://files.bo3.gg/uploads/team/3598/image/webp-49b8df76b0d121cc89c760c1ec16ebea.webp",
+   "team2_logo": "https://files.bo3.gg/uploads/team/667/image/webp-292c1f6c6dcfca35c7a52da7e02cef0a.webp",
+   "start_msk": "16:45",
+   "date_msk": "2026-10-10",
+   "start_utc": "2026-10-10T13:45:00+00:00",
+   "end_utc": "2026-10-10T16:47:54+00:00",
+   "event": "ESL Pro League Season 24",
+   "event_logo": "https://files.bo3.gg/uploads/tournament/5110/image/webp-8e019c35557e43a47a0f2b1f6695d5cb.webp",
+   "stage": "Playoffs / Semifinal",
+   "format": "BO3",
+   "tier": "S",
+   "stars": 4,
+   "importance": "high",
+   "score": "1:2",
+   "winner": "Vitality",
+   "maps": [
+    {
+     "map": "Anubis",
+     "score": "13:7",
+     "winner": "Aurora"
+    },
+    {
+     "map": "Cache",
+     "score": "7:13",
+     "winner": "Vitality"
+    },
+    {
+     "map": "Mirage",
+     "score": "8:13",
+     "winner": "Vitality"
+    }
+   ],
+   "announced": false,
+   "result_posted": true
+  },
+  {
+   "key": "bo3:130249",
+   "source": "bo3.gg",
+   "url": "https://bo3.gg/matches/iberian-soul-vs-nemiga-10-10-2026",
+   "status": "finished",
+   "team1": "Nemiga",
+   "team2": "Iberian Soul",
+   "team1_rank": 14,
+   "team2_rank": 59,
+   "team1_logo": "https://files.bo3.gg/uploads/team/655/image/webp-998a59d1bbae3fd5e32b1e46a3f6204e.webp",
+   "team2_logo": "https://files.bo3.gg/uploads/team/19100/image/webp-b4d8e5c95cf38fb8d620b32557c540a7.webp",
+   "start_msk": "13:00",
+   "date_msk": "2026-10-10",
+   "start_utc": "2026-10-10T10:00:00+00:00",
+   "end_utc": "2026-10-10T13:07:39+00:00",
+   "event": "CCT Europe 2026 Series 10",
+   "event_logo": "https://files.bo3.gg/uploads/tournament/6110/image/webp-5188825d1ba151217a88685ade8c5448.webp",
+   "stage": "Playoffs / Semifinal",
+   "format": "BO3",
+   "tier": "B",
+   "stars": 2,
+   "importance": "low",
+   "score": "1:2",
+   "winner": "Iberian Soul",
+   "maps": [
+    {
+     "map": "Cache",
+     "score": "7:13",
+     "winner": "Iberian Soul"
+    },
+    {
+     "map": "Nuke",
+     "score": "16:13",
+     "winner": "Nemiga"
+    },
+    {
+     "map": "Mirage",
+     "score": "9:13",
+     "winner": "Iberian Soul"
+    }
+   ],
+   "announced": false,
+   "result_posted": true
+  }
+ ]
+}

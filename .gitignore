@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.cron.env
+*.lock
+.*lock
+.live.lease
+collector.pid
+logs/
+drafts/
+cards/out/
+live_buf/

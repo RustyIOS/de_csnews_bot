@@ -1,0 +1,15 @@
+{
+ "question": "Кто выиграет гранд-финал ESL Pro League S24?",
+ "options": [
+  {
+   "text": "Vitality",
+   "votes": 148
+  },
+  {
+   "text": "MOUZ",
+   "votes": 57
+  }
+ ],
+ "correct": "Vitality",
+ "guessed_percent": 72
+}

@@ -1,0 +1,44 @@
+[
+ {
+  "name": "heartbeat",
+  "minutes": "*/5",
+  "hours": "*",
+  "timeout": 30,
+  "cmd": [
+   "bash",
+   "-c",
+   "date '+%F %T' >> logs/sched_heartbeat.txt"
+  ]
+ },
+ {
+  "name": "announce",
+  "minutes": "4",
+  "hours": "10",
+  "catchup_min": 116,
+  "timeout": 1600,
+  "cmd": [
+   "./run_auto.sh",
+   "announce"
+  ]
+ },
+ {
+  "name": "results",
+  "minutes": "34",
+  "hours": "23",
+  "catchup_min": 25,
+  "timeout": 1600,
+  "cmd": [
+   "./run_auto.sh",
+   "results"
+  ]
+ },
+ {
+  "name": "collector",
+  "minutes": "*/5",
+  "hours": "10-23",
+  "timeout": 120,
+  "cmd": [
+   "./ensure_collector.sh"
+  ]
+ }
+]

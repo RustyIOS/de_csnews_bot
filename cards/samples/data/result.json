@@ -1,0 +1,44 @@
+{
+ "key": "bo3:130752",
+ "source": "bo3.gg",
+ "url": "https://bo3.gg/matches/mouz-cs2-vs-spirit-10-10-2026",
+ "status": "finished",
+ "team1": "MOUZ",
+ "team2": "Spirit",
+ "team1_rank": 4,
+ "team2_rank": 1,
+ "team1_logo": "https://files.bo3.gg/uploads/team/765/image/bcbdcf50fb2c79b6ab45b0014300b9e0.png",
+ "team2_logo": "https://files.bo3.gg/uploads/team/654/image/webp-41b22d18a871d982f8ff87652bbb0fe6.webp",
+ "start_msk": "20:45",
+ "date_msk": "2026-10-10",
+ "start_utc": "2026-10-10T17:45:00+00:00",
+ "end_utc": "2026-10-10T20:46:42+00:00",
+ "event": "ESL Pro League Season 24",
+ "event_logo": "https://files.bo3.gg/uploads/tournament/5110/image/webp-8e019c35557e43a47a0f2b1f6695d5cb.webp",
+ "stage": "Playoffs / Semifinal",
+ "format": "BO3",
+ "tier": "S",
+ "stars": 5,
+ "importance": "high",
+ "score": "2:1",
+ "winner": "MOUZ",
+ "maps": [
+  {
+   "map": "Dust2",
+   "score": "13:7",
+   "winner": "MOUZ"
+  },
+  {
+   "map": "Mirage",
+   "score": "5:13",
+   "winner": "Spirit"
+  },
+  {
+   "map": "Nuke",
+   "score": "13:11",
+   "winner": "MOUZ"
+  }
+ ],
+ "announced": false,
+ "result_posted": true
+}

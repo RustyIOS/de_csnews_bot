@@ -1,0 +1,84 @@
+{
+ "date": "2026-10-11",
+ "matches": [
+  {
+   "key": "bo3:130753",
+   "source": "bo3.gg",
+   "url": "https://bo3.gg/matches/aurora-gaming-vs-spirit-11-10-2026",
+   "status": "current",
+   "team1": "Aurora",
+   "team2": "Spirit",
+   "team1_rank": 9,
+   "team2_rank": 1,
+   "team1_logo": "https://files.bo3.gg/uploads/team/3598/image/webp-49b8df76b0d121cc89c760c1ec16ebea.webp",
+   "team2_logo": "https://files.bo3.gg/uploads/team/654/image/webp-41b22d18a871d982f8ff87652bbb0fe6.webp",
+   "start_msk": "14:40",
+   "date_msk": "2026-10-11",
+   "start_utc": "2026-10-11T11:40:00+00:00",
+   "end_utc": null,
+   "event": "ESL Pro League Season 24",
+   "event_logo": "https://files.bo3.gg/uploads/tournament/5110/image/webp-8e019c35557e43a47a0f2b1f6695d5cb.webp",
+   "stage": "Decider / 3rd place",
+   "format": "BO3",
+   "tier": "S",
+   "stars": 4,
+   "importance": "high",
+   "score": "1:0",
+   "winner": null,
+   "maps": [
+    {
+     "map": "Mirage",
+     "score": "13:9",
+     "winner": "Aurora"
+    }
+   ],
+   "announced": true,
+   "result_posted": false,
+   "stage_short": "3rd place"
+  },
+  {
+   "key": "bo3:130754",
+   "source": "bo3.gg",
+   "url": "https://bo3.gg/matches/vitality-vs-mouz-cs2-11-10-2026",
+   "status": "upcoming",
+   "team1": "Vitality",
+   "team2": "MOUZ",
+   "team1_rank": 3,
+   "team2_rank": 4,
+   "team1_logo": "https://files.bo3.gg/uploads/team/667/image/webp-292c1f6c6dcfca35c7a52da7e02cef0a.webp",
+   "team2_logo": "https://files.bo3.gg/uploads/team/765/image/bcbdcf50fb2c79b6ab45b0014300b9e0.png",
+   "start_msk": "18:00",
+   "date_msk": "2026-10-11",
+   "start_utc": "2026-10-11T15:00:00+00:00",
+   "end_utc": null,
+   "event": "ESL Pro League Season 24",
+   "event_logo": "https://files.bo3.gg/uploads/tournament/5110/image/webp-8e019c35557e43a47a0f2b1f6695d5cb.webp",
+   "stage": "Playoffs / Grand final",
+   "format": "BO5",
+   "tier": "S",
+   "stars": 5,
+   "importance": "high",
+   "announced": true,
+   "result_posted": false,
+   "stage_short": "Grand final"
+  },
+  {
+   "start_msk": "16:00",
+   "team1": "FURIA",
+   "team2": "The MongolZ",
+   "format": "BO3",
+   "event": "Thunderpick World Championship 2026",
+   "stage": "Group A",
+   "stage_short": "Group A"
+  },
+  {
+   "start_msk": "19:30",
+   "team1": "Natus Vincere",
+   "team2": "Falcons",
+   "format": "BO3",
+   "event": "Thunderpick World Championship 2026",
+   "stage": "Group B",
+   "stage_short": "Group B"
+  }
+ ]
+}

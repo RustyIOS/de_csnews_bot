@@ -1,0 +1,3444 @@
+[
+  {
+    "id": "bo3:131320|match:start",
+    "event_id": "match:start",
+    "type": "match_started",
+    "match": {
+      "key": "bo3:131320",
+      "team1": "Ninjas in Pyjamas",
+      "team2": "Betclic",
+      "event": "Stake Pulse Beat III"
+    },
+    "map": null,
+    "map_number": null,
+    "scores": {},
+    "data": {
+      "late": false,
+      "stage": "Group A / Opening",
+      "format": "BO3",
+      "first_map": null,
+      "scheduled_utc": "2026-10-12T10:00:00.000+00:00",
+      "map1_begin_utc": null,
+      "poll_key": "live:bo3:131320",
+      "options": [
+        "Ninjas in Pyjamas",
+        "Betclic"
+      ],
+      "source": "bo3 REST"
+    },
+    "sources": [
+      "bo3 REST"
+    ],
+    "evidence": [
+      {
+        "source": "bo3 REST",
+        "url": "https://bo3.gg/matches/nip-vs-betclic-apogee-esports-12-10-2026"
+      }
+    ],
+    "confirmed": true,
+    "conflict": null,
+    "detected_at": "2026-10-12T12:59:18+03:00",
+    "updated_at": null,
+    "status": "posted",
+    "posted_at": "2026-10-12T13:01:48+03:00"
+  },
+  {
+    "id": "bo3:131321|match:start",
+    "event_id": "match:start",
+    "type": "match_started",
+    "match": {
+      "key": "bo3:131321",
+      "team1": "Inner Circle",
+      "team2": "Sangal",
+      "event": "Stake Pulse Beat III"
+    },
+    "map": null,
+    "map_number": null,
+    "scores": {},
+    "data": {
+      "late": false,
+      "stage": "Group A / Opening",
+      "format": "BO3",
+      "first_map": "Anubis",
+      "scheduled_utc": "2026-10-12T10:00:00.000+00:00",
+      "map1_begin_utc": null,
+      "poll_key": "live:bo3:131321",
+      "options": [
+        "Inner Circle",
+        "Sangal"
+      ],
+      "source": "bo3 REST"
+    },
+    "sources": [
+      "bo3 REST"
+    ],
+    "evidence": [
+      {
+        "source": "bo3 REST",
+        "url": "https://bo3.gg/matches/inner-circle-esports-vs-sangal-12-10-2026"
+      }
+    ],
+    "confirmed": true,
+    "conflict": null,
+    "detected_at": "2026-10-12T12:59:18+03:00",
+    "updated_at": null,
+    "status": "posted",
+    "posted_at": "2026-10-12T13:01:48+03:00"
+  },
+  {
+    "id": "bo3:131321|map1:start",
+    "event_id": "map1:start",
+    "type": "map_started",
+    "match": {
+      "key": "bo3:131321",
+      "team1": "Inner Circle",
+      "team2": "Sangal",
+      "event": "Stake Pulse Beat III"
+    },
+    "map": "Anubis",
+    "map_number": 1,
+    "scores": {},
+    "data": {
+      "late": false,
+      "map": "Anubis",
+      "map_number": 1,
+      "source": "bo3 REST",
+      "at": "2026-10-12T10:03:28.000+00:00"
+    },
+    "sources": [
+      "bo3 REST"
+    ],
+    "evidence": [
+      {
+        "source": "bo3 REST",
+        "url": "https://bo3.gg/matches/inner-circle-esports-vs-sangal-12-10-2026"
+      }
+    ],
+    "confirmed": true,
+    "conflict": null,
+    "detected_at": "2026-10-12T13:04:15+03:00",
+    "updated_at": null,
+    "status": "skipped",
+    "posted_at": "2026-10-12T13:05:29+03:00",
+    "note": "map 1 covered by match_started"
+  },
+  {
+    "id": "bo3:131320|map1:start",
+    "event_id": "map1:start",
+    "type": "map_started",
+    "match": {
+      "key": "bo3:131320",
+      "team1": "Ninjas in Pyjamas",
+      "team2": "Betclic",
+      "event": "Stake Pulse Beat III"
+    },
+    "map": "Ancient",
+    "map_number": 1,
+    "scores": {},
+    "data": {
+      "late": false,
+      "map": "Ancient",
+      "map_number": 1,
+      "source": "bo3 REST",
+      "at": "2026-10-12T10:19:50.000+00:00"
+    },
+    "sources": [
+      "bo3 REST"
+    ],
+    "evidence": [
+      {
+        "source": "bo3 REST",
+        "url": "https://bo3.gg/matches/nip-vs-betclic-apogee-esports-12-10-2026"
+      }
+    ],
+    "confirmed": true,
+    "conflict": null,
+    "detected_at": "2026-10-12T13:21:21+03:00",
+    "updated_at": null,
+    "status": "skipped",
+    "posted_at": "2026-10-12T13:25:21+03:00",
+    "note": "map1 covered by match_started (post 43)"
+  },
+  {
+    "id": "bo3:131321|map1:finished",
+    "event_id": "map1:finished",
+    "type": "map_finished",
+    "match": {
+      "key": "bo3:131321",
+      "team1": "Inner Circle",
+      "team2": "Sangal",
+      "event": "Stake Pulse Beat III"
+    },
+    "map": "Anubis",
+    "map_number": 1,
+    "scores": {
+      "score": "13:9",
+      "series": "1:0"
+    },
+    "data": {
+      "late": false,
+      "map": "Anubis",
+      "map_number": 1,
+      "winner": "Inner Circle",
+      "loser": "Sangal",
+      "score": "13:9",
+      "overtime": false,
+      "overtimes": 0,
+      "series": "1:0",
+      "source": "bo3 REST"
+    },
+    "sources": [
+      "bo3 REST"
+    ],
+    "evidence": [
+      {
+        "source": "bo3 REST",
+        "url": "https://bo3.gg/matches/inner-circle-esports-vs-sangal-12-10-2026"
+      }
+    ],
+    "confirmed": false,
+    "conflict": null,
+    "detected_at": "2026-10-12T14:05:35+03:00",
+    "updated_at": null,
+    "status": "skipped",
+    "posted_at": "2026-10-12T14:08:19+03:00",
+    "note": "merged into map2 start post (winner + series 1:0, no exact score: only bo3 REST 13:9, unconfirmed)"
+  },
+  {
+    "id": "bo3:131321|map2:start",
+    "event_id": "map2:start",
+    "type": "map_started",
+    "match": {
+      "key": "bo3:131321",
+      "team1": "Inner Circle",
+      "team2": "Sangal",
+      "event": "Stake Pulse Beat III"
+    },
+    "map": "Dust2",
+    "map_number": 2,
+    "scores": {},
+    "data": {
+      "late": false,
+      "map": "Dust2",
+      "map_number": 2,
+      "source": "bo3 REST",
+      "at": "2026-10-12T11:03:55.000+00:00"
+    },
+    "sources": [
+      "bo3 REST"
+    ],
+    "evidence": [
+      {
+        "source": "bo3 REST",
+        "url": "https://bo3.gg/matches/inner-circle-esports-vs-sangal-12-10-2026"
+      }
+    ],
+    "confirmed": true,
+    "conflict": null,
+    "detected_at": "2026-10-12T14:05:35+03:00",
+    "updated_at": null,
+    "status": "posted",
+    "posted_at": "2026-10-12T14:08:19+03:00"
+  },
+  {
+    "id": "bo3:131320|map2:start",
+    "event_id": "map2:start",
+    "type": "map_started",
+    "match": {
+      "key": "bo3:131320",
+      "team1": "Ninjas in Pyjamas",
+      "team2": "Betclic",
+      "event": "Stake Pulse Beat III"
+    },
+    "map": "Cache",
+    "map_number": 2,
+    "scores": {},
+    "data": {
+      "late": false,
+      "map": "Cache",
+      "map_number": 2,
+      "source": "bo3 REST",
+      "at": "2026-10-12T11:17:51.000+00:00"
+    },
+    "sources": [
+      "bo3 REST"
+    ],
+    "evidence": [
+      {
+        "source": "bo3 REST",
+        "url": "https://bo3.gg/matches/nip-vs-betclic-apogee-esports-12-10-2026"
+      }
+    ],
+    "confirmed": true,
+    "conflict": null,
+    "detected_at": "2026-10-12T14:21:09+03:00",
+    "updated_at": null,
+    "status": "posted",
+    "posted_at": "2026-10-12T14:34:38+03:00"
+  },
+  {
+    "id": "bo3:131320|map2:finished",
+    "event_id": "map2:finished",
+    "type": "map_finished",
+    "match": {
+      "key": "bo3:131320",
+      "team1": "Ninjas in Pyjamas",
+      "team2": "Betclic",
+      "event": "Stake Pulse Beat III"
+    },
+    "map": "Cache",
+    "map_number": 2,
+    "scores": {
+      "score": "13:11",
+      "series": "1:1"
+    },
+    "data": {
+      "late": false,
+      "map": "Cache",
+      "map_number": 2,
+      "winner": "Betclic",
+      "loser": "Ninjas in Pyjamas",
+      "score": "13:11",
+      "overtime": false,
+      "overtimes": 0,
+      "series": "1:1",
+      "source": "bo3 REST"
+    },
+    "sources": [
+      "bo3 REST"
+    ],
+    "evidence": [
+      {
+        "source": "bo3 REST",
+        "url": "https://bo3.gg/matches/nip-vs-betclic-apogee-esports-12-10-2026"
+      }
+    ],
+    "confirmed": false,
+    "conflict": null,
+    "detected_at": "2026-10-12T15:13:32+03:00",
+    "updated_at": null,
+    "status": "posted",
+    "posted_at": "2026-10-12T15:19:39+03:00"
+  },
+  {
+    "id": "bo3:131320|map3:start",
+    "event_id": "map3:start",
+    "type": "map_started",
+    "match": {
+      "key": "bo3:131320",
+      "team1": "Ninjas in Pyjamas",
+      "team2": "Betclic",
+      "event": "Stake Pulse Beat III"
+    },
+    "map": "Nuke",
+    "map_number": 3,
+    "scores": {},
+    "data": {
+      "late": false,
+      "map": "Nuke",
+      "map_number": 3,
+      "source": "bo3 REST",
+      "at": "2026-10-12T12:15:09.000+00:00"
+    },
+    "sources": [
+      "bo3 REST"
+    ],
+    "evidence": [
+      {
+        "source": "bo3 REST",
+        "url": "https://bo3.gg/matches/nip-vs-betclic-apogee-esports-12-10-2026"
+      }
+    ],
+    "confirmed": true,
+    "conflict": null,
+    "detected_at": "2026-10-12T15:17:35+03:00",
+    "updated_at": null,
+    "status": "posted",
+    "posted_at": "2026-10-12T15:19:39+03:00"
+  },
+  {
+    "id": "bo3:131320|match:finished",
+    "event_id": "match:finished",
+    "type": "match_finished",
+    "match": {
+      "key": "bo3:131320",
+      "team1": "Ninjas in Pyjamas",
+      "team2": "Betclic",
+      "event": "Stake Pulse Beat III"
+    },
+    "map": null,
+    "map_number": null,
+    "scores": {
+      "series": "2:1"
+    },
+    "data": {
+      "late": false,
+      "winner": "Ninjas in Pyjamas",
+      "loser": "Betclic",
+      "series": "2:1",
+      "maps": [
+        {
+          "map": "Ancient",
+          "winner": "Ninjas in Pyjamas",
+          "score": "13:3"
+        },
+        {
+          "map": "Cache",
+          "winner": "Betclic",
+          "score": "13:11"
+        }
+      ],
+      "forfeit": false,
+      "poll_key": "live:bo3:131320",
+      "source": "bo3 REST"
+    },
+    "sources": [
+      "bo3 REST"
+    ],
+    "evidence": [
+      {
+        "source": "bo3 REST",
+        "url": "https://bo3.gg/matches/nip-vs-betclic-apogee-esports-12-10-2026"
+      }
+    ],
+    "confirmed": false,
+    "conflict": "map score(s) unconfirmed: Ancient, Cache",
+    "detected_at": "2026-10-12T16:03:10+03:00",
+    "updated_at": null,
+    "status": "posted",
+    "posted_at": "2026-10-12T16:22:20+03:00"
+  },
+  {
+    "id": "bo3:131323|match:start",
+    "event_id": "match:start",
+    "type": "match_started",
+    "match": {
+      "key": "bo3:131323",
+      "team1": "Inner Circle",
+      "team2": "Ninjas in Pyjamas",
+      "event": "Stake Pulse Beat III"
+    },
+    "map": null,
+    "map_number": null,
+    "scores": {},
+    "data": {
+      "late": false,
+      "stage": "Group A / Winners' match",
+      "format": "BO3",
+      "first_map": null,
+      "scheduled_utc": "2026-10-12T13:20:00.000+00:00",
+      "map1_begin_utc": null,
+      "poll_key": "live:bo3:131323",
+      "options": [
+        "Inner Circle",
+        "Ninjas in Pyjamas"
+      ],
+      "source": "bo3 REST"
+    },
+    "sources": [
+      "bo3 REST"
+    ],
+    "evidence": [
+      {
+        "source": "bo3 REST",
+        "url": "https://bo3.gg/matches/inner-circle-esports-vs-nip-12-10-2026"
+      }
+    ],
+    "confirmed": true,
+    "conflict": null,
+    "detected_at": "2026-10-12T16:17:48+03:00",
+    "updated_at": null,
+    "status": "posted",
+    "posted_at": "2026-10-12T16:22:13+03:00"
+  },
+  {
+    "id": "bo3:131323|map1:start",
+    "event_id": "map1:start",
+    "type": "map_started",
+    "match": {
+      "key": "bo3:131323",
+      "team1": "Inner Circle",
+      "team2": "Ninjas in Pyjamas",
+      "event": "Stake Pulse Beat III"
+    },
+    "map": "Nuke",
+    "map_number": 1,
+    "scores": {},
+    "data": {
+      "late": false,
+      "map": "Nuke",
+      "map_number": 1,
+      "source": "bo3 REST",
+      "at": "2026-10-12T13:26:50.000+00:00"
+    },
+    "sources": [
+      "bo3 REST"
+    ],
+    "evidence": [
+      {
+        "source": "bo3 REST",
+        "url": "https://bo3.gg/matches/inner-circle-esports-vs-nip-12-10-2026"
+      }
+    ],
+    "confirmed": true,
+    "conflict": null,
+    "detected_at": "2026-10-12T16:51:09+03:00",
+    "updated_at": null,
+    "status": "skipped",
+    "posted_at": "2026-10-12T16:51:46+03:00",
+    "note": "map 1 covered by match_started post"
+  },
+  {
+    "id": "bo3:131323|map2:start",
+    "event_id": "map2:start",
+    "type": "map_started",
+    "match": {
+      "key": "bo3:131323",
+      "team1": "Inner Circle",
+      "team2": "Ninjas in Pyjamas",
+      "event": "Stake Pulse Beat III"
+    },
+    "map": "Dust2",
+    "map_number": 2,
+    "scores": {},
+    "data": {
+      "late": false,
+      "map": "Dust2",
+      "map_number": 2,
+      "source": "bo3 REST",
+      "at": "2026-10-12T14:17:20.000+00:00"
+    },
+    "sources": [
+      "bo3 REST"
+    ],
+    "evidence": [
+      {
+        "source": "bo3 REST",
+        "url": "https://bo3.gg/matches/inner-circle-esports-vs-nip-12-10-2026"
+      }
+    ],
+    "confirmed": true,
+    "conflict": null,
+    "detected_at": "2026-10-12T17:19:42+03:00",
+    "updated_at": null,
+    "status": "posted",
+    "posted_at": "2026-10-12T17:21:26+03:00"
+  },
+  {
+    "id": "bo3:131323|map1:finished",
+    "event_id": "map1:finished",
+    "type": "map_finished",
+    "match": {
+      "key": "bo3:131323",
+      "team1": "Inner Circle",
+      "team2": "Ninjas in Pyjamas",
+      "event": "Stake Pulse Beat III"
+    },
+    "map": "Nuke",
+    "map_number": 1,
+    "scores": {
+      "score": "13:9",
+      "series": "0:1"
+    },
+    "data": {
+      "late": false,
+      "map": "Nuke",
+      "map_number": 1,
+      "winner": "Ninjas in Pyjamas",
+      "loser": "Inner Circle",
+      "score": "13:9",
+      "overtime": false,
+      "overtimes": 0,
+      "series": "0:1",
+      "source": "bo3 REST"
+    },
+    "sources": [
+      "bo3 REST"
+    ],
+    "evidence": [
+      {
+        "source": "bo3 REST",
+        "url": "https://bo3.gg/matches/inner-circle-esports-vs-nip-12-10-2026"
+      }
+    ],
+    "confirmed": false,
+    "conflict": null,
+    "detected_at": "2026-10-12T17:20:40+03:00",
+    "updated_at": null,
+    "status": "skipped",
+    "posted_at": "2026-10-12T17:51:21+03:00",
+    "note": "map1 Nuke result merged into map2 start post 55 (state already seen)"
+  },
+  {
+    "id": "bo3:131323|map2:half",
+    "event_id": "map2:half",
+    "type": "half_time",
+    "match": {
+      "key": "bo3:131323",
+      "team1": "Inner Circle",
+      "team2": "Ninjas in Pyjamas",
+      "event": "Stake Pulse Beat III"
+    },
+    "map": "Dust II",
+    "map_number": 2,
+    "scores": {
+      "score": "6:6",
+      "series": "0:1"
+    },
+    "data": {
+      "score": "6:6",
+      "sides": {
+        "Inner Circle": "T",
+        "Ninjas in Pyjamas": "CT"
+      }
+    },
+    "sources": [
+      "Liquipedia"
+    ],
+    "evidence": [
+      {
+        "source": "Liquipedia",
+        "url": "https://liquipedia.net/counterstrike/Stake_Pulse/Beat_III"
+      }
+    ],
+    "confirmed": true,
+    "conflict": null,
+    "detected_at": "2026-10-12T18:19:40+03:00",
+    "updated_at": "2026-10-12T18:19:40+03:00",
+    "status": "posted",
+    "posted_at": "2026-10-12T18:19:40+03:00",
+    "note": "posted by live routine (never queued by collector; live.py had marked seen)"
+  },
+  {
+    "id": "bo3:131323|map2:finished",
+    "event_id": "map2:finished",
+    "type": "map_finished",
+    "match": {
+      "key": "bo3:131323",
+      "team1": "Inner Circle",
+      "team2": "Ninjas in Pyjamas",
+      "event": "Stake Pulse Beat III"
+    },
+    "map": "Dust2",
+    "map_number": 2,
+    "scores": {
+      "score": "13:11",
+      "series": "0:2"
+    },
+    "data": {
+      "late": false,
+      "map": "Dust2",
+      "map_number": 2,
+      "winner": "Ninjas in Pyjamas",
+      "loser": "Inner Circle",
+      "score": "13:11",
+      "overtime": false,
+      "overtimes": 0,
+      "series": "0:2",
+      "source": "bo3 REST"
+    },
+    "sources": [
+      "bo3 REST"
+    ],
+    "evidence": [
+      {
+        "source": "bo3 REST",
+        "url": "https://bo3.gg/matches/inner-circle-esports-vs-nip-12-10-2026"
+      }
+    ],
+    "confirmed": false,
+    "conflict": null,
+    "detected_at": "2026-10-12T18:20:57+03:00",
+    "updated_at": null,
+    "status": "posted",
+    "posted_at": "2026-10-12T18:26:00+03:00"
+  },
+  {
+    "id": "bo3:131323|match:finished",
+    "event_id": "match:finished",
+    "type": "match_finished",
+    "match": {
+      "key": "bo3:131323",
+      "team1": "Inner Circle",
+      "team2": "Ninjas in Pyjamas",
+      "event": "Stake Pulse Beat III"
+    },
+    "map": null,
+    "map_number": null,
+    "scores": {
+      "series": "0:2"
+    },
+    "data": {
+      "late": false,
+      "winner": "Ninjas in Pyjamas",
+      "loser": "Inner Circle",
+      "series": "0:2",
+      "maps": [
+        {
+          "map": "Nuke",
+          "winner": "Ninjas in Pyjamas",
+          "score": "13:9"
+        },
+        {
+          "map": "Dust2",
+          "winner": "Ninjas in Pyjamas",
+          "score": "13:11"
+        }
+      ],
+      "forfeit": false,
+      "poll_key": "live:bo3:131323",
+      "source": "bo3 REST"
+    },
+    "sources": [
+      "bo3 REST"
+    ],
+    "evidence": [
+      {
+        "source": "bo3 REST",
+        "url": "https://bo3.gg/matches/inner-circle-esports-vs-nip-12-10-2026"
+      }
+    ],
+    "confirmed": false,
+    "conflict": "map score(s) unconfirmed: Nuke, Dust2",
+    "detected_at": "2026-10-12T18:22:56+03:00",
+    "updated_at": null,
+    "status": "posted",
+    "posted_at": "2026-10-12T18:26:00+03:00"
+  },
+  {
+    "id": "bo3:131324|match:start",
+    "event_id": "match:start",
+    "type": "match_started",
+    "match": {
+      "key": "bo3:131324",
+      "team1": "Inner Circle",
+      "team2": "Sangal",
+      "event": "Stake Pulse Beat III"
+    },
+    "map": null,
+    "map_number": null,
+    "scores": {},
+    "data": {
+      "late": false,
+      "stage": "Group A / Decider match",
+      "format": "BO3",
+      "first_map": null,
+      "scheduled_utc": "2026-10-12T16:00:00.000+00:00",
+      "map1_begin_utc": null,
+      "poll_key": "live:bo3:131324",
+      "options": [
+        "Inner Circle",
+        "Sangal"
+      ],
+      "source": "bo3 REST"
+    },
+    "sources": [
+      "bo3 REST"
+    ],
+    "evidence": [
+      {
+        "source": "bo3 REST",
+        "url": "https://bo3.gg/matches/inner-circle-esports-vs-sangal-12-10-2026-1"
+      }
+    ],
+    "confirmed": true,
+    "conflict": null,
+    "detected_at": "2026-10-12T18:56:35+03:00",
+    "updated_at": null,
+    "status": "posted",
+    "posted_at": "2026-10-12T19:19:57+03:00"
+  },
+  {
+    "id": "bo3:131324|map1:start",
+    "event_id": "map1:start",
+    "type": "map_started",
+    "match": {
+      "key": "bo3:131324",
+      "team1": "Inner Circle",
+      "team2": "Sangal",
+      "event": "Stake Pulse Beat III"
+    },
+    "map": "Dust2",
+    "map_number": 1,
+    "scores": {},
+    "data": {
+      "late": false,
+      "map": "Dust2",
+      "map_number": 1,
+      "source": "bo3 REST",
+      "at": "2026-10-12T16:01:04.000+00:00"
+    },
+    "sources": [
+      "bo3 REST"
+    ],
+    "evidence": [
+      {
+        "source": "bo3 REST",
+        "url": "https://bo3.gg/matches/inner-circle-esports-vs-sangal-12-10-2026-1"
+      }
+    ],
+    "confirmed": true,
+    "conflict": null,
+    "detected_at": "2026-10-12T19:10:52+03:00",
+    "updated_at": null,
+    "status": "skipped",
+    "posted_at": "2026-10-12T19:19:57+03:00",
+    "note": "map1 covered by match_started"
+  },
+  {
+    "id": "bo3:131324|map1:finished",
+    "event_id": "map1:finished",
+    "type": "map_finished",
+    "match": {
+      "key": "bo3:131324",
+      "team1": "Inner Circle",
+      "team2": "Sangal",
+      "event": "Stake Pulse Beat III"
+    },
+    "map": "Dust2",
+    "map_number": 1,
+    "scores": {
+      "score": "16:12",
+      "series": "0:1",
+      "by_source": {
+        "bo3 REST": "16:12",
+        "Liquipedia": "12:12"
+      }
+    },
+    "data": {
+      "late": false,
+      "map": "Dust2",
+      "map_number": 1,
+      "winner": "Sangal",
+      "loser": "Inner Circle",
+      "score": "16:12",
+      "overtime": true,
+      "overtimes": 1,
+      "series": "0:1",
+      "source": "bo3 REST"
+    },
+    "sources": [
+      "Liquipedia",
+      "bo3 REST"
+    ],
+    "evidence": [
+      {
+        "source": "bo3 REST",
+        "url": "https://bo3.gg/matches/inner-circle-esports-vs-sangal-12-10-2026-1"
+      },
+      {
+        "source": "Liquipedia",
+        "url": "https://liquipedia.net/counterstrike/Stake_Pulse/Beat_III"
+      }
+    ],
+    "confirmed": false,
+    "conflict": "sources disagree: bo3 REST 16:12, Liquipedia 12:12",
+    "detected_at": "2026-10-12T20:05:08+03:00",
+    "updated_at": null,
+    "status": "posted",
+    "posted_at": "2026-10-12T20:11:17+03:00"
+  },
+  {
+    "id": "bo3:131324|map2:start",
+    "event_id": "map2:start",
+    "type": "map_started",
+    "match": {
+      "key": "bo3:131324",
+      "team1": "Inner Circle",
+      "team2": "Sangal",
+      "event": "Stake Pulse Beat III"
+    },
+    "map": "Cache",
+    "map_number": 2,
+    "scores": {},
+    "data": {
+      "late": false,
+      "map": "Cache",
+      "map_number": 2,
+      "source": "bo3 REST",
+      "at": "2026-10-12T17:07:17.000+00:00"
+    },
+    "sources": [
+      "bo3 REST"
+    ],
+    "evidence": [
+      {
+        "source": "bo3 REST",
+        "url": "https://bo3.gg/matches/inner-circle-esports-vs-sangal-12-10-2026-1"
+      }
+    ],
+    "confirmed": true,
+    "conflict": null,
+    "detected_at": "2026-10-12T20:09:08+03:00",
+    "updated_at": null,
+    "status": "posted",
+    "posted_at": "2026-10-12T20:11:35+03:00"
+  },
+  {
+    "id": "cs:10099324|start",
+    "event_id": "start",
+    "type": "match_started",
+    "map": null,
+    "match": {
+      "key": "cs:10099324",
+      "team1": "Team Aunkere",
+      "team2": "Team StRoGo",
+      "event": "BETBOOM Streamers Battle CS #6"
+    },
+    "confirmed": true,
+    "conflict": null,
+    "scores": {},
+    "data": {
+      "first_map": null,
+      "media": true
+    },
+    "sources": [
+      "cybersport.ru"
+    ],
+    "evidence": [
+      {
+        "source": "cybersport.ru",
+        "url": "https://www.cybersport.ru/matches/cs2/10099324"
+      }
+    ],
+    "detected_at": "2026-10-12T20:16:52+03:00",
+    "updated_at": null,
+    "status": "posted",
+    "posted_at": "2026-10-12T20:28:20+03:00"
+  },
+  {
+    "id": "bo3:131324|map3:half",
+    "event_id": "map3:half",
+    "type": "half_time",
+    "match": {
+      "key": "bo3:131324",
+      "team1": "Inner Circle",
+      "team2": "Sangal",
+      "event": "Stake Pulse Beat III"
+    },
+    "map": "Mirage",
+    "map_number": 3,
+    "scores": {
+      "score": "7:5"
+    },
+    "data": {
+      "late": false,
+      "map": "Mirage",
+      "map_number": 3,
+      "score": "7:5",
+      "sides": {
+        "Inner Circle": "CT",
+        "Sangal": "T"
+      },
+      "source": "Liquipedia"
+    },
+    "sources": [
+      "Liquipedia"
+    ],
+    "evidence": [
+      {
+        "source": "Liquipedia",
+        "url": "https://liquipedia.net/counterstrike/Stake_Pulse/Beat_III"
+      }
+    ],
+    "confirmed": true,
+    "conflict": null,
+    "detected_at": "2026-10-12T20:42:59+03:00",
+    "updated_at": null,
+    "status": "skipped",
+    "posted_at": "2026-10-12T20:47:48+03:00",
+    "note": "demoted Stake Pulse"
+  },
+  {
+    "id": "bo3:131324|map2:finished",
+    "event_id": "map2:finished",
+    "type": "map_finished",
+    "match": {
+      "key": "bo3:131324",
+      "team1": "Inner Circle",
+      "team2": "Sangal",
+      "event": "Stake Pulse Beat III"
+    },
+    "map": "Cache",
+    "map_number": 2,
+    "scores": {
+      "score": "13:11",
+      "series": "0:2"
+    },
+    "data": {
+      "late": false,
+      "map": "Cache",
+      "map_number": 2,
+      "winner": "Sangal",
+      "loser": "Inner Circle",
+      "score": "13:11",
+      "overtime": false,
+      "overtimes": 0,
+      "series": "0:2",
+      "source": "bo3 REST"
+    },
+    "sources": [
+      "bo3 REST"
+    ],
+    "evidence": [
+      {
+        "source": "bo3 REST",
+        "url": "https://bo3.gg/matches/inner-circle-esports-vs-sangal-12-10-2026-1"
+      }
+    ],
+    "confirmed": false,
+    "conflict": null,
+    "detected_at": "2026-10-12T21:06:10+03:00",
+    "updated_at": null,
+    "status": "skipped",
+    "posted_at": "2026-10-12T21:07:16+03:00",
+    "note": "demoted Stake Pulse (min_rank 10); not notable"
+  },
+  {
+    "id": "bo3:131324|match:finished",
+    "event_id": "match:finished",
+    "type": "match_finished",
+    "match": {
+      "key": "bo3:131324",
+      "team1": "Inner Circle",
+      "team2": "Sangal",
+      "event": "Stake Pulse Beat III"
+    },
+    "map": null,
+    "map_number": null,
+    "scores": {
+      "series": "0:2"
+    },
+    "data": {
+      "late": false,
+      "winner": "Sangal",
+      "loser": "Inner Circle",
+      "series": "0:2",
+      "maps": [
+        {
+          "map": "Dust2",
+          "winner": "Sangal",
+          "score": "16:12"
+        },
+        {
+          "map": "Cache",
+          "winner": "Sangal",
+          "score": "13:11"
+        }
+      ],
+      "forfeit": false,
+      "poll_key": "live:bo3:131324",
+      "source": "bo3 REST"
+    },
+    "sources": [
+      "bo3 REST"
+    ],
+    "evidence": [
+      {
+        "source": "bo3 REST",
+        "url": "https://bo3.gg/matches/inner-circle-esports-vs-sangal-12-10-2026-1"
+      }
+    ],
+    "confirmed": false,
+    "conflict": "map score(s) unconfirmed: Dust2, Cache",
+    "detected_at": "2026-10-12T21:06:10+03:00",
+    "updated_at": null,
+    "status": "skipped",
+    "posted_at": "2026-10-12T21:07:16+03:00",
+    "note": "demoted Stake Pulse (min_rank 10); not notable"
+  },
+  {
+    "id": "cs:10099324|map1:end",
+    "event_id": "map1:end",
+    "type": "map_finished",
+    "map": "Mirage",
+    "match": {
+      "key": "cs:10099324",
+      "team1": "Team Aunkere",
+      "team2": "Team StRoGo",
+      "event": "BETBOOM Streamers Battle CS #6"
+    },
+    "confirmed": true,
+    "conflict": null,
+    "scores": {
+      "score": "13:10",
+      "series": "0:1"
+    },
+    "data": {
+      "winner": "Team StRoGo",
+      "loser": "Team Aunkere",
+      "map_name_unverified": true,
+      "media": true
+    },
+    "sources": [
+      "cybersport.ru"
+    ],
+    "evidence": [
+      {
+        "source": "cybersport.ru",
+        "url": "https://www.cybersport.ru/matches/cs2/10099324"
+      }
+    ],
+    "detected_at": "2026-10-12T21:15:08+03:00",
+    "updated_at": null,
+    "status": "posted",
+    "posted_at": "2026-10-12T21:23:44+03:00"
+  },
+  {
+    "id": "cs:10099324|map2:end",
+    "event_id": "map2:end",
+    "type": "map_finished",
+    "map": "Anubis",
+    "match": {
+      "key": "cs:10099324",
+      "team1": "Team Aunkere",
+      "team2": "Team StRoGo",
+      "event": "BETBOOM Streamers Battle CS #6"
+    },
+    "confirmed": true,
+    "conflict": null,
+    "scores": {
+      "score": "13:6",
+      "series": "1:1"
+    },
+    "data": {
+      "winner": "Team Aunkere",
+      "loser": "Team StRoGo",
+      "map_name_unverified": true,
+      "media": true
+    },
+    "sources": [
+      "cybersport.ru"
+    ],
+    "evidence": [
+      {
+        "source": "cybersport.ru",
+        "url": "https://www.cybersport.ru/matches/cs2/10099324"
+      }
+    ],
+    "detected_at": "2026-10-12T22:01:57+03:00",
+    "updated_at": null,
+    "status": "posted",
+    "posted_at": "2026-10-12T22:03:45+03:00"
+  },
+  {
+    "id": "cs:10099324|map3:end",
+    "event_id": "map3:end",
+    "type": "map_finished",
+    "map": "Nuke",
+    "match": {
+      "key": "cs:10099324",
+      "team1": "Team Aunkere",
+      "team2": "Team StRoGo",
+      "event": "BETBOOM Streamers Battle CS #6"
+    },
+    "confirmed": true,
+    "conflict": null,
+    "scores": {
+      "score": "13:9",
+      "series": "1:2"
+    },
+    "data": {
+      "winner": "Team StRoGo",
+      "loser": "Team Aunkere",
+      "map_name_unverified": true,
+      "media": true
+    },
+    "sources": [
+      "cybersport.ru"
+    ],
+    "evidence": [
+      {
+        "source": "cybersport.ru",
+        "url": "https://www.cybersport.ru/matches/cs2/10099324"
+      }
+    ],
+    "detected_at": "2026-10-12T22:54:58+03:00",
+    "updated_at": null,
+    "status": "skipped",
+    "posted_at": "2026-10-12T23:10:06+03:00",
+    "note": "replaced by match_finished"
+  },
+  {
+    "id": "cs:10099324|end",
+    "event_id": "end",
+    "type": "match_finished",
+    "map": null,
+    "match": {
+      "key": "cs:10099324",
+      "team1": "Team Aunkere",
+      "team2": "Team StRoGo",
+      "event": "BETBOOM Streamers Battle CS #6"
+    },
+    "confirmed": true,
+    "conflict": null,
+    "scores": {
+      "series": "2:1"
+    },
+    "data": {
+      "winner": "Team StRoGo",
+      "loser": "Team Aunkere",
+      "maps": [
+        {
+          "map": "Mirage",
+          "score": "10:13",
+          "s1": 10,
+          "s2": 13
+        },
+        {
+          "map": "Anubis",
+          "score": "13:6",
+          "s1": 13,
+          "s2": 6
+        },
+        {
+          "map": "Nuke",
+          "score": "9:13",
+          "s1": 9,
+          "s2": 13
+        }
+      ],
+      "media": true
+    },
+    "sources": [
+      "cybersport.ru"
+    ],
+    "evidence": [
+      {
+        "source": "cybersport.ru",
+        "url": "https://www.cybersport.ru/matches/cs2/10099324"
+      }
+    ],
+    "detected_at": "2026-10-12T22:54:58+03:00",
+    "updated_at": null,
+    "status": "posted",
+    "posted_at": "2026-10-12T23:10:06+03:00"
+  },
+  {
+    "id": "cs:10099325|start",
+    "event_id": "start",
+    "type": "match_started",
+    "map": null,
+    "match": {
+      "key": "cs:10099325",
+      "team1": "Team Aunkere",
+      "team2": "Team SEREGA PIRAT",
+      "event": "BETBOOM Streamers Battle CS #6"
+    },
+    "confirmed": true,
+    "conflict": null,
+    "scores": {},
+    "data": {
+      "first_map": "Nuke",
+      "media": true
+    },
+    "sources": [
+      "cybersport.ru"
+    ],
+    "evidence": [
+      {
+        "source": "cybersport.ru",
+        "url": "https://www.cybersport.ru/matches/cs2/10099325"
+      }
+    ],
+    "detected_at": "2026-10-12T23:10:32+03:00",
+    "updated_at": null,
+    "status": "posted",
+    "posted_at": "2026-10-12T23:11:45+03:00"
+  },
+  {
+    "id": "cs:10099325|map2:start#falsepos",
+    "event_id": "map2:start#falsepos",
+    "type": "map_started",
+    "map": "Anubis",
+    "match": {
+      "key": "cs:10099325",
+      "team1": "Team Aunkere",
+      "team2": "Team SEREGA PIRAT",
+      "event": "BETBOOM Streamers Battle CS #6"
+    },
+    "confirmed": true,
+    "conflict": null,
+    "scores": {
+      "series": "0:0"
+    },
+    "data": {
+      "map_number": 2,
+      "map_name_unverified": true,
+      "media": true
+    },
+    "sources": [
+      "cybersport.ru"
+    ],
+    "evidence": [
+      {
+        "source": "cybersport.ru",
+        "url": "https://www.cybersport.ru/matches/cs2/10099325"
+      }
+    ],
+    "detected_at": "2026-10-12T23:10:32+03:00",
+    "updated_at": null,
+    "status": "skipped",
+    "posted_at": "2026-10-12T23:11:37+03:00",
+    "note": "false positive: map1 still 0:0; fixed media_league.poll"
+  },
+  {
+    "id": "cs:10099326|start",
+    "event_id": "start",
+    "type": "match_started",
+    "map": null,
+    "match": {
+      "key": "cs:10099326",
+      "team1": "Team Ct0m",
+      "team2": "Team VladRagovsky",
+      "event": "BETBOOM Streamers Battle CS #6"
+    },
+    "confirmed": true,
+    "conflict": null,
+    "scores": {},
+    "data": {
+      "first_map": null,
+      "media": true
+    },
+    "sources": [
+      "cybersport.ru"
+    ],
+    "evidence": [
+      {
+        "source": "cybersport.ru",
+        "url": "https://www.cybersport.ru/matches/cs2/10099326"
+      }
+    ],
+    "detected_at": "2026-10-13T15:00:40+03:00",
+    "updated_at": null,
+    "status": "posted",
+    "posted_at": "2026-10-13T15:04:29+03:00"
+  },
+  {
+    "id": "cs:10099327|start",
+    "event_id": "start",
+    "type": "match_started",
+    "map": null,
+    "match": {
+      "key": "cs:10099327",
+      "team1": "Team Hooch",
+      "team2": "Team SCADE",
+      "event": "BETBOOM Streamers Battle CS #6"
+    },
+    "confirmed": true,
+    "conflict": null,
+    "scores": {},
+    "data": {
+      "first_map": null,
+      "media": true
+    },
+    "sources": [
+      "cybersport.ru"
+    ],
+    "evidence": [
+      {
+        "source": "cybersport.ru",
+        "url": "https://www.cybersport.ru/matches/cs2/10099327"
+      }
+    ],
+    "detected_at": "2026-10-13T16:00:24+03:00",
+    "updated_at": null,
+    "status": "posted",
+    "posted_at": "2026-10-13T16:09:57+03:00"
+  },
+  {
+    "id": "cs:10099326|map1:end",
+    "event_id": "map1:end",
+    "type": "map_finished",
+    "map": "Dust2",
+    "match": {
+      "key": "cs:10099326",
+      "team1": "Team Ct0m",
+      "team2": "Team VladRagovsky",
+      "event": "BETBOOM Streamers Battle CS #6"
+    },
+    "confirmed": true,
+    "conflict": null,
+    "scores": {
+      "score": "13:8",
+      "series": "0:1"
+    },
+    "data": {
+      "winner": "Team VladRagovsky",
+      "loser": "Team Ct0m",
+      "map_name_unverified": true,
+      "media": true
+    },
+    "sources": [
+      "cybersport.ru"
+    ],
+    "evidence": [
+      {
+        "source": "cybersport.ru",
+        "url": "https://www.cybersport.ru/matches/cs2/10099326"
+      }
+    ],
+    "detected_at": "2026-10-13T16:16:49+03:00",
+    "updated_at": null,
+    "status": "posted",
+    "posted_at": "2026-10-13T16:32:38+03:00"
+  },
+  {
+    "id": "cs:10099326|map2:start",
+    "event_id": "map2:start",
+    "type": "map_started",
+    "map": "Inferno",
+    "match": {
+      "key": "cs:10099326",
+      "team1": "Team Ct0m",
+      "team2": "Team VladRagovsky",
+      "event": "BETBOOM Streamers Battle CS #6"
+    },
+    "confirmed": true,
+    "conflict": null,
+    "scores": {
+      "series": "0:1"
+    },
+    "data": {
+      "map_number": 2,
+      "map_name_unverified": true,
+      "media": true
+    },
+    "sources": [
+      "cybersport.ru"
+    ],
+    "evidence": [
+      {
+        "source": "cybersport.ru",
+        "url": "https://www.cybersport.ru/matches/cs2/10099326"
+      }
+    ],
+    "detected_at": "2026-10-13T16:16:49+03:00",
+    "updated_at": null,
+    "status": "posted",
+    "posted_at": "2026-10-13T16:32:40+03:00"
+  },
+  {
+    "id": "cs:10099326|map2:end",
+    "event_id": "map2:end",
+    "type": "map_finished",
+    "map": "Inferno",
+    "match": {
+      "key": "cs:10099326",
+      "team1": "Team Ct0m",
+      "team2": "Team VladRagovsky",
+      "event": "BETBOOM Streamers Battle CS #6"
+    },
+    "confirmed": true,
+    "conflict": null,
+    "scores": {
+      "score": "13:9",
+      "series": "1:1"
+    },
+    "data": {
+      "winner": "Team Ct0m",
+      "loser": "Team VladRagovsky",
+      "map_name_unverified": true,
+      "media": true
+    },
+    "sources": [
+      "cybersport.ru"
+    ],
+    "evidence": [
+      {
+        "source": "cybersport.ru",
+        "url": "https://www.cybersport.ru/matches/cs2/10099326"
+      }
+    ],
+    "detected_at": "2026-10-13T17:07:22+03:00",
+    "updated_at": null,
+    "status": "posted",
+    "posted_at": "2026-10-13T17:09:28+03:00"
+  },
+  {
+    "id": "cs:10099326|map3:start",
+    "event_id": "map3:start",
+    "type": "map_started",
+    "map": "Nuke",
+    "match": {
+      "key": "cs:10099326",
+      "team1": "Team Ct0m",
+      "team2": "Team VladRagovsky",
+      "event": "BETBOOM Streamers Battle CS #6"
+    },
+    "confirmed": true,
+    "conflict": null,
+    "scores": {
+      "series": "1:1"
+    },
+    "data": {
+      "map_number": 3,
+      "map_name_unverified": true,
+      "media": true
+    },
+    "sources": [
+      "cybersport.ru"
+    ],
+    "evidence": [
+      {
+        "source": "cybersport.ru",
+        "url": "https://www.cybersport.ru/matches/cs2/10099326"
+      }
+    ],
+    "detected_at": "2026-10-13T17:07:22+03:00",
+    "updated_at": null,
+    "status": "posted",
+    "posted_at": "2026-10-13T17:09:28+03:00"
+  },
+  {
+    "id": "cs:10099327|map1:end",
+    "event_id": "map1:end",
+    "type": "map_finished",
+    "map": "Mirage",
+    "match": {
+      "key": "cs:10099327",
+      "team1": "Team Hooch",
+      "team2": "Team SCADE",
+      "event": "BETBOOM Streamers Battle CS #6"
+    },
+    "confirmed": true,
+    "conflict": null,
+    "scores": {
+      "score": "13:9",
+      "series": "1:0"
+    },
+    "data": {
+      "winner": "Team Hooch",
+      "loser": "Team SCADE",
+      "map_name_unverified": true,
+      "media": true
+    },
+    "sources": [
+      "cybersport.ru"
+    ],
+    "evidence": [
+      {
+        "source": "cybersport.ru",
+        "url": "https://www.cybersport.ru/matches/cs2/10099327"
+      }
+    ],
+    "detected_at": "2026-10-13T17:09:16+03:00",
+    "updated_at": null,
+    "status": "posted",
+    "posted_at": "2026-10-13T17:10:14+03:00"
+  },
+  {
+    "id": "cs:10099327|map2:start",
+    "event_id": "map2:start",
+    "type": "map_started",
+    "map": "Anubis",
+    "match": {
+      "key": "cs:10099327",
+      "team1": "Team Hooch",
+      "team2": "Team SCADE",
+      "event": "BETBOOM Streamers Battle CS #6"
+    },
+    "confirmed": true,
+    "conflict": null,
+    "scores": {
+      "series": "1:0"
+    },
+    "data": {
+      "map_number": 2,
+      "map_name_unverified": true,
+      "media": true
+    },
+    "sources": [
+      "cybersport.ru"
+    ],
+    "evidence": [
+      {
+        "source": "cybersport.ru",
+        "url": "https://www.cybersport.ru/matches/cs2/10099327"
+      }
+    ],
+    "detected_at": "2026-10-13T17:09:16+03:00",
+    "updated_at": null,
+    "status": "posted",
+    "posted_at": "2026-10-13T17:10:14+03:00"
+  },
+  {
+    "id": "cs:10099326|map3:end",
+    "event_id": "map3:end",
+    "type": "map_finished",
+    "map": "Nuke",
+    "match": {
+      "key": "cs:10099326",
+      "team1": "Team Ct0m",
+      "team2": "Team VladRagovsky",
+      "event": "BETBOOM Streamers Battle CS #6"
+    },
+    "confirmed": true,
+    "conflict": null,
+    "scores": {
+      "score": "13:6",
+      "series": "2:1"
+    },
+    "data": {
+      "winner": "Team Ct0m",
+      "loser": "Team VladRagovsky",
+      "map_name_unverified": true,
+      "media": true
+    },
+    "sources": [
+      "cybersport.ru"
+    ],
+    "evidence": [
+      {
+        "source": "cybersport.ru",
+        "url": "https://www.cybersport.ru/matches/cs2/10099326"
+      }
+    ],
+    "detected_at": "2026-10-13T18:01:31+03:00",
+    "updated_at": null,
+    "status": "posted",
+    "posted_at": "2026-10-13T18:03:12+03:00"
+  },
+  {
+    "id": "cs:10099326|end",
+    "event_id": "end",
+    "type": "match_finished",
+    "map": null,
+    "match": {
+      "key": "cs:10099326",
+      "team1": "Team Ct0m",
+      "team2": "Team VladRagovsky",
+      "event": "BETBOOM Streamers Battle CS #6"
+    },
+    "confirmed": true,
+    "conflict": null,
+    "scores": {
+      "series": "2:1"
+    },
+    "data": {
+      "winner": "Team Ct0m",
+      "loser": "Team VladRagovsky",
+      "maps": [
+        {
+          "map": "Dust2",
+          "score": "8:13",
+          "s1": 8,
+          "s2": 13
+        },
+        {
+          "map": "Inferno",
+          "score": "13:9",
+          "s1": 13,
+          "s2": 9
+        },
+        {
+          "map": "Nuke",
+          "score": "13:6",
+          "s1": 13,
+          "s2": 6
+        }
+      ],
+      "media": true
+    },
+    "sources": [
+      "cybersport.ru"
+    ],
+    "evidence": [
+      {
+        "source": "cybersport.ru",
+        "url": "https://www.cybersport.ru/matches/cs2/10099326"
+      }
+    ],
+    "detected_at": "2026-10-13T18:01:31+03:00",
+    "updated_at": null,
+    "status": "posted",
+    "posted_at": "2026-10-13T18:03:12+03:00"
+  },
+  {
+    "id": "cs:10099327|map2:end",
+    "event_id": "map2:end",
+    "type": "map_finished",
+    "map": "Anubis",
+    "match": {
+      "key": "cs:10099327",
+      "team1": "Team Hooch",
+      "team2": "Team SCADE",
+      "event": "BETBOOM Streamers Battle CS #6"
+    },
+    "confirmed": true,
+    "conflict": null,
+    "scores": {
+      "score": "13:4",
+      "series": "2:0"
+    },
+    "data": {
+      "winner": "Team Hooch",
+      "loser": "Team SCADE",
+      "map_name_unverified": true,
+      "media": true
+    },
+    "sources": [
+      "cybersport.ru"
+    ],
+    "evidence": [
+      {
+        "source": "cybersport.ru",
+        "url": "https://www.cybersport.ru/matches/cs2/10099327"
+      }
+    ],
+    "detected_at": "2026-10-13T18:05:46+03:00",
+    "updated_at": null,
+    "status": "skipped",
+    "posted_at": "2026-10-13T18:21:57+03:00",
+    "note": "merged into result card (last map)"
+  },
+  {
+    "id": "cs:10099327|end",
+    "event_id": "end",
+    "type": "match_finished",
+    "map": null,
+    "match": {
+      "key": "cs:10099327",
+      "team1": "Team Hooch",
+      "team2": "Team SCADE",
+      "event": "BETBOOM Streamers Battle CS #6"
+    },
+    "confirmed": true,
+    "conflict": null,
+    "scores": {
+      "series": "2:0"
+    },
+    "data": {
+      "winner": "Team Hooch",
+      "loser": "Team SCADE",
+      "maps": [
+        {
+          "map": "Mirage",
+          "score": "13:9",
+          "s1": 13,
+          "s2": 9
+        },
+        {
+          "map": "Anubis",
+          "score": "13:4",
+          "s1": 13,
+          "s2": 4
+        }
+      ],
+      "media": true
+    },
+    "sources": [
+      "cybersport.ru"
+    ],
+    "evidence": [
+      {
+        "source": "cybersport.ru",
+        "url": "https://www.cybersport.ru/matches/cs2/10099327"
+      }
+    ],
+    "detected_at": "2026-10-13T18:05:46+03:00",
+    "updated_at": null,
+    "status": "posted",
+    "posted_at": "2026-10-13T18:21:57+03:00"
+  },
+  {
+    "id": "cs:10099329|start",
+    "event_id": "start",
+    "type": "match_started",
+    "map": null,
+    "match": {
+      "key": "cs:10099329",
+      "team1": "Team Aunkere",
+      "team2": "Team OverDrive",
+      "event": "BETBOOM Streamers Battle CS #6"
+    },
+    "confirmed": true,
+    "conflict": null,
+    "scores": {},
+    "data": {
+      "first_map": "Dust2",
+      "media": true
+    },
+    "sources": [
+      "cybersport.ru"
+    ],
+    "evidence": [
+      {
+        "source": "cybersport.ru",
+        "url": "https://www.cybersport.ru/matches/cs2/10099329"
+      }
+    ],
+    "detected_at": "2026-10-13T20:27:34+03:00",
+    "updated_at": null,
+    "status": "posted",
+    "posted_at": "2026-10-13T20:29:37+03:00"
+  },
+  {
+    "id": "cs:10099329|map1:end",
+    "event_id": "map1:end",
+    "type": "map_finished",
+    "map": "Dust2",
+    "match": {
+      "key": "cs:10099329",
+      "team1": "Team Aunkere",
+      "team2": "Team OverDrive",
+      "event": "BETBOOM Streamers Battle CS #6"
+    },
+    "confirmed": true,
+    "conflict": null,
+    "scores": {
+      "score": "16:13",
+      "series": "1:0"
+    },
+    "data": {
+      "winner": "Team Aunkere",
+      "loser": "Team OverDrive",
+      "map_name_unverified": true,
+      "media": true
+    },
+    "sources": [
+      "cybersport.ru"
+    ],
+    "evidence": [
+      {
+        "source": "cybersport.ru",
+        "url": "https://www.cybersport.ru/matches/cs2/10099329"
+      }
+    ],
+    "detected_at": "2026-10-13T21:10:21+03:00",
+    "updated_at": null,
+    "status": "posted",
+    "posted_at": "2026-10-13T21:23:51+03:00"
+  },
+  {
+    "id": "cs:10099329|map2:start",
+    "event_id": "map2:start",
+    "type": "map_started",
+    "map": "Inferno",
+    "match": {
+      "key": "cs:10099329",
+      "team1": "Team Aunkere",
+      "team2": "Team OverDrive",
+      "event": "BETBOOM Streamers Battle CS #6"
+    },
+    "confirmed": true,
+    "conflict": null,
+    "scores": {
+      "series": "1:0"
+    },
+    "data": {
+      "map_number": 2,
+      "map_name_unverified": true,
+      "media": true
+    },
+    "sources": [
+      "cybersport.ru"
+    ],
+    "evidence": [
+      {
+        "source": "cybersport.ru",
+        "url": "https://www.cybersport.ru/matches/cs2/10099329"
+      }
+    ],
+    "detected_at": "2026-10-13T21:10:21+03:00",
+    "updated_at": null,
+    "status": "posted",
+    "posted_at": "2026-10-13T21:23:55+03:00"
+  },
+  {
+    "id": "cs:10099329|map2:end",
+    "event_id": "map2:end",
+    "type": "map_finished",
+    "map": "Inferno",
+    "match": {
+      "key": "cs:10099329",
+      "team1": "Team Aunkere",
+      "team2": "Team OverDrive",
+      "event": "BETBOOM Streamers Battle CS #6"
+    },
+    "confirmed": true,
+    "conflict": null,
+    "scores": {
+      "score": "13:9",
+      "series": "2:0"
+    },
+    "data": {
+      "winner": "Team Aunkere",
+      "loser": "Team OverDrive",
+      "map_name_unverified": true,
+      "media": true
+    },
+    "sources": [
+      "cybersport.ru"
+    ],
+    "evidence": [
+      {
+        "source": "cybersport.ru",
+        "url": "https://www.cybersport.ru/matches/cs2/10099329"
+      }
+    ],
+    "detected_at": "2026-10-13T22:07:53+03:00",
+    "updated_at": null,
+    "status": "skipped",
+    "posted_at": "2026-10-13T22:21:19+03:00",
+    "note": "deciding map; covered by match_finished result card"
+  },
+  {
+    "id": "cs:10099329|end",
+    "event_id": "end",
+    "type": "match_finished",
+    "map": null,
+    "match": {
+      "key": "cs:10099329",
+      "team1": "Team Aunkere",
+      "team2": "Team OverDrive",
+      "event": "BETBOOM Streamers Battle CS #6"
+    },
+    "confirmed": true,
+    "conflict": null,
+    "scores": {
+      "series": "2:0"
+    },
+    "data": {
+      "winner": "Team Aunkere",
+      "loser": "Team OverDrive",
+      "maps": [
+        {
+          "map": "Dust2",
+          "score": "16:13",
+          "s1": 16,
+          "s2": 13
+        },
+        {
+          "map": "Inferno",
+          "score": "13:9",
+          "s1": 13,
+          "s2": 9
+        }
+      ],
+      "media": true
+    },
+    "sources": [
+      "cybersport.ru"
+    ],
+    "evidence": [
+      {
+        "source": "cybersport.ru",
+        "url": "https://www.cybersport.ru/matches/cs2/10099329"
+      }
+    ],
+    "detected_at": "2026-10-13T22:07:53+03:00",
+    "updated_at": null,
+    "status": "posted",
+    "posted_at": "2026-10-13T22:21:19+03:00"
+  },
+  {
+    "id": "bo3:131666|match:start",
+    "event_id": "match:start",
+    "type": "match_started",
+    "match": {
+      "key": "bo3:131666",
+      "team1": "9z",
+      "team2": "Aurora",
+      "event": "Thunderpick World Championship 2026"
+    },
+    "map": null,
+    "map_number": null,
+    "scores": {},
+    "data": {
+      "late": false,
+      "stage": "Group A / Opening matches",
+      "format": "BO3",
+      "first_map": null,
+      "scheduled_utc": "2026-10-14T08:30:00.000+00:00",
+      "map1_begin_utc": null,
+      "poll_key": "live:bo3:131666",
+      "options": [
+        "9z",
+        "Aurora"
+      ],
+      "source": "bo3 REST"
+    },
+    "sources": [
+      "bo3 REST"
+    ],
+    "evidence": [
+      {
+        "source": "bo3 REST",
+        "url": "https://bo3.gg/matches/9z-vs-aurora-gaming-14-10-2026"
+      }
+    ],
+    "confirmed": true,
+    "conflict": null,
+    "detected_at": "2026-10-14T11:26:18+03:00",
+    "updated_at": null,
+    "status": "posted",
+    "posted_at": "2026-10-14T11:34:06+03:00"
+  },
+  {
+    "id": "bo3:131666|map1:start",
+    "event_id": "map1:start",
+    "type": "map_started",
+    "match": {
+      "key": "bo3:131666",
+      "team1": "9z",
+      "team2": "Aurora",
+      "event": "Thunderpick World Championship 2026"
+    },
+    "map": "Inferno",
+    "map_number": 1,
+    "scores": {},
+    "data": {
+      "late": false,
+      "map": "Inferno",
+      "map_number": 1,
+      "source": "bo3 REST",
+      "at": "2026-10-14T08:56:27.000+00:00"
+    },
+    "sources": [
+      "bo3 REST"
+    ],
+    "evidence": [
+      {
+        "source": "bo3 REST",
+        "url": "https://bo3.gg/matches/9z-vs-aurora-gaming-14-10-2026"
+      }
+    ],
+    "confirmed": true,
+    "conflict": null,
+    "detected_at": "2026-10-14T11:59:40+03:00",
+    "updated_at": null,
+    "status": "skipped",
+    "posted_at": "2026-10-14T12:05:46+03:00",
+    "note": "map 1 covered by match_started #106"
+  },
+  {
+    "id": "bo3:131331|match:start",
+    "event_id": "match:start",
+    "type": "match_started",
+    "match": {
+      "key": "bo3:131331",
+      "team1": "Astralis",
+      "team2": "Sashi",
+      "event": "Stake Pulse Beat III"
+    },
+    "map": null,
+    "map_number": null,
+    "scores": {},
+    "data": {
+      "late": false,
+      "stage": "Group C / Opening",
+      "format": "BO3",
+      "first_map": null,
+      "scheduled_utc": "2026-10-14T10:00:00.000+00:00",
+      "map1_begin_utc": null,
+      "poll_key": "live:bo3:131331",
+      "options": [
+        "Astralis",
+        "Sashi"
+      ],
+      "source": "bo3 REST"
+    },
+    "sources": [
+      "bo3 REST"
+    ],
+    "evidence": [
+      {
+        "source": "bo3 REST",
+        "url": "https://bo3.gg/matches/astralis-vs-sashi-esport-14-10-2026"
+      }
+    ],
+    "confirmed": true,
+    "conflict": null,
+    "detected_at": "2026-10-14T12:55:23+03:00",
+    "updated_at": null,
+    "status": "posted",
+    "posted_at": "2026-10-14T13:01:52+03:00"
+  },
+  {
+    "id": "bo3:131331|map1:start",
+    "event_id": "map1:start",
+    "type": "map_started",
+    "match": {
+      "key": "bo3:131331",
+      "team1": "Astralis",
+      "team2": "Sashi",
+      "event": "Stake Pulse Beat III"
+    },
+    "map": "Nuke",
+    "map_number": 1,
+    "scores": {},
+    "data": {
+      "late": false,
+      "map": "Nuke",
+      "map_number": 1,
+      "source": "bo3 REST",
+      "at": "2026-10-14T10:02:26.000+00:00"
+    },
+    "sources": [
+      "bo3 REST"
+    ],
+    "evidence": [
+      {
+        "source": "bo3 REST",
+        "url": "https://bo3.gg/matches/astralis-vs-sashi-esport-14-10-2026"
+      }
+    ],
+    "confirmed": true,
+    "conflict": null,
+    "detected_at": "2026-10-14T13:15:30+03:00",
+    "updated_at": null,
+    "status": "skipped",
+    "posted_at": "2026-10-14T13:18:38+03:00",
+    "note": "map 1 covered by match_start post #108"
+  },
+  {
+    "id": "bo3:131666|map1:half",
+    "event_id": "map1:half",
+    "type": "half_time",
+    "match": {
+      "key": "bo3:131666",
+      "team1": "9z",
+      "team2": "Aurora",
+      "event": "Thunderpick World Championship 2026"
+    },
+    "map": "Inferno",
+    "map_number": 1,
+    "scores": {
+      "score": "8:4"
+    },
+    "data": {
+      "late": false,
+      "map": "Inferno",
+      "map_number": 1,
+      "score": "8:4",
+      "sides": {
+        "9z": "T",
+        "Aurora": "CT"
+      },
+      "source": "Liquipedia"
+    },
+    "sources": [
+      "Liquipedia"
+    ],
+    "evidence": [
+      {
+        "source": "Liquipedia",
+        "url": "https://liquipedia.net/counterstrike/Thunderpick/World_Championship/2026"
+      }
+    ],
+    "confirmed": true,
+    "conflict": null,
+    "detected_at": "2026-10-14T13:22:31+03:00",
+    "updated_at": null,
+    "status": "posted",
+    "posted_at": "2026-10-14T13:26:46+03:00"
+  },
+  {
+    "id": "bo3:131666|tg:cs3news/18348",
+    "event_id": "tg:cs3news/18348",
+    "type": "tg_moment",
+    "match": {
+      "key": "bo3:131666",
+      "team1": "9z",
+      "team2": "Aurora",
+      "event": "Thunderpick World Championship 2026"
+    },
+    "map": null,
+    "map_number": null,
+    "scores": {
+      "mentioned": [
+        "10:4"
+      ]
+    },
+    "data": {
+      "kinds": [
+        "comeback"
+      ],
+      "channel": "cs3news",
+      "text": "😳 Куда пошел luchov??? \n\n🇹🇷 Aurora в шаге от камбека с 10-4 после нереального залива 5v3 от 🇦🇷 9z",
+      "posted_msk": "13:21"
+    },
+    "sources": [
+      "Telegram @cs3news"
+    ],
+    "evidence": [
+      {
+        "source": "Telegram @cs3news",
+        "url": "https://t.me/cs3news/18348"
+      }
+    ],
+    "confirmed": false,
+    "conflict": null,
+    "detected_at": "2026-10-14T13:22:31+03:00",
+    "updated_at": null,
+    "status": "skipped",
+    "posted_at": "2026-10-14T13:26:46+03:00",
+    "note": "merged into half-time post"
+  },
+  {
+    "id": "bo3:131666|map1:finished",
+    "event_id": "map1:finished",
+    "type": "map_finished",
+    "match": {
+      "key": "bo3:131666",
+      "team1": "9z",
+      "team2": "Aurora",
+      "event": "Thunderpick World Championship 2026"
+    },
+    "map": "Inferno",
+    "map_number": 1,
+    "scores": {
+      "score": "13:11",
+      "series": "1:0"
+    },
+    "data": {
+      "late": false,
+      "map": "Inferno",
+      "map_number": 1,
+      "winner": "9z",
+      "loser": "Aurora",
+      "score": "13:11",
+      "overtime": false,
+      "overtimes": 0,
+      "series": "1:0",
+      "source": "Liquipedia"
+    },
+    "sources": [
+      "Liquipedia"
+    ],
+    "evidence": [
+      {
+        "source": "Liquipedia",
+        "url": "https://liquipedia.net/counterstrike/Thunderpick/World_Championship/2026"
+      }
+    ],
+    "confirmed": true,
+    "conflict": null,
+    "detected_at": "2026-10-14T13:30:35+03:00",
+    "updated_at": null,
+    "status": "posted",
+    "posted_at": "2026-10-14T13:34:30+03:00"
+  },
+  {
+    "id": "bo3:131666|tg:cs3news/18349",
+    "event_id": "tg:cs3news/18349",
+    "type": "tg_moment",
+    "match": {
+      "key": "bo3:131666",
+      "team1": "9z",
+      "team2": "Aurora",
+      "event": "Thunderpick World Championship 2026"
+    },
+    "map": null,
+    "map_number": null,
+    "scores": {
+      "mentioned": [
+        "1:0"
+      ]
+    },
+    "data": {
+      "kinds": [],
+      "channel": "cs3news",
+      "text": "🕙 Почти часовая задержка явно не пошла на пользу 🇹🇷 Aurora — 1:0 в пользу 🇦🇷 9z\n\n➡️ Реабилитации бронзовых призеров 🇸🇪 EPL ждем на их пике — 🇺🇸 Nuke",
+      "posted_msk": "13:30"
+    },
+    "sources": [
+      "Telegram @cs3news"
+    ],
+    "evidence": [
+      {
+        "source": "Telegram @cs3news",
+        "url": "https://t.me/cs3news/18349"
+      }
+    ],
+    "confirmed": false,
+    "conflict": null,
+    "detected_at": "2026-10-14T13:30:35+03:00",
+    "updated_at": null,
+    "status": "skipped",
+    "posted_at": "2026-10-14T13:34:30+03:00",
+    "note": "merged into map1 result post #111"
+  },
+  {
+    "id": "bo3:131666|map2:start",
+    "event_id": "map2:start",
+    "type": "map_started",
+    "match": {
+      "key": "bo3:131666",
+      "team1": "9z",
+      "team2": "Aurora",
+      "event": "Thunderpick World Championship 2026"
+    },
+    "map": "Nuke",
+    "map_number": 2,
+    "scores": {},
+    "data": {
+      "late": false,
+      "map": "Nuke",
+      "map_number": 2,
+      "source": "bo3 REST",
+      "at": "2026-10-14T10:44:03.000+00:00"
+    },
+    "sources": [
+      "bo3 REST"
+    ],
+    "evidence": [
+      {
+        "source": "bo3 REST",
+        "url": "https://bo3.gg/matches/9z-vs-aurora-gaming-14-10-2026"
+      }
+    ],
+    "confirmed": true,
+    "conflict": null,
+    "detected_at": "2026-10-14T13:44:22+03:00",
+    "updated_at": null,
+    "status": "posted",
+    "posted_at": "2026-10-14T13:46:56+03:00"
+  },
+  {
+    "id": "bo3:131666|tg:cs3news/18350",
+    "event_id": "tg:cs3news/18350",
+    "type": "tg_moment",
+    "match": {
+      "key": "bo3:131666",
+      "team1": "9z",
+      "team2": "Aurora",
+      "event": "Thunderpick World Championship 2026"
+    },
+    "map": null,
+    "map_number": null,
+    "scores": {
+      "mentioned": [
+        "9:0"
+      ]
+    },
+    "data": {
+      "kinds": [],
+      "channel": "cs3news",
+      "text": "⌚️ Тем временем, счет на второй карте уже 9-0 в пользу 🇦🇷 9z...",
+      "posted_msk": "14:07"
+    },
+    "sources": [
+      "Telegram @cs3news"
+    ],
+    "evidence": [
+      {
+        "source": "Telegram @cs3news",
+        "url": "https://t.me/cs3news/18350"
+      }
+    ],
+    "confirmed": false,
+    "conflict": null,
+    "detected_at": "2026-10-14T14:07:40+03:00",
+    "updated_at": null,
+    "status": "posted",
+    "posted_at": "2026-10-14T14:09:29+03:00"
+  },
+  {
+    "id": "bo3:131331|map1:finished",
+    "event_id": "map1:finished",
+    "type": "map_finished",
+    "match": {
+      "key": "bo3:131331",
+      "team1": "Astralis",
+      "team2": "Sashi",
+      "event": "Stake Pulse Beat III"
+    },
+    "map": "Nuke",
+    "map_number": 1,
+    "scores": {
+      "score": "16:13",
+      "series": "1:0"
+    },
+    "data": {
+      "late": false,
+      "map": "Nuke",
+      "map_number": 1,
+      "winner": "Astralis",
+      "loser": "Sashi",
+      "score": "16:13",
+      "overtime": true,
+      "overtimes": 1,
+      "series": "1:0",
+      "source": "bo3 REST"
+    },
+    "sources": [
+      "bo3 REST"
+    ],
+    "evidence": [
+      {
+        "source": "bo3 REST",
+        "url": "https://bo3.gg/matches/astralis-vs-sashi-esport-14-10-2026"
+      }
+    ],
+    "confirmed": false,
+    "conflict": null,
+    "detected_at": "2026-10-14T14:12:41+03:00",
+    "updated_at": null,
+    "status": "posted",
+    "posted_at": "2026-10-14T14:16:10+03:00"
+  },
+  {
+    "id": "bo3:131666|tg:raiznews/61233",
+    "event_id": "tg:raiznews/61233",
+    "type": "tg_moment",
+    "match": {
+      "key": "bo3:131666",
+      "team1": "9z",
+      "team2": "Aurora",
+      "event": "Thunderpick World Championship 2026"
+    },
+    "map": null,
+    "map_number": null,
+    "scores": {},
+    "data": {
+      "kinds": [
+        "map_result"
+      ],
+      "channel": "cs2news",
+      "text": "🇺🇾 9Z начинают турнир с лёгкой победы!\n\n🇷🇺 Aurora падают в нижнюю сетку.",
+      "posted_msk": "14:17"
+    },
+    "sources": [
+      "Telegram @cs2news"
+    ],
+    "evidence": [
+      {
+        "source": "Telegram @cs2news",
+        "url": "https://t.me/raiznews/61233"
+      }
+    ],
+    "confirmed": false,
+    "conflict": null,
+    "detected_at": "2026-10-14T14:18:42+03:00",
+    "updated_at": null,
+    "status": "skipped",
+    "posted_at": "2026-10-14T14:26:22+03:00",
+    "note": "covered by match_finished result post"
+  },
+  {
+    "id": "bo3:131666|map2:finished",
+    "event_id": "map2:finished",
+    "type": "map_finished",
+    "match": {
+      "key": "bo3:131666",
+      "team1": "9z",
+      "team2": "Aurora",
+      "event": "Thunderpick World Championship 2026"
+    },
+    "map": "Nuke",
+    "map_number": 2,
+    "scores": {
+      "score": "13:1",
+      "series": "2:0",
+      "by_source": {
+        "bo3 REST": "13:1",
+        "Liquipedia": "13:1"
+      }
+    },
+    "data": {
+      "late": false,
+      "map": "Nuke",
+      "map_number": 2,
+      "winner": "9z",
+      "loser": "Aurora",
+      "score": "13:1",
+      "overtime": false,
+      "overtimes": 0,
+      "series": "2:0",
+      "source": "Liquipedia"
+    },
+    "sources": [
+      "Liquipedia",
+      "bo3 REST"
+    ],
+    "evidence": [
+      {
+        "source": "Liquipedia",
+        "url": "https://liquipedia.net/counterstrike/Thunderpick/World_Championship/2026"
+      },
+      {
+        "source": "bo3 REST",
+        "url": "https://bo3.gg/matches/9z-vs-aurora-gaming-14-10-2026"
+      }
+    ],
+    "confirmed": true,
+    "conflict": null,
+    "detected_at": "2026-10-14T14:19:49+03:00",
+    "updated_at": "2026-10-14T14:21:44+03:00",
+    "status": "skipped",
+    "posted_at": "2026-10-14T14:26:22+03:00",
+    "note": "last map: replaced by match_finished result card"
+  },
+  {
+    "id": "bo3:131331|map2:start",
+    "event_id": "map2:start",
+    "type": "map_started",
+    "match": {
+      "key": "bo3:131331",
+      "team1": "Astralis",
+      "team2": "Sashi",
+      "event": "Stake Pulse Beat III"
+    },
+    "map": "Mirage",
+    "map_number": 2,
+    "scores": {},
+    "data": {
+      "late": false,
+      "map": "Mirage",
+      "map_number": 2,
+      "source": "bo3 REST",
+      "at": "2026-10-14T11:21:35.000+00:00"
+    },
+    "sources": [
+      "bo3 REST"
+    ],
+    "evidence": [
+      {
+        "source": "bo3 REST",
+        "url": "https://bo3.gg/matches/astralis-vs-sashi-esport-14-10-2026"
+      }
+    ],
+    "confirmed": true,
+    "conflict": null,
+    "detected_at": "2026-10-14T14:23:46+03:00",
+    "updated_at": null,
+    "status": "posted",
+    "posted_at": "2026-10-14T14:27:37+03:00"
+  },
+  {
+    "id": "bo3:131666|match:finished",
+    "event_id": "match:finished",
+    "type": "match_finished",
+    "match": {
+      "key": "bo3:131666",
+      "team1": "9z",
+      "team2": "Aurora",
+      "event": "Thunderpick World Championship 2026"
+    },
+    "map": null,
+    "map_number": null,
+    "scores": {
+      "series": "2:0"
+    },
+    "data": {
+      "late": false,
+      "winner": "9z",
+      "loser": "Aurora",
+      "series": "2:0",
+      "maps": [
+        {
+          "map": "Inferno",
+          "winner": "9z",
+          "score": "13:11"
+        },
+        {
+          "map": "Nuke",
+          "winner": "9z",
+          "score": "13:1"
+        }
+      ],
+      "forfeit": false,
+      "poll_key": "live:bo3:131666",
+      "source": "bo3 REST"
+    },
+    "sources": [
+      "bo3 REST"
+    ],
+    "evidence": [
+      {
+        "source": "bo3 REST",
+        "url": "https://bo3.gg/matches/9z-vs-aurora-gaming-14-10-2026"
+      }
+    ],
+    "confirmed": true,
+    "conflict": null,
+    "detected_at": "2026-10-14T14:24:44+03:00",
+    "updated_at": null,
+    "status": "posted",
+    "posted_at": "2026-10-14T14:27:29+03:00"
+  },
+  {
+    "id": "bo3:131331|map2:half",
+    "event_id": "map2:half",
+    "type": "half_time",
+    "match": {
+      "key": "bo3:131331",
+      "team1": "Astralis",
+      "team2": "Sashi",
+      "event": "Stake Pulse Beat III"
+    },
+    "map": "Mirage",
+    "map_number": 2,
+    "scores": {
+      "score": "9:3"
+    },
+    "data": {
+      "late": false,
+      "map": "Mirage",
+      "map_number": 2,
+      "score": "9:3",
+      "sides": {
+        "Astralis": "T",
+        "Sashi": "CT"
+      },
+      "source": "Liquipedia"
+    },
+    "sources": [
+      "Liquipedia"
+    ],
+    "evidence": [
+      {
+        "source": "Liquipedia",
+        "url": "https://liquipedia.net/counterstrike/Stake_Pulse/Beat_III"
+      }
+    ],
+    "confirmed": true,
+    "conflict": null,
+    "detected_at": "2026-10-14T14:50:05+03:00",
+    "updated_at": null,
+    "status": "posted",
+    "posted_at": "2026-10-14T14:51:24+03:00"
+  },
+  {
+    "id": "cs:10099330|start",
+    "event_id": "start",
+    "type": "match_started",
+    "map": null,
+    "match": {
+      "key": "cs:10099330",
+      "team1": "Team Hooch",
+      "team2": "Team Ct0m",
+      "event": "BETBOOM Streamers Battle CS #6"
+    },
+    "confirmed": true,
+    "conflict": null,
+    "scores": {},
+    "data": {
+      "first_map": null,
+      "media": true
+    },
+    "sources": [
+      "cybersport.ru"
+    ],
+    "evidence": [
+      {
+        "source": "cybersport.ru",
+        "url": "https://www.cybersport.ru/matches/cs2/10099330"
+      }
+    ],
+    "detected_at": "2026-10-14T15:01:07+03:00",
+    "updated_at": null,
+    "status": "posted",
+    "posted_at": "2026-10-14T15:05:35+03:00"
+  },
+  {
+    "id": "bo3:131667|match:start",
+    "event_id": "match:start",
+    "type": "match_started",
+    "match": {
+      "key": "bo3:131667",
+      "team1": "Falcons",
+      "team2": "Ninjas in Pyjamas",
+      "event": "Thunderpick World Championship 2026"
+    },
+    "map": null,
+    "map_number": null,
+    "scores": {},
+    "data": {
+      "late": false,
+      "stage": "Group A / Opening matches",
+      "format": "BO3",
+      "first_map": null,
+      "scheduled_utc": "2026-10-14T12:15:00.000+00:00",
+      "map1_begin_utc": null,
+      "poll_key": "live:bo3:131667",
+      "options": [
+        "Falcons",
+        "Ninjas in Pyjamas"
+      ],
+      "source": "bo3 REST"
+    },
+    "sources": [
+      "bo3 REST"
+    ],
+    "evidence": [
+      {
+        "source": "bo3 REST",
+        "url": "https://bo3.gg/matches/falcons-esports-vs-nip-14-10-2026"
+      }
+    ],
+    "confirmed": true,
+    "conflict": null,
+    "detected_at": "2026-10-14T15:13:31+03:00",
+    "updated_at": null,
+    "status": "posted",
+    "posted_at": "2026-10-14T15:15:21+03:00",
+    "note": "post 121"
+  },
+  {
+    "id": "bo3:131331|match:finished",
+    "event_id": "match:finished",
+    "type": "match_finished",
+    "match": {
+      "key": "bo3:131331",
+      "team1": "Astralis",
+      "team2": "Sashi",
+      "event": "Stake Pulse Beat III"
+    },
+    "map": null,
+    "map_number": null,
+    "scores": {
+      "series": "2:0"
+    },
+    "data": {
+      "late": false,
+      "winner": "Astralis",
+      "loser": "Sashi",
+      "series": "2:0",
+      "maps": [
+        {
+          "map": "Nuke",
+          "winner": "Astralis",
+          "score": "16:13"
+        }
+      ],
+      "forfeit": false,
+      "poll_key": "live:bo3:131331",
+      "source": "bo3 REST"
+    },
+    "sources": [
+      "bo3 REST"
+    ],
+    "evidence": [
+      {
+        "source": "bo3 REST",
+        "url": "https://bo3.gg/matches/astralis-vs-sashi-esport-14-10-2026"
+      }
+    ],
+    "confirmed": false,
+    "conflict": "map score(s) unconfirmed: Nuke",
+    "detected_at": "2026-10-14T15:13:33+03:00",
+    "updated_at": null,
+    "status": "posted",
+    "posted_at": "2026-10-14T15:14:11+03:00",
+    "note": "post 120 result card"
+  },
+  {
+    "id": "bo3:131667|map1:start",
+    "event_id": "map1:start",
+    "type": "map_started",
+    "match": {
+      "key": "bo3:131667",
+      "team1": "Falcons",
+      "team2": "Ninjas in Pyjamas",
+      "event": "Thunderpick World Championship 2026"
+    },
+    "map": "Ancient",
+    "map_number": 1,
+    "scores": {},
+    "data": {
+      "late": false,
+      "map": "Ancient",
+      "map_number": 1,
+      "source": "bo3 REST",
+      "at": "2026-10-14T12:21:40.000+00:00"
+    },
+    "sources": [
+      "bo3 REST"
+    ],
+    "evidence": [
+      {
+        "source": "bo3 REST",
+        "url": "https://bo3.gg/matches/falcons-esports-vs-nip-14-10-2026"
+      }
+    ],
+    "confirmed": true,
+    "conflict": null,
+    "detected_at": "2026-10-14T15:27:50+03:00",
+    "updated_at": null,
+    "status": "skipped",
+    "posted_at": "2026-10-14T17:30:56+03:00",
+    "note": "stale (>45 min, run delayed by box overload); map1 results posted as 126/128 with map 2 mentioned"
+  },
+  {
+    "id": "bo3:131333|match:start",
+    "event_id": "match:start",
+    "type": "match_started",
+    "match": {
+      "key": "bo3:131333",
+      "team1": "HOTU",
+      "team2": "Astralis",
+      "event": "Stake Pulse Beat III"
+    },
+    "map": null,
+    "map_number": null,
+    "scores": {},
+    "data": {
+      "late": false,
+      "stage": "Group C / Winners' match",
+      "format": "BO3",
+      "first_map": null,
+      "scheduled_utc": "2026-10-14T13:00:00.000+00:00",
+      "map1_begin_utc": null,
+      "poll_key": "live:bo3:131333",
+      "options": [
+        "HOTU",
+        "Astralis"
+      ],
+      "source": "bo3 REST"
+    },
+    "sources": [
+      "bo3 REST"
+    ],
+    "evidence": [
+      {
+        "source": "bo3 REST",
+        "url": "https://bo3.gg/matches/hotu-vs-astralis-14-10-2026"
+      }
+    ],
+    "confirmed": true,
+    "conflict": null,
+    "detected_at": "2026-10-14T16:03:25+03:00",
+    "updated_at": null,
+    "status": "skipped",
+    "posted_at": "2026-10-14T17:30:56+03:00",
+    "note": "stale (>45 min, run delayed by box overload); map1 results posted as 126/128 with map 2 mentioned"
+  },
+  {
+    "id": "cs:10099331|start",
+    "event_id": "start",
+    "type": "match_started",
+    "map": null,
+    "match": {
+      "key": "cs:10099331",
+      "team1": "Team SCADE",
+      "team2": "Team VladRagovsky",
+      "event": "BETBOOM Streamers Battle CS #6"
+    },
+    "confirmed": true,
+    "conflict": null,
+    "scores": {},
+    "data": {
+      "first_map": null,
+      "media": true
+    },
+    "sources": [
+      "cybersport.ru"
+    ],
+    "evidence": [
+      {
+        "source": "cybersport.ru",
+        "url": "https://www.cybersport.ru/matches/cs2/10099331"
+      }
+    ],
+    "detected_at": "2026-10-14T16:04:03+03:00",
+    "updated_at": null,
+    "status": "posted",
+    "posted_at": "2026-10-14T17:38:01+03:00",
+    "note": "post 130"
+  },
+  {
+    "id": "bo3:131333|map1:start",
+    "event_id": "map1:start",
+    "type": "map_started",
+    "match": {
+      "key": "bo3:131333",
+      "team1": "HOTU",
+      "team2": "Astralis",
+      "event": "Stake Pulse Beat III"
+    },
+    "map": "Dust2",
+    "map_number": 1,
+    "scores": {},
+    "data": {
+      "late": false,
+      "map": "Dust2",
+      "map_number": 1,
+      "source": "bo3 REST",
+      "at": "2026-10-14T13:02:39.000+00:00"
+    },
+    "sources": [
+      "bo3 REST"
+    ],
+    "evidence": [
+      {
+        "source": "bo3 REST",
+        "url": "https://bo3.gg/matches/hotu-vs-astralis-14-10-2026"
+      }
+    ],
+    "confirmed": true,
+    "conflict": null,
+    "detected_at": "2026-10-14T16:12:04+03:00",
+    "updated_at": null,
+    "status": "skipped",
+    "posted_at": "2026-10-14T17:30:56+03:00",
+    "note": "stale (>45 min, run delayed by box overload); map1 results posted as 126/128 with map 2 mentioned"
+  },
+  {
+    "id": "bo3:131667|map1:finished",
+    "event_id": "map1:finished",
+    "type": "map_finished",
+    "match": {
+      "key": "bo3:131667",
+      "team1": "Falcons",
+      "team2": "Ninjas in Pyjamas",
+      "event": "Thunderpick World Championship 2026"
+    },
+    "map": "Ancient",
+    "map_number": 1,
+    "scores": {
+      "score": "16:13",
+      "series": "1:0"
+    },
+    "data": {
+      "late": false,
+      "map": "Ancient",
+      "map_number": 1,
+      "winner": "Falcons",
+      "loser": "Ninjas in Pyjamas",
+      "score": "16:13",
+      "overtime": true,
+      "overtimes": 1,
+      "series": "1:0",
+      "source": "bo3 REST"
+    },
+    "sources": [
+      "bo3 REST"
+    ],
+    "evidence": [
+      {
+        "source": "bo3 REST",
+        "url": "https://bo3.gg/matches/falcons-esports-vs-nip-14-10-2026"
+      },
+      {
+        "source": "Liquipedia",
+        "url": "https://liquipedia.net/counterstrike/Thunderpick/World_Championship/2026"
+      }
+    ],
+    "confirmed": false,
+    "conflict": null,
+    "detected_at": "2026-10-14T16:54:57+03:00",
+    "updated_at": "2026-10-14T17:26:28+03:00",
+    "status": "posted",
+    "posted_at": "2026-10-14T17:38:19+03:00",
+    "note": "post 123"
+  },
+  {
+    "id": "bo3:131667|map2:start",
+    "event_id": "map2:start",
+    "type": "map_started",
+    "match": {
+      "key": "bo3:131667",
+      "team1": "Falcons",
+      "team2": "Ninjas in Pyjamas",
+      "event": "Thunderpick World Championship 2026"
+    },
+    "map": "Dust2",
+    "map_number": 2,
+    "scores": {},
+    "data": {
+      "late": false,
+      "map": "Dust2",
+      "map_number": 2,
+      "source": "bo3 REST",
+      "at": "2026-10-14T13:51:24.000+00:00"
+    },
+    "sources": [
+      "bo3 REST"
+    ],
+    "evidence": [
+      {
+        "source": "bo3 REST",
+        "url": "https://bo3.gg/matches/falcons-esports-vs-nip-14-10-2026"
+      }
+    ],
+    "confirmed": true,
+    "conflict": null,
+    "detected_at": "2026-10-14T16:54:57+03:00",
+    "updated_at": null,
+    "status": "posted",
+    "posted_at": "2026-10-14T17:38:19+03:00",
+    "note": "post 124"
+  },
+  {
+    "id": "bo3:131667|tg:cs3news/18365",
+    "event_id": "tg:cs3news/18365",
+    "type": "tg_moment",
+    "match": {
+      "key": "bo3:131667",
+      "team1": "Falcons",
+      "team2": "Ninjas in Pyjamas",
+      "event": "Thunderpick World Championship 2026"
+    },
+    "map": null,
+    "map_number": null,
+    "scores": {},
+    "data": {
+      "kinds": [
+        "map_result"
+      ],
+      "channel": "cs3news",
+      "text": "🇪🇺 Falcons с тяжестью, но выигрывают первую карту...",
+      "posted_msk": "16:22"
+    },
+    "sources": [
+      "Telegram @cs3news"
+    ],
+    "evidence": [
+      {
+        "source": "Telegram @cs3news",
+        "url": "https://t.me/cs3news/18365"
+      }
+    ],
+    "confirmed": false,
+    "conflict": null,
+    "detected_at": "2026-10-14T16:54:57+03:00",
+    "updated_at": null,
+    "status": "skipped",
+    "posted_at": "2026-10-14T17:26:44+03:00",
+    "note": "dup of map1 result (post 123)"
+  },
+  {
+    "id": "bo3:131333|map1:finished",
+    "event_id": "map1:finished",
+    "type": "map_finished",
+    "match": {
+      "key": "bo3:131333",
+      "team1": "HOTU",
+      "team2": "Astralis",
+      "event": "Stake Pulse Beat III"
+    },
+    "map": "Dust II",
+    "map_number": 1,
+    "scores": {
+      "score": "13:6",
+      "series": "1:0",
+      "by_source": {
+        "bo3 REST": "13:6",
+        "Liquipedia": "13:6"
+      }
+    },
+    "data": {
+      "late": false,
+      "map": "Dust II",
+      "map_number": 1,
+      "winner": "HOTU",
+      "loser": "Astralis",
+      "score": "13:6",
+      "overtime": false,
+      "overtimes": 0,
+      "series": "1:0",
+      "source": "Liquipedia"
+    },
+    "sources": [
+      "Liquipedia",
+      "bo3 REST"
+    ],
+    "evidence": [
+      {
+        "source": "Liquipedia",
+        "url": "https://liquipedia.net/counterstrike/Stake_Pulse/Beat_III"
+      },
+      {
+        "source": "bo3 REST",
+        "url": "https://bo3.gg/matches/hotu-vs-astralis-14-10-2026"
+      }
+    ],
+    "confirmed": true,
+    "conflict": null,
+    "detected_at": "2026-10-14T16:59:27+03:00",
+    "updated_at": "2026-10-14T17:28:14+03:00",
+    "status": "posted",
+    "posted_at": "2026-10-14T17:38:01+03:00",
+    "note": "post 136 (126 deleted; restored)"
+  },
+  {
+    "id": "cs:10099330|map1:end",
+    "event_id": "map1:end",
+    "type": "map_finished",
+    "map": "Mirage",
+    "match": {
+      "key": "cs:10099330",
+      "team1": "Team Hooch",
+      "team2": "Team Ct0m",
+      "event": "BETBOOM Streamers Battle CS #6"
+    },
+    "confirmed": true,
+    "conflict": null,
+    "scores": {
+      "score": "16:14",
+      "series": "1:0"
+    },
+    "data": {
+      "winner": "Team Hooch",
+      "loser": "Team Ct0m",
+      "map_name_unverified": true,
+      "media": true
+    },
+    "sources": [
+      "cybersport.ru"
+    ],
+    "evidence": [
+      {
+        "source": "cybersport.ru",
+        "url": "https://www.cybersport.ru/matches/cs2/10099330"
+      }
+    ],
+    "detected_at": "2026-10-14T17:03:04+03:00",
+    "updated_at": null,
+    "status": "posted",
+    "posted_at": "2026-10-14T17:38:01+03:00",
+    "note": "post 131"
+  },
+  {
+    "id": "cs:10099330|map2:start",
+    "event_id": "map2:start",
+    "type": "map_started",
+    "map": "Anubis",
+    "match": {
+      "key": "cs:10099330",
+      "team1": "Team Hooch",
+      "team2": "Team Ct0m",
+      "event": "BETBOOM Streamers Battle CS #6"
+    },
+    "confirmed": true,
+    "conflict": null,
+    "scores": {
+      "series": "1:0"
+    },
+    "data": {
+      "map_number": 2,
+      "map_name_unverified": true,
+      "media": true
+    },
+    "sources": [
+      "cybersport.ru"
+    ],
+    "evidence": [
+      {
+        "source": "cybersport.ru",
+        "url": "https://www.cybersport.ru/matches/cs2/10099330"
+      }
+    ],
+    "detected_at": "2026-10-14T17:03:04+03:00",
+    "updated_at": null,
+    "status": "skipped",
+    "posted_at": "2026-10-14T17:25:57+03:00",
+    "note": "map2 Anubis already finished; skip late map2 start"
+  },
+  {
+    "id": "bo3:131667|tg:raiznews/61243",
+    "event_id": "tg:raiznews/61243",
+    "type": "tg_moment",
+    "match": {
+      "key": "bo3:131667",
+      "team1": "Falcons",
+      "team2": "Ninjas in Pyjamas",
+      "event": "Thunderpick World Championship 2026"
+    },
+    "map": null,
+    "map_number": null,
+    "scores": {},
+    "data": {
+      "kinds": [
+        "map_result"
+      ],
+      "channel": "cs2news",
+      "text": "🇩🇰 Falcons вырвали победу на допах!\n\nДалее смотрим выбор 🇸🇪 NIP — 🌅 Dust2",
+      "posted_msk": "16:22"
+    },
+    "sources": [
+      "Telegram @cs2news"
+    ],
+    "evidence": [
+      {
+        "source": "Telegram @cs2news",
+        "url": "https://t.me/raiznews/61243"
+      }
+    ],
+    "confirmed": false,
+    "conflict": null,
+    "detected_at": "2026-10-14T17:06:24+03:00",
+    "updated_at": null,
+    "status": "skipped",
+    "posted_at": "2026-10-14T17:25:56+03:00",
+    "note": "map_result hype duplicate of card"
+  },
+  {
+    "id": "bo3:131333|map2:start",
+    "event_id": "map2:start",
+    "type": "map_started",
+    "match": {
+      "key": "bo3:131333",
+      "team1": "HOTU",
+      "team2": "Astralis",
+      "event": "Stake Pulse Beat III"
+    },
+    "map": "Ancient",
+    "map_number": 2,
+    "scores": {},
+    "data": {
+      "late": false,
+      "map": "Ancient",
+      "map_number": 2,
+      "source": "bo3 REST",
+      "at": "2026-10-14T13:58:51.000+00:00"
+    },
+    "sources": [
+      "bo3 REST"
+    ],
+    "evidence": [
+      {
+        "source": "bo3 REST",
+        "url": "https://bo3.gg/matches/hotu-vs-astralis-14-10-2026"
+      }
+    ],
+    "confirmed": true,
+    "conflict": null,
+    "detected_at": "2026-10-14T17:06:31+03:00",
+    "updated_at": null,
+    "status": "posted",
+    "posted_at": "2026-10-14T17:38:01+03:00",
+    "note": "post 129"
+  },
+  {
+    "id": "cs:10099330|map2:end",
+    "event_id": "map2:end",
+    "type": "map_finished",
+    "map": "Anubis",
+    "match": {
+      "key": "cs:10099330",
+      "team1": "Team Hooch",
+      "team2": "Team Ct0m",
+      "event": "BETBOOM Streamers Battle CS #6"
+    },
+    "confirmed": true,
+    "conflict": null,
+    "scores": {
+      "score": "13:9",
+      "series": "1:1"
+    },
+    "data": {
+      "winner": "Team Ct0m",
+      "loser": "Team Hooch",
+      "map_name_unverified": true,
+      "media": true
+    },
+    "sources": [
+      "cybersport.ru"
+    ],
+    "evidence": [
+      {
+        "source": "cybersport.ru",
+        "url": "https://www.cybersport.ru/matches/cs2/10099330"
+      }
+    ],
+    "detected_at": "2026-10-14T17:17:50+03:00",
+    "updated_at": null,
+    "status": "posted",
+    "posted_at": "2026-10-14T17:38:01+03:00",
+    "note": "post 132"
+  },
+  {
+    "id": "cs:10099330|map3:start",
+    "event_id": "map3:start",
+    "type": "map_started",
+    "map": "Dust2",
+    "match": {
+      "key": "cs:10099330",
+      "team1": "Team Hooch",
+      "team2": "Team Ct0m",
+      "event": "BETBOOM Streamers Battle CS #6"
+    },
+    "confirmed": true,
+    "conflict": null,
+    "scores": {
+      "series": "1:1"
+    },
+    "data": {
+      "map_number": 3,
+      "map_name_unverified": true,
+      "media": true
+    },
+    "sources": [
+      "cybersport.ru"
+    ],
+    "evidence": [
+      {
+        "source": "cybersport.ru",
+        "url": "https://www.cybersport.ru/matches/cs2/10099330"
+      }
+    ],
+    "detected_at": "2026-10-14T17:17:50+03:00",
+    "updated_at": null,
+    "status": "posted",
+    "posted_at": "2026-10-14T17:38:01+03:00",
+    "note": "post 133"
+  },
+  {
+    "id": "bo3:131667|map2:half",
+    "event_id": "map2:half",
+    "type": "half_time",
+    "match": {
+      "key": "bo3:131667",
+      "team1": "Falcons",
+      "team2": "Ninjas in Pyjamas",
+      "event": "Thunderpick World Championship 2026"
+    },
+    "map": "Dust II",
+    "map_number": 2,
+    "scores": {
+      "score": "8:4"
+    },
+    "data": {
+      "late": false,
+      "map": "Dust II",
+      "map_number": 2,
+      "score": "8:4",
+      "sides": {
+        "Falcons": "T",
+        "Ninjas in Pyjamas": "CT"
+      },
+      "source": "Liquipedia"
+    },
+    "sources": [
+      "Liquipedia"
+    ],
+    "evidence": [
+      {
+        "source": "Liquipedia",
+        "url": "https://liquipedia.net/counterstrike/Thunderpick/World_Championship/2026"
+      }
+    ],
+    "confirmed": true,
+    "conflict": null,
+    "detected_at": "2026-10-14T17:36:09+03:00",
+    "updated_at": null,
+    "status": "posted",
+    "posted_at": "2026-10-14T17:38:01+03:00",
+    "note": "post 134"
+  },
+  {
+    "id": "bo3:131667|tg:raiznews/61246",
+    "event_id": "tg:raiznews/61246",
+    "type": "tg_moment",
+    "match": {
+      "key": "bo3:131667",
+      "team1": "Falcons",
+      "team2": "Ninjas in Pyjamas",
+      "event": "Thunderpick World Championship 2026"
+    },
+    "map": null,
+    "map_number": null,
+    "scores": {},
+    "data": {
+      "kinds": [
+        "map_result"
+      ],
+      "channel": "cs2news",
+      "text": "🇩🇰 Falcons забирают первую победу на 🙇‍♂️ Thunderpick WC 2026!\n\n🇸🇪 NIP продолжат в нижней сетке",
+      "posted_msk": "17:37"
+    },
+    "sources": [
+      "Telegram @cs2news"
+    ],
+    "evidence": [
+      {
+        "source": "Telegram @cs2news",
+        "url": "https://t.me/raiznews/61246"
+      }
+    ],
+    "confirmed": false,
+    "conflict": null,
+    "detected_at": "2026-10-14T17:38:22+03:00",
+    "updated_at": null,
+    "status": "skipped",
+    "posted_at": "2026-10-14T17:38:32+03:00",
+    "note": "premature: says NiP to lower bracket but Dust2 still live 8:4 half"
+  },
+  {
+    "id": "bo3:131667|tg:cs3news/18367",
+    "event_id": "tg:cs3news/18367",
+    "type": "tg_moment",
+    "match": {
+      "key": "bo3:131667",
+      "team1": "Falcons",
+      "team2": "Ninjas in Pyjamas",
+      "event": "Thunderpick World Championship 2026"
+    },
+    "map": null,
+    "map_number": null,
+    "scores": {},
+    "data": {
+      "kinds": [
+        "map_result"
+      ],
+      "channel": "cs3news",
+      "text": "🇪🇺 Falcons начинают свой забег на 🇷🇸 TPICK World 2026 с победы.",
+      "posted_msk": "17:37"
+    },
+    "sources": [
+      "Telegram @cs3news"
+    ],
+    "evidence": [
+      {
+        "source": "Telegram @cs3news",
+        "url": "https://t.me/cs3news/18367"
+      }
+    ],
+    "confirmed": false,
+    "conflict": null,
+    "detected_at": "2026-10-14T17:38:22+03:00",
+    "updated_at": null,
+    "status": "skipped",
+    "posted_at": "2026-10-14T17:38:32+03:00",
+    "note": "vague map1 hype; map1 already posted #123"
+  },
+  {
+    "id": "bo3:131667|map2:finished",
+    "event_id": "map2:finished",
+    "type": "map_finished",
+    "match": {
+      "key": "bo3:131667",
+      "team1": "Falcons",
+      "team2": "Ninjas in Pyjamas",
+      "event": "Thunderpick World Championship 2026"
+    },
+    "map": "Dust II",
+    "map_number": 2,
+    "scores": {
+      "score": "13:6",
+      "series": "1:1"
+    },
+    "data": {
+      "late": false,
+      "map": "Dust II",
+      "map_number": 2,
+      "winner": "Falcons",
+      "loser": "Ninjas in Pyjamas",
+      "score": "13:6",
+      "overtime": false,
+      "overtimes": 0,
+      "series": "1:1",
+      "source": "Liquipedia"
+    },
+    "sources": [
+      "Liquipedia"
+    ],
+    "evidence": [
+      {
+        "source": "Liquipedia",
+        "url": "https://liquipedia.net/counterstrike/Thunderpick/World_Championship/2026"
+      }
+    ],
+    "confirmed": true,
+    "conflict": null,
+    "detected_at": "2026-10-14T17:40:23+03:00",
+    "updated_at": null,
+    "status": "skipped",
+    "posted_at": "2026-10-14T17:42:18+03:00",
+    "note": "deciding map -> match result #137 (series 2:0; LP series 1:1 was OT bug on Ancient)"
+  }
+]

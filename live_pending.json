@@ -1,0 +1,43 @@
+{
+  "bo3:130754": {
+    "match_finished_msk": "21:10",
+    "dust2_final": "unknown (bo3 REST 8:11 stale; LP 12:12 rev 18:12Z); MOUZ led 12:9, Vitality forced OT, won; X: HLTV/ESL confirm 3:0 sweep, ZywOo MVP",
+    "post_deadline_msk": "21:26 - post result even without exact OT score after that"
+  },
+  "bo3:131321": {
+    "map1": "Anubis (pick Sangal), Inner Circle won; bo3 REST 13:9 (unconfirmed by LP/TG)",
+    "map1_posted": "merged into map2 start post msg 47 (14:08 MSK), no exact score",
+    "map2": "Dust2 (pick Inner Circle) started 14:03 MSK",
+    "next_map": "Mirage (decider)",
+    "note": "if LP/TG later confirm 13:9, use it in later map_result/result cards"
+  },
+  "bo3:131320": {
+    "map1": "Ancient, NiP won; exact score unknown (bo3 REST None, LP none, TG none)",
+    "map2": "Cache started 14:17 MSK, posted msg 48 (map_start card)",
+    "next_map": "Nuke (decider)",
+    "note": "if score of Ancient appears later, use it in result card",
+    "map1_score": "Ancient 13:3 (bo3 REST + LP agree)",
+    "map2_score": "Cache 11:13 (channel post 50)",
+    "map3": "Nuke, NiP won (bo3: series 2:1, winner NiP, end 15:55 MSK); exact score unknown at 15:59 (bo3 REST None, LP map3 blank at rev 12:58Z, TG/X none). LP half was NiP 9:3 (NiP T first)",
+    "half_time_map3": "skipped: match already finished before it could be posted",
+    "match_finished_detected_msk": "15:59",
+    "post_deadline_msk": "16:12 - post result card + close poll bo3:131320 even without exact Nuke score after that"
+  },
+  "bo3:131323": {
+    "map1": "Nuke, NiP won (bo3 series 0:1); exact score unknown at 17:20 MSK (bo3 REST None, LP blank, TG none, X 429)",
+    "map1_posted": "merged into map2 start post msg 55 (17:20 MSK), no exact score",
+    "map2": "Dust2 started 17:17 MSK",
+    "next_map": "Cache (decider)",
+    "note": "if LP/TG later confirm the Nuke score, use it in later map_result/result cards"
+  },
+  "bo3:131324": {
+    "map1": "Dust2, Sangal won 16:12 OT (bo3 REST; LP still 12:12 rev 17:01Z = classic OT lag — CS maps cannot end 12:12)",
+    "map1_posted": "msg 63 map_result card (20:10 MSK)",
+    "map2": "Cache started (bo3 current + LP first_side CT); posted msg 64 map_start (20:11 MSK)",
+    "next_map": "Mirage (decider)",
+    "series": "0:1 (Inner Circle : Sangal)",
+    "stage": "Матч на выбывание группы A",
+    "note": "if LP later updates Dust2 to 16:12, keep 16:12; TG/X were empty/429 at post time",
+    "updated_msk": "20:11"
+  }
+}

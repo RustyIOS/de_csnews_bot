@@ -1,0 +1,60 @@
+[
+  {
+    "channel": "hltvtelegram",
+    "lang": "en",
+    "reliable": true,
+    "note": "HLTV official: map results (often without round score), ~1-8 min after map end"
+  },
+  {
+    "channel": "newcsgo",
+    "lang": "ru",
+    "reliable": false,
+    "note": "CS2NEWS 585k: memes + live score flashes, e.g. '5:1 -> 5:7' at half-time (18:27 MSK on Cache)"
+  },
+  {
+    "channel": "cybersports",
+    "lang": "ru",
+    "reliable": false,
+    "note": "Cybersport: match results/previews, rarely live"
+  },
+  {
+    "channel": "cs2news",
+    "lang": "ru",
+    "reliable": false,
+    "note": "513k subs. Live moments ~1 min after they happen (round streaks, quads, overtime) + memes/off-topic; caps-lock style, verify facts",
+    "live": true,
+    "news": true
+  },
+  {
+    "channel": "cs3news",
+    "lang": "ru",
+    "reliable": false,
+    "note": "677k subs. CS3NEWS: fast live flashes (half-time '5:1 -> 5:7', quads, overtime) + news; verify facts",
+    "live": true,
+    "news": true
+  },
+  {
+    "channel": "csgo",
+    "lang": "ru",
+    "reliable": false,
+    "note": "25k subs. Новости CS2 | @CSGO: author blog, game updates, market, scene news + memes, ads, giveaways, profanity; tip source only, verify facts",
+    "live": false,
+    "news": true
+  },
+  {
+    "channel": "prgnevents_cs2",
+    "lang": "ru",
+    "reliable": false,
+    "note": "17k subs. Paragon Events, Russian broadcaster: live moments during matches it streams (quads, multi-kills, overtime, 'Spirit [0:2] Aurora') + stream promos/giveaways; tip source only, verify scores",
+    "live": true,
+    "news": false
+  },
+  {
+    "channel": "acenewscs",
+    "lang": "ru",
+    "reliable": false,
+    "news": true,
+    "live": false,
+    "note": "ACE news: CS2 news tips; confirm via primary source before posting"
+  }
+]

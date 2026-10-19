@@ -3374,6 +3374,13 @@
       ],
       "updated": "2026-10-18T18:47:09+03:00",
       "match_status": "finished"
+    },
+    "bo3:131862": {
+      "seen": [
+        "match:finished"
+      ],
+      "updated": "2026-10-19T17:31:42+03:00",
+      "match_status": "finished"
     }
   },
   "tournament_announcements": {

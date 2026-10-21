@@ -3360,13 +3360,6 @@
     }
   },
   "live_events": {
-    "bo3:131672": {
-      "seen": [
-        "match:finished"
-      ],
-      "updated": "2026-10-17T23:24:33+03:00",
-      "match_status": "finished"
-    },
     "bo3:131673": {
       "seen": [
         "match:start",
@@ -3408,6 +3401,13 @@
         "match:finished"
       ],
       "updated": "2026-10-20T20:34:35+03:00",
+      "match_status": "finished"
+    },
+    "bo3:131870": {
+      "seen": [
+        "match:finished"
+      ],
+      "updated": "2026-10-21T15:50:26+03:00",
       "match_status": "finished"
     }
   },

@@ -3360,34 +3360,6 @@
     }
   },
   "live_events": {
-    "bo3:131865": {
-      "seen": [
-        "match:finished"
-      ],
-      "updated": "2026-10-19T23:12:31+03:00",
-      "match_status": "finished"
-    },
-    "bo3:131866": {
-      "seen": [
-        "match:finished"
-      ],
-      "updated": "2026-10-20T15:38:34+03:00",
-      "match_status": "finished"
-    },
-    "bo3:131868": {
-      "seen": [
-        "match:finished"
-      ],
-      "updated": "2026-10-20T20:33:19+03:00",
-      "match_status": "finished"
-    },
-    "bo3:132047": {
-      "seen": [
-        "match:finished"
-      ],
-      "updated": "2026-10-20T20:34:35+03:00",
-      "match_status": "finished"
-    },
     "bo3:131870": {
       "seen": [
         "match:finished"
@@ -3414,6 +3386,20 @@
         "match:finished"
       ],
       "updated": "2026-10-22T20:54:44+03:00",
+      "match_status": "finished"
+    },
+    "bo3:132170": {
+      "seen": [
+        "match:finished"
+      ],
+      "updated": "2026-10-24T14:55:53+03:00",
+      "match_status": "finished"
+    },
+    "bo3:132171": {
+      "seen": [
+        "match:finished"
+      ],
+      "updated": "2026-10-24T14:57:09+03:00",
       "match_status": "finished"
     }
   },

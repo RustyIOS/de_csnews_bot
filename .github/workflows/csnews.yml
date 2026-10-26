@@ -7,12 +7,17 @@ on:
   schedule:
     - cron: '4 7 * * *'        # 10:04 MSK announce
     - cron: '34 20 * * *'      # 23:34 MSK results
-    - cron: '*/10 7-20 * * *'  # 10:00–23:50 MSK tick (catch-up + live)
+    - cron: '*/10 7-20 * * *'  # 10:00–23:50 MSK tick (catch-up + live + news window)
     - cron: '59 20 * * *'      # 23:59 MSK last catch-up
+    - cron: '51 7 * * *'       # 10:51 MSK news
+    - cron: '51 10 * * *'      # 13:51 MSK news
+    - cron: '51 13 * * *'      # 16:51 MSK news
+    - cron: '51 16 * * *'      # 19:51 MSK news
+    - cron: '51 19 * * *'      # 22:51 MSK news
   workflow_dispatch:
     inputs:
       job:
-        description: 'auto — как cron, по времени МСК (безопасно вызывать каждые 10 мин). announce/results/live — только вручную.'
+        description: 'auto — как cron, по времени МСК (безопасно вызывать каждые 10 мин). announce/results/live/news — только вручную.'
         type: choice
         required: false
         default: auto
@@ -21,6 +26,7 @@ on:
           - announce
           - results
           - live
+          - news
       dry_run:
         description: 'Сухой прогон: текст в лог, карточка в артефакт, без отправки'
         type: boolean
@@ -82,11 +88,12 @@ jobs:
         if: steps.plan.outputs.action == 'run'
         run: pip install -r requirements.txt
 
-      - name: Announce, results or live
+      - name: Announce, results, live or news
         id: exec
         if: steps.plan.outputs.action == 'run'
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
         run: python3 scripts/gha_run.py
 
       - name: Upload dry-run card

@@ -4,14 +4,17 @@
   python3 scripts/gha_run.py announce --dry-run
   python3 scripts/gha_run.py results --dry-run
   python3 scripts/gha_run.py live --dry-run
+  python3 scripts/gha_run.py news --dry-run
   python3 scripts/gha_run.py tick                 # same decision as cron / job=auto
   python3 scripts/gha_run.py --preflight
 
 Schedule (UTC, Moscow is UTC+3 year-round) and workflow_dispatch with no inputs
-or job=auto share one decision: Moscow time picks announce, results or live.
+or job=auto share one decision: Moscow time picks announce, results, news or live.
+News slots are 10:51, 13:51, 16:51, 19:51 and 22:51 MSK, with a 20-minute catch-up.
 A real send happens only when POSTING_ENABLED is true and dry_run is not set.
-Calling that path often is safe: one announce and one results post per day, live
-posts nothing when there is nothing new, and a second overlapping run waits.
+Calling that path often is safe: one announce and one results post per day, one
+news pass per slot, live posts nothing when there is nothing new, and a second
+overlapping run waits.
 """
 import os, subprocess, sys, time
 
@@ -28,7 +31,10 @@ os.environ.setdefault("NO_COLLECTOR", "1")
 os.environ.setdefault("NO_NEWS_QUEUE", "1")
 
 from common import now_msk  # noqa: E402
-from auto_lib import state  # noqa: E402
+from auto_lib import news_slot_id, state  # noqa: E402
+
+# Exact news crons (UTC). The 10-minute tick also covers the 20-minute catch-up.
+NEWS_CRONS = {"51 7 * * *", "51 10 * * *", "51 13 * * *", "51 16 * * *", "51 19 * * *"}
 
 
 def minutes(t):
@@ -56,6 +62,9 @@ def tick_choice(now, st):
         return "announce"
     if in_results(now) and day not in (st.get("results_dates") or []):
         return "results"
+    slot = news_slot_id(now)
+    if slot and slot not in (st.get("news_slots") or []):
+        return "news"
     if in_live(now):
         return "live"
     return None
@@ -70,7 +79,7 @@ def dispatch_job():
     job = (os.environ.get("GHA_JOB") or os.environ.get("GHA_MODE") or "auto").strip().lower()
     if job in ("", "auto", "tick", "schedule"):
         return "tick", "schedule"
-    if job in ("announce", "results", "live"):
+    if job in ("announce", "results", "live", "news"):
         return job, "dispatch"
     print(f"unknown job {job!r}; using auto", flush=True)
     return "tick", "schedule"
@@ -91,6 +100,8 @@ def resolve(cli_mode):
             return "announce", "schedule"
         if sched == "34 20 * * *":
             return "results", "schedule"
+        if sched in NEWS_CRONS:
+            return "news", "schedule"
         return "tick", "schedule"
     return "tick", "cli"
 
@@ -116,10 +127,13 @@ def plan(mode, source, dry):
     if source == "schedule" and mode == "results" and not in_results(now):
         print(f"skip: results outside 23:34–23:59 MSK (now {now:%H:%M})", flush=True)
         return "skip", mode
+    if source == "schedule" and mode == "news" and not news_slot_id(now):
+        print(f"skip: news outside a :51 slot + 20 min (now {now:%H:%M})", flush=True)
+        return "skip", mode
     if mode == "tick":
         concrete = tick_choice(now, st)
         if not concrete:
-            print(f"skip: outside announce/results/live windows (now {now:%H:%M} MSK)", flush=True)
+            print(f"skip: outside announce/results/news/live windows (now {now:%H:%M} MSK)", flush=True)
             return "skip", "tick"
         print(f"tick -> {concrete} ({now:%H:%M} MSK)", flush=True)
     if concrete == "announce" and not dry and day in (st.get("announced_dates") or []):
@@ -128,6 +142,11 @@ def plan(mode, source, dry):
     if concrete == "results" and not dry and day in (st.get("results_dates") or []):
         print(f"skip: results already posted for {day}", flush=True)
         return "skip", concrete
+    if concrete == "news" and not dry:
+        slot = news_slot_id(now)
+        if slot and slot in (st.get("news_slots") or []):
+            print(f"skip: news slot {slot} already served", flush=True)
+            return "skip", concrete
     if concrete == "live":
         import live_auto
         try:
@@ -180,6 +199,8 @@ def execute(mode, dry):
         return subprocess.run([sys.executable, "results_auto.py", *flag], cwd=ROOT).returncode
     if mode == "live":
         return run_live(dry)
+    if mode == "news":
+        return subprocess.run([sys.executable, "news_auto.py", *flag], cwd=ROOT).returncode
     print(f"unknown mode {mode}", flush=True)
     return 1
 
@@ -187,7 +208,7 @@ def execute(mode, dry):
 def main(argv=None):
     import argparse
     ap = argparse.ArgumentParser(description=__doc__)
-    ap.add_argument("mode", nargs="?", choices=["announce", "results", "live", "tick"])
+    ap.add_argument("mode", nargs="?", choices=["announce", "results", "live", "news", "tick"])
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--preflight", action="store_true", help="decide run/skip and write GITHUB_OUTPUT")
     a = ap.parse_args(argv)

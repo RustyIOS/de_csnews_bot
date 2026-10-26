@@ -12,8 +12,10 @@ guard, 75 s gap). A dry-run writes nothing to state and sends nothing.
 
 OPENROUTER_API_KEY is read from the environment and never printed. Free OpenRouter
 is about 50 requests/day: one short prompt per slot, one retry on 429, then the
-next model. The slot is marked done only after a real decision, so a 429 inside
-the 20-minute catch-up can try again. Seen ids live in state.json on the state branch.
+next model. A reply that is not a complete {"posts":[...]} object gets one stricter
+retry on that model, then the next model (OPENROUTER_MODELS overrides the list).
+The slot is marked done only after a real decision, so a failure inside the
+20-minute catch-up can try again. Seen ids live in state.json on the state branch.
 """
 import argparse, datetime, html, json, os, re, subprocess, sys, tempfile, time
 import xml.etree.ElementTree as ET
@@ -74,6 +76,12 @@ SYSTEM_PROMPT = """Ты редактор канала @de_csnews. Пиши ес�
 Ответ — только JSON без пояснений:
 {"posts":[{"id":"id из списка","text":"<b>заголовок</b>\\n\\nФакт. Факт.\\n\\n#CS2 #HLTV #de_csnews"}]}
 Если достойного нет: {"posts":[]}."""
+
+# Second try after a reply that is not a complete {"posts":[...]} object.
+JSON_NUDGE = (
+    "Верни только один JSON-объект {\"posts\":[...]} без markdown и без пояснений. "
+    "Если публиковать нечего: {\"posts\":[]}."
+)
 
 
 def curl_text(url, timeout=8):
@@ -322,61 +330,8 @@ def message_text(message):
     return content or ""
 
 
-def chat(user_prompt):
-    """One short completion. None means every model failed (caller must not mark the slot)."""
-    key = (os.environ.get("OPENROUTER_API_KEY") or "").strip()
-    if not key:
-        log("OPENROUTER_API_KEY is not set")
-        return None
-    import requests
-    headers = {
-        "Authorization": f"Bearer {key}",
-        "Content-Type": "application/json",
-        "HTTP-Referer": "https://t.me/de_csnews",
-        "X-Title": "de_csnews",
-    }
-    messages = [
-        {"role": "system", "content": SYSTEM_PROMPT},
-        {"role": "user", "content": user_prompt},
-    ]
-    for model in model_list():
-        for attempt in (1, 2):
-            try:
-                r = requests.post(
-                    "https://openrouter.ai/api/v1/chat/completions",
-                    headers=headers,
-                    json={"model": model, "messages": messages, "temperature": 0.3, "max_tokens": 1000},
-                    timeout=45,
-                )
-            except requests.RequestException as ex:
-                log(f"OpenRouter {model}: {ex.__class__.__name__}")
-                break
-            if r.status_code == 429 or r.status_code >= 500:
-                log(f"OpenRouter {model}: HTTP {r.status_code} (try {attempt})")
-                if attempt == 1:
-                    time.sleep(5)
-                    continue
-                break
-            if r.status_code != 200:
-                log(f"OpenRouter {model}: HTTP {r.status_code} {redact(r.text)}")
-                break
-            try:
-                msg = message_text(r.json()["choices"][0]["message"])
-            except (ValueError, KeyError, IndexError, TypeError):
-                log(f"OpenRouter {model}: unexpected body {redact(r.text)}")
-                break
-            if msg.strip():
-                log(f"OpenRouter draft from {model} ({len(msg)} chars)")
-                return msg
-            log(f"OpenRouter {model}: empty content")
-            break
-    return None
-
-
-def parse_model_posts(content):
-    if not content:
-        return None
-    text = re.sub(r"^```(?:json)?\s*|\s*```$", "", content.strip())
+def _json_object(text):
+    """First complete JSON object in text, or None. Truncated JSON is rejected."""
     i = text.find("{")
     if i < 0:
         return None
@@ -384,10 +339,119 @@ def parse_model_posts(content):
         obj, _ = json.JSONDecoder().raw_decode(text[i:])
     except json.JSONDecodeError:
         return None
-    posts = obj.get("posts") if isinstance(obj, dict) else None
-    if not isinstance(posts, list):
+    return obj
+
+
+def parse_model_posts(content):
+    """Posts from a complete {"posts": [...]} object.
+
+    Markdown fences and trailing commentary are ignored. Truncated JSON stays
+    None: closing the braces would invent a post the model did not finish.
+    """
+    if not isinstance(content, str):
         return None
-    return posts[:MAX_POSTS]
+    text = content.strip().lstrip("\ufeff")
+    if not text:
+        return None
+    stripped = re.sub(r"^```(?:json)?\s*", "", text, count=1, flags=re.I)
+    stripped = re.sub(r"\s*```$", "", stripped)
+    # Whole reply first, so a JSON string that merely mentions a fence is kept.
+    # Fenced bodies next, for prose that has a "{" before the real object.
+    chunks = [stripped]
+    chunks.extend(
+        m.group(1) for m in re.finditer(r"```(?:json)?\s*(.*?)```", text, flags=re.I | re.S)
+    )
+    for chunk in chunks:
+        obj = _json_object(chunk)
+        posts = obj.get("posts") if isinstance(obj, dict) else None
+        if isinstance(posts, list):
+            return posts[:MAX_POSTS]
+    return None
+
+
+def _openrouter_complete(model, messages, headers):
+    """(text, finish_reason), or None when this model should be abandoned.
+
+    None is a transport error, a non-200, or a 429/5xx that survived one retry.
+    An empty 200 is ("", finish) so the caller can still send the JSON nudge.
+    """
+    import requests
+    for attempt in (1, 2):
+        try:
+            r = requests.post(
+                "https://openrouter.ai/api/v1/chat/completions",
+                headers=headers,
+                json={"model": model, "messages": messages, "temperature": 0.3, "max_tokens": 1000},
+                timeout=45,
+            )
+        except requests.RequestException as ex:
+            log(f"OpenRouter {model}: {ex.__class__.__name__}")
+            return None
+        if r.status_code == 429 or r.status_code >= 500:
+            log(f"OpenRouter {model}: HTTP {r.status_code} (try {attempt})")
+            if attempt == 1:
+                time.sleep(5)
+                continue
+            return None
+        if r.status_code != 200:
+            log(f"OpenRouter {model}: HTTP {r.status_code} {redact(r.text)}")
+            return None
+        try:
+            choice = r.json()["choices"][0]
+            if not isinstance(choice, dict):
+                raise TypeError("choice")
+            msg = message_text(choice.get("message"))
+            finish = choice.get("finish_reason") or ""
+        except (ValueError, KeyError, IndexError, TypeError):
+            log(f"OpenRouter {model}: unexpected body {redact(r.text)}")
+            return None
+        return msg, finish
+    return None
+
+
+def chat(user_prompt):
+    """One short completion that parses as {"posts":[...]}.
+
+    None means every model failed (caller must not mark the slot). A non-empty
+    reply that is not that JSON is not returned: the same model is asked once
+    more, then the next model runs.
+    """
+    key = (os.environ.get("OPENROUTER_API_KEY") or "").strip()
+    if not key:
+        log("OPENROUTER_API_KEY is not set")
+        return None
+    headers = {
+        "Authorization": f"Bearer {key}",
+        "Content-Type": "application/json",
+        "HTTP-Referer": "https://t.me/de_csnews",
+        "X-Title": "de_csnews",
+    }
+    base = [
+        {"role": "system", "content": SYSTEM_PROMPT},
+        {"role": "user", "content": user_prompt},
+    ]
+    for model in model_list():
+        messages = base
+        for attempt in (1, 2):
+            got = _openrouter_complete(model, messages, headers)
+            if got is None:
+                break
+            msg, finish = got
+            if parse_model_posts(msg) is not None:
+                log(f"OpenRouter draft from {model} ({len(msg)} chars)")
+                return msg
+            log(
+                f"OpenRouter {model}: reply is not posts JSON "
+                f"(try {attempt}, {len(msg)} chars, finish={finish or '?'})\n{redact(msg)}"
+            )
+            if attempt == 2:
+                break
+            prior = (msg or "").strip() or "(empty)"
+            messages = base + [
+                {"role": "assistant", "content": prior[:2000]},
+                {"role": "user", "content": JSON_NUDGE},
+            ]
+    return None
 
 
 def cyrillic_share(text):

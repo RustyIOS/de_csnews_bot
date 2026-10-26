@@ -1,4 +1,4 @@
-"""Shared helpers for announce_auto.py / results_auto.py (cron, no AI). Posts only via post.py (all its guards)."""
+"""Shared helpers for announce_auto.py / results_auto.py / news_auto.py. Posts only via post.py (all its guards)."""
 import json, os, re, subprocess, sys, datetime, html, fcntl
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -26,6 +26,21 @@ EVENT_RULES = [
 
 def log(msg):
     print(f"[{datetime.datetime.now():%F %T}] {msg}", flush=True)
+
+
+# News slots, Moscow, every 3 hours. Catch-up is 20 min so a 10-min tick still hits the window
+# (GitHub's */10 grid lands on :00, nine minutes after :51).
+NEWS_SLOT_MINUTES = (10 * 60 + 51, 13 * 60 + 51, 16 * 60 + 51, 19 * 60 + 51, 22 * 60 + 51)
+NEWS_CATCHUP_MIN = 20
+
+
+def news_slot_id(now):
+    """YYYY-MM-DDTHH:MM of the news slot if `now` is inside its window, else None."""
+    m = now.hour * 60 + now.minute
+    for slot in NEWS_SLOT_MINUTES:
+        if slot <= m <= slot + NEWS_CATCHUP_MIN:
+            return f"{now.date().isoformat()}T{slot // 60:02d}:{slot % 60:02d}"
+    return None
 
 
 def date_ru(d):

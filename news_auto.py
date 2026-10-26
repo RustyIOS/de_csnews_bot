@@ -38,19 +38,25 @@ X_PREFER = ("HLTVorg", "CounterStrike", "ESLCS", "BLASTPremier", "Sheep_VALORANT
 
 RESULT_RE = re.compile(
     r"\b(defeat[s]?|defeated|beat[s]?|take[s]? down|eliminat\w*|reverse sweep|post-?match|map \d|"
-    r"wins? against|close(?:s|d)? out)\b|"
+    r"wins?(?: against)?|close(?:s|d)? out)\b|"
     r"\b\d{1,2}\s*[-–:]\s*\d{1,2}\b.{0,40}\b(bo[135]|mirage|inferno|nuke|dust\s?2|ancient|anubis|"
     r"overpass|train|vertigo|cache)\b|"
     r"(победил\w*|проиграл\w*|обыграл\w*|уступил\w*|счёт карты|счет карты)",
     re.I)
 MEME_RE = re.compile(r"\b(meme|shitpost|giveaway|розыгрыш|промокод)\b|😂|🤣", re.I)
+FLUFF_RE = re.compile(r"покушать|братишка|дайджест|мемас|жиза", re.I)
+HIGHLIGHT_RE = re.compile(
+    r"(отобрал\w*|забрал\w*|выиграл\w*|слил\w*).{0,40}карт|"
+    r"тридцат\w*|наебашил|эйс\b|квадр\w*|клатч",
+    re.I)
 GUIDE_RE = re.compile(r"\b(how to|best settings|tier list|sensitivity|crosshair|lineup)\b|"
                       r"как (играть|настроить)", re.I)
 NEWSY_RE = re.compile(
     r"\b(sign(?:s|ed|ing)?|bench(?:ed)?|transfer|roster|leave[sd]?|leaving|join(?:s|ed|ing)?|"
     r"contract|retire[sd]?|release[sd]?|stand-?in|kick(?:ed|s)?|ban(?:ned|s)?|valve|update|patch|"
     r"major|qualifier|lawsuit|depart\w*|appoint\w*|coach|org)\b|"
-    r"(трансфер|состав|подписал|уш[её]л|ушла|бан|патч|обновлен|слух|контракт|тренер)",
+    r"(трансфер|состав|подписал|уш[её]л|ушла|бан|патч|обновлен|контракт|тренер|"
+    r"травм\w*|заболел\w*|здоровь\w*|дисквал\w*|отстран\w*|ветрян\w*)",
     re.I)
 SCORE_RE = re.compile(r"\b\d{1,2}\s*[:\-–]\s*\d{1,2}\b")
 TAG_RE = re.compile(r"#([\w]+)", re.U)
@@ -180,9 +186,12 @@ def ingest_x(hours):
 
 def keep_tg(text):
     text = (text or "").strip()
-    if len(text) < 40 or MEME_RE.search(text) or GUIDE_RE.search(text):
+    if len(text) < 40 or MEME_RE.search(text) or FLUFF_RE.search(text) or GUIDE_RE.search(text):
         return False
-    if RESULT_RE.search(text):
+    if RESULT_RE.search(text) or HIGHLIGHT_RE.search(text):
+        return False
+    # A short tip with no roster/patch/health word is usually a live flash or a joke.
+    if not NEWSY_RE.search(text) and len(text) < 280:
         return False
     # Live score flashes ("13:8 мирж") are not news. A long post that also has a news word stays.
     if SCORE_RE.search(text) and len(text) < 180 and not NEWSY_RE.search(text):
@@ -226,9 +235,16 @@ def is_junk(item):
     kind = ((item.get("reddit") or {}).get("kind") or "")
     if kind in ("highlight", "discussion", "meme", "match_thread", "support", "guide"):
         return True
-    if MEME_RE.search(blob) or GUIDE_RE.search(blob) or RESULT_RE.search(item.get("title") or ""):
+    if MEME_RE.search(blob) or FLUFF_RE.search(blob) or GUIDE_RE.search(blob) or HIGHLIGHT_RE.search(blob):
         return True
-    if RESULT_RE.search(blob) and not NEWSY_RE.search(blob):
+    if (item.get("source") or "").startswith("Telegram /") and not NEWSY_RE.search(blob) and len(blob) < 280:
+        return True
+    # A bare "X win Y" is a result. Keep it when the piece is really about a Major/VRS slot,
+    # and let the prompt write that part without the map score.
+    odds = bool(re.search(r"\b(VRS|major|qualif\w*|invite)\b", blob, re.I))
+    if RESULT_RE.search(item.get("title") or "") and not (NEWSY_RE.search(blob) or odds):
+        return True
+    if RESULT_RE.search(blob) and not NEWSY_RE.search(blob) and not odds:
         return True
     return False
 
@@ -503,7 +519,7 @@ def note_slot():
 
 
 def load_fetch(hours):
-    rc, out, err = run(["fetch.py", "--hours", str(hours)], timeout=180)
+    rc, out, err = run(["fetch.py", "--hours", str(hours)], timeout=300)
     if err.strip():
         log(f"fetch.py stderr:\n{err[-500:]}")
     if rc != 0:

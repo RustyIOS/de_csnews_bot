@@ -3156,6 +3156,48 @@
       "url": "https://t.me/raiznews/61766",
       "source": "Telegram / cs2news",
       "marked_at": "2026-10-26T17:05:52+03:00"
+    },
+    "tg:cs3news:18893": {
+      "status": "posted",
+      "title": "⚡️ Официально: 🇫🇷 apEX остаётся без своего стикера на предстоящем мейджоре.",
+      "url": "https://t.me/cs3news/18893",
+      "source": "Telegram / cs3news",
+      "marked_at": "2026-10-26T17:07:08+03:00"
+    },
+    "tg:acenewscs:16637": {
+      "status": "posted",
+      "title": "🌚 “Подписание 🇺🇦 r1nkle было риском” – тренер 🗿 G2 откровенно про замену снайпера",
+      "url": "https://t.me/acenewscs/16637",
+      "source": "Telegram / acenewscs",
+      "marked_at": "2026-10-26T17:08:23+03:00"
+    },
+    "tg:csgo:9794": {
+      "status": "skipped",
+      "title": "🫤 ЛЕГЕНДАРНАЯ ОРГАНИЗАЦИЯ — ВСЕ! Спустя 13 лет орга подали на банкротство.",
+      "url": "https://t.me/csgo/9794",
+      "source": "Telegram / csgo",
+      "marked_at": "2026-10-26T17:08:23+03:00"
+    },
+    "tg:acenewscs:16644": {
+      "status": "skipped",
+      "title": "😨 ⚽️ FUT — главные VRS-приколисты",
+      "url": "https://t.me/acenewscs/16644",
+      "source": "Telegram / acenewscs",
+      "marked_at": "2026-10-26T17:08:23+03:00"
+    },
+    "hltv:hltvnews45812": {
+      "status": "skipped",
+      "title": "FUT sail into PGL Masters playoffs over Vitality",
+      "url": "https://www.hltv.org/news/45812/fut-sail-into-pgl-masters-playoffs-over-vitality",
+      "source": "HLTV",
+      "marked_at": "2026-10-26T17:08:23+03:00"
+    },
+    "tg:acenewscs:16635": {
+      "status": "skipped",
+      "title": "⚡️ Для Jee турнир в Румынии официально подошёл к концу",
+      "url": "https://t.me/acenewscs/16635",
+      "source": "Telegram / acenewscs",
+      "marked_at": "2026-10-26T17:08:23+03:00"
     }
   },
   "match_announcements": {

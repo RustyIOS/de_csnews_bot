@@ -3100,6 +3100,62 @@
       "url": "https://www.hltv.org/news/45741/boombl4-this-tournament-were-playing-better-and-i-feel-the-progress",
       "source": "HLTV",
       "marked_at": "2026-10-17T17:39:31+03:00"
+    },
+    "hltv:hltvnews45809": {
+      "status": "posted",
+      "title": "Imperial win Circuit X Curitiba",
+      "url": "https://www.hltv.org/news/45809/imperial-win-circuit-x-curitiba",
+      "source": "HLTV",
+      "marked_at": "2026-10-26T17:04:37+03:00"
+    },
+    "tg:cs2news:61769": {
+      "status": "posted",
+      "title": "🇵🇱 ENCE — БАНКРОТЫ!",
+      "url": "https://t.me/raiznews/61769",
+      "source": "Telegram / cs2news",
+      "marked_at": "2026-10-26T17:05:52+03:00"
+    },
+    "hltv:hltvnews45813": {
+      "status": "skipped",
+      "title": "Jee-less TYLOO send 9z packing in Bucharest",
+      "url": "https://www.hltv.org/news/45813/jee-less-tyloo-send-9z-packing-in-bucharest",
+      "source": "HLTV",
+      "marked_at": "2026-10-26T17:05:52+03:00"
+    },
+    "hltv:hltvnews45810": {
+      "status": "skipped",
+      "title": "MOUZ beat The MongolZ to move into 2-1 pool",
+      "url": "https://www.hltv.org/news/45810/mouz-beat-the-mongolz-to-move-into-2-1-pool",
+      "source": "HLTV",
+      "marked_at": "2026-10-26T17:05:52+03:00"
+    },
+    "tg:cs3news:18900": {
+      "status": "skipped",
+      "title": "🇪🇺 ENCE объявили о банкротстве организации!",
+      "url": "https://t.me/cs3news/18900",
+      "source": "Telegram / cs3news",
+      "marked_at": "2026-10-26T17:05:52+03:00"
+    },
+    "tg:acenewscs:16643": {
+      "status": "skipped",
+      "title": "🍚 TYLOO всё таки спасаются от вылета с турнира и выигрывают матч с тренером!",
+      "url": "https://t.me/acenewscs/16643",
+      "source": "Telegram / acenewscs",
+      "marked_at": "2026-10-26T17:05:52+03:00"
+    },
+    "tg:cs3news:18898": {
+      "status": "skipped",
+      "title": "🇦🇷 9z первыми покидают турнир, проиграв 🇨🇳 TYLOO с тренером в команде.",
+      "url": "https://t.me/cs3news/18898",
+      "source": "Telegram / cs3news",
+      "marked_at": "2026-10-26T17:05:52+03:00"
+    },
+    "tg:cs2news:61766": {
+      "status": "skipped",
+      "title": "🇨🇳 Ха-ха! TYLOO сенсационно обыгрывают 9z, играя с заменой в виде тренера!",
+      "url": "https://t.me/raiznews/61766",
+      "source": "Telegram / cs2news",
+      "marked_at": "2026-10-26T17:05:52+03:00"
     }
   },
   "match_announcements": {

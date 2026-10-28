@@ -14,8 +14,11 @@ OPENROUTER_API_KEY is read from the environment and never printed. Free OpenRout
 is about 50 requests/day: one short prompt per slot, one retry on 429, then the
 next model. A reply that is not a complete {"posts":[...]} object gets one stricter
 retry on that model, then the next model (OPENROUTER_MODELS overrides the list).
-The slot is marked done only after a real decision, so a failure inside the
-20-minute catch-up can try again. Seen ids live in state.json on the state branch.
+The slot is marked done only after a real decision: nothing newsworthy, an
+empty {"posts":[]}, or at least one post actually sent. A draft that fails
+normalize_draft, or a send that fails, leaves that story unseen. If parsing
+worked but nothing was published, the slot stays open so the 20-minute
+catch-up can try again. Seen ids live in state.json on the state branch.
 """
 import argparse, datetime, html, json, os, re, subprocess, sys, tempfile, time
 import xml.etree.ElementTree as ET
@@ -462,8 +465,19 @@ def cyrillic_share(text):
     return cyr / len(letters)
 
 
+def _draft_none(why):
+    """normalize_draft failed. Log the check so the Actions log shows which one."""
+    normalize_draft.why = why
+    log(f"normalize_draft: {why}")
+    return None
+
+
 def normalize_draft(text):
-    """Shape a model draft so check_post can judge the facts, not the markup."""
+    """Shape a model draft so check_post can judge the facts, not the markup.
+
+    Returns None when the draft is empty, has fewer than 2 sentences, is under
+    45% Cyrillic, or is longer than 900 visible characters. The reason is logged.
+    """
     text = (text or "").replace("\\n", "\n").strip()
     text = re.sub(r"(?im)^.*источник\s*:.*$", "", text)
     text = DOMAIN_RE.sub("", text)
@@ -471,12 +485,12 @@ def normalize_draft(text):
     lines = [re.sub(r"[ \t]+", " ", ln).rstrip() for ln in text.splitlines()]
     lines = [ln for ln in lines if ln.strip()]
     if not lines:
-        return None
+        return _draft_none("empty after cleanup")
     tags = []
     if lines[-1].lstrip().startswith("#"):
         tags = TAG_RE.findall(lines.pop())
     if not lines:
-        return None
+        return _draft_none("no headline or body")
     # One block with several sentences: the first is the headline, the rest is the body.
     if len(lines) == 1:
         plain = re.sub(r"</?b>", "", lines[0]).strip()
@@ -494,9 +508,10 @@ def normalize_draft(text):
     parts = [p.strip() for p in re.split(r"(?<=[.!?…])\s+", body) if p.strip()]
     parts = parts[:4]
     if len(parts) < 2:
-        return None
-    if cyrillic_share(head + " " + " ".join(parts)) < 0.45:
-        return None
+        return _draft_none(f"fewer than 2 sentences ({len(parts)})")
+    share = cyrillic_share(head + " " + " ".join(parts))
+    if share < 0.45:
+        return _draft_none(f"cyrillic share {share:.2f} < 0.45")
     kept, seen = [], set()
     for t in tags:
         if t.lower() == "de_csnews" or t.lower() in seen:
@@ -516,7 +531,7 @@ def normalize_draft(text):
     post = f"<b>{head}</b>\n\n" + " ".join(parts) + "\n\n" + " ".join(kept + ["#de_csnews"])
     visible = re.sub(r"<[^>]+>", "", post)
     if len(visible) > 900:
-        return None
+        return _draft_none(f"{len(visible)} visible chars > 900")
     return post
 
 
@@ -580,6 +595,55 @@ def note_slot():
     st["news_slots"] = (slots + [slot])[-40:]
     save_auto(st)
     log(f"news slot {slot} done")
+
+
+def publish_parsed(picked, junk, parsed, dry):
+    """Publish chosen drafts. Return 0 when the slot is settled, else 1.
+
+    Settled means the model returned an empty posts list, or at least one
+    publish succeeded. Parsing that produced zero sends (every chosen draft
+    failed the format check, or every publish failed) leaves the slot open.
+    A format-check failure is not a pass: that story stays unseen, same as a
+    failed send. Stories the model did not choose are still skipped. A posts
+    list that names nothing in the pool is not a pass either. A dry-run
+    writes no state.
+    """
+    by_id = {it["id"]: it for it in picked}
+    sent = 0
+    chosen = set()
+    for row in parsed:
+        if not isinstance(row, dict):
+            continue
+        iid = str(row.get("id") or "")
+        item = by_id.get(iid)
+        if not item or iid in chosen:
+            continue
+        chosen.add(iid)
+        text = normalize_draft(row.get("text") or "")
+        if not text:
+            # _draft_none records why on the function for this call.
+            log(f"drop {item['id']}: draft failed the format check ({normalize_draft.why})")
+            continue
+        log(f"draft {item['id']}:\n{text}")
+        if publish(item, text, dry):
+            sent += 1
+        # A failed send stays unseen, so a later attempt can retry that story.
+        if sent >= MAX_POSTS:
+            break
+    log(f"news posts {'shown' if dry else 'sent'}: {sent}")
+    if dry:
+        return 0
+    # Chosen ids are format failures and failed sends: leave both unseen.
+    # Everything else the model did not pick is a pass.
+    passed = [it for it in picked if it["id"] not in chosen]
+    if parsed and sent == 0:
+        log("no post went out; slot stays open so the catch-up can retry")
+        if chosen:
+            mark_skipped(junk + passed)
+        return 1
+    mark_skipped(junk + passed)
+    note_slot()
+    return 0
 
 
 def load_fetch(hours):
@@ -648,36 +712,7 @@ def main(argv=None):
     if parsed is None:
         log(f"model did not return JSON; slot stays open\n{redact(raw)}")
         return 1 if not a.dry_run else 0
-
-    by_id = {it["id"]: it for it in picked}
-    sent = 0
-    chosen, format_fail = set(), set()
-    for row in parsed:
-        if not isinstance(row, dict):
-            continue
-        iid = str(row.get("id") or "")
-        item = by_id.get(iid)
-        if not item or iid in chosen:
-            continue
-        chosen.add(iid)
-        text = normalize_draft(row.get("text") or "")
-        if not text:
-            log(f"drop {item['id']}: draft failed the format check")
-            format_fail.add(iid)
-            continue
-        log(f"draft {item['id']}:\n{text}")
-        if publish(item, text, a.dry_run):
-            sent += 1
-        # A failed send stays unseen, so a later slot can retry that story.
-        if sent >= MAX_POSTS:
-            break
-    log(f"news posts {'shown' if a.dry_run else 'sent'}: {sent}")
-    if not a.dry_run:
-        # Junk, stories the model passed on, and drafts that were not Russian posts.
-        # A story whose send failed is left unseen. post.py marks the ones that went out.
-        mark_skipped(junk + [it for it in picked if it["id"] not in chosen or it["id"] in format_fail])
-        note_slot()
-    return 0
+    return publish_parsed(picked, junk, parsed, a.dry_run)
 
 
 if __name__ == "__main__":

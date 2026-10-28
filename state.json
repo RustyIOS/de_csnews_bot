@@ -3303,6 +3303,48 @@
       "url": "https://www.reddit.com/r/GlobalOffensive/comments/1xftig3/the_most_jls_death_of_all_time/",
       "source": "Reddit",
       "marked_at": "2026-10-26T22:55:25+03:00"
+    },
+    "hltv:hltvnews45838": {
+      "status": "skipped",
+      "title": "Legacy bench n1ssim, ksloks to stand in for the rest of 2026*",
+      "url": "https://www.hltv.org/news/45838/legacy-bench-n1ssim-ksloks-to-stand-in-for-the-rest-of-2026",
+      "source": "HLTV",
+      "marked_at": "2026-10-28T16:57:07+03:00"
+    },
+    "hltv:hltvnews45835": {
+      "status": "skipped",
+      "title": "jL: \"This is why Vitality is the best team in the world, they have the ability to cover for players\"",
+      "url": "https://www.hltv.org/news/45835/jl-this-is-why-vitality-is-the-best-team-in-the-world-they-have-the-ability-to-cover-for-players",
+      "source": "HLTV",
+      "marked_at": "2026-10-28T16:57:07+03:00"
+    },
+    "hltv:hltvnews45839": {
+      "status": "skipped",
+      "title": "Nemiga through to PGL Masters Bucharest playoffs over The MongolZ",
+      "url": "https://www.hltv.org/news/45839/nemiga-through-to-pgl-masters-bucharest-playoffs-over-the-mongolz",
+      "source": "HLTV",
+      "marked_at": "2026-10-28T16:57:07+03:00"
+    },
+    "tg:cs2news:61880": {
+      "status": "skipped",
+      "title": "🇧🇷 Legacy до конца этого года будут играть с ksloks  Он выступит на трёх турнирах: IEM Beijing, BLAST Rivals и PGL Major Singapore",
+      "url": "https://t.me/raiznews/61880",
+      "source": "Telegram / cs2news",
+      "marked_at": "2026-10-28T16:57:07+03:00"
+    },
+    "tg:acenewscs:16699": {
+      "status": "skipped",
+      "title": "⚡️ ksloks заменит в Legacy n1ssim до конца текущего года — По информации Dust2br",
+      "url": "https://t.me/acenewscs/16699",
+      "source": "Telegram / acenewscs",
+      "marked_at": "2026-10-28T16:57:07+03:00"
+    },
+    "tg:cs2news:61877": {
+      "status": "skipped",
+      "title": "🇧🇷 Legacy до конца этого года будут играть с ksloks",
+      "url": "https://t.me/raiznews/61877",
+      "source": "Telegram / cs2news",
+      "marked_at": "2026-10-28T16:57:07+03:00"
     }
   },
   "match_announcements": {

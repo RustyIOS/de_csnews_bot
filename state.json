@@ -3443,6 +3443,48 @@
       "url": "https://t.me/cs3news/19089",
       "source": "Telegram / cs3news",
       "marked_at": "2026-10-29T17:03:54+03:00"
+    },
+    "hltv:hltvnews45853": {
+      "status": "posted",
+      "title": "B1ad3: \"Trust the process\"",
+      "url": "https://www.hltv.org/news/45853/b1ad3-trust-the-process",
+      "source": "HLTV",
+      "marked_at": "2026-10-29T20:07:39+03:00"
+    },
+    "hltv:hltvnews45854": {
+      "status": "posted",
+      "title": "MOUZ overrun Aurora to book semi-final spot in Bucharest",
+      "url": "https://www.hltv.org/news/45854/mouz-overrun-aurora-to-book-semi-final-spot-in-bucharest",
+      "source": "HLTV",
+      "marked_at": "2026-10-29T20:08:54+03:00"
+    },
+    "tg:csgo:9812": {
+      "status": "skipped",
+      "title": "👍 НУ НЕЕЕЕТ — Valve готовят новый режим «Зомби куриц»",
+      "url": "https://t.me/csgo/9812",
+      "source": "Telegram / csgo",
+      "marked_at": "2026-10-29T20:08:54+03:00"
+    },
+    "hltv:hltvnews45847": {
+      "status": "skipped",
+      "title": "Live updates from PGL Masters Bucharest quarter-finals",
+      "url": "https://www.hltv.org/news/45847/live-updates-from-pgl-masters-bucharest-quarter-finals",
+      "source": "HLTV",
+      "marked_at": "2026-10-29T20:08:54+03:00"
+    },
+    "reddit:t3_1xin1at": {
+      "status": "skipped",
+      "title": "karrigan on the Cologne Major: “Some rounds we won vs Spirit and Vitality, we probably don’t win in a studio”",
+      "url": "https://www.reddit.com/r/GlobalOffensive/comments/1xin1at/karrigan_on_the_cologne_major_some_rounds_we_won/",
+      "source": "Reddit",
+      "marked_at": "2026-10-29T20:08:54+03:00"
+    },
+    "tg:cs2news:61974": {
+      "status": "skipped",
+      "title": "🔥 Раньше - одна бабочка. Сейчас - целый сет. Цены на топовые CS2 скины находятся в своём прайме.",
+      "url": "https://t.me/raiznews/61974",
+      "source": "Telegram / cs2news",
+      "marked_at": "2026-10-29T20:08:54+03:00"
     }
   },
   "match_announcements": {

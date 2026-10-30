@@ -3485,6 +3485,62 @@
       "url": "https://t.me/raiznews/61974",
       "source": "Telegram / cs2news",
       "marked_at": "2026-10-29T20:08:54+03:00"
+    },
+    "tg:acenewscs:16807": {
+      "status": "posted",
+      "title": "Тимур \"buster\" объявил о поиске новой команды",
+      "url": "https://t.me/acenewscs/16807",
+      "source": "Telegram / acenewscs",
+      "marked_at": "2026-10-30T16:57:05+03:00"
+    },
+    "tg:acenewscs:16795": {
+      "status": "posted",
+      "title": "«У 🐭 MOUZ есть все необходимые игроки, чтобы останавливать 🐊 donk'а» — 🇬🇧 Thorin",
+      "url": "https://t.me/acenewscs/16795",
+      "source": "Telegram / acenewscs",
+      "marked_at": "2026-10-30T16:58:20+03:00"
+    },
+    "reddit:t3_1xj75g6": {
+      "status": "posted",
+      "title": "TjP on Valve's Sashi ruling: \"[It] was a fix that needed to happen; we just provoked it\"",
+      "url": "https://www.reddit.com/r/GlobalOffensive/comments/1xj75g6/tjp_on_valves_sashi_ruling_it_was_a_fix_that/",
+      "source": "Reddit",
+      "marked_at": "2026-10-30T16:59:36+03:00"
+    },
+    "reddit:t3_1xjdzwq": {
+      "status": "skipped",
+      "title": "Robo Cache Wallbang",
+      "url": "https://www.reddit.com/r/GlobalOffensive/comments/1xjdzwq/robo_cache_wallbang/",
+      "source": "Reddit",
+      "marked_at": "2026-10-30T16:59:36+03:00"
+    },
+    "hltv:hltvnews45851": {
+      "status": "skipped",
+      "title": "Maka: \"We had like 1% hope, and I truly believed\"",
+      "url": "https://www.hltv.org/news/45851/maka-we-had-like-1-hope-and-i-truly-believed",
+      "source": "HLTV",
+      "marked_at": "2026-10-30T16:59:36+03:00"
+    },
+    "tg:cs2news:62014": {
+      "status": "skipped",
+      "title": "🔊 «КАКОЕ ВЫ МЯСО, ЕБАНЫЙ В РОТ» — 🇧🇾 Nemiga после победы на первой карте",
+      "url": "https://t.me/raiznews/62014",
+      "source": "Telegram / cs2news",
+      "marked_at": "2026-10-30T16:59:36+03:00"
+    },
+    "tg:acenewscs:16797": {
+      "status": "skipped",
+      "title": "🫡 Ладно, шутки-шутками, а на бэнгер в полуфинале надо посмотреть!",
+      "url": "https://t.me/acenewscs/16797",
+      "source": "Telegram / acenewscs",
+      "marked_at": "2026-10-30T16:59:36+03:00"
+    },
+    "reddit:t3_1xj70g4": {
+      "status": "skipped",
+      "title": "A Chinese ZywOo fan on the “485” controversy in Perfect World’s app",
+      "url": "https://www.reddit.com/r/GlobalOffensive/comments/1xj70g4/a_chinese_zywoo_fan_on_the_485_controversy_in/",
+      "source": "Reddit",
+      "marked_at": "2026-10-30T16:59:36+03:00"
     }
   },
   "match_announcements": {

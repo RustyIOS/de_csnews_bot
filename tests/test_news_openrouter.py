@@ -72,6 +72,17 @@ class ParseModelPostsTest(unittest.TestCase):
 
 
 class ChatFallbackTest(unittest.TestCase):
+    def setUp(self):
+        # A developer key must not pull these cases onto the Gemini path.
+        self._gemini = os.environ.pop("GEMINI_API_KEY", None)
+        self.addCleanup(self._restore_gemini)
+
+    def _restore_gemini(self):
+        if self._gemini is None:
+            os.environ.pop("GEMINI_API_KEY", None)
+        else:
+            os.environ["GEMINI_API_KEY"] = self._gemini
+
     def _post(self, script):
         """script: list of (model, response) consumed in order."""
         bodies = []

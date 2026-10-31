@@ -6,24 +6,31 @@
 
 Pipeline: fetch.py (sites + Reddit) -> public RSS for core X accounts, or skip X ->
 t.me/s channels with news:true in tg_channels.json. Dedup against state.json seen.
-Drop match results (live/results cover those), memes, guides. Ask OpenRouter for
-at most 3 Russian posts, then check_post.py and post.py (source line, duplicate
-guard, 75 s gap). A dry-run writes nothing to state and sends nothing.
+Drop match results (live/results cover those), memes, guides. Ask Gemini for
+at most 3 Russian posts (OpenRouter when Gemini is unset or fails), then
+check_post.py and post.py (source line, duplicate guard, 75 s gap). A dry-run
+writes nothing to state and sends nothing.
 
-OPENROUTER_API_KEY is read from the environment and never printed. Free OpenRouter
-is about 50 requests/day: one short prompt per slot, one retry on 429, then the
-next model. A reply that is not a complete {"posts":[...]} object gets one stricter
-retry on that model, then the next model (OPENROUTER_MODELS overrides the list).
-The slot is marked done only after a real decision: nothing newsworthy, an
-empty {"posts":[]}, or at least one post actually sent. A draft that fails
-normalize_draft, or a send that fails, leaves that story unseen. If parsing
-worked but nothing was published, the slot stays open so the 20-minute
-catch-up can try again. Seen ids live in state.json on the state branch.
+GEMINI_API_KEY and OPENROUTER_API_KEY are read from the environment and never
+printed. A missing or blank GEMINI_API_KEY leaves drafting on OpenRouter only.
+Gemini models come from GEMINI_MODELS (default gemini-3.5-flash, then
+gemini-3.1-flash-lite). A 429, 5xx, or timeout (~60 s) skips to the next Gemini
+model. A reply that is not a complete {"posts":[...]} object gets one stricter
+retry on that model, then the next model. If Gemini produces nothing, the same
+prompt goes to OpenRouter. Free OpenRouter is about 50 requests/day: one short
+prompt per slot, one retry on 429, then the next model (OPENROUTER_MODELS
+overrides the list). The slot is marked done only after a real decision:
+nothing newsworthy, an empty {"posts":[]}, or at least one post actually sent.
+A draft that fails normalize_draft, or a send that fails, leaves that story
+unseen. If parsing worked but nothing was published, the slot stays open so
+the 20-minute catch-up can try again. Seen ids live in state.json on the
+state branch.
 """
 import argparse, datetime, html, json, os, re, subprocess, sys, tempfile, time
 import xml.etree.ElementTree as ET
 from datetime import timedelta, timezone
 from email.utils import parsedate_to_datetime
+from urllib.parse import quote
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from auto_lib import log, news_slot_id, run, save_state as save_auto, single_instance, state as auto_state
@@ -33,6 +40,9 @@ from common import (BASE, ITEMS_FILE, MSK, UA, load_json, load_state, mark, norm
 MAX_POSTS = 3
 MAX_CANDIDATES = 6
 MODELS = ("dots-studio/dots-3-note-preview:free", "openrouter/free")
+GEMINI_MODELS = ("gemini-3.5-flash", "gemini-3.1-flash-lite")
+GEMINI_TIMEOUT = 60
+GEMINI_URL = "https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent"
 # Probe one account. If nothing answers, skip X instead of burning the slot on dead mirrors.
 X_RSS = (
     "https://rss.xcancel.com/{user}/rss",
@@ -317,9 +327,23 @@ def model_list():
     return MODELS
 
 
+def gemini_model_list():
+    raw = os.environ.get("GEMINI_MODELS", "")
+    if raw.strip():
+        return tuple(m.strip() for m in raw.split(",") if m.strip())
+    return GEMINI_MODELS
+
+
 def redact(text):
-    text = re.sub(r"sk-or-v1-[A-Za-z0-9_-]+", "[redacted]", text or "")
+    text = text or ""
+    for name in ("GEMINI_API_KEY", "OPENROUTER_API_KEY", "TELEGRAM_BOT_TOKEN"):
+        secret = (os.environ.get(name) or "").strip()
+        if len(secret) >= 16:
+            text = text.replace(secret, "[redacted]")
+    text = re.sub(r"sk-or-v1-[A-Za-z0-9_-]+", "[redacted]", text)
+    text = re.sub(r"AIza[0-9A-Za-z_-]{20,}", "[redacted]", text)
     text = re.sub(r"Bearer\s+\S+", "Bearer [redacted]", text)
+    text = re.sub(r"(?i)(x-goog-api-key\s*[:=]\s*)\S+", r"\1[redacted]", text)
     return text[:400]
 
 
@@ -412,12 +436,117 @@ def _openrouter_complete(model, messages, headers):
     return None
 
 
-def chat(user_prompt):
-    """One short completion that parses as {"posts":[...]}.
+def _gemini_contents(user_prompt, prior=None):
+    contents = [{"role": "user", "parts": [{"text": user_prompt}]}]
+    if prior is not None:
+        contents.append({"role": "model", "parts": [{"text": prior[:2000]}]})
+        contents.append({"role": "user", "parts": [{"text": JSON_NUDGE}]})
+    return contents
 
-    None means every model failed (caller must not mark the slot). A non-empty
-    reply that is not that JSON is not returned: the same model is asked once
-    more, then the next model runs.
+
+def _gemini_payload(contents):
+    return {
+        "systemInstruction": {"parts": [{"text": SYSTEM_PROMPT}]},
+        "contents": contents,
+        "generationConfig": {
+            "temperature": 0.3,
+            # Room for a whole {"posts":[...]} object. OpenRouter stays at 1000.
+            "maxOutputTokens": 2048,
+            "responseMimeType": "application/json",
+        },
+    }
+
+
+def _gemini_message(body):
+    """(text, finish_reason) from a generateContent body. Raises on a bad shape.
+
+    Thought parts are skipped so a reasoning trace is not parsed as the draft.
+    """
+    candidates = body.get("candidates")
+    if not isinstance(candidates, list) or not candidates or not isinstance(candidates[0], dict):
+        raise TypeError("candidates")
+    cand = candidates[0]
+    content = cand.get("content") if isinstance(cand.get("content"), dict) else {}
+    parts = content.get("parts") or []
+    if not isinstance(parts, list):
+        raise TypeError("parts")
+    texts = []
+    for part in parts:
+        if not isinstance(part, dict) or part.get("thought"):
+            continue
+        text = part.get("text")
+        if isinstance(text, str):
+            texts.append(text)
+    return "".join(texts), cand.get("finishReason") or ""
+
+
+def _gemini_complete(model, contents, headers):
+    """(text, finish_reason), or None when this model should be abandoned.
+
+    None is a transport error, a timeout, a non-200, or a 429/5xx. Those skip
+    to the next model with no second try. An empty 200 is ("", finish) so the
+    caller can still send the JSON nudge. The key travels in x-goog-api-key,
+    never in the URL.
+    """
+    import requests
+    url = GEMINI_URL.format(model=quote(model, safe=""))
+    try:
+        r = requests.post(
+            url,
+            headers=headers,
+            json=_gemini_payload(contents),
+            timeout=GEMINI_TIMEOUT,
+        )
+    except requests.Timeout:
+        log(f"Gemini {model}: timeout")
+        return None
+    except requests.RequestException as ex:
+        log(f"Gemini {model}: {ex.__class__.__name__}")
+        return None
+    if r.status_code == 429 or r.status_code >= 500:
+        log(f"Gemini {model}: HTTP {r.status_code}")
+        return None
+    if r.status_code != 200:
+        log(f"Gemini {model}: HTTP {r.status_code} {redact(r.text)}")
+        return None
+    try:
+        return _gemini_message(r.json())
+    except (ValueError, KeyError, TypeError, AttributeError):
+        log(f"Gemini {model}: unexpected body {redact(r.text)}")
+        return None
+
+
+def _chat_gemini(user_prompt, key):
+    """Gemini models in order. None means every Gemini model failed."""
+    headers = {
+        "Content-Type": "application/json",
+        "x-goog-api-key": key,
+    }
+    for model in gemini_model_list():
+        prior = None
+        for attempt in (1, 2):
+            got = _gemini_complete(model, _gemini_contents(user_prompt, prior), headers)
+            if got is None:
+                break
+            msg, finish = got
+            if parse_model_posts(msg) is not None:
+                log(f"Gemini draft from {model} ({len(msg)} chars)")
+                return msg
+            log(
+                f"Gemini {model}: reply is not posts JSON "
+                f"(try {attempt}, {len(msg)} chars, finish={finish or '?'})\n{redact(msg)}"
+            )
+            if attempt == 2:
+                break
+            prior = (msg or "").strip() or "(empty)"
+    return None
+
+
+def _chat_openrouter(user_prompt):
+    """One short OpenRouter completion that parses as {"posts":[...]}.
+
+    None means every model failed. A non-empty reply that is not that JSON is
+    not returned: the same model is asked once more, then the next model runs.
     """
     key = (os.environ.get("OPENROUTER_API_KEY") or "").strip()
     if not key:
@@ -455,6 +584,25 @@ def chat(user_prompt):
                 {"role": "user", "content": JSON_NUDGE},
             ]
     return None
+
+
+def chat(user_prompt):
+    """One short completion that parses as {"posts":[...]}.
+
+    Gemini runs first when GEMINI_API_KEY is set. A missing or blank key
+    leaves the OpenRouter chain exactly as before. None means every model
+    failed (caller must not mark the slot). A non-empty reply that is not
+    that JSON is not returned: the same model is asked once more, then the
+    next model runs. An empty {"posts":[]} from Gemini is a decision and
+    does not fall through to OpenRouter.
+    """
+    key = (os.environ.get("GEMINI_API_KEY") or "").strip()
+    if key:
+        draft = _chat_gemini(user_prompt, key)
+        if draft is not None:
+            return draft
+        log("Gemini produced no draft; trying OpenRouter")
+    return _chat_openrouter(user_prompt)
 
 
 def cyrillic_share(text):

@@ -3541,6 +3541,48 @@
       "url": "https://www.reddit.com/r/GlobalOffensive/comments/1xj70g4/a_chinese_zywoo_fan_on_the_485_controversy_in/",
       "source": "Reddit",
       "marked_at": "2026-10-30T16:59:36+03:00"
+    },
+    "hltv:hltvnews45869": {
+      "status": "posted",
+      "title": "MOUZ claim third place in Romania over Vitality",
+      "url": "https://www.hltv.org/news/45869/mouz-claim-third-place-in-romania-over-vitality",
+      "source": "HLTV",
+      "marked_at": "2026-10-31T16:55:41+03:00"
+    },
+    "hltv:hltvnews45867": {
+      "status": "posted",
+      "title": "TYLOO likely to miss out on Singapore following HyperX Retake withdrawal",
+      "url": "https://www.hltv.org/news/45867/tyloo-likely-to-miss-out-on-singapore-following-hyperx-retake-withdrawal",
+      "source": "HLTV",
+      "marked_at": "2026-10-31T16:56:57+03:00"
+    },
+    "tg:cs3news:19212": {
+      "status": "skipped",
+      "title": "🇧🇾 Nemiga станут чемпионами 🇷🇴 PGL Bucharest — в это верит чуть больше половины опрошенных и 🇰🇿 SYPH0:",
+      "url": "https://t.me/cs3news/19212",
+      "source": "Telegram / cs3news",
+      "marked_at": "2026-10-31T16:56:57+03:00"
+    },
+    "reddit:t3_1xk6tfe": {
+      "status": "skipped",
+      "title": "TYLOO likely to miss Major following HyperX withdrawl",
+      "url": "https://www.reddit.com/r/GlobalOffensive/comments/1xk6tfe/tyloo_likely_to_miss_major_following_hyperx/",
+      "source": "Reddit",
+      "marked_at": "2026-10-31T16:56:57+03:00"
+    },
+    "tg:acenewscs:16856": {
+      "status": "skipped",
+      "title": "🇱🇹 Давайте глянем на статистику jL за весь ивент ",
+      "url": "https://t.me/acenewscs/16856",
+      "source": "Telegram / acenewscs",
+      "marked_at": "2026-10-31T16:56:57+03:00"
+    },
+    "tg:acenewscs:16849": {
+      "status": "skipped",
+      "title": "🙂 Чтобы день прошёл лучше, нужно всего лишь отгадать игрока по фактам:",
+      "url": "https://t.me/acenewscs/16849",
+      "source": "Telegram / acenewscs",
+      "marked_at": "2026-10-31T16:56:57+03:00"
     }
   },
   "match_announcements": {

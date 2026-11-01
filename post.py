@@ -13,10 +13,13 @@ override with --url / --source / --image ('' to force a text-only post).
 Photo post: sendPhoto (caption <=1024 visible chars) -> retry with uploaded file ->
 fallback sendMessage. Text-only: sendMessage (<=4096).
 Token is read from env TELEGRAM_BOT_TOKEN and never printed.
+A confirmed channel send also appends one daily/YYYY-MM-DD.md entry (see daily_digest.py).
+Dry-run returns before that write.
 """
 import argparse, html, json, os, re, sys, subprocess, tempfile
 import requests
 from common import (ITEMS_FILE, CHANNEL_ID, UA, load_json, load_state, save_state, mark)
+from daily_digest import record_sent
 
 SOURCE_LABELS = {"Counter-Strike 2 (Steam)": "Steam / Valve"}
 
@@ -248,6 +251,19 @@ def main():
     with open(SENT_LOG + ".tmp", "w") as f:
         json.dump(log, f, ensure_ascii=False)
     os.replace(SENT_LOG + ".tmp", SENT_LOG)
+    try:
+        record_sent(
+            message_id=msg.get("message_id"),
+            chat=a.chat,
+            msg_chat=msg.get("chat"),
+            item_id=a.item_id,
+            body=body,
+            item=item,
+            text_file=a.text_file,
+            telegram_date=msg.get("date"),
+        )
+    except Exception as exc:
+        print(f"daily digest: {exc}", file=sys.stderr)
     print(json.dumps({"ok": True, "message_id": msg.get("message_id"), "chat": msg.get("chat", {}).get("username") or a.chat}))
     if not a.no_mark:
         st = load_state(); mark(st, item, "posted"); save_state(st)

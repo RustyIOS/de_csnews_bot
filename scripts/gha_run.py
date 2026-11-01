@@ -11,10 +11,13 @@
 Schedule (UTC, Moscow is UTC+3 year-round) and workflow_dispatch with no inputs
 or job=auto share one decision: Moscow time picks announce, results, news or live.
 News slots are 10:51, 13:51, 16:51, 19:51 and 22:51 MSK, with a 20-minute catch-up.
-A real send happens only when POSTING_ENABLED is true and dry_run is not set.
-Calling that path often is safe: one announce and one results post per day, one
-news pass per slot, live posts nothing when there is nothing new, and a second
-overlapping run waits.
+A due news slot is taken before a still-open morning announce, so the 10:51
+window is not stuck behind the announce catch-up (until 12:00). A real send
+happens only when POSTING_ENABLED is true and dry_run is not set.
+Calling that path often is safe: one announce and one results post per day
+(a morning with nothing notable counts as that announce), one news pass per
+slot, live posts nothing when there is nothing new, and a second overlapping
+run waits.
 """
 import os, subprocess, sys, time
 
@@ -57,13 +60,25 @@ def in_live(t):
 
 
 def tick_choice(now, st):
+    """One action for this tick.
+
+    The 10:51 news window sits inside the announce catch-up. News goes first
+    when both are due: that window is 20 minutes, announce still has until
+    12:00 and runs on the next tick once the news slot is served (or as soon
+    as the news window has passed). Results does not overlap news. Live runs
+    only when nothing else is due.
+    """
     day = now.date().isoformat()
-    if in_announce(now) and day not in (st.get("announced_dates") or []):
+    slot = news_slot_id(now)
+    news_due = bool(slot) and slot not in (st.get("news_slots") or [])
+    announce_due = in_announce(now) and day not in (st.get("announced_dates") or [])
+    if news_due and announce_due:
+        return "news"
+    if announce_due:
         return "announce"
     if in_results(now) and day not in (st.get("results_dates") or []):
         return "results"
-    slot = news_slot_id(now)
-    if slot and slot not in (st.get("news_slots") or []):
+    if news_due:
         return "news"
     if in_live(now):
         return "live"
@@ -137,7 +152,7 @@ def plan(mode, source, dry):
             return "skip", "tick"
         print(f"tick -> {concrete} ({now:%H:%M} MSK)", flush=True)
     if concrete == "announce" and not dry and day in (st.get("announced_dates") or []):
-        print(f"skip: announce already posted for {day}", flush=True)
+        print(f"skip: announce already settled for {day}", flush=True)
         return "skip", concrete
     if concrete == "results" and not dry and day in (st.get("results_dates") or []):
         print(f"skip: results already posted for {day}", flush=True)

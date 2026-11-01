@@ -40,7 +40,7 @@
 
 ### Внешний таймер (cron-job.org)
 
-Собственный cron GitHub часто пропускает слоты. Каждые 10 минут внешний таймер вызывает тот же workflow. Запрос без `inputs` или с `"job": "auto"` ведёт себя как плановый запуск: по московскому времени решает, что пора (анонс 10:04–12:00, новости в окне :51 и ещё 20 минут, итоги 23:34–23:59, иначе лайв 10:00–23:59), и при `POSTING_ENABLED=true` отправляет по-настоящему. В одном запуске сначала анонс, потом итоги, потом новости, если открыт их слот, иначе лайв. Повторные вызовы безопасны: один анонс и одни итоги в сутки, новости один раз на слот, лайв молчит, если нового нет, параллельный запуск ждёт в группе `de-csnews`.
+Собственный cron GitHub часто пропускает слоты. Каждые 10 минут внешний таймер вызывает тот же workflow. Запрос без `inputs` или с `"job": "auto"` ведёт себя как плановый запуск: по московскому времени решает, что пора (анонс 10:04–12:00, новости в окне :51 и ещё 20 минут, итоги 23:34–23:59, иначе лайв 10:00–23:59), и при `POSTING_ENABLED=true` отправляет по-настоящему. В одном запуске выбирается одно действие. Открытый слот новостей идёт раньше ещё не закрытого утреннего анонса: окно новостей 20 минут и попадает внутрь догона анонса до 12:00. Если слот новостей не открыт, порядок прежний — анонс, потом итоги, потом новости, иначе лайв. Повторные вызовы безопасны: один анонс и одни итоги в сутки. День, когда анонс честно не нашёл заметных матчей, пишется в `announced_dates` и больше не повторяется; ошибка загрузки или отправки день не закрывает. Новости — один раз на слот, лайв молчит, если нового нет, параллельный запуск ждёт в группе `de-csnews`.
 
 ```
 POST https://api.github.com/repos/RustyIOS/de_csnews_bot/actions/workflows/csnews.yml/dispatches
@@ -368,7 +368,9 @@ Old cron layout (reference only):
 run_auto.sh loads the token from `.cron.env` (chmod 600, never print/commit it) and logs to logs/announce_auto.log /
 logs/results_auto.log. Both scripts: single-instance flock, card.py card (announce / day_results; card failure ->
 text-only), `check_post.py` (any FAIL -> abort, nothing sent), post.py --dry-run, then post.py (dup check, image
-validation, send lock, 75 s gap) with --no-source. No matches -> nothing posted. State: auto_state.json
+validation, send lock, 75 s gap) with --no-source. No notable matches -> nothing posted, and that day is
+recorded in announced_dates so the catch-up does not retry it. A fetch or send error leaves the day open.
+State: auto_state.json
 (announced_dates, results_dates, recapped_keys) -> one announce / one recap per day; `--force` to override.
   python3 announce_auto.py --dry-run [--date YYYY-MM-DD]     # prints text + card path, sends nothing
   python3 results_auto.py --dry-run [--hours 24]

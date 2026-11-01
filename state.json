@@ -3625,6 +3625,48 @@
       "url": "https://t.me/raiznews/62118",
       "source": "Telegram / cs2news",
       "marked_at": "2026-11-01T14:02:47+03:00"
+    },
+    "hltv:hltvnews45874": {
+      "status": "posted",
+      "title": "zhokiNg: \"We had no choice but to play in that Retake event\"",
+      "url": "https://www.hltv.org/news/45874/zhoking-we-had-no-choice-but-to-play-in-that-retake-event",
+      "source": "HLTV",
+      "marked_at": "2026-11-01T17:01:29+03:00"
+    },
+    "tg:acenewscs:16889": {
+      "status": "posted",
+      "title": "⌨️ ✨ Buster анонсировал свой новый состав по 🎮 CS2!",
+      "url": "https://t.me/acenewscs/16889",
+      "source": "Telegram / acenewscs",
+      "marked_at": "2026-11-01T17:02:45+03:00"
+    },
+    "tg:cs2news:62123": {
+      "status": "skipped",
+      "title": "✨ LUNACY представили свой состав!  — 1NVISIBLEE — xm1nd — k4nfuz — saizius — z3ndeR  Взлетят ли также как GUN5?",
+      "url": "https://t.me/raiznews/62123",
+      "source": "Telegram / cs2news",
+      "marked_at": "2026-11-01T17:02:45+03:00"
+    },
+    "tg:cs3news:19272": {
+      "status": "skipped",
+      "title": "❗️ 😄 Встречайте новый состав 👨 Полковника:",
+      "url": "https://t.me/cs3news/19272",
+      "source": "Telegram / cs3news",
+      "marked_at": "2026-11-01T17:02:45+03:00"
+    },
+    "tg:cs2news:62122": {
+      "status": "skipped",
+      "title": "⚡️ buster создаёт новую команду — Lunacy Team!  Слава проведёт шоу, по итогам которого он соберёт состав из 5 игроков, которые будут предста",
+      "url": "https://t.me/raiznews/62122",
+      "source": "Telegram / cs2news",
+      "marked_at": "2026-11-01T17:02:45+03:00"
+    },
+    "tg:cs2news:62124": {
+      "status": "skipped",
+      "title": "🙇‍♂️ IEM Beijing 2026 выиграет южноамериканская команда — официально по статистике:",
+      "url": "https://t.me/raiznews/62124",
+      "source": "Telegram / cs2news",
+      "marked_at": "2026-11-01T17:02:45+03:00"
     }
   },
   "match_announcements": {

@@ -3940,6 +3940,55 @@
       "url": "https://t.me/acenewscs/16930",
       "source": "Telegram / acenewscs",
       "marked_at": "2026-11-02T20:00:02+03:00"
+    },
+    "hltv:hltvnews45890": {
+      "status": "posted",
+      "title": "Valve release Major-deciding November VRS update",
+      "url": "https://www.hltv.org/news/45890/valve-release-major-deciding-november-vrs-update",
+      "source": "HLTV",
+      "marked_at": "2026-11-02T23:01:31+03:00"
+    },
+    "tg:acenewscs:16938": {
+      "status": "posted",
+      "title": "😥 hally раскрыл причины своего отсутствия в матче с 🐭 MOUZ:",
+      "url": "https://t.me/acenewscs/16938",
+      "source": "Telegram / acenewscs",
+      "marked_at": "2026-11-02T23:02:46+03:00"
+    },
+    "dust2us:news79582": {
+      "status": "skipped",
+      "title": "LAG cruise to NSTLGA Texas Open victory",
+      "url": "https://www.dust2.us/news/79582/lag-cruise-to-nstlga-texas-open-victory",
+      "source": "Dust2.us",
+      "marked_at": "2026-11-02T23:02:46+03:00"
+    },
+    "dust2us:news79585": {
+      "status": "skipped",
+      "title": "Breaking: Valve release November VRS Update; See all 32 teams qualified to the Singapore Major",
+      "url": "https://www.dust2.us/news/79585/breaking-valve-release-november-vrs-update-see-all-32-teams-qualified-to-the-singapore-major",
+      "source": "Dust2.us",
+      "marked_at": "2026-11-02T23:02:46+03:00"
+    },
+    "dust2us:news79591": {
+      "status": "skipped",
+      "title": "FaZe fall to FURIA in IEM Beijing opener",
+      "url": "https://www.dust2.us/news/79591/faze-fall-to-furia-in-iem-beijing-opener",
+      "source": "Dust2.us",
+      "marked_at": "2026-11-02T23:02:46+03:00"
+    },
+    "dust2us:news79587": {
+      "status": "skipped",
+      "title": "EliGE and malbsMd star as Liquid smash Aurora in IEM Beijing opener",
+      "url": "https://www.dust2.us/news/79587/elige-and-malbsmd-star-as-liquid-smash-aurora-in-iem-beijing-opener",
+      "source": "Dust2.us",
+      "marked_at": "2026-11-02T23:02:46+03:00"
+    },
+    "tg:cs3news:19359": {
+      "status": "skipped",
+      "title": "⬆️ FURIA ТОП-1 & NEMIGA ТОП-9 — обновление еженедельного рейтинга 🇩🇰 HLTV",
+      "url": "https://t.me/cs3news/19359",
+      "source": "Telegram / cs3news",
+      "marked_at": "2026-11-02T23:02:46+03:00"
     }
   },
   "match_announcements": {

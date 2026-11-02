@@ -4152,16 +4152,24 @@
     },
     "bo3:132576": {
       "seen": [
-        "match:start"
+        "match:start",
+        "match:finished"
       ],
-      "updated": "2026-11-02T11:42:04+03:00",
-      "match_status": "current"
+      "updated": "2026-11-02T14:40:50+03:00",
+      "match_status": "finished"
     },
     "bo3:132580": {
       "seen": [
         "match:start"
       ],
       "updated": "2026-11-02T13:20:47+03:00",
+      "match_status": "current"
+    },
+    "bo3:132575": {
+      "seen": [
+        "match:start"
+      ],
+      "updated": "2026-11-02T14:42:06+03:00",
       "match_status": "current"
     }
   },

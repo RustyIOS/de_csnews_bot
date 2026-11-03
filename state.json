@@ -4094,6 +4094,48 @@
       "url": "https://t.me/acenewscs/16950",
       "source": "Telegram / acenewscs",
       "marked_at": "2026-11-03T14:01:32+03:00"
+    },
+    "hltv:hltvnews45894": {
+      "status": "posted",
+      "title": "MOUZ best BB to qualify for playoffs in Beijing",
+      "url": "https://www.hltv.org/news/45894/mouz-best-bb-to-qualify-for-playoffs-in-beijing",
+      "source": "HLTV",
+      "marked_at": "2026-11-03T17:01:45+03:00"
+    },
+    "tg:cs2news:62263": {
+      "status": "posted",
+      "title": "🇩🇰 karrigan недоволен тем, что команде стали тяжело даваться собственные пики.",
+      "url": "https://t.me/raiznews/62263",
+      "source": "Telegram / cs2news",
+      "marked_at": "2026-11-03T17:03:02+03:00"
+    },
+    "hltv:hltvnews45898": {
+      "status": "skipped",
+      "title": "karrigan: \"We can't win our own map pick lately\"",
+      "url": "https://www.hltv.org/news/45898/karrigan-we-cant-win-our-own-map-pick-lately",
+      "source": "HLTV",
+      "marked_at": "2026-11-03T17:03:02+03:00"
+    },
+    "hltv:hltvnews45900": {
+      "status": "skipped",
+      "title": "FURIA outlast NAVI for Beijing playoffs",
+      "url": "https://www.hltv.org/news/45900/furia-outlast-navi-for-beijing-playoffs",
+      "source": "HLTV",
+      "marked_at": "2026-11-03T17:03:02+03:00"
+    },
+    "tg:cs2news:62265": {
+      "status": "skipped",
+      "title": "⌛ Оружие в 🖥 CS2 имеет большую задержку звука выстрела по сравнению с 🖥 CS:GO — выяснил энтузиаст с Reddit  🛑 Автоматическое оружие — везде ",
+      "url": "https://t.me/raiznews/62265",
+      "source": "Telegram / cs2news",
+      "marked_at": "2026-11-03T17:03:02+03:00"
+    },
+    "tg:acenewscs:16945": {
+      "status": "skipped",
+      "title": "📊 🌠 Cache держит топ-1 по проценту карт с овертаймами в про-матчах на HLTV",
+      "url": "https://t.me/acenewscs/16945",
+      "source": "Telegram / acenewscs",
+      "marked_at": "2026-11-03T17:03:02+03:00"
     }
   },
   "match_announcements": {

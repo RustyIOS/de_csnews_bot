@@ -4045,6 +4045,55 @@
       "url": "https://www.dust2.us/news/79598/glorinsz-steps-down-from-northforge",
       "source": "Dust2.us",
       "marked_at": "2026-11-03T11:03:52+03:00"
+    },
+    "hltv:hltvnews45893": {
+      "status": "posted",
+      "title": "ash: \"Expectations rose too quickly [internally], and that means there's a lot more frustration\"",
+      "url": "https://www.hltv.org/news/45893/ash-expectations-rose-too-quickly-internally-and-that-means-theres-a-lot-more-frustration",
+      "source": "HLTV",
+      "marked_at": "2026-11-03T14:01:32+03:00"
+    },
+    "hltv:hltvnews45897": {
+      "status": "skipped",
+      "title": "The MongolZ beat HEROIC for Beijing playoffs",
+      "url": "https://www.hltv.org/news/45897/the-mongolz-beat-heroic-for-beijing-playoffs",
+      "source": "HLTV",
+      "marked_at": "2026-11-03T14:01:32+03:00"
+    },
+    "hltv:hltvnews45896": {
+      "status": "skipped",
+      "title": "Falcons condemn FaZe to last-place exit in Beijing",
+      "url": "https://www.hltv.org/news/45896/falcons-condemn-faze-to-last-place-exit-in-beijing",
+      "source": "HLTV",
+      "marked_at": "2026-11-03T14:01:32+03:00"
+    },
+    "tg:cs2news:62245": {
+      "status": "skipped",
+      "title": "😡 Получай, мышь ебаная — 🇪🇺 JBOEN в полном тильте!",
+      "url": "https://t.me/raiznews/62245",
+      "source": "Telegram / cs2news",
+      "marked_at": "2026-11-03T14:01:32+03:00"
+    },
+    "tg:acenewscs:16951": {
+      "status": "skipped",
+      "title": "🤠 Aurora сильно нуждается в отдыхе — Сообщил тренер команды 🇬🇧 ash",
+      "url": "https://t.me/acenewscs/16951",
+      "source": "Telegram / acenewscs",
+      "marked_at": "2026-11-03T14:01:32+03:00"
+    },
+    "tg:cs3news:19396": {
+      "status": "skipped",
+      "title": "🇹🇷 Тренер Aurora рассказал о тяжёлых буднях его команды:",
+      "url": "https://t.me/cs3news/19396",
+      "source": "Telegram / cs3news",
+      "marked_at": "2026-11-03T14:01:32+03:00"
+    },
+    "tg:acenewscs:16950": {
+      "status": "skipped",
+      "title": "😎 Даже палка стреляет раз в год: ТОП-5* лучших карт в исполнении 🇩🇰 karrigan",
+      "url": "https://t.me/acenewscs/16950",
+      "source": "Telegram / acenewscs",
+      "marked_at": "2026-11-03T14:01:32+03:00"
     }
   },
   "match_announcements": {

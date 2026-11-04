@@ -4297,6 +4297,48 @@
       "url": "https://www.reddit.com/r/GlobalOffensive/comments/1xnitna/let_me_play_falcons_comms_when_they_lost_a_3v1/",
       "source": "Reddit",
       "marked_at": "2026-11-04T14:01:47+03:00"
+    },
+    "hltv:hltvnews45914": {
+      "status": "posted",
+      "title": "IEM Beijing 2026 playoff bracket set",
+      "url": "https://www.hltv.org/news/45914/iem-beijing-2026-playoff-bracket-set",
+      "source": "HLTV",
+      "marked_at": "2026-11-04T17:01:45+03:00"
+    },
+    "hltv:hltvnews45913": {
+      "status": "posted",
+      "title": "The MongolZ join MOUZ in IEM Beijing semis after beating FURIA",
+      "url": "https://www.hltv.org/news/45913/the-mongolz-join-mouz-in-iem-beijing-semis-after-beating-furia",
+      "source": "HLTV",
+      "marked_at": "2026-11-04T17:03:01+03:00"
+    },
+    "hltv:hltvnews45911": {
+      "status": "skipped",
+      "title": "NAVI send Falcons home from IEM Beijing after 12-0 T side on map three",
+      "url": "https://www.hltv.org/news/45911/navi-send-falcons-home-from-iem-beijing-after-12-0-t-side-on-map-three",
+      "source": "HLTV",
+      "marked_at": "2026-11-04T17:03:01+03:00"
+    },
+    "tg:cs3news:19511": {
+      "status": "skipped",
+      "title": "🇪🇺 Фанаты Falcons, не переживайте, команда просто продолжает сейвить страты на мейджор.",
+      "url": "https://t.me/cs3news/19511",
+      "source": "Telegram / cs3news",
+      "marked_at": "2026-11-04T17:03:01+03:00"
+    },
+    "hltv:hltvnews45910": {
+      "status": "skipped",
+      "title": "BETBOOM edge past Liquid to reach playoffs",
+      "url": "https://www.hltv.org/news/45910/betboom-edge-past-liquid-to-reach-playoffs",
+      "source": "HLTV",
+      "marked_at": "2026-11-04T17:03:01+03:00"
+    },
+    "tg:acenewscs:16983": {
+      "status": "skipped",
+      "title": "ОНИ СНОВА ВСТРЕТИЛИСЬ — начинается матч за выход в плей-офф между 🤑 Falcons и 👶 NAVI!",
+      "url": "https://t.me/acenewscs/16983",
+      "source": "Telegram / acenewscs",
+      "marked_at": "2026-11-04T17:03:01+03:00"
     }
   },
   "match_announcements": {

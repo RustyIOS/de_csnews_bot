@@ -4220,6 +4220,62 @@
       "url": "https://www.dust2.us/news/79617/faze-exit-iem-beijing-winless",
       "source": "Dust2.us",
       "marked_at": "2026-11-03T23:03:29+03:00"
+    },
+    "tg:cs3news:19452": {
+      "status": "posted",
+      "title": "✅ Стали известные все команды, которые примут участие на 🇷🇴 PGL Major Singapore 2026.  🗓 Сам турнир начнётся уже 24 ноября.",
+      "url": "https://t.me/cs3news/19452",
+      "source": "Telegram / cs3news",
+      "marked_at": "2026-11-04T11:01:58+03:00"
+    },
+    "dust2us:news79627": {
+      "status": "posted",
+      "title": "FACEIT reveals donk has been reported over 1,000 times on its platform",
+      "url": "https://www.dust2.us/news/79627/faceit-reveals-donk-has-been-reported-over-1000-times-on-its-platform",
+      "source": "Dust2.us",
+      "marked_at": "2026-11-04T11:03:13+03:00"
+    },
+    "tg:acenewscs:16973": {
+      "status": "posted",
+      "title": "🤑 Falcons официально распустили состав своей академии",
+      "url": "https://t.me/acenewscs/16973",
+      "source": "Telegram / acenewscs",
+      "marked_at": "2026-11-04T11:04:29+03:00"
+    },
+    "hltv:hltvnews45905": {
+      "status": "skipped",
+      "title": "BETBOOM eliminate Aurora from IEM Beijing",
+      "url": "https://www.hltv.org/news/45905/betboom-eliminate-aurora-from-iem-beijing",
+      "source": "HLTV",
+      "marked_at": "2026-11-04T11:04:29+03:00"
+    },
+    "reddit:t3_1xn6upr": {
+      "status": "skipped",
+      "title": "Dan Madesclaire on X: \"Time to submit your signature they said. Had to practice first 🤣\" / X",
+      "url": "https://www.reddit.com/r/GlobalOffensive/comments/1xn6upr/dan_madesclaire_on_x_time_to_submit_your/",
+      "source": "Reddit",
+      "marked_at": "2026-11-04T11:04:29+03:00"
+    },
+    "tg:acenewscs:16979": {
+      "status": "skipped",
+      "title": "🏆 KYOUSUKE ПРАЙМ",
+      "url": "https://t.me/acenewscs/16979",
+      "source": "Telegram / acenewscs",
+      "marked_at": "2026-11-04T11:04:29+03:00"
+    },
+    "hltv:hltvnews45909": {
+      "status": "skipped",
+      "title": "Falcons and NAVI set to clash for IEM Beijing playoff spot",
+      "url": "https://www.hltv.org/news/45909/falcons-and-navi-set-to-clash-for-iem-beijing-playoff-spot",
+      "source": "HLTV",
+      "marked_at": "2026-11-04T11:04:29+03:00"
+    },
+    "hltv:hltvnews45906": {
+      "status": "skipped",
+      "title": "Liquid send TYLOO packing from IEM Beijing",
+      "url": "https://www.hltv.org/news/45906/liquid-send-tyloo-packing-from-iem-beijing",
+      "source": "HLTV",
+      "marked_at": "2026-11-04T11:04:29+03:00"
     }
   },
   "match_announcements": {

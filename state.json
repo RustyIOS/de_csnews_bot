@@ -4709,10 +4709,11 @@
     },
     "bo3:133043": {
       "seen": [
-        "match:start"
+        "match:start",
+        "match:finished"
       ],
-      "updated": "2026-11-04T12:30:55+03:00",
-      "match_status": "current"
+      "updated": "2026-11-04T15:50:45+03:00",
+      "match_status": "finished"
     },
     "bo3:133042": {
       "seen": [

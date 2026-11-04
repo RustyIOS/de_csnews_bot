@@ -4360,6 +4360,55 @@
       "url": "https://www.reddit.com/r/GlobalOffensive/comments/1xnnorh/karrigan_listen_to_my_voice_and_im_gonna_take_you/",
       "source": "Reddit",
       "marked_at": "2026-11-04T20:01:30+03:00"
+    },
+    "hltv:hltvnews45916": {
+      "status": "posted",
+      "title": "FISSURE CEO: \"Around half of our CS2 debt has already been paid\"",
+      "url": "https://www.hltv.org/news/45916/fissure-ceo-around-half-of-our-cs2-debt-has-already-been-paid",
+      "source": "HLTV",
+      "marked_at": "2026-11-04T23:01:24+03:00"
+    },
+    "hltv:hltvnews45917": {
+      "status": "posted",
+      "title": "zonic: \"When we get off to a bad start, it can destroy our entire game\"",
+      "url": "https://www.hltv.org/news/45917/zonic-when-we-get-off-to-a-bad-start-it-can-destroy-our-entire-game",
+      "source": "HLTV",
+      "marked_at": "2026-11-04T23:02:39+03:00"
+    },
+    "reddit:t3_1xnnujd": {
+      "status": "skipped",
+      "title": "Niko with the huge clutch to cut the lead to 11",
+      "url": "https://www.reddit.com/r/GlobalOffensive/comments/1xnnujd/niko_with_the_huge_clutch_to_cut_the_lead_to_11/",
+      "source": "Reddit",
+      "marked_at": "2026-11-04T23:02:39+03:00"
+    },
+    "hltv:hltvnews45907": {
+      "status": "skipped",
+      "title": "zorte: \"We just need to focus on how we play as a team\"",
+      "url": "https://www.hltv.org/news/45907/zorte-we-just-need-to-focus-on-how-we-play-as-a-team",
+      "source": "HLTV",
+      "marked_at": "2026-11-04T23:02:39+03:00"
+    },
+    "dust2us:news79639": {
+      "status": "skipped",
+      "title": "Liquid fall just short of IEM Beijing playoffs after narrow loss to BETBOOM",
+      "url": "https://www.dust2.us/news/79639/liquid-fall-just-short-of-iem-beijing-playoffs-after-narrow-loss-to-betboom",
+      "source": "Dust2.us",
+      "marked_at": "2026-11-04T23:02:39+03:00"
+    },
+    "hltv:hltvnews45915": {
+      "status": "skipped",
+      "title": "iM: \"On Inferno, we were like four kids in w0nderful's backpack\"",
+      "url": "https://www.hltv.org/news/45915/im-on-inferno-we-were-like-four-kids-in-w0nderfuls-backpack",
+      "source": "HLTV",
+      "marked_at": "2026-11-04T23:02:39+03:00"
+    },
+    "tg:cs2news:62392": {
+      "status": "skipped",
+      "title": "«Ещё год назад я даже представить не мог, что такое вообще возможно» — 🇷🇺 zorte о том, как стечение обстоятельств помогло ему вернуться в ти",
+      "url": "https://t.me/raiznews/62392",
+      "source": "Telegram / cs2news",
+      "marked_at": "2026-11-04T23:02:39+03:00"
     }
   },
   "match_announcements": {

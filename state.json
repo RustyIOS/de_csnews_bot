@@ -4542,6 +4542,48 @@
       "url": "https://www.hltv.org/news/45919/w0nderful-and-b1t-surge-in-popularity-for-iem-beijing-playoffs-fantasy",
       "source": "HLTV",
       "marked_at": "2026-11-05T17:04:02+03:00"
+    },
+    "hltv:hltvnews45921": {
+      "status": "posted",
+      "title": "Falcons put academy team on hold",
+      "url": "https://www.hltv.org/news/45921/falcons-put-academy-team-on-hold",
+      "source": "HLTV",
+      "marked_at": "2026-11-05T20:01:32+03:00"
+    },
+    "tg:cs3news:19550": {
+      "status": "posted",
+      "title": "🏆 PGL Singapore Major 2026 посетят 17 новых игроков — из них даже есть люди, кто уже имеет свой стикер в игре  🇧🇷 ksloks поедет на мейджор, ",
+      "url": "https://t.me/cs3news/19550",
+      "source": "Telegram / cs3news",
+      "marked_at": "2026-11-05T20:02:49+03:00"
+    },
+    "hltv:hltvnews45899": {
+      "status": "skipped",
+      "title": "HLTV Prospects ranking: November 2026",
+      "url": "https://www.hltv.org/news/45899/hltv-prospects-ranking-november-2026",
+      "source": "HLTV",
+      "marked_at": "2026-11-05T20:02:49+03:00"
+    },
+    "tg:cs3news:19547": {
+      "status": "skipped",
+      "title": "🤔 В какой форме соколы подходят к 🇷🇴 PGL Singapore Major?",
+      "url": "https://t.me/cs3news/19547",
+      "source": "Telegram / cs3news",
+      "marked_at": "2026-11-05T20:02:49+03:00"
+    },
+    "tg:cs3news:19546": {
+      "status": "skipped",
+      "title": "🇷🇺 kyousuke стоит покинуть состав 🇪🇺 Falcons... стоп, что?",
+      "url": "https://t.me/cs3news/19546",
+      "source": "Telegram / cs3news",
+      "marked_at": "2026-11-05T20:02:49+03:00"
+    },
+    "tg:cs3news:19545": {
+      "status": "skipped",
+      "title": "🇷🇺 BETBOOM TEAM могли лишиться своего тренера во время 🏆 PGL Masters Bucharest 2026 — рассказал тренер в новом влоге:",
+      "url": "https://t.me/cs3news/19545",
+      "source": "Telegram / cs3news",
+      "marked_at": "2026-11-05T20:02:49+03:00"
     }
   },
   "match_announcements": {

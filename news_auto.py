@@ -5,7 +5,8 @@
   python3 news_auto.py                # real send only when POSTING_ENABLED is handled by gha_run
 
 Pipeline: fetch.py (sites + Reddit) -> public RSS for core X accounts, or skip X ->
-t.me/s channels with news:true in tg_channels.json. Dedup against state.json seen.
+t.me/s channels with news:true in tg_channels.json. Dedup against state.json seen
+and against the channel headlines from the last 48 hours (same story, other source).
 Drop match results (live/results cover those), memes, guides. Ask Gemini for
 at most 3 Russian posts (OpenRouter when Gemini is unset or fails), then
 check_post.py and post.py (source line, duplicate guard, 75 s gap). A dry-run
@@ -36,6 +37,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from auto_lib import log, news_slot_id, run, save_state as save_auto, single_instance, state as auto_state
 from common import (BASE, ITEMS_FILE, MSK, UA, load_json, load_state, mark, norm_url, now_msk,
                     save_json, save_state, similar)
+from story_dedup import (best_match, default_tie_break, recent_published_texts, recent_seen_titles)
 
 MAX_POSTS = 3
 MAX_CANDIDATES = 6
@@ -287,22 +289,62 @@ def rank(item):
     return score
 
 
-def deduped(items):
-    st = load_state()
-    seen_ids = set(st.get("seen") or {})
-    seen_urls = {norm_url(v.get("url")) for v in (st.get("seen") or {}).values()}
-    seen_titles = [v.get("title") or "" for v in (st.get("seen") or {}).values()][-500:]
-    out, titles, urls = [], [], set()
+def _compare_text(item):
+    """Source title. The body is only a fallback when the title is empty."""
+    title = (item.get("title") or "").strip()
+    if title:
+        return title
+    return ((item.get("summary") or item.get("text") or "").strip())[:240]
+
+
+def classify(items, published=None, state=None, tie_break=None, now=None):
+    """Split fresh items into (kept, story_dups).
+
+    story_dups are (item, matched headline) pairs: same fact as something we
+    already published, or as a higher-ranked item in this batch. Id, URL, and
+    the old 0.85 title check still drop rows, and those are not listed here.
+    `published` and `state` let tests skip the files on disk.
+    """
+    st = load_state() if state is None else (state or {})
+    seen = st.get("seen") or {}
+    seen_ids = set(seen)
+    seen_urls = {norm_url(v.get("url")) for v in seen.values() if isinstance(v, dict)}
+    seen_titles = [v.get("title") or "" for v in seen.values() if isinstance(v, dict)][-500:]
+    moment = now or now_msk()
+    if published is None:
+        blobs = recent_published_texts(now=moment, seen=seen)
+    else:
+        blobs = list(published)
+        blobs.extend(recent_seen_titles(seen, now=moment))
+    if tie_break is None and published is None and state is None:
+        tie_break = default_tie_break()
+    prelim, urls = [], set()
     for it in items:
         u = norm_url(it.get("url"))
         if not it.get("id") or it["id"] in seen_ids or u in seen_urls or u in urls:
             continue
-        if any(similar(it.get("title") or "", t) for t in seen_titles + titles):
-            continue
         urls.add(u)
-        titles.append(it.get("title") or "")
-        out.append(it)
-    return out
+        prelim.append(it)
+    # Higher-ranked source (HLTV, Dust2, Steam) represents the story in this batch.
+    prelim.sort(key=lambda it: (rank(it), it.get("published") or ""), reverse=True)
+    kept, blocked, titles = [], [], []
+    for it in prelim:
+        title = it.get("title") or ""
+        if any(similar(title, t) for t in seen_titles + titles):
+            continue
+        hit = best_match(_compare_text(it), blobs, tie_break=tie_break)
+        if hit:
+            blocked.append((it, hit))
+            continue
+        kept.append(it)
+        titles.append(title)
+        blobs.append(title)
+    return kept, blocked
+
+
+def deduped(items):
+    kept, _blocked = classify(items)
+    return kept
 
 
 def candidates_of(items):
@@ -710,7 +752,13 @@ def publish(item, text, dry):
         return False
     base = ["post.py", item["id"], "--text-file", path]
     rc, out, err = run(base + ["--dry-run"], timeout=60)
-    log(f"post.py --dry-run {item['id']} rc={rc}\n{out}{err}")
+    blob = (out or "") + (err or "")
+    log(f"post.py --dry-run {item['id']} rc={rc}\n{blob}")
+    if "DUPLICATE:" in blob:
+        log("DUPLICATE: counting as posted")
+        if not dry:
+            _remember_dup(item)
+        return True
     if rc != 0 or dry:
         return rc == 0
     rc, out, err = run(base, timeout=180)
@@ -718,8 +766,19 @@ def publish(item, text, dry):
     log(f"post.py SEND {item['id']} rc={rc}\n{redact(blob)}")
     if "DUPLICATE:" in blob:
         log("DUPLICATE: counting as posted")
+        _remember_dup(item)
         return True
     return rc == 0 and '"ok": true' in (out or "")
+
+
+def _remember_dup(item):
+    """The channel already has this story. Don't draft the same URL again."""
+    if not item.get("id"):
+        return
+    st = load_state()
+    if item["id"] not in st["seen"]:
+        mark(st, item, "skipped")
+        save_state(st)
 
 
 def mark_skipped(items):
@@ -840,9 +899,16 @@ def main(argv=None):
     for it in load_json(ITEMS_FILE, {}).get("items") or []:
         if it.get("id", "").startswith("x:"):
             pool.append(it)
-    junk = [it for it in deduped(pool) if is_junk(it)]
-    picked = candidates_of(pool)
-    log(f"candidates {len(picked)} (junk filtered {len(junk)}, tips {len(tips)})")
+    kept, blocked = classify(pool)
+    for it, why in blocked:
+        log(f"story dup [{it.get('id')}] ~ {why[:140]}")
+    if not a.dry_run and blocked:
+        mark_skipped([it for it, _why in blocked])
+    junk = [it for it in kept if is_junk(it)]
+    picked = [it for it in kept if not is_junk(it)]
+    picked.sort(key=lambda it: (rank(it), it.get("published") or ""), reverse=True)
+    picked = picked[:MAX_CANDIDATES]
+    log(f"candidates {len(picked)} (junk filtered {len(junk)}, story dups {len(blocked)}, tips {len(tips)})")
     for it in picked:
         log(f"  [{it['id']}] {it.get('source')} | {it.get('title')}")
     if not picked:

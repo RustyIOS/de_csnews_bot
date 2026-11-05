@@ -132,3 +132,7 @@ Format: date · post · what went wrong · root cause · check that now prevents
     and still see media + demoted-with-rank. Set `live_tiers` to `"all"` to restore previous live coverage.
     Check: with only streamer/Stake Pulse on, `live.py --gate` / `collector.py --check` must print IDLE / needed=[].
     In-progress media matches → stop live, put results in `daily_extra.json` for the evening recap.
+
+26. 2026-11-05 · posts 331 and 337 · the same 1win / Rolls-Royce Major promise went out from Dust2 at 11:02 and again from Reddit at 17:04. The CS2 patch (330 Steam, 333 cs3news) and the FISSURE debt note (327 HLTV on Nov 4, 334 acenewscs on Nov 5) doubled the same way.
+    Cause: `news_auto.deduped` only dropped a seen id, the same URL, or an English title with `similar()` at 0.85 (Dust2 vs Reddit was about 0.40). `post.py` `find_dup` looked back 3 hours and required the same first line, or a shared score plus two latin words. News headlines have no score, and these repeats were 6–15 hours apart.
+    Check: `story_dedup.py` treats two headlines as one story when the names and the remaining words line up, and compares a candidate with what the channel already published (daily «Тема:», `sent_log.json`, posted source titles) for 48 hours. `post.py` refuses that news duplicate; the 3-hour score check for live posts is unchanged. A borderline pair can ask Gemini one yes/no. `tests/test_story_dedup.py` must block the Rolls-Royce pair, the patch pair, and the FISSURE pair.

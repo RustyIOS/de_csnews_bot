@@ -4409,6 +4409,48 @@
       "url": "https://t.me/raiznews/62392",
       "source": "Telegram / cs2news",
       "marked_at": "2026-11-04T23:02:39+03:00"
+    },
+    "steam:1848557880481353": {
+      "status": "posted",
+      "title": "Counter-Strike 2 Update",
+      "url": "https://store.steampowered.com/news/app/730/view/1848557880481353",
+      "source": "Counter-Strike 2 (Steam)",
+      "marked_at": "2026-11-05T11:01:27+03:00"
+    },
+    "dust2us:news79654": {
+      "status": "posted",
+      "title": "1win, BC.Game promise players Rolls-Royces if they win the Singapore Major",
+      "url": "https://www.dust2.us/news/79654/1win-bcgame-promise-players-rolls-royces-if-they-win-the-singapore-major",
+      "source": "Dust2.us",
+      "marked_at": "2026-11-05T11:02:43+03:00"
+    },
+    "tg:csgo:9839": {
+      "status": "posted",
+      "title": "😍 НОВАЯ ЛЕГЕНДАРНАЯ ОБНОВА НА FACEIT!",
+      "url": "https://t.me/csgo/9839",
+      "source": "Telegram / csgo",
+      "marked_at": "2026-11-05T11:03:59+03:00"
+    },
+    "dust2us:news79652": {
+      "status": "skipped",
+      "title": "FaZe, 100 Thieves, and Wildcard players comprise rookie class of Singapore Major",
+      "url": "https://www.dust2.us/news/79652/faze-100-thieves-and-wildcard-players-comprise-rookie-class-of-singapore-major",
+      "source": "Dust2.us",
+      "marked_at": "2026-11-05T11:03:59+03:00"
+    },
+    "tg:cs3news:19530": {
+      "status": "skipped",
+      "title": "🇷🇺 donk + 4 легенды Counter-Strike — как вам такой составчик?",
+      "url": "https://t.me/cs3news/19530",
+      "source": "Telegram / cs3news",
+      "marked_at": "2026-11-05T11:03:59+03:00"
+    },
+    "tg:cs3news:19529": {
+      "status": "skipped",
+      "title": "🤔 Какие рекомендации есть для Falcons?",
+      "url": "https://t.me/cs3news/19529",
+      "source": "Telegram / cs3news",
+      "marked_at": "2026-11-05T11:03:59+03:00"
     }
   },
   "match_announcements": {

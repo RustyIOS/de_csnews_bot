@@ -20,6 +20,10 @@ import argparse, html, json, os, re, sys, subprocess, tempfile
 import requests
 from common import (ITEMS_FILE, CHANNEL_ID, UA, load_json, load_state, save_state, mark)
 from daily_digest import record_sent
+from story_dedup import (
+    NEWS_WINDOW_HOURS, best_match, default_tie_break, digest_topics, headline_of,
+    recent_seen_titles, sent_heads, sent_log_path,
+)
 
 SOURCE_LABELS = {"Counter-Strike 2 (Steam)": "Steam / Valve"}
 
@@ -83,8 +87,9 @@ def validate_image(path):
         sys.exit(f"BROKEN IMAGE: {path}: {e}")
 
 
-SENT_LOG = os.path.join(os.path.dirname(os.path.abspath(__file__)), "sent_log.json")
-DEDUP_HOURS = 3
+DEDUP_HOURS = 3          # live/announce: same first line, or a shared score and two names
+# News repeats (Dust2 at 11:02, Reddit at 17:04) sit outside that window and have no score.
+# sent_log.json path: story_dedup.sent_log_path() (override with SENT_LOG in the environment).
 
 
 def fingerprint(body):
@@ -96,18 +101,70 @@ def fingerprint(body):
     return sorted(words), sorted(scores)
 
 
-def find_dup(body, chat, hours=DEDUP_HOURS):
+_DEFAULT_TIE = object()
+
+
+def find_dup(body, chat, hours=DEDUP_HOURS, news=False, now=None, headlines=None, log=None,
+             tie_break=_DEFAULT_TIE, seen=None):
+    """A recent channel post this body would repeat.
+
+    `hours` (default 3) is the live window: identical first line, or a shared
+    score plus two latin words. News also looks back 48 hours at the headline
+    against sent_log, the daily digest «Тема:» lines, and source titles we
+    already posted. `headlines` / `log` / `seen` stand in for those files in tests.
+    """
     import time
+    now = time.time() if now is None else now
+    records = load_json(sent_log_path(), []) if log is None else log
     words, scores = fingerprint(body)
-    for r in load_json(SENT_LOG, []):
-        if r.get("chat") != str(chat) or time.time() - r.get("ts", 0) > hours * 3600:
+    first = (re.sub(r"<[^>]+>", "", body).strip().splitlines() or [""])[0]
+    for r in records:
+        if not isinstance(r, dict):
+            continue
+        if r.get("chat") != str(chat) or now - r.get("ts", 0) > hours * 3600:
             continue
         w2, s2 = set(r.get("words", [])), set(r.get("scores", []))
-        if r.get("first") and r["first"] == (re.sub(r"<[^>]+>", "", body).strip().splitlines() or [""])[0]:
+        if r.get("first") and r["first"] == first:
             return r
         if scores and set(scores) & s2 and len(set(words) & w2) >= 2:
             return r
-    return None
+    if not news:
+        return None
+    head = headline_of(body)
+    if not head:
+        return None
+    prev = []
+    labeled = []
+    for r in records:
+        if not isinstance(r, dict) or r.get("chat") != str(chat):
+            continue
+        try:
+            age = now - float(r.get("ts") or 0)
+        except (TypeError, ValueError):
+            continue
+        if age > NEWS_WINDOW_HOURS * 3600 or age < -60 or not r.get("first"):
+            continue
+        prev.append(r["first"])
+        labeled.append(r)
+    if headlines is None:
+        extra = digest_topics() if str(chat) in {str(CHANNEL_ID), "de_csnews", "@de_csnews"} else []
+        if seen is None:
+            seen = (load_state().get("seen") or {})
+        extra.extend(recent_seen_titles(seen))
+    else:
+        extra = list(headlines)
+    # sent_heads covers the same rows as `labeled` when log is the file; tests pass `log`.
+    if log is None and headlines is None:
+        extra.extend(sent_heads(chat, now_epoch=now))
+    if tie_break is _DEFAULT_TIE:
+        tie_break = default_tie_break()
+    match = best_match(head, prev + extra, tie_break=tie_break)
+    if not match:
+        return None
+    for r in labeled:
+        if r.get("first") == match:
+            return r
+    return {"message_id": None, "first": match, "chat": str(chat)}
 
 
 def main():
@@ -121,7 +178,8 @@ def main():
     ap.add_argument("--no-source", action="store_true", help="omit the 'Источник' line (match results, announcements)")
     ap.add_argument("--title")
     ap.add_argument("--no-gap", action="store_true", help="skip the 75 s spacing after the previous channel post")
-    ap.add_argument("--force-dup", action="store_true", help="send even if a similar post went out in the last 3 h")
+    ap.add_argument("--force-dup", action="store_true",
+                    help="send even if this repeats a post (3 h for a score line, 48 h for the same news story)")
     a = ap.parse_args()
 
     items = {i["id"]: i for i in load_json(ITEMS_FILE, {}).get("items", [])}
@@ -190,7 +248,16 @@ def main():
         payload_show = dict(payload, photo=f"<upload {image} ({os.path.getsize(image)} bytes)>")
     else:
         payload_show = payload
+    def _refuse_if_dup():
+        d = find_dup(body, a.chat, news=not a.no_source)
+        if not d:
+            return
+        sys.exit(f"DUPLICATE: similar post already sent (message {d.get('message_id')}, {d.get('first')!r}). "
+                 f"Not sent. Use --force-dup only if it is really a different post.")
+
     if a.dry_run:
+        if not a.force_dup:
+            _refuse_if_dup()
         print(json.dumps({"method": method, "visible_chars": n, "payload": payload_show,
                           "fallback": "sendMessage" if image else None}, ensure_ascii=False, indent=2))
         print("\n--- caption/text as written ---\n" + body)
@@ -201,17 +268,15 @@ def main():
         sys.exit("TELEGRAM_BOT_TOKEN not set")
     # dedup guard (lesson 21): hold an exclusive lock across check+send+log so two parallel runs can't both send
     import fcntl, time
-    _lk = open(SENT_LOG + ".lock", "w"); fcntl.flock(_lk, fcntl.LOCK_EX)
+    _log_path = sent_log_path()
+    _lk = open(_log_path + ".lock", "w"); fcntl.flock(_lk, fcntl.LOCK_EX)
     if not a.force_dup:
-        d = find_dup(body, a.chat)
-        if d:
-            sys.exit(f"DUPLICATE: similar post already sent (message {d.get('message_id')}, {d.get('first')!r}). "
-                     f"Not sent. Use --force-dup only if it is really a different post.")
+        _refuse_if_dup()
     # burst guard (lesson 23): >= 75 s between channel posts (lock is held, so queued senders line up)
     if not a.no_gap:
         try:
             _gap = int(os.environ.get("LIVE_GAP_SEC", "75"))
-            _last = max([float(r.get("ts") or 0) for r in json.load(open(SENT_LOG)) if str(r.get("chat")) == str(a.chat)] or [0])
+            _last = max([float(r.get("ts") or 0) for r in json.load(open(_log_path)) if str(r.get("chat")) == str(a.chat)] or [0])
             _w = min(_gap, _last + _gap - time.time())
             if _w > 0:
                 print(f"gap: waiting {_w:.0f}s after previous post", file=sys.stderr); time.sleep(_w)
@@ -245,12 +310,13 @@ def main():
         sys.exit(f"Telegram error: {res.get('description')}")
     msg = res["result"]
     words, scores = fingerprint(body)
-    log = [r for r in load_json(SENT_LOG, []) if time.time() - r.get("ts", 0) < 86400]
+    # Keep 48 h so a news story posted this morning is still visible tonight and tomorrow.
+    log = [r for r in load_json(_log_path, []) if time.time() - r.get("ts", 0) < NEWS_WINDOW_HOURS * 3600]
     log.append({"ts": time.time(), "chat": str(a.chat), "message_id": msg.get("message_id"),
                 "first": (re.sub(r"<[^>]+>", "", body).strip().splitlines() or [""])[0], "words": words, "scores": scores})
-    with open(SENT_LOG + ".tmp", "w") as f:
+    with open(_log_path + ".tmp", "w") as f:
         json.dump(log, f, ensure_ascii=False)
-    os.replace(SENT_LOG + ".tmp", SENT_LOG)
+    os.replace(_log_path + ".tmp", _log_path)
     try:
         record_sent(
             message_id=msg.get("message_id"),

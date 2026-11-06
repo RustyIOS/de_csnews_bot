@@ -4703,6 +4703,41 @@
       "url": "https://www.hltv.org/news/45920/the-evps-and-all-stars-of-pgl-masters-bucharest",
       "source": "HLTV",
       "marked_at": "2026-11-06T11:03:47+03:00"
+    },
+    "tg:csgo:9844": {
+      "status": "skipped",
+      "title": "⚡️ЗЕЛЕНЫЙ ФАКТОР МОЖНО ВЕРНУТЬ — достаточно просто написать на почту Valve.",
+      "url": "https://t.me/csgo/9844",
+      "source": "Telegram / csgo",
+      "marked_at": "2026-11-06T14:01:18+03:00"
+    },
+    "hltv:hltvnews45923": {
+      "status": "skipped",
+      "title": "NAVI reverse-sweep PARIVISION to make the semi-finals in Beijing",
+      "url": "https://www.hltv.org/news/45923/navi-reverse-sweep-parivision-to-make-the-semi-finals-in-beijing",
+      "source": "HLTV",
+      "marked_at": "2026-11-06T14:01:18+03:00"
+    },
+    "tg:cs2news:62447": {
+      "status": "skipped",
+      "title": "🇪🇺 NAVI впервые с победной Атланты сыграют в полуфинале!",
+      "url": "https://t.me/raiznews/62447",
+      "source": "Telegram / cs2news",
+      "marked_at": "2026-11-06T14:01:18+03:00"
+    },
+    "tg:cs3news:19582": {
+      "status": "skipped",
+      "title": "☺️ Спустя полгода 🇪🇺 NAVI наконец-то смогли до полуфинальной стадии турнира:",
+      "url": "https://t.me/cs3news/19582",
+      "source": "Telegram / cs3news",
+      "marked_at": "2026-11-06T14:01:18+03:00"
+    },
+    "reddit:t3_1xp8tj0": {
+      "status": "skipped",
+      "title": "Does any other org compare to Navi's track record of amazing AWPers (or just players all in the same role) that played for their team?",
+      "url": "https://www.reddit.com/r/GlobalOffensive/comments/1xp8tj0/does_any_other_org_compare_to_navis_track_record/",
+      "source": "Reddit",
+      "marked_at": "2026-11-06T14:01:18+03:00"
     }
   },
   "match_announcements": {

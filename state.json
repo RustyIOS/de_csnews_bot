@@ -4647,6 +4647,62 @@
       "url": "https://t.me/raiznews/62415",
       "source": "Telegram / cs2news",
       "marked_at": "2026-11-05T23:01:29+03:00"
+    },
+    "dust2us:news79682": {
+      "status": "skipped",
+      "title": "DarfMike, Mauisnake among NA names on BLAST Rivals Fall 2026 talent list",
+      "url": "https://www.dust2.us/news/79682/darfmike-mauisnake-among-na-names-on-blast-rivals-fall-2026-talent-list",
+      "source": "Dust2.us",
+      "marked_at": "2026-11-06T11:01:11+03:00"
+    },
+    "dust2us:news79678": {
+      "status": "posted",
+      "title": "NA Counter-Strike legend Rambo nominated for HLTV Hall of Fame",
+      "url": "https://www.dust2.us/news/79678/na-counter-strike-legend-rambo-nominated-for-hltv-hall-of-fame",
+      "source": "Dust2.us",
+      "marked_at": "2026-11-06T11:01:16+03:00"
+    },
+    "dust2us:news79679": {
+      "status": "posted",
+      "title": "Iowa Stormboar's H0NeST breaks into HLTV Top 50 Prospects at #33",
+      "url": "https://www.dust2.us/news/79679/iowa-stormboars-h0nest-breaks-into-hltv-top-50-prospects-at-33",
+      "source": "Dust2.us",
+      "marked_at": "2026-11-06T11:02:31+03:00"
+    },
+    "dust2us:news79674": {
+      "status": "posted",
+      "title": "Stake announces Swedish Pulse LAN series will continue in 2027 with six LANs",
+      "url": "https://www.dust2.us/news/79674/stake-announces-swedish-pulse-lan-series-will-continue-in-2027-with-six-lans",
+      "source": "Dust2.us",
+      "marked_at": "2026-11-06T11:03:47+03:00"
+    },
+    "reddit:t3_1xou9al": {
+      "status": "skipped",
+      "title": "Pro CS broadcasts should show the mistake that led to a highlight, not just the highlight",
+      "url": "https://www.reddit.com/r/GlobalOffensive/comments/1xou9al/pro_cs_broadcasts_should_show_the_mistake_that/",
+      "source": "Reddit",
+      "marked_at": "2026-11-06T11:03:47+03:00"
+    },
+    "hltv:hltvnews45922": {
+      "status": "skipped",
+      "title": "The best highlights from IEM Beijing playoffs",
+      "url": "https://www.hltv.org/news/45922/the-best-highlights-from-iem-beijing-playoffs",
+      "source": "HLTV",
+      "marked_at": "2026-11-06T11:03:47+03:00"
+    },
+    "tg:cs2news:62426": {
+      "status": "skipped",
+      "title": "🇧🇷 FURIA удерживают серию из пяти побед подряд против 🇷🇺 BB Team!",
+      "url": "https://t.me/raiznews/62426",
+      "source": "Telegram / cs2news",
+      "marked_at": "2026-11-06T11:03:47+03:00"
+    },
+    "hltv:hltvnews45920": {
+      "status": "skipped",
+      "title": "The EVPs and All-Stars of PGL Masters Bucharest",
+      "url": "https://www.hltv.org/news/45920/the-evps-and-all-stars-of-pgl-masters-bucharest",
+      "source": "HLTV",
+      "marked_at": "2026-11-06T11:03:47+03:00"
     }
   },
   "match_announcements": {

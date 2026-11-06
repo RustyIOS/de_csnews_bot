@@ -41,7 +41,9 @@
   "bo3:133051",
   "bo3:133050",
   "bo3:133043",
-  "bo3:133042"
+  "bo3:133042",
+  "bo3:133052",
+  "bo3:133053"
  ],
  "results_dates": [
   "2026-10-17",
@@ -50,7 +52,8 @@
   "2026-10-31",
   "2026-11-02",
   "2026-11-03",
-  "2026-11-04"
+  "2026-11-04",
+  "2026-11-06"
  ],
  "results_note": "2026-10-17 was posted from the box as https://t.me/de_csnews/147; Actions must not catch up",
  "news_slots": [

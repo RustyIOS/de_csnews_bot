@@ -4948,6 +4948,34 @@
       "url": "https://www.dust2.us/news/79714/faceit-holds-vote-to-let-players-decide-to-keep-or-remove-knife-rounds",
       "source": "Dust2.us",
       "marked_at": "2026-11-07T11:03:18+03:00"
+    },
+    "tg:cs3news:19656": {
+      "status": "posted",
+      "title": "🇪🇺 MOUZ должны быть легче, чем 🇧🇷 FURIA — 🇷🇺 zorte о предстоящем матче",
+      "url": "https://t.me/cs3news/19656",
+      "source": "Telegram / cs3news",
+      "marked_at": "2026-11-07T14:01:35+03:00"
+    },
+    "hltv:hltvnews45933": {
+      "status": "skipped",
+      "title": "The MongolZ beat NAVI to secure first Big Event grand final appearance in 14 months",
+      "url": "https://www.hltv.org/news/45933/the-mongolz-beat-navi-to-secure-first-big-event-grand-final-appearance-in-14-months",
+      "source": "HLTV",
+      "marked_at": "2026-11-07T14:01:35+03:00"
+    },
+    "tg:cs2news:62527": {
+      "status": "skipped",
+      "title": "🇲🇳 The MongolZ вышли в свой первый значимый финал за год!",
+      "url": "https://t.me/raiznews/62527",
+      "source": "Telegram / cs2news",
+      "marked_at": "2026-11-07T14:01:35+03:00"
+    },
+    "reddit:t3_1xq2nxz": {
+      "status": "skipped",
+      "title": "Valve’s actual philosophy with CS2 / CS:GO: “Let the updates do the talking”",
+      "url": "https://www.reddit.com/r/GlobalOffensive/comments/1xq2nxz/valves_actual_philosophy_with_cs2_csgo_let_the/",
+      "source": "Reddit",
+      "marked_at": "2026-11-07T14:01:35+03:00"
     }
   },
   "match_announcements": {

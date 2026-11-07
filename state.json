@@ -5060,6 +5060,83 @@
       "url": "https://www.reddit.com/r/GlobalOffensive/comments/1xq9d2q/white_silkie_pullet/",
       "source": "Reddit",
       "marked_at": "2026-11-07T20:01:22+03:00"
+    },
+    "hltv:hltvnews45940": {
+      "status": "skipped",
+      "title": "9z bench meyern ahead of Singapore Major",
+      "url": "https://www.hltv.org/news/45940/9z-bench-meyern-ahead-of-singapore-major",
+      "source": "HLTV",
+      "marked_at": "2026-11-07T23:01:13+03:00"
+    },
+    "tg:acenewscs:17120": {
+      "status": "skipped",
+      "title": "9️⃣ 9z планируют замены перед мейджором – слухи   🧾 Dust2 Brasil сообщают, что южноамериканская организация сыграет в Сингапуре с 🇧🇷 history",
+      "url": "https://t.me/acenewscs/17120",
+      "source": "Telegram / acenewscs",
+      "marked_at": "2026-11-07T23:01:13+03:00"
+    },
+    "tg:cs2news:62545": {
+      "status": "skipped",
+      "title": "⚡ chopper подтвердил HLTV, что завершает карьеру игрока после более 10 лет выступлений.",
+      "url": "https://t.me/raiznews/62545",
+      "source": "Telegram / cs2news",
+      "marked_at": "2026-11-07T23:01:13+03:00"
+    },
+    "reddit:t3_1xqcuid": {
+      "status": "skipped",
+      "title": "9z: -meyern",
+      "url": "https://www.reddit.com/r/GlobalOffensive/comments/1xqcuid/9z_meyern/",
+      "source": "Reddit",
+      "marked_at": "2026-11-07T23:01:13+03:00"
+    },
+    "tg:acenewscs:17119": {
+      "status": "posted",
+      "title": "🫡 Лёня chopper подтвердил 🔫 HLTV, что официально завершает карьеру игрока",
+      "url": "https://t.me/acenewscs/17119",
+      "source": "Telegram / acenewscs",
+      "marked_at": "2026-11-07T23:01:26+03:00"
+    },
+    "tg:cs2news:62546": {
+      "status": "posted",
+      "title": "⚡️ meyern на скамейке запасных в 🇺🇾 9z — официально!",
+      "url": "https://t.me/raiznews/62546",
+      "source": "Telegram / cs2news",
+      "marked_at": "2026-11-07T23:02:41+03:00"
+    },
+    "hltv:hltvnews45931": {
+      "status": "posted",
+      "title": "FL1T: \"This loss was very frustrating, but overall, I'm glad that we're growing as a team\"",
+      "url": "https://www.hltv.org/news/45931/fl1t-this-loss-was-very-frustrating-but-overall-im-glad-that-were-growing-as-a-team",
+      "source": "HLTV",
+      "marked_at": "2026-11-07T23:03:57+03:00"
+    },
+    "reddit:t3_1xqa987": {
+      "status": "skipped",
+      "title": "910 Facts",
+      "url": "https://www.reddit.com/r/GlobalOffensive/comments/1xqa987/910_facts/",
+      "source": "Reddit",
+      "marked_at": "2026-11-07T23:03:57+03:00"
+    },
+    "tg:cs2news:62550": {
+      "status": "skipped",
+      "title": "📹 Архивный ролик с тренировкой karrigan & NiKo в 2017 году",
+      "url": "https://t.me/raiznews/62550",
+      "source": "Telegram / cs2news",
+      "marked_at": "2026-11-07T23:03:57+03:00"
+    },
+    "dust2us:news79730": {
+      "status": "skipped",
+      "title": "$5k CCT NA Challengers #1 set to start today with Marsborne, DETONATE, and Villainous as favorites",
+      "url": "https://www.dust2.us/news/79730/5k-cct-na-challengers-1-set-to-start-today-with-marsborne-detonate-and-villainous-as-favorites",
+      "source": "Dust2.us",
+      "marked_at": "2026-11-07T23:03:57+03:00"
+    },
+    "tg:cs2news:62549": {
+      "status": "skipped",
+      "title": "🇷🇺 Вылет с 🙇‍♂️ IEM Beijing 2026 стал очень болезненным для FL1T:",
+      "url": "https://t.me/raiznews/62549",
+      "source": "Telegram / cs2news",
+      "marked_at": "2026-11-07T23:03:57+03:00"
     }
   },
   "match_announcements": {

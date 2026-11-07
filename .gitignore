@@ -7,6 +7,8 @@ __pycache__/
 collector.pid
 logs/
 drafts/
+publish_failure.json
+alert_dedup.json
 cards/out/
 live_buf/
 daily/

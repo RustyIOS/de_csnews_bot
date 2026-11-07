@@ -14,6 +14,8 @@ FILES=(
   live_queue.json
   collector_state.json
 )
+# Fingerprints of private failure DMs. Gitignored on main; kept on the state
+# branch so a retry of the same publication error does not DM again.
 
 # daily/YYYY-MM-DD.md is the per-day channel digest. It is gitignored on main
 # (so a local run cannot land it on the code branch) and force-added here.
@@ -60,6 +62,9 @@ pull() {
     if git cat-file -e "origin/${BRANCH}:daily" 2>/dev/null; then
       git checkout "origin/${BRANCH}" -- daily
     fi
+    if git cat-file -e "origin/${BRANCH}:alert_dedup.json" 2>/dev/null; then
+      git checkout "origin/${BRANCH}" -- alert_dedup.json
+    fi
     echo "state: pulled ${BRANCH}"
   else
     echo "state: branch ${BRANCH} is not on origin yet; using the copies in this checkout"
@@ -100,10 +105,16 @@ push() {
     cp "$f" "$STATE_TMP/$f"
   done
   copy_daily
+  if [[ -f alert_dedup.json ]]; then
+    cp alert_dedup.json "$STATE_TMP/alert_dedup.json"
+  fi
   git -C "$STATE_TMP" config user.email "41898282+github-actions[bot]@users.noreply.github.com"
   git -C "$STATE_TMP" config user.name "github-actions[bot]"
   git -C "$STATE_TMP" add -- "${FILES[@]}"
   stage_daily
+  if [[ -f "$STATE_TMP/alert_dedup.json" ]]; then
+    git -C "$STATE_TMP" add -f -- alert_dedup.json
+  fi
   if git -C "$STATE_TMP" diff --cached --quiet; then
     echo "state: unchanged"
     return 0

@@ -93,9 +93,24 @@ jobs:
         if: steps.plan.outputs.action == 'run'
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_ALERT_CHAT_ID: ${{ secrets.TELEGRAM_ALERT_CHAT_ID }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
         run: python3 scripts/gha_run.py
+
+      # Backup DM if the publication process was killed before it could send.
+      # continue-on-error keeps a Telegram outage from replacing the original failure.
+      # Skips and dry-runs do not write publish_failure.json, so this sends nothing.
+      - name: Alert publication failure
+        if: >-
+          failure() &&
+          steps.exec.outcome == 'failure' &&
+          github.event.inputs.dry_run != 'true'
+        continue-on-error: true
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_ALERT_CHAT_ID: ${{ secrets.TELEGRAM_ALERT_CHAT_ID }}
+        run: python3 notify_error.py --report publish_failure.json
 
       - name: Upload dry-run card
         if: steps.plan.outputs.action == 'run' && github.event.inputs.dry_run == 'true'

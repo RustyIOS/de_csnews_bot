@@ -14,6 +14,9 @@ News slots are 10:51, 13:51, 16:51, 19:51 and 22:51 MSK, with a 20-minute catch-
 A due news slot is taken before a still-open morning announce, so the 10:51
 window is not stuck behind the announce catch-up (until 12:00). A real send
 happens only when POSTING_ENABLED is true and dry_run is not set.
+A non-zero exit from a real send writes publish_failure.json and DMs
+TELEGRAM_ALERT_CHAT_ID (see notify_error.py). Skips, empty results, and
+dry-runs do not. The alert cannot change this process's exit code.
 Calling that path often is safe: one announce and one results post per day
 (a morning with nothing notable counts as that announce), one news pass per
 slot, live posts nothing when there is nothing new, and a second overlapping
@@ -183,25 +186,72 @@ def emit(action):
             f.write(f"action={action}\n")
 
 
+def _run_stream(args):
+    """Run a publication script, streaming its log and keeping a short tail."""
+    proc = subprocess.Popen(
+        args, cwd=ROOT, stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+        text=True, encoding="utf-8", errors="replace", bufsize=1,
+    )
+    parts = []
+    size = 0
+    for line in proc.stdout:
+        sys.stdout.write(line)
+        sys.stdout.flush()
+        parts.append(line)
+        size += len(line)
+        if size > 100_000:
+            while parts and size > 80_000:
+                size -= len(parts.pop(0))
+    return proc.wait(), "".join(parts)
+
+
+def _pending_report(stage):
+    try:
+        import notify_error
+        notify_error.write_pending(stage)
+    except Exception as ex:
+        print(f"alert: could not record failure report ({ex.__class__.__name__})", flush=True)
+
+
+def _clear_report():
+    try:
+        import notify_error
+        notify_error.clear_report()
+    except Exception as ex:
+        print(f"alert: could not clear failure report ({ex.__class__.__name__})", flush=True)
+
+
+def _alert(stage, tail, rc):
+    try:
+        import notify_error
+        notify_error.alert_publication(platform="telegram", stage=stage, output=tail, returncode=rc)
+    except Exception as ex:
+        print(f"alert: not delivered ({ex.__class__.__name__})", flush=True)
+
+
 def call_gate():
     p = subprocess.run([sys.executable, "live.py", "--gate"], cwd=ROOT, capture_output=True, text=True, timeout=180)
     sys.stdout.write(p.stdout or "")
     sys.stderr.write(p.stderr or "")
+    text = (p.stdout or "") + (p.stderr or "")
     if p.returncode != 0:
-        return "FAIL"
+        return "FAIL", text
     line = next((ln.strip() for ln in (p.stdout or "").splitlines() if ln.strip()), "")
     word = line.split(":", 1)[0].strip().upper()
-    return word if word in ("IDLE", "BUSY", "ACTIVE") else "FAIL"
+    kind = word if word in ("IDLE", "BUSY", "ACTIVE") else "FAIL"
+    return kind, text
 
 
 def run_live(dry):
-    kind = call_gate()
+    kind, gate_text = call_gate()
     if kind != "ACTIVE":
         print(f"live gate {kind}; not posting", flush=True)
-        return 0 if kind in ("IDLE", "BUSY") else 1
+        rc = 0 if kind in ("IDLE", "BUSY") else 1
+        return rc, gate_text + f"live gate {kind}; not posting\n"
     try:
         args = [sys.executable, "live_auto.py"] + (["--dry-run"] if dry else [])
-        return subprocess.run(args, cwd=ROOT).returncode
+        rc, tail = _run_stream(args)
+        return rc, gate_text + tail
     finally:
         subprocess.run([sys.executable, "live.py", "--release"], cwd=ROOT)
 
@@ -209,15 +259,16 @@ def run_live(dry):
 def execute(mode, dry):
     flag = ["--dry-run"] if dry else []
     if mode == "announce":
-        return subprocess.run([sys.executable, "announce_auto.py", *flag], cwd=ROOT).returncode
+        return _run_stream([sys.executable, "announce_auto.py", *flag])
     if mode == "results":
-        return subprocess.run([sys.executable, "results_auto.py", *flag], cwd=ROOT).returncode
+        return _run_stream([sys.executable, "results_auto.py", *flag])
     if mode == "live":
         return run_live(dry)
     if mode == "news":
-        return subprocess.run([sys.executable, "news_auto.py", *flag], cwd=ROOT).returncode
-    print(f"unknown mode {mode}", flush=True)
-    return 1
+        return _run_stream([sys.executable, "news_auto.py", *flag])
+    msg = f"unknown mode {mode}\n"
+    print(msg, end="", flush=True)
+    return 1, msg
 
 
 def main(argv=None):
@@ -234,9 +285,20 @@ def main(argv=None):
     if a.preflight:
         emit(action)
         return 0
+    _clear_report()
     if action == "skip":
         return 0
-    return execute(concrete, dry)
+    if not dry:
+        _pending_report(concrete)
+    rc, tail = execute(concrete, dry)
+    if dry or rc == 0:
+        if not dry:
+            _clear_report()
+        if rc != 0 and dry:
+            print("alert: dry-run, not sending", flush=True)
+        return rc
+    _alert(concrete, tail, rc)
+    return rc
 
 
 if __name__ == "__main__":

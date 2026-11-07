@@ -5226,34 +5226,12 @@
     }
   },
   "live_events": {
-    "bo3:133041": {
-      "seen": [
-        "match:finished"
-      ],
-      "updated": "2026-11-04T10:01:13+03:00",
-      "match_status": "finished"
-    },
-    "bo3:133040": {
-      "seen": [
-        "match:finished"
-      ],
-      "updated": "2026-11-04T10:02:29+03:00",
-      "match_status": "finished"
-    },
     "bo3:133050": {
       "seen": [
         "match:start",
         "match:finished"
       ],
       "updated": "2026-11-04T13:10:51+03:00",
-      "match_status": "finished"
-    },
-    "bo3:133051": {
-      "seen": [
-        "match:start",
-        "match:finished"
-      ],
-      "updated": "2026-11-04T11:50:50+03:00",
       "match_status": "finished"
     },
     "bo3:133043": {
@@ -5290,10 +5268,11 @@
     },
     "bo3:133054": {
       "seen": [
-        "match:start"
+        "match:start",
+        "match:finished"
       ],
-      "updated": "2026-11-07T10:01:08+03:00",
-      "match_status": "current"
+      "updated": "2026-11-07T12:01:13+03:00",
+      "match_status": "finished"
     }
   },
   "tournament_announcements": {

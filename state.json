@@ -5200,6 +5200,55 @@
       "url": "https://www.reddit.com/r/GlobalOffensive/comments/1xqjuy4/they_told_me_clutch_or_kick/",
       "source": "Reddit",
       "marked_at": "2026-11-08T11:02:39+03:00"
+    },
+    "reddit:t3_1xqvesl": {
+      "status": "skipped",
+      "title": "xertioN — MVP IEM Beijing 2026",
+      "url": "https://www.reddit.com/r/GlobalOffensive/comments/1xqvesl/xertion_mvp_iem_beijing_2026/",
+      "source": "Reddit",
+      "marked_at": "2026-11-08T14:01:10+03:00"
+    },
+    "hltv:hltvnews45943": {
+      "status": "posted",
+      "title": "xertioN secures first MVP at IEM Beijing",
+      "url": "https://www.hltv.org/news/45943/xertion-secures-first-mvp-at-iem-beijing",
+      "source": "HLTV",
+      "marked_at": "2026-11-08T14:01:21+03:00"
+    },
+    "hltv:hltvnews45941": {
+      "status": "skipped",
+      "title": "IEM Beijing grand final as it happened",
+      "url": "https://www.hltv.org/news/45941/iem-beijing-grand-final-as-it-happened",
+      "source": "HLTV",
+      "marked_at": "2026-11-08T14:01:21+03:00"
+    },
+    "hltv:hltvnews45942": {
+      "status": "skipped",
+      "title": "MOUZ dominate The MongolZ to complete flawless run to IEM Beijing trophy",
+      "url": "https://www.hltv.org/news/45942/mouz-dominate-the-mongolz-to-complete-flawless-run-to-iem-beijing-trophy",
+      "source": "HLTV",
+      "marked_at": "2026-11-08T14:01:21+03:00"
+    },
+    "tg:acenewscs:17153": {
+      "status": "skipped",
+      "title": "😎 🐭 MOUZ исторически легко проехались по соперникам на этом турнире",
+      "url": "https://t.me/acenewscs/17153",
+      "source": "Telegram / acenewscs",
+      "marked_at": "2026-11-08T14:01:21+03:00"
+    },
+    "tg:cs3news:19709": {
+      "status": "skipped",
+      "title": "❓ И ради этого финала мы вставали в 5 утра на протяжении турнира?",
+      "url": "https://t.me/cs3news/19709",
+      "source": "Telegram / cs3news",
+      "marked_at": "2026-11-08T14:01:21+03:00"
+    },
+    "tg:cs2news:62577": {
+      "status": "skipped",
+      "title": "🐐 Спидран IEM Beijing 2026 от 🇪🇺 MOUZ — завершили турнир без проигранных карт!",
+      "url": "https://t.me/raiznews/62577",
+      "source": "Telegram / cs2news",
+      "marked_at": "2026-11-08T14:01:21+03:00"
     }
   },
   "match_announcements": {

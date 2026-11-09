@@ -5487,6 +5487,41 @@
       "url": "https://t.me/acenewscs/17187",
       "source": "Telegram / acenewscs",
       "marked_at": "2026-11-09T20:01:32+03:00"
+    },
+    "hltv:hltvnews45952": {
+      "status": "posted",
+      "title": "MOUZ claim No.1 in world rankings after Beijing title",
+      "url": "https://www.hltv.org/news/45952/mouz-claim-no1-in-world-rankings-after-beijing-title",
+      "source": "HLTV",
+      "marked_at": "2026-11-09T23:01:22+03:00"
+    },
+    "hltv:hltvnews45934": {
+      "status": "skipped",
+      "title": "FalleN: \"I don't really know the other version of myself, someone who has time to actually do other things\"",
+      "url": "https://www.hltv.org/news/45934/fallen-i-dont-really-know-the-other-version-of-myself-someone-who-has-time-to-actually-do-other-things",
+      "source": "HLTV",
+      "marked_at": "2026-11-09T23:01:22+03:00"
+    },
+    "dust2us:news79778": {
+      "status": "skipped",
+      "title": "Marsborne top CCT NA Challengers #1",
+      "url": "https://www.dust2.us/news/79778/marsborne-top-cct-na-challengers-1",
+      "source": "Dust2.us",
+      "marked_at": "2026-11-09T23:01:22+03:00"
+    },
+    "tg:cs2news:62639": {
+      "status": "skipped",
+      "title": "🔥 Агенты и Кейсы потеряли уже более 20% стоимости за 3 месяца — все остальные лоты также теряют в цене.",
+      "url": "https://t.me/raiznews/62639",
+      "source": "Telegram / cs2news",
+      "marked_at": "2026-11-09T23:01:22+03:00"
+    },
+    "tg:csgo:9862": {
+      "status": "skipped",
+      "title": "ЕБАТЬ! ВАНДЕРФУЛ МОГ ПОЛУЧИТЬ MVP ДАЖЕ ЗА ТРЕТЬЕ МЕСТО 😎",
+      "url": "https://t.me/csgo/9862",
+      "source": "Telegram / csgo",
+      "marked_at": "2026-11-09T23:01:22+03:00"
     }
   },
   "match_announcements": {

@@ -5431,6 +5431,48 @@
       "url": "https://www.reddit.com/r/GlobalOffensive/comments/1xrowb6/pgl_major_singapore_2026_team_rosters_official/",
       "source": "Reddit",
       "marked_at": "2026-11-09T17:01:12+03:00"
+    },
+    "hltv:hltvnews45950": {
+      "status": "skipped",
+      "title": "PGL reveals Singapore Major rosters",
+      "url": "https://www.hltv.org/news/45950/pgl-reveals-singapore-major-rosters",
+      "source": "HLTV",
+      "marked_at": "2026-11-09T17:11:00+03:00"
+    },
+    "tg:cs2news:62618": {
+      "status": "posted",
+      "title": "🥚 GOSH и Titan The One — новые команды на мейджоре  🇪🇺 BCG и 🇷🇺 1win изменили нейминг по правилам Valve. А 🇷🇺 BB Team и 🇷🇺 PVISION остались ",
+      "url": "https://t.me/raiznews/62618",
+      "source": "Telegram / cs2news",
+      "marked_at": "2026-11-09T17:11:02+03:00"
+    },
+    "tg:cs3news:19732": {
+      "status": "posted",
+      "title": "🇺🇸 Америка может вновь принять мейджор от 🇩🇰 BLAST — на этот раз в Лас-Вегасе",
+      "url": "https://t.me/cs3news/19732",
+      "source": "Telegram / cs3news",
+      "marked_at": "2026-11-09T17:12:18+03:00"
+    },
+    "tg:acenewscs:17184": {
+      "status": "skipped",
+      "title": "Новая операция, ожидаемо — то, чего ждут практически все игроки ⏳  А теперь давайте задумаемся о более скромном обновлении, о котором, скоре",
+      "url": "https://t.me/acenewscs/17184",
+      "source": "Telegram / acenewscs",
+      "marked_at": "2026-11-09T17:12:18+03:00"
+    },
+    "tg:cs3news:19730": {
+      "status": "skipped",
+      "title": "🇺🇸 Аналитик Mauisnake составил собственный тир-лист перед мейджором в Сингапуре.",
+      "url": "https://t.me/cs3news/19730",
+      "source": "Telegram / cs3news",
+      "marked_at": "2026-11-09T17:12:18+03:00"
+    },
+    "reddit:t3_1xrq5tq": {
+      "status": "skipped",
+      "title": "Las Vegas targets BLAST partnership for 2028 Major",
+      "url": "https://www.reddit.com/r/GlobalOffensive/comments/1xrq5tq/las_vegas_targets_blast_partnership_for_2028_major/",
+      "source": "Reddit",
+      "marked_at": "2026-11-09T17:12:18+03:00"
     }
   },
   "match_announcements": {

@@ -5382,6 +5382,41 @@
       "url": "https://t.me/acenewscs/17175",
       "source": "Telegram / acenewscs",
       "marked_at": "2026-11-09T11:03:58+03:00"
+    },
+    "reddit:t3_1xrnp9x": {
+      "status": "skipped",
+      "title": "PGL announces name changes for four teams at Singapore Major (BCG to ‘GOSH’ & 1win to ‘THE ONE’)",
+      "url": "https://www.reddit.com/r/GlobalOffensive/comments/1xrnp9x/pgl_announces_name_changes_for_four_teams_at/",
+      "source": "Reddit",
+      "marked_at": "2026-11-09T14:01:08+03:00"
+    },
+    "hltv:hltvnews45947": {
+      "status": "posted",
+      "title": "PGL announces name changes for four teams at Singapore Major",
+      "url": "https://www.hltv.org/news/45947/pgl-announces-name-changes-for-four-teams-at-singapore-major",
+      "source": "HLTV",
+      "marked_at": "2026-11-09T14:01:23+03:00"
+    },
+    "tg:cs2news:62611": {
+      "status": "skipped",
+      "title": "🥚 GOSH и Titan The One — новые команды на мейджоре",
+      "url": "https://t.me/raiznews/62611",
+      "source": "Telegram / cs2news",
+      "marked_at": "2026-11-09T14:01:23+03:00"
+    },
+    "tg:acenewscs:17181": {
+      "status": "skipped",
+      "title": "🌠 ZywOo стал абсолютным доминантом на Cache после его возвращения",
+      "url": "https://t.me/acenewscs/17181",
+      "source": "Telegram / acenewscs",
+      "marked_at": "2026-11-09T14:01:23+03:00"
+    },
+    "reddit:t3_1xrlz0d": {
+      "status": "skipped",
+      "title": "PGL Major Singapore 2026 - Stage 1, 2, and 3 teams.",
+      "url": "https://www.reddit.com/r/GlobalOffensive/comments/1xrlz0d/pgl_major_singapore_2026_stage_1_2_and_3_teams/",
+      "source": "Reddit",
+      "marked_at": "2026-11-09T14:01:23+03:00"
     }
   },
   "match_announcements": {

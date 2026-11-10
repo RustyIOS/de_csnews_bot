@@ -5578,6 +5578,55 @@
       "url": "https://t.me/acenewscs/17198",
       "source": "Telegram / acenewscs",
       "marked_at": "2026-11-10T11:03:59+03:00"
+    },
+    "hltv:hltvnews45957": {
+      "status": "posted",
+      "title": "Virtus.pro sign Patsi",
+      "url": "https://www.hltv.org/news/45957/virtuspro-sign-patsi",
+      "source": "HLTV",
+      "marked_at": "2026-11-10T14:01:32+03:00"
+    },
+    "hltv:hltvnews45958": {
+      "status": "posted",
+      "title": "PGL Cluj-Napoca invites revealed",
+      "url": "https://www.hltv.org/news/45958/pgl-cluj-napoca-invites-revealed",
+      "source": "HLTV",
+      "marked_at": "2026-11-10T14:02:47+03:00"
+    },
+    "reddit:t3_1xsin2k": {
+      "status": "posted",
+      "title": "PGL Ulaanbaatar 2027 | April 14-26",
+      "url": "https://www.reddit.com/r/GlobalOffensive/comments/1xsin2k/pgl_ulaanbaatar_2027_april_1426/",
+      "source": "Reddit",
+      "marked_at": "2026-11-10T14:04:03+03:00"
+    },
+    "reddit:t3_1xshbow": {
+      "status": "skipped",
+      "title": "PGL Cluj-Napoca 2027 Lineup",
+      "url": "https://www.reddit.com/r/GlobalOffensive/comments/1xshbow/pgl_clujnapoca_2027_lineup/",
+      "source": "Reddit",
+      "marked_at": "2026-11-10T14:04:03+03:00"
+    },
+    "tg:cs2news:62648": {
+      "status": "skipped",
+      "title": "😭 Не верят люди в подопечных zonic — 🇩🇰 Falcons идут лишь пятыми по котировкам на победу в Гонконге.",
+      "url": "https://t.me/raiznews/62648",
+      "source": "Telegram / cs2news",
+      "marked_at": "2026-11-10T14:04:03+03:00"
+    },
+    "tg:cs3news:19753": {
+      "status": "skipped",
+      "title": "🇲🇳 Монголия примет турнир 🇷🇴 PGL в апреле 2027 года!",
+      "url": "https://t.me/cs3news/19753",
+      "source": "Telegram / cs3news",
+      "marked_at": "2026-11-10T14:04:03+03:00"
+    },
+    "tg:cs2news:62644": {
+      "status": "skipped",
+      "title": "🇷🇺 VP подают признаки жизни и подписали Patsi в основу!",
+      "url": "https://t.me/raiznews/62644",
+      "source": "Telegram / cs2news",
+      "marked_at": "2026-11-10T14:04:03+03:00"
     }
   },
   "match_announcements": {

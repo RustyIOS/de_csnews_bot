@@ -6047,6 +6047,62 @@
       "url": "https://t.me/acenewscs/17252",
       "source": "Telegram / acenewscs",
       "marked_at": "2026-11-11T23:01:19+03:00"
+    },
+    "tg:acenewscs:17256": {
+      "status": "posted",
+      "title": "😮 Очередное ночное обновление — в этот раз на аж на 1.1 ГБ:",
+      "url": "https://t.me/acenewscs/17256",
+      "source": "Telegram / acenewscs",
+      "marked_at": "2026-11-12T11:01:55+03:00"
+    },
+    "tg:acenewscs:17257": {
+      "status": "posted",
+      "title": "🥶 В файлах обновления нашли эффект \"мороза\", который оставляет следы на агентах и скинах",
+      "url": "https://t.me/acenewscs/17257",
+      "source": "Telegram / acenewscs",
+      "marked_at": "2026-11-12T11:03:11+03:00"
+    },
+    "hltv:hltvnews45975": {
+      "status": "skipped",
+      "title": "FURIA hand Vitality first-ever 13-0 defeat to make Rivals semi-finals",
+      "url": "https://www.hltv.org/news/45975/furia-hand-vitality-first-ever-13-0-defeat-to-make-rivals-semi-finals",
+      "source": "HLTV",
+      "marked_at": "2026-11-12T11:03:11+03:00"
+    },
+    "reddit:t3_1xu2n11": {
+      "status": "skipped",
+      "title": "Bardolph and DDK (Part 2)",
+      "url": "https://www.reddit.com/r/GlobalOffensive/comments/1xu2n11/bardolph_and_ddk_part_2/",
+      "source": "Reddit",
+      "marked_at": "2026-11-12T11:03:11+03:00"
+    },
+    "dust2us:news79861": {
+      "status": "skipped",
+      "title": "Frost effect found in new CS2 update files",
+      "url": "https://www.dust2.us/news/79861/frost-effect-found-in-new-cs2-update-files",
+      "source": "Dust2.us",
+      "marked_at": "2026-11-12T11:03:11+03:00"
+    },
+    "tg:acenewscs:17265": {
+      "status": "skipped",
+      "title": "🔫🔫 Valve поменяли положение рук от третьего лица — при этом в обновлении это не было указано",
+      "url": "https://t.me/acenewscs/17265",
+      "source": "Telegram / acenewscs",
+      "marked_at": "2026-11-12T11:03:11+03:00"
+    },
+    "tg:cs2news:62752": {
+      "status": "skipped",
+      "title": "Следом и 🇪🇺 flameZ бахает покер на банане!",
+      "url": "https://t.me/raiznews/62752",
+      "source": "Telegram / cs2news",
+      "marked_at": "2026-11-12T11:03:11+03:00"
+    },
+    "hltv:hltvnews45974": {
+      "status": "skipped",
+      "title": "Falcons crush Legacy to make Rivals playoffs",
+      "url": "https://www.hltv.org/news/45974/falcons-crush-legacy-to-make-rivals-playoffs",
+      "source": "HLTV",
+      "marked_at": "2026-11-12T11:03:11+03:00"
     }
   },
   "match_announcements": {

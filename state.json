@@ -6103,6 +6103,76 @@
       "url": "https://www.hltv.org/news/45974/falcons-crush-legacy-to-make-rivals-playoffs",
       "source": "HLTV",
       "marked_at": "2026-11-12T11:03:11+03:00"
+    },
+    "hltv:hltvnews45977": {
+      "status": "skipped",
+      "title": "MOUZ narrowly escape last-place elimination at BLAST against FUT",
+      "url": "https://www.hltv.org/news/45977/mouz-narrowly-escape-last-place-elimination-at-blast-against-fut",
+      "source": "HLTV",
+      "marked_at": "2026-11-12T14:01:15+03:00"
+    },
+    "tg:cs2news:62777": {
+      "status": "skipped",
+      "title": "🇪🇺 MOUZ все-таки дожимают бедных молодых пацанов и их тренера.",
+      "url": "https://t.me/raiznews/62777",
+      "source": "Telegram / cs2news",
+      "marked_at": "2026-11-12T14:01:15+03:00"
+    },
+    "tg:cs2news:62770": {
+      "status": "skipped",
+      "title": "🇪🇺 FUT с тренером побеждают 🇪🇺 MOUZ на первой карте!",
+      "url": "https://t.me/raiznews/62770",
+      "source": "Telegram / cs2news",
+      "marked_at": "2026-11-12T14:01:15+03:00"
+    },
+    "reddit:t3_1xtwjit": {
+      "status": "posted",
+      "title": "Counter-Strike 2 Update for 11/11/2026",
+      "url": "https://www.reddit.com/r/GlobalOffensive/comments/1xtwjit/counterstrike_2_update_for_11112026/",
+      "source": "Reddit",
+      "marked_at": "2026-11-12T14:01:27+03:00"
+    },
+    "tg:cs3news:19872": {
+      "status": "posted",
+      "title": "🇲🇦 Mirage — самая несбалансированная карта в текущем мап-пуле, по мнению 🇱🇻 YEKINDAR.",
+      "url": "https://t.me/cs3news/19872",
+      "source": "Telegram / cs3news",
+      "marked_at": "2026-11-12T14:02:42+03:00"
+    },
+    "reddit:t3_1xu53aq": {
+      "status": "posted",
+      "title": "The CS2 developers have changed how player models hold their primary weapons in third-person view. This change wasn't mentioned in the patch notes.",
+      "url": "https://www.reddit.com/r/GlobalOffensive/comments/1xu53aq/the_cs2_developers_have_changed_how_player_models/",
+      "source": "Reddit",
+      "marked_at": "2026-11-12T14:03:58+03:00"
+    },
+    "reddit:t3_1xu4wf4": {
+      "status": "skipped",
+      "title": "Ace from ropz",
+      "url": "https://www.reddit.com/r/GlobalOffensive/comments/1xu4wf4/ace_from_ropz/",
+      "source": "Reddit",
+      "marked_at": "2026-11-12T14:03:58+03:00"
+    },
+    "tg:cs2news:62779": {
+      "status": "skipped",
+      "title": "🇪🇺 MOUZ все-таки дожимают бедных молодых пацанов и их тренера.  Мышки вышли в плей-офф, какого результата ждете от них?",
+      "url": "https://t.me/raiznews/62779",
+      "source": "Telegram / cs2news",
+      "marked_at": "2026-11-12T14:03:58+03:00"
+    },
+    "tg:cs2news:62768": {
+      "status": "skipped",
+      "title": "🆗 Частный джет и куча бабок — то, что побудило бы 🇧🇷 FalleN не завершать карьеру.",
+      "url": "https://t.me/raiznews/62768",
+      "source": "Telegram / cs2news",
+      "marked_at": "2026-11-12T14:03:58+03:00"
+    },
+    "reddit:t3_1xu8dtd": {
+      "status": "skipped",
+      "title": "Are Counter-Strike players better at decision-making? Study reveals faster brain processing in expert gamers",
+      "url": "https://www.reddit.com/r/GlobalOffensive/comments/1xu8dtd/are_counterstrike_players_better_at/",
+      "source": "Reddit",
+      "marked_at": "2026-11-12T14:03:58+03:00"
     }
   },
   "match_announcements": {

@@ -6292,6 +6292,41 @@
       "url": "https://www.reddit.com/r/GlobalOffensive/comments/1xuu4ja/looks_like_they_will_release_cobblestone_soon/",
       "source": "Reddit",
       "marked_at": "2026-11-13T11:04:15+03:00"
+    },
+    "hltv:hltvnews45981": {
+      "status": "posted",
+      "title": "MOUZ sweep Vitality as ZywOo confirms career-worst LAN event",
+      "url": "https://www.hltv.org/news/45981/mouz-sweep-vitality-as-zywoo-confirms-career-worst-lan-event",
+      "source": "HLTV",
+      "marked_at": "2026-11-13T14:01:21+03:00"
+    },
+    "hltv:hltvnews45979": {
+      "status": "skipped",
+      "title": "Live updates from the BLAST Rivals quarter-finals",
+      "url": "https://www.hltv.org/news/45979/live-updates-from-the-blast-rivals-quarter-finals",
+      "source": "HLTV",
+      "marked_at": "2026-11-13T14:01:21+03:00"
+    },
+    "tg:cs2news:62818": {
+      "status": "skipped",
+      "title": "🇷🇺 VirtusPro всё-таки доехали на BLAST в Гонконге (правда, в виде плюшевых игрушек и шапок в мерчшопе). ",
+      "url": "https://t.me/raiznews/62818",
+      "source": "Telegram / cs2news",
+      "marked_at": "2026-11-13T14:01:21+03:00"
+    },
+    "reddit:t3_1xv49ng": {
+      "status": "skipped",
+      "title": "Over the last 11 maps on HLTV, ZywOo has a rating of only 0.92",
+      "url": "https://www.reddit.com/r/GlobalOffensive/comments/1xv49ng/over_the_last_11_maps_on_hltv_zywoo_has_a_rating/",
+      "source": "Reddit",
+      "marked_at": "2026-11-13T14:01:21+03:00"
+    },
+    "reddit:t3_1xv44jc": {
+      "status": "skipped",
+      "title": "At 0.91, BLAST Rivals Hong Kong 2026 is officially the lowest-rated LAN in ZywOo's career (and the only one below 1.0)",
+      "url": "https://www.reddit.com/r/GlobalOffensive/comments/1xv44jc/at_091_blast_rivals_hong_kong_2026_is_officially/",
+      "source": "Reddit",
+      "marked_at": "2026-11-13T14:01:21+03:00"
     }
   },
   "match_announcements": {

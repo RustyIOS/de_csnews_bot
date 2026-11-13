@@ -6425,6 +6425,55 @@
       "url": "https://www.reddit.com/r/GlobalOffensive/comments/1xvanf7/valve_never_do_something_about_false_vaclive/",
       "source": "Reddit",
       "marked_at": "2026-11-13T20:03:37+03:00"
+    },
+    "hltv:hltvnews45986": {
+      "status": "posted",
+      "title": "SAW bench NOPEEj and promote Jayy2s",
+      "url": "https://www.hltv.org/news/45986/saw-bench-nopeej-and-promote-jayy2s",
+      "source": "HLTV",
+      "marked_at": "2026-11-13T23:01:36+03:00"
+    },
+    "hltv:hltvnews45985": {
+      "status": "posted",
+      "title": "Hype Tech enters Counter-Strike with ex-Zero Tenacity roster",
+      "url": "https://www.hltv.org/news/45985/hype-tech-enters-counter-strike-with-ex-zero-tenacity-roster",
+      "source": "HLTV",
+      "marked_at": "2026-11-13T23:02:51+03:00"
+    },
+    "dust2us:news79899": {
+      "status": "posted",
+      "title": "ex-SportsBetExpert drops out of Austin LAN",
+      "url": "https://www.dust2.us/news/79899/ex-sportsbetexpert-drops-out-of-austin-lan",
+      "source": "Dust2.us",
+      "marked_at": "2026-11-13T23:04:07+03:00"
+    },
+    "dust2us:news79901": {
+      "status": "skipped",
+      "title": "Voca fields Infinite at Austin LAN as search for permanent fifth continues",
+      "url": "https://www.dust2.us/news/79901/voca-fields-infinite-at-austin-lan-as-search-for-permanent-fifth-continues",
+      "source": "Dust2.us",
+      "marked_at": "2026-11-13T23:04:07+03:00"
+    },
+    "hltv:hltvnews45983": {
+      "status": "skipped",
+      "title": "xelex on playing arena matches: \"It's a lot of experience and prepares me a bit for the Major\"",
+      "url": "https://www.hltv.org/news/45983/xelex-on-playing-arena-matches-its-a-lot-of-experience-and-prepares-me-a-bit-for-the-major",
+      "source": "HLTV",
+      "marked_at": "2026-11-13T23:04:07+03:00"
+    },
+    "dust2us:news79896": {
+      "status": "skipped",
+      "title": "Austin LAN Day One Live Blog!",
+      "url": "https://www.dust2.us/news/79896/austin-lan-day-one-live-blog",
+      "source": "Dust2.us",
+      "marked_at": "2026-11-13T23:04:07+03:00"
+    },
+    "tg:acenewscs:17315": {
+      "status": "skipped",
+      "title": "😱 🤑 Falcons не были лучшей командой на 🇸🇦 IEM Cologne Major?",
+      "url": "https://t.me/acenewscs/17315",
+      "source": "Telegram / acenewscs",
+      "marked_at": "2026-11-13T23:04:07+03:00"
     }
   },
   "match_announcements": {

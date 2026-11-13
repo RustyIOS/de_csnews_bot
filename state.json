@@ -6636,6 +6636,13 @@
       ],
       "updated": "2026-11-13T13:20:47+03:00",
       "match_status": "finished"
+    },
+    "bo3:132597": {
+      "seen": [
+        "match:start"
+      ],
+      "updated": "2026-11-13T13:50:45+03:00",
+      "match_status": "current"
     }
   },
   "tournament_announcements": {

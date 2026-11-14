@@ -6488,6 +6488,34 @@
       "url": "https://www.dust2.us/news/79906/h0nest-on-making-hltv-prospects-i-can-be-betteri-need-to-just-work-on-myself-and-get-higher",
       "source": "Dust2.us",
       "marked_at": "2026-11-14T11:01:44+03:00"
+    },
+    "tg:cs3news:19999": {
+      "status": "posted",
+      "title": "😞 Временный спад — не повод опускать руки. 🇷🇺 kyousuke рассказал о планах команды на ближайшие матчи:",
+      "url": "https://t.me/cs3news/19999",
+      "source": "Telegram / cs3news",
+      "marked_at": "2026-11-14T14:01:34+03:00"
+    },
+    "hltv:hltvnews45989": {
+      "status": "skipped",
+      "title": "Spirit defeat MOUZ to make BLAST Rivals final",
+      "url": "https://www.hltv.org/news/45989/spirit-defeat-mouz-to-make-blast-rivals-final",
+      "source": "HLTV",
+      "marked_at": "2026-11-14T14:01:34+03:00"
+    },
+    "tg:cs2news:62901": {
+      "status": "skipped",
+      "title": "🇪🇺 MOUZ остаются студийными воздуханами мышами — аура арены помогла 🇷🇺 Spirit закрыть так называемый топ-1 мира и прервать лузстрик против н",
+      "url": "https://t.me/raiznews/62901",
+      "source": "Telegram / cs2news",
+      "marked_at": "2026-11-14T14:01:34+03:00"
+    },
+    "reddit:t3_1xvyrsp": {
+      "status": "skipped",
+      "title": "\"Spirit map win despite donk negative rating\" counter: today marked 15th all-time, 4th this year.",
+      "url": "https://www.reddit.com/r/GlobalOffensive/comments/1xvyrsp/spirit_map_win_despite_donk_negative_rating/",
+      "source": "Reddit",
+      "marked_at": "2026-11-14T14:01:34+03:00"
     }
   },
   "match_announcements": {

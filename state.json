@@ -7006,6 +7006,69 @@
       "url": "https://t.me/cs3news/20142",
       "source": "Telegram / cs3news",
       "marked_at": "2026-11-16T19:56:04+03:00"
+    },
+    "tg:cs3news:20144": {
+      "status": "skipped",
+      "title": "🇩🇰 Astralis попрощались с 🇩🇰 jabbi, игрок полностью покинул организацию после более 3-х лет в составе.",
+      "url": "https://t.me/cs3news/20144",
+      "source": "Telegram / cs3news",
+      "marked_at": "2026-11-16T23:01:15+03:00"
+    },
+    "reddit:t3_1xxr7dx": {
+      "status": "skipped",
+      "title": "PGL Singapore Major COI list, also confirms end dates of various loaned players",
+      "url": "https://www.reddit.com/r/GlobalOffensive/comments/1xxr7dx/pgl_singapore_major_coi_list_also_confirms_end/",
+      "source": "Reddit",
+      "marked_at": "2026-11-16T23:01:15+03:00"
+    },
+    "hltv:hltvnews46003": {
+      "status": "posted",
+      "title": "Astralis announce jabbi departure",
+      "url": "https://www.hltv.org/news/46003/astralis-announce-jabbi-departure",
+      "source": "HLTV",
+      "marked_at": "2026-11-16T23:01:43+03:00"
+    },
+    "reddit:t3_1xxn4vq": {
+      "status": "skipped",
+      "title": "Made an Aim Training map for two players to have a little duel",
+      "url": "https://www.reddit.com/r/GlobalOffensive/comments/1xxn4vq/made_an_aim_training_map_for_two_players_to_have/",
+      "source": "Reddit",
+      "marked_at": "2026-11-16T23:01:43+03:00"
+    },
+    "hltv:hltvnews46000": {
+      "status": "skipped",
+      "title": "Community Awards: Vox Populi nominations open",
+      "url": "https://www.hltv.org/news/46000/community-awards-vox-populi-nominations-open",
+      "source": "HLTV",
+      "marked_at": "2026-11-16T23:01:43+03:00"
+    },
+    "hltv:hltvnews45998": {
+      "status": "skipped",
+      "title": "The EVPs and All-Stars of BLAST Rivals 2026 Season 2",
+      "url": "https://www.hltv.org/news/45998/the-evps-and-all-stars-of-blast-rivals-2026-season-2",
+      "source": "HLTV",
+      "marked_at": "2026-11-16T23:01:43+03:00"
+    },
+    "tg:cs2news:63040": {
+      "status": "skipped",
+      "title": "📈 Ютубер CS2 Kitchen выложил гайд по оптимизации ПК для CS2 — на его тестах после чистой установки Windows средний FPS вырос почти на 40%, а",
+      "url": "https://t.me/raiznews/63040",
+      "source": "Telegram / cs2news",
+      "marked_at": "2026-11-16T23:01:43+03:00"
+    },
+    "reddit:t3_1xxyq3p": {
+      "status": "skipped",
+      "title": "BCGame Tactics - Nuke",
+      "url": "https://www.reddit.com/r/GlobalOffensive/comments/1xxyq3p/bcgame_tactics_nuke/",
+      "source": "Reddit",
+      "marked_at": "2026-11-16T23:01:43+03:00"
+    },
+    "reddit:t3_1xxxuxb": {
+      "status": "skipped",
+      "title": "Old T player model had an hidding advantage. Previously, the gun was positioned lower, and its barrel tip didn't reach as far as the CT's. After latest update CT & T models are now identical and unified",
+      "url": "https://www.reddit.com/r/GlobalOffensive/comments/1xxxuxb/old_t_player_model_had_an_hidding_advantage/",
+      "source": "Reddit",
+      "marked_at": "2026-11-16T23:01:43+03:00"
     }
   },
   "match_announcements": {

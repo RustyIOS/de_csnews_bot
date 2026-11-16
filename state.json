@@ -6929,6 +6929,62 @@
       "url": "https://t.me/acenewscs/17419",
       "source": "Telegram / acenewscs",
       "marked_at": "2026-11-16T14:01:49+03:00"
+    },
+    "tg:cs2news:63021": {
+      "status": "skipped",
+      "title": "⚡️ Steam в России могут заблокировать — СМИ.",
+      "url": "https://t.me/raiznews/63021",
+      "source": "Telegram / cs2news",
+      "marked_at": "2026-11-16T17:01:22+03:00"
+    },
+    "hltv:hltvnews46002": {
+      "status": "posted",
+      "title": "Alliance part ways with head coach Hawk",
+      "url": "https://www.hltv.org/news/46002/alliance-part-ways-with-head-coach-hawk",
+      "source": "HLTV",
+      "marked_at": "2026-11-16T17:01:38+03:00"
+    },
+    "tg:cs3news:20139": {
+      "status": "posted",
+      "title": "🇷🇴 PGL выкатили список конфликтов интересов на мейджоре:",
+      "url": "https://t.me/cs3news/20139",
+      "source": "Telegram / cs3news",
+      "marked_at": "2026-11-16T17:02:53+03:00"
+    },
+    "reddit:t3_1xxipjr": {
+      "status": "skipped",
+      "title": "Two coaches are teaching the exact opposite mechanics. Who's right?",
+      "url": "https://www.reddit.com/r/GlobalOffensive/comments/1xxipjr/two_coaches_are_teaching_the_exact_opposite/",
+      "source": "Reddit",
+      "marked_at": "2026-11-16T17:02:53+03:00"
+    },
+    "tg:csgo:9895": {
+      "status": "skipped",
+      "title": "💳 VALVE КОРМИТ КАЗАХСТАН — все благодаря покупкам людей из России.   Компания заплатила БОЛЬШЕ всех налогов в бюджет Казахстана. Все из-за п",
+      "url": "https://t.me/csgo/9895",
+      "source": "Telegram / csgo",
+      "marked_at": "2026-11-16T17:02:53+03:00"
+    },
+    "tg:cs3news:20138": {
+      "status": "skipped",
+      "title": "📓 Steam могут заблокировать, если Valve не предоставят данные российских пользователей.",
+      "url": "https://t.me/cs3news/20138",
+      "source": "Telegram / cs3news",
+      "marked_at": "2026-11-16T17:02:53+03:00"
+    },
+    "tg:cs2news:63022": {
+      "status": "skipped",
+      "title": "👀 В китайских соцсетях возникло недопонимание вокруг suns1de, девушки donk — фанаты подумали, что она выбросила подарки для игроков 🇷🇺 Spiri",
+      "url": "https://t.me/raiznews/63022",
+      "source": "Telegram / cs2news",
+      "marked_at": "2026-11-16T17:02:53+03:00"
+    },
+    "tg:cs3news:20137": {
+      "status": "skipped",
+      "title": "▶️ До старта главного турнира сезона осталось совсем ничего, поэтому немного интересных фактов про его участников:",
+      "url": "https://t.me/cs3news/20137",
+      "source": "Telegram / cs3news",
+      "marked_at": "2026-11-16T17:02:53+03:00"
     }
   },
   "match_announcements": {

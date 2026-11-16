@@ -6859,6 +6859,48 @@
       "url": "https://t.me/raiznews/63002",
       "source": "Telegram / cs2news",
       "marked_at": "2026-11-15T22:59:29+03:00"
+    },
+    "tg:csgo:9893": {
+      "status": "posted",
+      "title": "⚡️CLAUDE СОЗДАЛ ЧИТ ДЛЯ CS2 — в нем есть вх и аим.",
+      "url": "https://t.me/csgo/9893",
+      "source": "Telegram / csgo",
+      "marked_at": "2026-11-16T11:02:01+03:00"
+    },
+    "tg:cs3news:20131": {
+      "status": "posted",
+      "title": "🔥 Мы на финишной прямой, джентльмены! Впереди остался последний ТИР-1 турнир в этом году — мейджор в Сингапуре.",
+      "url": "https://t.me/cs3news/20131",
+      "source": "Telegram / cs3news",
+      "marked_at": "2026-11-16T11:03:17+03:00"
+    },
+    "dust2us:news79961": {
+      "status": "skipped",
+      "title": "CROSSFIRE Season 7 reaches 32-team double-elimination playoffs stage",
+      "url": "https://www.dust2.us/news/79961/crossfire-season-7-reaches-32-team-double-elimination-playoffs-stage",
+      "source": "Dust2.us",
+      "marked_at": "2026-11-16T11:03:17+03:00"
+    },
+    "reddit:t3_1xx6q6q": {
+      "status": "skipped",
+      "title": "Fastest Ace I've ever hit >:^)",
+      "url": "https://www.reddit.com/r/GlobalOffensive/comments/1xx6q6q/fastest_ace_ive_ever_hit/",
+      "source": "Reddit",
+      "marked_at": "2026-11-16T11:03:17+03:00"
+    },
+    "tg:cs2news:63015": {
+      "status": "skipped",
+      "title": "🥇 Чемпионы мейджора, которым предстоит пройти мясорубку первой стадии!",
+      "url": "https://t.me/raiznews/63015",
+      "source": "Telegram / cs2news",
+      "marked_at": "2026-11-16T11:03:17+03:00"
+    },
+    "dust2us:news79962": {
+      "status": "skipped",
+      "title": "CoolComs on Pose1doNN: \"He's like a brother to me, he's like an uncle to my daughter\"",
+      "url": "https://www.dust2.us/news/79962/coolcoms-on-pose1donn-hes-like-a-brother-to-me-hes-like-an-uncle-to-my-daughter",
+      "source": "Dust2.us",
+      "marked_at": "2026-11-16T11:03:17+03:00"
     }
   },
   "match_announcements": {

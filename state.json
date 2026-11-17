@@ -7118,6 +7118,55 @@
       "url": "https://www.dust2.us/news/79960/maze-when-i-come-up-with-concepts-the-team-are-really-good-at-adapting-fast",
       "source": "Dust2.us",
       "marked_at": "2026-11-17T11:02:33+03:00"
+    },
+    "reddit:t3_1xyftlz": {
+      "status": "skipped",
+      "title": "Pgl Singapore major signing session",
+      "url": "https://www.reddit.com/r/GlobalOffensive/comments/1xyftlz/pgl_singapore_major_signing_session/",
+      "source": "Reddit",
+      "marked_at": "2026-11-17T14:01:11+03:00"
+    },
+    "hltv:hltvnews46004": {
+      "status": "posted",
+      "title": "IEM Beijing to return for 2027 and 2028",
+      "url": "https://www.hltv.org/news/46004/iem-beijing-to-return-for-2027-and-2028",
+      "source": "HLTV",
+      "marked_at": "2026-11-17T14:01:18+03:00"
+    },
+    "hltv:hltvnews46001": {
+      "status": "skipped",
+      "title": "Cast your vote for the Major MVP medal design",
+      "url": "https://www.hltv.org/news/46001/cast-your-vote-for-the-major-mvp-medal-design",
+      "source": "HLTV",
+      "marked_at": "2026-11-17T14:01:18+03:00"
+    },
+    "tg:acenewscs:17440": {
+      "status": "skipped",
+      "title": "😐 А тренером у них будет Copilot",
+      "url": "https://t.me/acenewscs/17440",
+      "source": "Telegram / acenewscs",
+      "marked_at": "2026-11-17T14:01:18+03:00"
+    },
+    "tg:cs3news:20160": {
+      "status": "skipped",
+      "title": "☺️ Восемь счастливчиков, которые получили 🥇 MVP мейджора смогли доехать до турнира в Сингапуре:",
+      "url": "https://t.me/cs3news/20160",
+      "source": "Telegram / cs3news",
+      "marked_at": "2026-11-17T14:01:18+03:00"
+    },
+    "tg:csgo:9897": {
+      "status": "skipped",
+      "title": "🥳 СТИМ ТЕСТИРУЮТ НОВУЮ ФУНКЦИЮ — узнать FPS в игре можно будет до её скачивания.",
+      "url": "https://t.me/csgo/9897",
+      "source": "Telegram / csgo",
+      "marked_at": "2026-11-17T14:01:18+03:00"
+    },
+    "tg:cs2news:63042": {
+      "status": "skipped",
+      "title": "🇪🇺 SunPayus поделился фотографиями подарков и письма от китайских фанатов",
+      "url": "https://t.me/raiznews/63042",
+      "source": "Telegram / cs2news",
+      "marked_at": "2026-11-17T14:01:18+03:00"
     }
   },
   "match_announcements": {

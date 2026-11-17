@@ -7561,10 +7561,11 @@
     },
     "bo3:133778": {
       "seen": [
-        "match:start"
+        "match:start",
+        "match:finished"
       ],
-      "updated": "2026-11-17T15:02:27+03:00",
-      "match_status": "current"
+      "updated": "2026-11-17T17:50:48+03:00",
+      "match_status": "finished"
     },
     "bo3:133480": {
       "seen": [

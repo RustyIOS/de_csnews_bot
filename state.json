@@ -7433,6 +7433,34 @@
       "url": "https://t.me/acenewscs/17480",
       "source": "Telegram / acenewscs",
       "marked_at": "2026-11-18T17:02:28+03:00"
+    },
+    "tg:cs2news:63108": {
+      "status": "posted",
+      "title": "❌ Весь день игроки из России испытывают проблемы с подключением к серверам FACEIT ",
+      "url": "https://t.me/raiznews/63108",
+      "source": "Telegram / cs2news",
+      "marked_at": "2026-11-18T20:02:31+03:00"
+    },
+    "tg:cs2news:63107": {
+      "status": "posted",
+      "title": "⚡ Владелец Inner Circle задержан в Италии — СМИ.",
+      "url": "https://t.me/raiznews/63107",
+      "source": "Telegram / cs2news",
+      "marked_at": "2026-11-18T20:03:47+03:00"
+    },
+    "hltv:hltvnews45953": {
+      "status": "skipped",
+      "title": "ENCE through the years: Success, setbacks and reinvention",
+      "url": "https://www.hltv.org/news/45953/ence-through-the-years-success-setbacks-and-reinvention",
+      "source": "HLTV",
+      "marked_at": "2026-11-18T20:03:47+03:00"
+    },
+    "hltv:hltvnews45999": {
+      "status": "skipped",
+      "title": "Short news: Week 45",
+      "url": "https://www.hltv.org/news/45999/short-news-week-45",
+      "source": "HLTV",
+      "marked_at": "2026-11-18T20:03:47+03:00"
     }
   },
   "match_announcements": {

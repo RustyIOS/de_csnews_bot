@@ -7461,6 +7461,55 @@
       "url": "https://www.hltv.org/news/45999/short-news-week-45",
       "source": "HLTV",
       "marked_at": "2026-11-18T20:03:47+03:00"
+    },
+    "dust2us:news80053": {
+      "status": "posted",
+      "title": "cmtry returns to FUT bench after four matches",
+      "url": "https://www.dust2.us/news/80053/cmtry-returns-to-fut-bench-after-four-matches",
+      "source": "Dust2.us",
+      "marked_at": "2026-11-18T23:02:13+03:00"
+    },
+    "dust2us:news80051": {
+      "status": "posted",
+      "title": "Copenhagen Wolves drop roster after less than two months",
+      "url": "https://www.dust2.us/news/80051/copenhagen-wolves-drop-roster-after-less-than-two-months",
+      "source": "Dust2.us",
+      "marked_at": "2026-11-18T23:03:29+03:00"
+    },
+    "hltv:hltvnews46012": {
+      "status": "skipped",
+      "title": "Media: Inner Circle owner detained in Italy",
+      "url": "https://www.hltv.org/news/46012/media-inner-circle-owner-detained-in-italy",
+      "source": "HLTV",
+      "marked_at": "2026-11-18T23:03:30+03:00"
+    },
+    "dust2us:news80048": {
+      "status": "skipped",
+      "title": "Metizport secure RUSH:Brno playoffs berth with tight win over Phantom",
+      "url": "https://www.dust2.us/news/80048/metizport-secure-rushbrno-playoffs-berth-with-tight-win-over-phantom",
+      "source": "Dust2.us",
+      "marked_at": "2026-11-18T23:03:30+03:00"
+    },
+    "dust2us:news80046": {
+      "status": "skipped",
+      "title": "CROSSFIRE maintains massive 24-team coverage on HLTV for Season 7's playoffs",
+      "url": "https://www.dust2.us/news/80046/crossfire-maintains-massive-24-team-coverage-on-hltv-for-season-7s-playoffs",
+      "source": "Dust2.us",
+      "marked_at": "2026-11-18T23:03:30+03:00"
+    },
+    "tg:cs2news:63115": {
+      "status": "skipped",
+      "title": "✴️ Легендарный VIP-режим из CS 1.6 в CS2 на новом Cobble",
+      "url": "https://t.me/raiznews/63115",
+      "source": "Telegram / cs2news",
+      "marked_at": "2026-11-18T23:03:30+03:00"
+    },
+    "tg:acenewscs:17487": {
+      "status": "skipped",
+      "title": "В январе 2018-го shox закончил мейджор в Бостоне с лучшим рейтингом в G2 — 1,19. А через несколько дней поделился с фанатами совсем другой ц",
+      "url": "https://t.me/acenewscs/17487",
+      "source": "Telegram / acenewscs",
+      "marked_at": "2026-11-18T23:03:30+03:00"
     }
   },
   "match_announcements": {

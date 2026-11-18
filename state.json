@@ -7356,6 +7356,48 @@
       "url": "https://t.me/cs3news/20213",
       "source": "Telegram / cs3news",
       "marked_at": "2026-11-18T11:03:42+03:00"
+    },
+    "tg:cs2news:63097": {
+      "status": "posted",
+      "title": "🇷🇺 zorte показал концепт автографа, который не был принят Valve:",
+      "url": "https://t.me/raiznews/63097",
+      "source": "Telegram / cs2news",
+      "marked_at": "2026-11-18T14:02:09+03:00"
+    },
+    "tg:cs2news:63084": {
+      "status": "posted",
+      "title": "👍 Valve решили отправить MIBR играть первую стадию мейджора вместо NIP",
+      "url": "https://t.me/raiznews/63084",
+      "source": "Telegram / cs2news",
+      "marked_at": "2026-11-18T14:03:25+03:00"
+    },
+    "tg:cs3news:20225": {
+      "status": "skipped",
+      "title": "😔 Ещё один пострадавший от Valve — на этот раз капитан 🇷🇺 BETBOOM TEAM.",
+      "url": "https://t.me/cs3news/20225",
+      "source": "Telegram / cs3news",
+      "marked_at": "2026-11-18T14:03:25+03:00"
+    },
+    "tg:cs3news:20212": {
+      "status": "skipped",
+      "title": "⬇️ Упал FPS после обновы? Проверь эту настройку.",
+      "url": "https://t.me/cs3news/20212",
+      "source": "Telegram / cs3news",
+      "marked_at": "2026-11-18T14:03:25+03:00"
+    },
+    "tg:acenewscs:17471": {
+      "status": "skipped",
+      "title": "❓ Valve запороли даже пикем...",
+      "url": "https://t.me/acenewscs/17471",
+      "source": "Telegram / acenewscs",
+      "marked_at": "2026-11-18T14:03:25+03:00"
+    },
+    "dust2us:news80029": {
+      "status": "skipped",
+      "title": "ENVY best Metizport in RUSH:Brno 2026 opener",
+      "url": "https://www.dust2.us/news/80029/envy-best-metizport-in-rushbrno-2026-opener",
+      "source": "Dust2.us",
+      "marked_at": "2026-11-18T14:03:25+03:00"
     }
   },
   "match_announcements": {

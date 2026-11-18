@@ -7895,10 +7895,11 @@
     },
     "bo3:133485": {
       "seen": [
-        "match:start"
+        "match:start",
+        "match:finished"
       ],
-      "updated": "2026-11-18T21:52:08+03:00",
-      "match_status": "current"
+      "updated": "2026-11-18T23:50:50+03:00",
+      "match_status": "finished"
     }
   },
   "tournament_announcements": {

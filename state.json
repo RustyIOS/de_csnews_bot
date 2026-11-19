@@ -7566,6 +7566,34 @@
       "url": "https://t.me/raiznews/63127",
       "source": "Telegram / cs2news",
       "marked_at": "2026-11-19T14:02:11+03:00"
+    },
+    "hltv:hltvnews46013": {
+      "status": "posted",
+      "title": "Vitality to shut down academy project",
+      "url": "https://www.hltv.org/news/46013/vitality-to-shut-down-academy-project",
+      "source": "HLTV",
+      "marked_at": "2026-11-19T17:01:34+03:00"
+    },
+    "tg:cs2news:63129": {
+      "status": "skipped",
+      "title": "🇪🇺 Vitality закрывают свой академический состав!",
+      "url": "https://t.me/raiznews/63129",
+      "source": "Telegram / cs2news",
+      "marked_at": "2026-11-19T17:01:34+03:00"
+    },
+    "tg:acenewscs:17495": {
+      "status": "skipped",
+      "title": "🫡 🐝 Vitality закрыли свою академию",
+      "url": "https://t.me/acenewscs/17495",
+      "source": "Telegram / acenewscs",
+      "marked_at": "2026-11-19T17:01:34+03:00"
+    },
+    "tg:cs3news:20254": {
+      "status": "skipped",
+      "title": "🥱 Идея самих по себе стикеров стала уже заезженной и скучной, — так считает главный редактор HLTV 🇨🇿 Striker",
+      "url": "https://t.me/cs3news/20254",
+      "source": "Telegram / cs3news",
+      "marked_at": "2026-11-19T17:01:34+03:00"
     }
   },
   "match_announcements": {

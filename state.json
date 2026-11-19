@@ -8041,10 +8041,11 @@
     },
     "bo3:133487": {
       "seen": [
-        "match:start"
+        "match:start",
+        "match:finished"
       ],
-      "updated": "2026-11-19T17:22:09+03:00",
-      "match_status": "current"
+      "updated": "2026-11-19T20:40:53+03:00",
+      "match_status": "finished"
     },
     "bo3:133489": {
       "seen": [

@@ -8049,10 +8049,11 @@
     },
     "bo3:133489": {
       "seen": [
-        "match:start"
+        "match:start",
+        "match:finished"
       ],
-      "updated": "2026-11-19T19:28:46+03:00",
-      "match_status": "current"
+      "updated": "2026-11-19T22:50:54+03:00",
+      "match_status": "finished"
     }
   },
   "tournament_announcements": {

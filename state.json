@@ -7510,6 +7510,41 @@
       "url": "https://t.me/acenewscs/17487",
       "source": "Telegram / acenewscs",
       "marked_at": "2026-11-18T23:03:30+03:00"
+    },
+    "dust2us:news80062": {
+      "status": "posted",
+      "title": "Check out the stickers from every NA team and player at the PGL Major Singapore",
+      "url": "https://www.dust2.us/news/80062/check-out-the-stickers-from-every-na-team-and-player-at-the-pgl-major-singapore",
+      "source": "Dust2.us",
+      "marked_at": "2026-11-19T11:02:10+03:00"
+    },
+    "tg:cs3news:20244": {
+      "status": "posted",
+      "title": "⚡️ Вышло обновление на 707 МБ",
+      "url": "https://t.me/cs3news/20244",
+      "source": "Telegram / cs3news",
+      "marked_at": "2026-11-19T11:03:25+03:00"
+    },
+    "tg:cs2news:63121": {
+      "status": "skipped",
+      "title": "⚡️ Игрокам из Швейцарии запретили привычное открытие кейсов в новом обновлении на 707 мб:",
+      "url": "https://t.me/raiznews/63121",
+      "source": "Telegram / cs2news",
+      "marked_at": "2026-11-19T11:03:25+03:00"
+    },
+    "dust2us:news80066": {
+      "status": "skipped",
+      "title": "ENVY fall to BBL in RUSH:Brno playoffs seeding match",
+      "url": "https://www.dust2.us/news/80066/envy-fall-to-bbl-in-rushbrno-playoffs-seeding-match",
+      "source": "Dust2.us",
+      "marked_at": "2026-11-19T11:03:25+03:00"
+    },
+    "dust2us:news80061": {
+      "status": "skipped",
+      "title": "Luminosity sweep NIP, move on to Stake Ranked Episode 6 upper final",
+      "url": "https://www.dust2.us/news/80061/luminosity-sweep-nip-move-on-to-stake-ranked-episode-6-upper-final",
+      "source": "Dust2.us",
+      "marked_at": "2026-11-19T11:03:25+03:00"
     }
   },
   "match_announcements": {

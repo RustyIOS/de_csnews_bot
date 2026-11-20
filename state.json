@@ -8078,14 +8078,6 @@
     }
   },
   "live_events": {
-    "bo3:133481": {
-      "seen": [
-        "match:start",
-        "match:finished"
-      ],
-      "updated": "2026-11-17T20:10:48+03:00",
-      "match_status": "finished"
-    },
     "bo3:133482": {
       "seen": [
         "match:start",
@@ -8167,10 +8159,11 @@
     },
     "bo3:133492": {
       "seen": [
-        "match:start"
+        "match:start",
+        "match:finished"
       ],
-      "updated": "2026-11-20T19:31:11+03:00",
-      "match_status": "current"
+      "updated": "2026-11-20T23:31:07+03:00",
+      "match_status": "finished"
     }
   },
   "tournament_announcements": {

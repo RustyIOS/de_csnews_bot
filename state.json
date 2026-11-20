@@ -7727,6 +7727,27 @@
       "url": "https://t.me/raiznews/63139",
       "source": "Telegram / cs2news",
       "marked_at": "2026-11-20T14:01:10+03:00"
+    },
+    "hltv:hltvnews46020": {
+      "status": "skipped",
+      "title": "Infographic: PGL Major Singapore",
+      "url": "https://www.hltv.org/news/46020/infographic-pgl-major-singapore",
+      "source": "HLTV",
+      "marked_at": "2026-11-20T20:01:15+03:00"
+    },
+    "hltv:hltvnews45980": {
+      "status": "posted",
+      "title": "Support of the Year replaces Anchor at HLTV Awards 2026",
+      "url": "https://www.hltv.org/news/45980/support-of-the-year-replaces-anchor-at-hltv-awards-2026",
+      "source": "HLTV",
+      "marked_at": "2026-11-20T20:02:16+03:00"
+    },
+    "tg:acenewscs:17518": {
+      "status": "posted",
+      "title": "🔫 22 российских игрока в 6 разных командах сыграют на предстоящем мейджоре в Сингапуре!",
+      "url": "https://t.me/acenewscs/17518",
+      "source": "Telegram / acenewscs",
+      "marked_at": "2026-11-20T20:03:32+03:00"
     }
   },
   "match_announcements": {

@@ -8036,22 +8036,6 @@
     }
   },
   "live_events": {
-    "bo3:133775": {
-      "seen": [
-        "match:start",
-        "match:finished"
-      ],
-      "updated": "2026-11-16T23:11:03+03:00",
-      "match_status": "finished"
-    },
-    "bo3:133479": {
-      "seen": [
-        "match:start",
-        "match:finished"
-      ],
-      "updated": "2026-11-17T15:50:44+03:00",
-      "match_status": "finished"
-    },
     "bo3:133777": {
       "seen": [
         "match:start",
@@ -8153,6 +8137,13 @@
         "match:start"
       ],
       "updated": "2026-11-19T23:10:50+03:00",
+      "match_status": "current"
+    },
+    "bo3:133491": {
+      "seen": [
+        "match:start"
+      ],
+      "updated": "2026-11-20T16:01:18+03:00",
       "match_status": "current"
     }
   },

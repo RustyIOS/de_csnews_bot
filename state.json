@@ -8056,6 +8056,34 @@
       "url": "https://t.me/cs3news/20295",
       "source": "Telegram / cs3news",
       "marked_at": "2026-11-22T20:11:07+03:00"
+    },
+    "dust2us:news80160": {
+      "status": "posted",
+      "title": "Mustache Masters Season 7 raises $18k for Movember Foundation!",
+      "url": "https://www.dust2.us/news/80160/mustache-masters-season-7-raises-18k-for-movember-foundation",
+      "source": "Dust2.us",
+      "marked_at": "2026-11-22T23:01:52+03:00"
+    },
+    "hltv:hltvnews46026": {
+      "status": "skipped",
+      "title": "s1mple tops picks for Singapore Stage 1 Fantasy",
+      "url": "https://www.hltv.org/news/46026/s1mple-tops-picks-for-singapore-stage-1-fantasy",
+      "source": "HLTV",
+      "marked_at": "2026-11-22T23:01:52+03:00"
+    },
+    "tg:cs3news:20299": {
+      "status": "skipped",
+      "title": "🇪🇺 G2 лидируют в количестве игроков, представлявших их тег на мейджорах!",
+      "url": "https://t.me/cs3news/20299",
+      "source": "Telegram / cs3news",
+      "marked_at": "2026-11-22T23:01:52+03:00"
+    },
+    "tg:acenewscs:17547": {
+      "status": "skipped",
+      "title": "😎 А вы знали, что один из лучших шахматистов мира большой любитель КС?",
+      "url": "https://t.me/acenewscs/17547",
+      "source": "Telegram / acenewscs",
+      "marked_at": "2026-11-22T23:01:52+03:00"
     }
   },
   "match_announcements": {

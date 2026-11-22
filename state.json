@@ -8042,6 +8042,20 @@
       "url": "https://t.me/cs3news/20289",
       "source": "Telegram / cs3news",
       "marked_at": "2026-11-22T17:03:30+03:00"
+    },
+    "tg:acenewscs:17544": {
+      "status": "posted",
+      "title": "😎  🇬🇧 FACEIT вернули голосовой чат при смене сторон — официально",
+      "url": "https://t.me/acenewscs/17544",
+      "source": "Telegram / acenewscs",
+      "marked_at": "2026-11-22T20:11:06+03:00"
+    },
+    "tg:cs3news:20295": {
+      "status": "skipped",
+      "title": "🎤 🇬🇧 FACEIT официально вводят фишку голосового чата между командами на постоянную основу.",
+      "url": "https://t.me/cs3news/20295",
+      "source": "Telegram / cs3news",
+      "marked_at": "2026-11-22T20:11:07+03:00"
     }
   },
   "match_announcements": {

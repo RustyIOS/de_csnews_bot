@@ -8000,6 +8000,48 @@
       "url": "https://t.me/raiznews/63164",
       "source": "Telegram / cs2news",
       "marked_at": "2026-11-22T14:01:31+03:00"
+    },
+    "tg:cs3news:20290": {
+      "status": "skipped",
+      "title": "🇲🇳 The MongolZ представили свою новую джерси к мейджору.",
+      "url": "https://t.me/cs3news/20290",
+      "source": "Telegram / cs3news",
+      "marked_at": "2026-11-22T17:01:10+03:00"
+    },
+    "tg:cs2news:63170": {
+      "status": "posted",
+      "title": "«Сейчас мы не стакаемся» — 🇩🇰 NiKo в своём влоге высказался о состоянии команды после вылета с 🙇‍♂️ IEM Beijing.",
+      "url": "https://t.me/raiznews/63170",
+      "source": "Telegram / cs2news",
+      "marked_at": "2026-11-22T17:02:14+03:00"
+    },
+    "tg:cs2news:63167": {
+      "status": "posted",
+      "title": "🇲🇳 The MongolZ показали обновлённую джерси к мейджору!",
+      "url": "https://t.me/raiznews/63167",
+      "source": "Telegram / cs2news",
+      "marked_at": "2026-11-22T17:03:30+03:00"
+    },
+    "hltv:hltvnews46022": {
+      "status": "skipped",
+      "title": "s1mple and device give Stage 1 some much needed stardust",
+      "url": "https://www.hltv.org/news/46022/s1mple-and-device-give-stage-1-some-much-needed-stardust",
+      "source": "HLTV",
+      "marked_at": "2026-11-22T17:03:30+03:00"
+    },
+    "tg:cs3news:20291": {
+      "status": "skipped",
+      "title": "🇩🇰 Pimp недоволен тем, как 🇪🇺 BCG растрачивают свой состав: ",
+      "url": "https://t.me/cs3news/20291",
+      "source": "Telegram / cs3news",
+      "marked_at": "2026-11-22T17:03:30+03:00"
+    },
+    "tg:cs3news:20289": {
+      "status": "skipped",
+      "title": "🇪🇺 Как сделать G2 вновь конкурентоспособными предложили пользователи 🇩🇰 HLTV.",
+      "url": "https://t.me/cs3news/20289",
+      "source": "Telegram / cs3news",
+      "marked_at": "2026-11-22T17:03:30+03:00"
     }
   },
   "match_announcements": {

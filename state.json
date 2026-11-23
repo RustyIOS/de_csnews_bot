@@ -8161,6 +8161,55 @@
       "url": "https://t.me/csgo/9926",
       "source": "Telegram / csgo",
       "marked_at": "2026-11-23T17:03:48+03:00"
+    },
+    "tg:acenewscs:17561": {
+      "status": "skipped",
+      "title": "Ловите пикемы нашей редакции к предстоящему 🇷🇴 PGL Major Singapore 2026!",
+      "url": "https://t.me/acenewscs/17561",
+      "source": "Telegram / acenewscs",
+      "marked_at": "2026-11-23T20:01:19+03:00"
+    },
+    "hltv:hltvnews46031": {
+      "status": "posted",
+      "title": "ztr's FOKUS loan ends",
+      "url": "https://www.hltv.org/news/46031/ztrs-fokus-loan-ends",
+      "source": "HLTV",
+      "marked_at": "2026-11-23T20:02:09+03:00"
+    },
+    "tg:cs2news:63185": {
+      "status": "posted",
+      "title": "🎙 «Верю, что мы сможем закрепиться в топ-3» — 🇪🇸 SunPayus поделился, почему выбрал именно 🇪🇺 FUT",
+      "url": "https://t.me/raiznews/63185",
+      "source": "Telegram / cs2news",
+      "marked_at": "2026-11-23T20:03:25+03:00"
+    },
+    "hltv:hltvnews46025": {
+      "status": "skipped",
+      "title": "SunPayus opens up about early struggles in CS2, what didn't work in G2, and signing with FUT",
+      "url": "https://www.hltv.org/news/46025/sunpayus-opens-up-about-early-struggles-in-cs2-what-didnt-work-in-g2-and-signing-with-fut",
+      "source": "HLTV",
+      "marked_at": "2026-11-23T20:03:25+03:00"
+    },
+    "tg:cs3news:20322": {
+      "status": "skipped",
+      "title": "☝️🇪🇺 FUT войдут в тройку лучших, нужно всего лишь немного подождать.",
+      "url": "https://t.me/cs3news/20322",
+      "source": "Telegram / cs3news",
+      "marked_at": "2026-11-23T20:03:25+03:00"
+    },
+    "tg:cs3news:20320": {
+      "status": "skipped",
+      "title": "🖥 Пока кто-то играет на мониторах с 60 Гц, Samsung выпускают первый в мире монитор с частотой обновления 1100 Гц.",
+      "url": "https://t.me/cs3news/20320",
+      "source": "Telegram / cs3news",
+      "marked_at": "2026-11-23T20:03:25+03:00"
+    },
+    "tg:acenewscs:17566": {
+      "status": "skipped",
+      "title": "🇬🇧 FACEIT собрали статистику участников мейджоров в девятом сезоне:",
+      "url": "https://t.me/acenewscs/17566",
+      "source": "Telegram / acenewscs",
+      "marked_at": "2026-11-23T20:03:25+03:00"
     }
   },
   "match_announcements": {

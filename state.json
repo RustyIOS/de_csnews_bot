@@ -8301,6 +8301,69 @@
       "url": "https://www.hltv.org/news/46032/pgl-major-singapore-stage-1-day-1-highlights",
       "source": "HLTV",
       "marked_at": "2026-11-24T11:03:20+03:00"
+    },
+    "hltv:hltvnews46041": {
+      "status": "skipped",
+      "title": "M80 extend 9z's woes to move into 1-1 pool",
+      "url": "https://www.hltv.org/news/46041/m80-extend-9zs-woes-to-move-into-1-1-pool",
+      "source": "HLTV",
+      "marked_at": "2026-11-24T14:01:48+03:00"
+    },
+    "tg:cs3news:20373": {
+      "status": "skipped",
+      "title": "🗓 Расписание матчей второго круга 😎 PGL Major Singapore!",
+      "url": "https://t.me/cs3news/20373",
+      "source": "Telegram / cs3news",
+      "marked_at": "2026-11-24T14:01:48+03:00"
+    },
+    "steam:1849827110444052": {
+      "status": "posted",
+      "title": "Counter-Strike 2 Update",
+      "url": "https://store.steampowered.com/news/app/730/view/1849827110444052",
+      "source": "Counter-Strike 2 (Steam)",
+      "marked_at": "2026-11-24T14:03:01+03:00"
+    },
+    "hltv:hltvnews46039": {
+      "status": "skipped",
+      "title": "FaZe to play BC.Game as round 1 ends",
+      "url": "https://www.hltv.org/news/46039/faze-to-play-bcgame-as-round-1-ends",
+      "source": "HLTV",
+      "marked_at": "2026-11-24T14:03:01+03:00"
+    },
+    "hltv:hltvnews46040": {
+      "status": "skipped",
+      "title": "Chr1zN: \"It's the first time we have the pieces to push for a little more than just being at events\"",
+      "url": "https://www.hltv.org/news/46040/chr1zn-its-the-first-time-we-have-the-pieces-to-push-for-a-little-more-than-just-being-at-events",
+      "source": "HLTV",
+      "marked_at": "2026-11-24T14:03:01+03:00"
+    },
+    "tg:cs3news:20380": {
+      "status": "skipped",
+      "title": "🔥 Теперь можно не смотреть стримы с матчами, ведь на 🇩🇰 HLTV вышло обновление, где вы можете наблюдать за встречей прямо на сайте.",
+      "url": "https://t.me/cs3news/20380",
+      "source": "Telegram / cs3news",
+      "marked_at": "2026-11-24T14:03:01+03:00"
+    },
+    "tg:cs3news:20376": {
+      "status": "skipped",
+      "title": "🔥 Начинаем просмотр матчей второго круга 😎 PGL Major Singapore.",
+      "url": "https://t.me/cs3news/20376",
+      "source": "Telegram / cs3news",
+      "marked_at": "2026-11-24T14:03:01+03:00"
+    },
+    "hltv:hltvnews46038": {
+      "status": "skipped",
+      "title": "Wildcard send FaZe to 0-1 pool",
+      "url": "https://www.hltv.org/news/46038/wildcard-send-faze-to-0-1-pool",
+      "source": "HLTV",
+      "marked_at": "2026-11-24T14:03:01+03:00"
+    },
+    "hltv:hltvnews46037": {
+      "status": "skipped",
+      "title": "Liquid annihilate BC.Game 13-1 in Singapore",
+      "url": "https://www.hltv.org/news/46037/liquid-annihilate-bcgame-13-1-in-singapore",
+      "source": "HLTV",
+      "marked_at": "2026-11-24T14:03:01+03:00"
     }
   },
   "match_announcements": {

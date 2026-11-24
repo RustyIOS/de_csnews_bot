@@ -8773,10 +8773,11 @@
     },
     "bo3:134379": {
       "seen": [
-        "match:start"
+        "match:start",
+        "match:finished"
       ],
-      "updated": "2026-11-24T14:12:07+03:00",
-      "match_status": "current"
+      "updated": "2026-11-24T15:01:16+03:00",
+      "match_status": "finished"
     },
     "bo3:134378": {
       "seen": [
@@ -8785,6 +8786,13 @@
       ],
       "updated": "2026-11-24T14:50:51+03:00",
       "match_status": "finished"
+    },
+    "bo3:134381": {
+      "seen": [
+        "match:start"
+      ],
+      "updated": "2026-11-24T15:02:32+03:00",
+      "match_status": "current"
     }
   },
   "tournament_announcements": {

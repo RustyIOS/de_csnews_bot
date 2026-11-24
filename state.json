@@ -8605,6 +8605,20 @@
       ],
       "updated": "2026-11-24T10:32:21+03:00",
       "match_status": "finished"
+    },
+    "bo3:133422": {
+      "seen": [
+        "match:start"
+      ],
+      "updated": "2026-11-24T10:40:50+03:00",
+      "match_status": "current"
+    },
+    "bo3:133421": {
+      "seen": [
+        "match:start"
+      ],
+      "updated": "2026-11-24T10:42:07+03:00",
+      "match_status": "current"
     }
   },
   "tournament_announcements": {

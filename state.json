@@ -8554,91 +8554,18 @@
     }
   },
   "live_events": {
-    "bo3:133482": {
+    "bo3:133417": {
       "seen": [
-        "match:start",
         "match:finished"
       ],
-      "updated": "2026-11-17T23:50:51+03:00",
+      "updated": "2026-11-24T10:01:14+03:00",
       "match_status": "finished"
     },
-    "bo3:133484": {
+    "bo3:133424": {
       "seen": [
-        "match:start",
         "match:finished"
       ],
-      "updated": "2026-11-18T16:50:52+03:00",
-      "match_status": "finished"
-    },
-    "bo3:133483": {
-      "seen": [
-        "match:start",
-        "match:finished"
-      ],
-      "updated": "2026-11-18T19:31:06+03:00",
-      "match_status": "finished"
-    },
-    "bo3:133486": {
-      "seen": [
-        "match:start",
-        "match:finished"
-      ],
-      "updated": "2026-11-18T21:50:52+03:00",
-      "match_status": "finished"
-    },
-    "bo3:133485": {
-      "seen": [
-        "match:start",
-        "match:finished"
-      ],
-      "updated": "2026-11-18T23:50:50+03:00",
-      "match_status": "finished"
-    },
-    "bo3:133488": {
-      "seen": [
-        "match:start",
-        "match:finished"
-      ],
-      "updated": "2026-11-19T17:20:52+03:00",
-      "match_status": "finished"
-    },
-    "bo3:133487": {
-      "seen": [
-        "match:start",
-        "match:finished"
-      ],
-      "updated": "2026-11-19T20:40:53+03:00",
-      "match_status": "finished"
-    },
-    "bo3:133489": {
-      "seen": [
-        "match:start",
-        "match:finished"
-      ],
-      "updated": "2026-11-19T22:50:54+03:00",
-      "match_status": "finished"
-    },
-    "bo3:133490": {
-      "seen": [
-        "match:start"
-      ],
-      "updated": "2026-11-19T23:10:50+03:00",
-      "match_status": "current"
-    },
-    "bo3:133491": {
-      "seen": [
-        "match:start",
-        "match:finished"
-      ],
-      "updated": "2026-11-20T18:31:03+03:00",
-      "match_status": "finished"
-    },
-    "bo3:133492": {
-      "seen": [
-        "match:start",
-        "match:finished"
-      ],
-      "updated": "2026-11-20T23:31:07+03:00",
+      "updated": "2026-11-24T10:02:30+03:00",
       "match_status": "finished"
     }
   },

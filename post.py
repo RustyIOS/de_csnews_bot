@@ -87,9 +87,135 @@ def validate_image(path):
         sys.exit(f"BROKEN IMAGE: {path}: {e}")
 
 
-DEDUP_HOURS = 3          # live/announce: same first line, or a shared score and two names
+DEDUP_HOURS = 3          # live result/start/map: same match; other posts: same first line, or a shared score and two names
 # News repeats (Dust2 at 11:02, Reddit at 17:04) sit outside that window and have no score.
 # sent_log.json path: story_dedup.sent_log_path() (override with SENT_LOG in the environment).
+
+# One side of a map-score line ("Ancient 16:13 Falcons") is the map, not a club.
+_MAP_NAMES = {
+    "mirage", "inferno", "nuke", "ancient", "anubis", "dust2", "cache",
+    "train", "overpass", "vertigo",
+}
+_MAP_PREFIX = re.compile(
+    r"^(?P<map>mirage|inferno|nuke|ancient|anubis|dust\s*2|dust2|cache|train|overpass|vertigo)"
+    r"(?:\s*\((?:карта|map)\s*\d+\))?\s*:\s*(?P<rest>.+)$",
+    re.I,
+)
+_START_LINE = re.compile(
+    r"^матч начался:\s*(?P<t1>.+?)\s+(?:—|–|-|vs\.?)\s+(?P<t2>.+?)\s*$",
+    re.I,
+)
+_SCORE_LINE = re.compile(
+    r"^(?P<t1>.+?)\s+(?P<a>\d{1,2})\s*[:\u2013\-]\s*(?P<b>\d{1,2})\s+(?P<t2>.+?)\s*$",
+)
+
+
+def _plain_line(body):
+    text = re.sub(r"<[^>]+>", "", html.unescape(body or ""))
+    for line in text.splitlines():
+        s = line.strip()
+        if s:
+            return s
+    return ""
+
+
+def _team_key(name):
+    name = re.sub(r"\s+", " ", (name or "").strip()).casefold().replace("ё", "е")
+    return name.strip(" .,-")
+
+
+def _norm_map(name):
+    n = re.sub(r"[^a-z0-9]", "", (name or "").lower())
+    if n in {"dustii", "dust2"}:
+        return "dust2"
+    return n
+
+
+def _norm_match_key(key):
+    m = re.search(r"bo3[:-](\d+)", str(key or ""))
+    return f"bo3:{m.group(1)}" if m else None
+
+
+def match_key_from_item(item_id):
+    """bo3 id carried by live item ids such as live-end-bo3-134375."""
+    return _norm_match_key(item_id)
+
+
+def parse_live_post(body):
+    """Identity of a live result, start, or map headline, or None.
+
+    A team name stays whole, so 'Chinggis Warriors' is one team, not two words.
+    The pair is unordered: 'NiP 1:0 Lynn Vision' is the same result as the reverse.
+    """
+    cleaned = re.sub(r"^[^\w]+", "", _plain_line(body), flags=re.UNICODE).strip()
+    if not cleaned:
+        return None
+    started = _START_LINE.match(cleaned)
+    if started:
+        t1, t2 = _team_key(started.group("t1")), _team_key(started.group("t2"))
+        if not t1 or not t2:
+            return None
+        return {"type": "start", "teams": frozenset({t1, t2}), "map": None}
+    map_name = None
+    score_line = cleaned
+    prefixed = _MAP_PREFIX.match(cleaned)
+    if prefixed:
+        map_name = _norm_map(prefixed.group("map"))
+        score_line = prefixed.group("rest").strip()
+    scored = _SCORE_LINE.match(score_line)
+    if not scored:
+        return None
+    t1, t2 = _team_key(scored.group("t1")), _team_key(scored.group("t2"))
+    if not t1 or not t2:
+        return None
+    a, b = int(scored.group("a")), int(scored.group("b"))
+    if not map_name and _norm_map(t1) in _MAP_NAMES:
+        map_name = _norm_map(t1)
+    if not map_name and _norm_map(t2) in _MAP_NAMES:
+        map_name = _norm_map(t2)
+    # Series scores stop at 3 (BO5). A bigger number is a map score.
+    kind = "map" if map_name or a >= 4 or b >= 4 else "result"
+    if kind != "map":
+        map_name = None
+    return {"type": kind, "teams": frozenset({t1, t2}), "map": map_name}
+
+
+def _record_live(rec):
+    """Live identity stored on a sent_log row, or parsed from its first line."""
+    parsed = parse_live_post(rec.get("first") or "")
+    kind = rec.get("live_type") or (parsed or {}).get("type")
+    if rec.get("teams"):
+        teams = frozenset(_team_key(t) for t in rec["teams"] if _team_key(t))
+    else:
+        teams = (parsed or {}).get("teams") or frozenset()
+    map_name = rec.get("live_map") or (parsed or {}).get("map")
+    if not kind:
+        return None
+    return {
+        "type": kind,
+        "teams": teams,
+        "map": _norm_map(map_name) if map_name else None,
+        "match_key": _norm_match_key(rec.get("match_key")),
+    }
+
+
+def _same_live_match(new, rec, match_key):
+    """True when both posts are the same live result, start, or map.
+
+    Same bo3 id when both sides have one. Otherwise both teams, same post
+    type. One shared team is not a match. Two maps of one series stay distinct
+    when both lines name the map.
+    """
+    old = _record_live(rec)
+    if not old or old["type"] != new["type"]:
+        return False
+    if new.get("map") and old.get("map") and new["map"] != old["map"]:
+        return False
+    new_key = _norm_match_key(match_key)
+    old_key = old.get("match_key")
+    if new_key and old_key:
+        return new_key == old_key
+    return len(new["teams"]) == 2 and new["teams"] == old["teams"]
 
 
 def fingerprint(body):
@@ -105,10 +231,15 @@ _DEFAULT_TIE = object()
 
 
 def find_dup(body, chat, hours=DEDUP_HOURS, news=False, now=None, headlines=None, log=None,
-             tie_break=_DEFAULT_TIE, seen=None):
+             tie_break=_DEFAULT_TIE, seen=None, match_key=None):
     """A recent channel post this body would repeat.
 
-    `hours` (default 3) is the live window: identical first line, or a shared
+    A live result, start, or map post repeats only the same match inside
+    `hours` (default 3): the same bo3 id when both sides have one, otherwise
+    both teams in either order and the same post type. Sharing one team, or a
+    1:0 that every Swiss map produces, is not enough.
+
+    Anything else keeps the older check: identical first line, or a shared
     score plus two latin words. News also looks back 48 hours at the headline
     against sent_log, the daily digest «Тема:» lines, and source titles we
     already posted. `headlines` / `log` / `seen` stand in for those files in tests.
@@ -118,10 +249,15 @@ def find_dup(body, chat, hours=DEDUP_HOURS, news=False, now=None, headlines=None
     records = load_json(sent_log_path(), []) if log is None else log
     words, scores = fingerprint(body)
     first = (re.sub(r"<[^>]+>", "", body).strip().splitlines() or [""])[0]
+    live = parse_live_post(body)
     for r in records:
         if not isinstance(r, dict):
             continue
         if r.get("chat") != str(chat) or now - r.get("ts", 0) > hours * 3600:
+            continue
+        if live:
+            if _same_live_match(live, r, match_key):
+                return r
             continue
         w2, s2 = set(r.get("words", [])), set(r.get("scores", []))
         if r.get("first") and r["first"] == first:
@@ -249,7 +385,7 @@ def main():
     else:
         payload_show = payload
     def _refuse_if_dup():
-        d = find_dup(body, a.chat, news=not a.no_source)
+        d = find_dup(body, a.chat, news=not a.no_source, match_key=match_key_from_item(a.item_id))
         if not d:
             return
         sys.exit(f"DUPLICATE: similar post already sent (message {d.get('message_id')}, {d.get('first')!r}). "
@@ -312,8 +448,19 @@ def main():
     words, scores = fingerprint(body)
     # Keep 48 h so a news story posted this morning is still visible tonight and tomorrow.
     log = [r for r in load_json(_log_path, []) if time.time() - r.get("ts", 0) < NEWS_WINDOW_HOURS * 3600]
-    log.append({"ts": time.time(), "chat": str(a.chat), "message_id": msg.get("message_id"),
-                "first": (re.sub(r"<[^>]+>", "", body).strip().splitlines() or [""])[0], "words": words, "scores": scores})
+    entry = {"ts": time.time(), "chat": str(a.chat), "message_id": msg.get("message_id"),
+             "first": (re.sub(r"<[^>]+>", "", body).strip().splitlines() or [""])[0],
+             "words": words, "scores": scores}
+    match_key = match_key_from_item(a.item_id)
+    if match_key:
+        entry["match_key"] = match_key
+    ident = parse_live_post(body)
+    if ident:
+        entry["live_type"] = ident["type"]
+        entry["teams"] = sorted(ident["teams"])
+        if ident.get("map"):
+            entry["live_map"] = ident["map"]
+    log.append(entry)
     with open(_log_path + ".tmp", "w") as f:
         json.dump(log, f, ensure_ascii=False)
     os.replace(_log_path + ".tmp", _log_path)

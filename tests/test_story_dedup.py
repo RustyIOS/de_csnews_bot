@@ -295,6 +295,92 @@ class FindDupTest(unittest.TestCase):
             _html(ROLLS_LONG), CHANNEL_ID, news=True, now=now, headlines=[], log=log, tie_break=None))
 
 
+class LiveMatchDedupTest(unittest.TestCase):
+    """Swiss BO1s share 1:0 and one club. That is not the same match.
+
+    PGL Major Singapore 2026 Stage 1, 24 Nov: HEROIC–Chinggis was refused as a
+    copy of 100 Thieves–Chinggis (message 583), and NiP–Lynn Vision as a copy
+    of Lynn Vision–9z (message 587).
+    """
+
+    def _log(self, hours_ago, first, words, scores, mid, **extra):
+        row = {
+            "ts": 1_700_000_000 - hours_ago * 3600,
+            "chat": str(CHANNEL_ID),
+            "message_id": mid,
+            "first": first,
+            "words": words,
+            "scores": scores,
+        }
+        row.update(extra)
+        return row
+
+    def test_one_shared_team_is_not_a_duplicate(self):
+        now = 1_700_000_000
+        thieves = self._log(
+            0.2, "🏁 100 Thieves 1:0 Chinggis Warriors",
+            ["chinggis", "thieves", "warriors"], ["1:0"], 583)
+        lynn = self._log(
+            0.2, "🏁 Lynn Vision 1:0 9z",
+            ["lynn", "vision"], ["1:0"], 587)
+        heroic = "<b>🏁 HEROIC 1:0 Chinggis Warriors</b>\n\nNuke 13:3\n"
+        nip = "<b>🏁 NiP 1:0 Lynn Vision</b>\n\nAncient 13:10\n"
+        # The old rule (shared 1:0 plus two latin words) would have fired.
+        for body, prev in ((heroic, thieves), (nip, lynn)):
+            words, scores = post.fingerprint(body)
+            self.assertTrue(set(scores) & set(prev["scores"]))
+            self.assertGreaterEqual(len(set(words) & set(prev["words"])), 2)
+            self.assertIsNone(post.find_dup(
+                body, CHANNEL_ID, news=False, now=now, log=[prev],
+                match_key="bo3:134374" if prev["message_id"] == 583 else "bo3:134375"))
+
+    def test_same_match_is_still_blocked(self):
+        now = 1_700_000_000
+        body = "<b>🏁 NiP 1:0 Lynn Vision</b>\n\nAncient 13:10\n"
+        reversed_teams = self._log(
+            0.5, "🏁 Lynn Vision 1:0 NiP",
+            ["lynn", "nip", "vision"], ["1:0"], 598)
+        found = post.find_dup(body, CHANNEL_ID, news=False, now=now, log=[reversed_teams])
+        self.assertEqual(found["message_id"], 598)
+        keyed = self._log(
+            0.5, "🏁 NiP 1:0 Lynn Vision",
+            ["lynn", "nip", "vision"], ["1:0"], 599,
+            match_key="bo3:134375", live_type="result", teams=["lynn vision", "nip"])
+        found = post.find_dup(
+            body, CHANNEL_ID, news=False, now=now, log=[keyed], match_key="bo3:134375")
+        self.assertEqual(found["message_id"], 599)
+        # A later series between the same clubs is a different bo3 id.
+        other = self._log(
+            0.5, "🏁 Lynn Vision 1:0 NiP",
+            ["lynn", "nip", "vision"], ["1:0"], 600, match_key="bo3:999999")
+        self.assertIsNone(post.find_dup(
+            body, CHANNEL_ID, news=False, now=now, log=[other], match_key="bo3:134375"))
+        # Outside the 3-hour window the same result can be sent again.
+        stale = self._log(
+            4, "🏁 Lynn Vision 1:0 NiP",
+            ["lynn", "nip", "vision"], ["1:0"], 601)
+        self.assertIsNone(post.find_dup(body, CHANNEL_ID, news=False, now=now, log=[stale]))
+
+    def test_start_is_not_a_duplicate_of_the_result(self):
+        now = 1_700_000_000
+        result = self._log(
+            0.3, "🏁 NiP 1:0 Lynn Vision",
+            ["lynn", "nip", "vision"], ["1:0"], 598, match_key="bo3:134375")
+        start = "<b>🟢 Матч начался: NiP — Lynn Vision</b>\n"
+        self.assertIsNone(post.find_dup(
+            start, CHANNEL_ID, news=False, now=now, log=[result], match_key="bo3:134375"))
+
+    def test_two_maps_of_one_series_are_not_duplicates(self):
+        now = 1_700_000_000
+        nuke = self._log(
+            0.2, "Nuke (карта 1): HEROIC 13:3 Chinggis Warriors",
+            ["chinggis", "heroic", "nuke", "warriors"], ["13:3"], 70,
+            match_key="bo3:134374", live_type="map", live_map="nuke")
+        ancient = "<b>Ancient (карта 2): HEROIC 13:11 Chinggis Warriors</b>\n"
+        self.assertIsNone(post.find_dup(
+            ancient, CHANNEL_ID, news=False, now=now, log=[nuke], match_key="bo3:134374"))
+
+
 class ClassifyTest(unittest.TestCase):
     def test_batch_keeps_dust2_and_drops_reddit(self):
         dust = _item("dust:79654", "Dust2.us", DUST, "https://www.dust2.us/news/79654/rolls")
@@ -352,7 +438,7 @@ class ClassifyTest(unittest.TestCase):
 
 
 class PostDryRunTest(unittest.TestCase):
-    def _run(self, headline, log, digest_blocks, extra_args=()):
+    def _run(self, headline, log, digest_blocks, extra_args=(), item_id="reddit:t3_1xoigx6"):
         tmp = tempfile.TemporaryDirectory()
         self.addCleanup(tmp.cleanup)
         log_path = os.path.join(tmp.name, "sent_log.json")
@@ -372,7 +458,7 @@ class PostDryRunTest(unittest.TestCase):
         env.pop("GEMINI_API_KEY", None)
         env.pop("TELEGRAM_BOT_TOKEN", None)
         return subprocess.run(
-            [sys.executable, "post.py", "reddit:t3_1xoigx6", "--text-file", draft,
+            [sys.executable, "post.py", item_id, "--text-file", draft,
              "--url", "https://www.reddit.com/r/GlobalOffensive/comments/1xoigx6/x",
              "--source", "Reddit", "--image", "", "--dry-run", *extra_args],
             cwd=ROOT, capture_output=True, text=True, env=env,
@@ -435,6 +521,43 @@ class PostDryRunTest(unittest.TestCase):
         self.assertEqual(proc.returncode, 0, proc.stderr)
         self.assertIn('"method": "sendMessage"', proc.stdout)
         self.assertNotIn("DUPLICATE:", proc.stderr)
+
+    def test_dry_run_live_results_that_share_one_team(self):
+        now = datetime.datetime.now(datetime.timezone.utc).timestamp()
+        log = [
+            {"ts": now - 600, "chat": str(CHANNEL_ID), "message_id": 583,
+             "first": "🏁 100 Thieves 1:0 Chinggis Warriors",
+             "words": ["chinggis", "thieves", "warriors"], "scores": ["1:0"]},
+            {"ts": now - 500, "chat": str(CHANNEL_ID), "message_id": 587,
+             "first": "🏁 Lynn Vision 1:0 9z",
+             "words": ["lynn", "vision"], "scores": ["1:0"]},
+        ]
+        heroic = self._run(
+            "🏁 HEROIC 1:0 Chinggis Warriors", log, [],
+            extra_args=("--no-source",), item_id="live-end-bo3-134374")
+        self.assertEqual(heroic.returncode, 0, heroic.stderr)
+        self.assertNotIn("DUPLICATE:", heroic.stderr)
+        nip = self._run(
+            "🏁 NiP 1:0 Lynn Vision", log, [],
+            extra_args=("--no-source",), item_id="live-end-bo3-134375")
+        self.assertEqual(nip.returncode, 0, nip.stderr)
+        self.assertNotIn("DUPLICATE:", nip.stderr)
+
+    def test_dry_run_repeat_of_the_same_match_is_blocked(self):
+        now = datetime.datetime.now(datetime.timezone.utc).timestamp()
+        log = [{
+            "ts": now - 600, "chat": str(CHANNEL_ID), "message_id": 598,
+            "first": "🏁 Lynn Vision 1:0 NiP",
+            "words": ["lynn", "nip", "vision"], "scores": ["1:0"],
+            "match_key": "bo3:134375", "live_type": "result",
+            "teams": ["lynn vision", "nip"],
+        }]
+        proc = self._run(
+            "🏁 NiP 1:0 Lynn Vision", log, [],
+            extra_args=("--no-source",), item_id="live-end-bo3-134375")
+        self.assertNotEqual(proc.returncode, 0, proc.stdout + proc.stderr)
+        self.assertIn("DUPLICATE:", proc.stderr)
+        self.assertIn("Lynn Vision 1:0 NiP", proc.stderr)
 
 
 if __name__ == "__main__":

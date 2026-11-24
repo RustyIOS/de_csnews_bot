@@ -22,7 +22,7 @@ flags show what is already recorded. This script never posts anything.
 """
 import argparse, json, math, os, re, sys, time, shutil, subprocess, urllib.parse
 from datetime import datetime, timedelta, timezone
-from common import UA, MSK, BASE, load_json, save_json, load_state, save_state, now_msk, similar
+from common import UA, MSK, BASE, load_json, save_json, load_state, save_state, now_msk, similar, valid_score
 
 BO3_API = "https://api.bo3.gg/api/v1/matches"
 LP_API = "https://liquipedia.net/counterstrike/api.php"
@@ -95,8 +95,14 @@ def bo3_norm(m):
         wid = (g.get("winner_team_clan") or {}).get("team_id")
         w, l = g.get("winner_clan_score"), g.get("loser_clan_score")
         t1won = wid == m.get("team1_id")
+        # Empty winner_clan_score must stay empty. f"{None}:{None}" is the
+        # 'None:None' that used to land on the decider map.
+        if w is None or l is None:
+            sc = None
+        else:
+            sc = valid_score(f"{w}:{l}" if t1won else f"{l}:{w}")
         maps.append({"map": g["map_name"].replace("de_", "").capitalize(),
-                     "score": f"{w}:{l}" if t1won else f"{l}:{w}",
+                     "score": sc, "number": g.get("number"),
                      "winner": (t1 if t1won else t2).get("name") if wid else None})
     s1, s2 = m.get("team1_score"), m.get("team2_score")
     winner = None
@@ -123,7 +129,8 @@ def bo3_norm(m):
         "importance": None,
     }
     if m.get("status") in ("finished", "current", "defwin") or s1 or s2:
-        out.update({"score": f"{s1}:{s2}", "winner": winner, "maps": maps})
+        series = None if s1 is None or s2 is None else valid_score(f"{s1}:{s2}")
+        out.update({"score": series, "winner": winner, "maps": maps})
         need = math.ceil((bo or 1) / 2)
         if m.get("status") == "finished" and max(s1 or 0, s2 or 0) < need:
             out["note"] = "score incomplete/forfeit (winner below majority)"
@@ -563,7 +570,11 @@ def main():
               f"{len(matches)} notable of {total}" + (f"  (errors: {errors})" if errors else ""))
         for x in matches:
             sc = f" {x['score']}" if x.get("score") else " vs"
-            mp = ", ".join(f"{m['map']} {m['score']}" for m in x.get("maps") or [])
+            bits = []
+            for mp_row in x.get("maps") or []:
+                sc_ok = valid_score(mp_row.get("score"))
+                bits.append(f"{mp_row['map']} {sc_ok}" if sc_ok else mp_row["map"])
+            mp = ", ".join(bits)
             print(f"{x['date_msk']} {x['start_msk']} MSK [{x.get('tier') or '-'}|{x['importance']}] "
                   f"{x['team1']}{sc} {x['team2']} ({x['format']}) - {x['event']}"
                   f"{' - ' + x['stage'] if x.get('stage') else ''} [{x['status']}]{' ' + mp if mp else ''}  {x['key']}")

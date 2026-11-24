@@ -8364,6 +8364,48 @@
       "url": "https://www.hltv.org/news/46037/liquid-annihilate-bcgame-13-1-in-singapore",
       "source": "HLTV",
       "marked_at": "2026-11-24T14:03:01+03:00"
+    },
+    "hltv:hltvnews46043": {
+      "status": "posted",
+      "title": "Singapore Major Stage 1 day 2 matchups set",
+      "url": "https://www.hltv.org/news/46043/singapore-major-stage-1-day-2-matchups-set",
+      "source": "HLTV",
+      "marked_at": "2026-11-24T17:02:19+03:00"
+    },
+    "hltv:hltvnews46035": {
+      "status": "posted",
+      "title": "saadzin: \"Against EU teams it's a chess game\"",
+      "url": "https://www.hltv.org/news/46035/saadzin-against-eu-teams-its-a-chess-game",
+      "source": "HLTV",
+      "marked_at": "2026-11-24T17:03:34+03:00"
+    },
+    "tg:acenewscs:17598": {
+      "status": "posted",
+      "title": "🏆 s1mple вышел на связь и попросил поддержки для своей команды",
+      "url": "https://t.me/acenewscs/17598",
+      "source": "Telegram / acenewscs",
+      "marked_at": "2026-11-24T17:04:49+03:00"
+    },
+    "hltv:hltvnews46044": {
+      "status": "skipped",
+      "title": "Twistzz leads the way in FaZe's drubbing of BCG",
+      "url": "https://www.hltv.org/news/46044/twistzz-leads-the-way-in-fazes-drubbing-of-bcg",
+      "source": "HLTV",
+      "marked_at": "2026-11-24T17:04:49+03:00"
+    },
+    "tg:cs2news:63238": {
+      "status": "skipped",
+      "title": "🇸🇬 Подводим итоги первого дня PGL Singapore Major!",
+      "url": "https://t.me/raiznews/63238",
+      "source": "Telegram / cs2news",
+      "marked_at": "2026-11-24T17:04:49+03:00"
+    },
+    "tg:acenewscs:17592": {
+      "status": "skipped",
+      "title": "😱 САШКА СИМПЛ В ШАГЕ ОТ ВЫЛЕТА С ТУРНИРА — но это не самое худшее, ведь GOSH могут не только вылететь, но и поставить антирекорд...",
+      "url": "https://t.me/acenewscs/17592",
+      "source": "Telegram / acenewscs",
+      "marked_at": "2026-11-24T17:04:49+03:00"
     }
   },
   "match_announcements": {

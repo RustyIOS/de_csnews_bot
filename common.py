@@ -36,6 +36,21 @@ def save_state(st):
     save_json(STATE_FILE, st)
 
 
+def valid_score(sc):
+    """'13:10' when `sc` is a real numeric score, else None.
+
+    A just-finished bo3 map often has winner_clan_score left empty. Putting
+    that straight into an f-string is the literal 'None:None'.
+    """
+    if sc is None or isinstance(sc, bool):
+        return None
+    text = str(sc).strip()
+    m = re.fullmatch(r"(\d{1,2}):(\d{1,2})", text)
+    if not m:
+        return None
+    return f"{int(m.group(1))}:{int(m.group(2))}"
+
+
 def norm_url(u):
     u = (u or "").strip().split("#")[0]
     u = re.sub(r"^https?://(www\.)?", "", u)

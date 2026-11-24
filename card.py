@@ -263,7 +263,8 @@ def t_result(x, logos=True):
             d = ImageDraw.Draw(im)
             ty = cy + 20
         team_block(d, team, colx, ty - (20 if not lg and len(team) > 14 else 0), 64 if not lg else 54, side_w - 70)
-    # maps
+    # maps. A missing bo3 score is None / 'None:None' and must not be drawn.
+    maps = [m for m in maps if m.get("score") is not None and not re.search(r"(?i)\bnone\b", str(m.get("score")))]
     if maps:
         y = cy + 125
         n = len(maps)

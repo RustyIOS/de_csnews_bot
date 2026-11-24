@@ -10,7 +10,7 @@ import argparse, datetime, html, json, os, sys
 from datetime import timezone
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from auto_lib import *
-from common import MSK, now_msk
+from common import MSK, now_msk, valid_score
 
 ap = argparse.ArgumentParser()
 ap.add_argument("--dry-run", action="store_true")
@@ -101,8 +101,9 @@ def oriented(m):
     media = m.get("tier") == "MEDIA"
     maps = []
     for mp in m.get("maps") or []:
-        sc = mp.get("score") or ""
-        if ":" not in sc: continue
+        sc = valid_score(mp.get("score"))
+        if not sc:
+            continue
         a1, a2 = sc.split(":")
         maps.append((None if media else mp.get("map"), f"{a2}:{a1}" if flip else sc))
     return (t2, t1, f"{s2}:{s1}", maps) if flip else (t1, t2, f"{s1}:{s2}", maps)

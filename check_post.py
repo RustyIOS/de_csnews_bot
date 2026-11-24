@@ -9,6 +9,7 @@ Checks (FAIL = exit 1, WARN = verify by hand, exit 0):
   scores    FAIL  final map scores (13:8, 16:12 ...) / finished series scores that contradict the same map+teams in the last
                   ~40 channel posts (https://t.me/s/de_csnews = source of truth for already covered matches, LESSONS #2).
                   Compared as unordered pairs (13:8 == 8:13), teams = team words in the sentence + team hashtags.
+                  Also FAIL 'None:None' or a bare None score (a map bo3 has not filled in yet).
   links     FAIL  auto-linkable text: URLs, domains (dust2.us, hltv.org), @handles, t.me (LESSONS #5).
   hashtags  FAIL  outside 2-4 tags besides #de_csnews;  WARN  #de_csnews missing (post.py appends it).
   length    FAIL  visible length > 1024 (photo caption) / 4096 (text); unbalanced <b>/<i>/<a> tags.
@@ -34,6 +35,33 @@ ORD_RE = re.compile(r"\b(?:" + ORD + r")(?:ый|ая|ое|ой|ий|ья|ье|у
                     r"|\b(рекорд\w*|впервые|первый в истории|лучш\w+ в истории|в \d+-й раз)\b", re.I)
 ORD_SKIP = re.compile(r"^(мест\w*|карт\w*|раунд\w*|половин\w*|день|дня|матч\w*|минут\w*|пистолетк\w*|овертайм\w*|тайм\w*|стади\w*)$", re.I)
 LINK_RE = re.compile(r"https?://\S+|\bt\.me/\S+|(?<![\w@#])@[A-Za-z0-9_]{3,}|\b[\w-]+\.(?:com|org|gg|us|ru|net|tv|io|me|co|uk|de|fr|dk|info|pro|xyz)\b", re.I)
+# A score bo3 left empty. 'None of the players' is ordinary English and is not a score.
+_NONE_SCORE = re.compile(
+    r"(?i)none\s*:\s*none"
+    r"|(?<![A-Za-z0-9])none\s*:\s*\d{1,2}(?!\d)"
+    r"|(?<!\d)\d{1,2}\s*:\s*none(?![A-Za-z0-9])"
+    r"|\b(?:mirage|inferno|nuke|ancient|anubis|dust\s*2|dust2|cache|train|overpass|vertigo|карта\s*\d+)\s+none\b"
+)
+
+
+def none_score_failures(text):
+    """Fail strings when a draft still has an unfilled map score."""
+    text = text or ""
+    hits = []
+    if re.search(r"(?i)none\s*:\s*none", text):
+        hits.append("None:None")
+    for m in _NONE_SCORE.finditer(text):
+        tok = re.sub(r"\s+", " ", m.group(0).strip())
+        # "Ancient None" is the start of "Ancient None:None"; the pair is enough.
+        if tok.lower().replace(" ", "") == "none:none":
+            continue
+        if re.search(r"(?i)none\s*:\s*none", text) and re.fullmatch(r"(?i).+\s+none", tok):
+            continue
+        if tok not in hits:
+            hits.append(tok)
+    if not hits:
+        return []
+    return [f"scores: draft has a missing score ({', '.join(hits)})"]
 
 
 def visible(h):
@@ -163,6 +191,8 @@ def main():
     n = len([t for t in tags if t != "de_csnews"])
     if not 2 <= n <= 4:
         fails.append(f"hashtags: {n} tags besides #de_csnews (need 2-4)")
+
+    fails.extend(none_score_failures(text))
 
     # links
     for m in LINK_RE.finditer(text):

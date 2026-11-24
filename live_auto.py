@@ -11,6 +11,12 @@ A catch-up uses live.collapse_stale: if the start and the final are both still u
 only the final goes out. At most LIVE_MAX_POSTS (default 2) per run; the rest wait for
 the next tick, with the usual 75 s gap inside post.py.
 
+A finished map whose score bo3 has not filled in yet is not posted and is not
+marked sent. The tick fetches that match again, then asks Liquipedia. Still
+empty, and the match ended under LIVE_SCORE_WAIT_MIN (default 60): the result
+stays pending. After that the series score goes out without the empty map line.
+A held result does not fail the run and does not take a slot from other posts.
+
 Map start, half-time and map-result cards are not posted. On a 10-minute poll those
 signals (especially Liquipedia halves and OT series) have been wrong often enough that
 a late run must not emit a chain of them. The final uses the same result card as the
@@ -26,12 +32,13 @@ from datetime import timezone
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from auto_lib import (check_and_post, event_name, hashtags, log, run_json, single_instance,
                       stage_short, team)
-from common import load_state, now_msk, save_state
+from common import load_state, now_msk, save_state, valid_score
 from live import collapse_stale
 
 FRESH_MIN = float(os.environ.get("LIVE_START_FRESH_MIN", "45"))
 RESULT_HOURS = float(os.environ.get("LIVE_RESULT_HOURS", "3"))
 MAX_POSTS = int(os.environ.get("LIVE_MAX_POSTS", "2"))
+SCORE_WAIT_MIN = float(os.environ.get("LIVE_SCORE_WAIT_MIN", "60"))
 SOON_MIN = 15
 
 
@@ -45,16 +52,7 @@ def _ts(s):
 
 
 def _score_ok(m):
-    sc = m.get("score") or ""
-    if ":" not in sc:
-        return False
-    try:
-        a, b = sc.split(":")
-        int(a)
-        int(b)
-    except ValueError:
-        return False
-    return True
+    return bool(valid_score(m.get("score")))
 
 
 def _real_teams(m):
@@ -151,8 +149,8 @@ def _winner_view(m):
     t1, t2 = team(m["team1"]), team(m["team2"])
     maps = []
     for mp in m.get("maps") or []:
-        sc = mp.get("score") or ""
-        if ":" not in sc:
+        sc = valid_score(mp.get("score"))
+        if not sc:
             continue
         a, b = sc.split(":")
         name = (mp.get("map") or "").strip()
@@ -162,6 +160,199 @@ def _winner_view(m):
     if flip:
         return t2, t1, f"{s2}:{s1}", maps, True
     return t1, t2, f"{s1}:{s2}", maps, False
+
+
+def _copy_match(m):
+    out = dict(m)
+    out["maps"] = [dict(mp) for mp in (m.get("maps") or [])]
+    return out
+
+
+def missing_maps(m):
+    """Finished maps whose score is still empty (None, 'None:None', blank)."""
+    return [mp for mp in (m.get("maps") or []) if not valid_score(mp.get("score"))]
+
+
+def _map_token(name):
+    n = re.sub(r"[^a-z0-9]", "", str(name or "").lower().replace("de_", ""))
+    return "dust2" if n == "dustii" else n
+
+
+def _donor_score(mp, donors):
+    name = _map_token(mp.get("map"))
+    number = mp.get("number")
+    by_num = None
+    for donor in donors or []:
+        sc = valid_score(donor.get("score"))
+        if not sc:
+            continue
+        if name and _map_token(donor.get("map")) == name:
+            return sc
+        if number is not None and donor.get("number") == number and by_num is None:
+            by_num = sc
+    return by_num
+
+
+def merge_map_scores(m, donors):
+    """Fill empty map scores from donor rows. Real scores already on `m` stay."""
+    m = _copy_match(m)
+    for mp in m["maps"]:
+        have = valid_score(mp.get("score"))
+        if have:
+            mp["score"] = have
+            continue
+        got = _donor_score(mp, donors)
+        if got:
+            mp["score"] = got
+    return m
+
+
+def maps_from_bo3(raw):
+    if not raw:
+        return []
+    import matches as matches_mod
+    return (matches_mod.bo3_norm(raw).get("maps") or [])
+
+
+def maps_from_lp(raw):
+    """Liquipedia finals oriented team1:team2, the same way bo3_norm stores them."""
+    if not raw:
+        return []
+    import lp_live
+    info = lp_live.live_maps(raw, {})
+    if not info:
+        return []
+    rows = []
+    for mi in info.get("maps") or []:
+        final = mi.get("final")
+        if not final or len(final) != 2:
+            continue
+        sc = valid_score(f"{final[0]}:{final[1]}")
+        if not sc:
+            continue
+        rows.append({"map": mi.get("map"), "number": mi.get("n"), "score": sc})
+    return rows
+
+
+def _fetch_match(mid):
+    import live
+    return live.fetch_match(mid)
+
+
+def _fetch_lp(raw):
+    return maps_from_lp(raw)
+
+
+def _lp_raw_from_match(m):
+    """Enough of a bo3 match for lp_live when the fresh fetch itself failed."""
+    return {
+        "tournament": {"name": m.get("event")},
+        "team1": {"name": m.get("team1")},
+        "team2": {"name": m.get("team2")},
+        "start_date": m.get("start_utc"),
+    }
+
+
+def refill_map_scores(m, fetch_match=None, fetch_lp=None):
+    """Try a fresh bo3 match, then Liquipedia, for maps that still have no score."""
+    m = _copy_match(m)
+    if not missing_maps(m):
+        return m
+    key = str(m.get("key") or "")
+    mid = None
+    if key.startswith("bo3:"):
+        try:
+            mid = int(key.split(":", 1)[1])
+        except ValueError:
+            mid = None
+    raw = None
+    if mid is not None:
+        fetcher = _fetch_match if fetch_match is None else fetch_match
+        try:
+            raw = fetcher(mid)
+            if raw:
+                m = merge_map_scores(m, maps_from_bo3(raw))
+        except (Exception, SystemExit) as ex:
+            log(f"{key}: fresh bo3 fetch failed ({ex})")
+            raw = None
+    if missing_maps(m):
+        lp_fetch = _fetch_lp if fetch_lp is None else fetch_lp
+        try:
+            donors = lp_fetch(raw if raw is not None else _lp_raw_from_match(m))
+        except (Exception, SystemExit) as ex:
+            log(f"{key}: liquipedia score fetch failed ({ex})")
+            donors = []
+        if donors:
+            m = merge_map_scores(m, donors)
+    return m
+
+
+def _as_dt(value):
+    if isinstance(value, datetime.datetime):
+        dt = value
+    else:
+        dt = _ts(value)
+    if dt is not None and dt.tzinfo is None:
+        dt = dt.replace(tzinfo=timezone.utc)
+    return dt
+
+
+def score_wait_expired(m, now, hold_since=None):
+    """True once the empty map score has had about SCORE_WAIT_MIN to show up.
+
+    The clock is the match end when bo3 has one. Otherwise it is the first
+    tick that noticed the hole (score_hold_since on the live_events row).
+    """
+    now = _as_dt(now)
+    anchor = _as_dt(m.get("end_utc")) or _as_dt(hold_since)
+    if anchor is None or now is None:
+        return False
+    return (now - anchor).total_seconds() >= SCORE_WAIT_MIN * 60
+
+
+def drop_unscored_maps(m):
+    m = _copy_match(m)
+    kept = []
+    for mp in m["maps"]:
+        sc = valid_score(mp.get("score"))
+        if not sc:
+            continue
+        mp["score"] = sc
+        kept.append(mp)
+    m["maps"] = kept
+    return m
+
+
+def prepare_finished(m, now, fetch_match=None, fetch_lp=None, hold_since=None):
+    """('post', match) or ('hold', match).
+
+    'hold' means the result stays pending: not sent, not marked seen.
+    After the wait, 'post' keeps the series score and drops map lines that
+    are still empty, so the caption never contains None.
+    """
+    m = refill_map_scores(m, fetch_match=fetch_match, fetch_lp=fetch_lp)
+    pending = missing_maps(m)
+    if not pending:
+        return "post", m
+    names = ", ".join((mp.get("map") or "map") for mp in pending)
+    if score_wait_expired(m, now, hold_since):
+        log(f"{m.get('key')}: posting without {names} "
+            f"(score still missing after {SCORE_WAIT_MIN:g} min)")
+        return "post", drop_unscored_maps(m)
+    log(f"{m.get('key')}: {names} score not in yet")
+    return "hold", m
+
+
+def note_score_hold(key):
+    """Remember when we first waited on a map score. Does not mark the result sent."""
+    st = load_state()
+    le = st.setdefault("live_events", {})
+    rs = le.setdefault(key, {"seen": []})
+    rs.setdefault("seen", [])
+    if not rs.get("score_hold_since"):
+        rs["score_hold_since"] = now_msk().isoformat(timespec="seconds")
+    rs["updated"] = now_msk().isoformat(timespec="seconds")
+    save_state(st)
 
 
 def render_post(ev):
@@ -251,8 +442,18 @@ def remember(key, event_id, status):
     save_state(st)
 
 
-def send_one(ev, dry):
+def send_one(ev, dry, now=None):
+    now = now or datetime.datetime.now(timezone.utc)
     m = ev["_m"]
+    if ev["type"] == "match_finished":
+        hold_since = ((load_state().get("live_events") or {}).get(m.get("key")) or {}).get("score_hold_since")
+        status, m = prepare_finished(m, now, hold_since=hold_since)
+        if status == "hold":
+            log(f"HOLD {m.get('key')}: map score missing, still pending")
+            if not dry:
+                note_score_hold(m["key"])
+            return "hold"
+        ev = dict(ev, _m=m)
     text, template, card = render_post(ev)
     os.makedirs("drafts", exist_ok=True)
     os.makedirs("cards/out", exist_ok=True)
@@ -274,7 +475,28 @@ def send_one(ev, dry):
     ok = check_and_post(f"live-{kind}-{safe}", tp, cp, dry, url, check_args=["--since-hours", hours])
     if ok and not dry:
         remember(m["key"], ev["event_id"], m.get("status"))
-    return ok
+    return bool(ok)
+
+
+def run_due(posts, dry, send, max_posts=MAX_POSTS):
+    """Send up to max_posts. A held result is skipped, not a failure, and does not use a slot."""
+    sent = held = 0
+    for i, ev in enumerate(posts):
+        if sent >= max_posts:
+            log(f"catch-up cap: sending {sent}, leaving {len(posts) - i} for the next run")
+            break
+        status = send(ev, dry)
+        if status == "hold":
+            held += 1
+            continue
+        if not status:
+            log("FAILED")
+            return 1
+        sent += 1
+    if held:
+        log(f"held {held} result(s) for a map score; next tick retries them")
+    log("DONE")
+    return 0
 
 
 def main(argv=None):
@@ -293,16 +515,7 @@ def main(argv=None):
     log(info["reason"])
     if not info["posts"]:
         return 0
-    todo = info["posts"][:MAX_POSTS]
-    extra = len(info["posts"]) - len(todo)
-    if extra:
-        log(f"catch-up cap: sending {len(todo)}, leaving {extra} for the next run")
-    for ev in todo:
-        if not send_one(ev, a.dry_run):
-            log("FAILED")
-            return 1
-    log("DONE")
-    return 0
+    return run_due(info["posts"], a.dry_run, send_one)
 
 
 if __name__ == "__main__":

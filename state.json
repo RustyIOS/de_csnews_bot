@@ -8974,10 +8974,11 @@
     },
     "bo3:134387": {
       "seen": [
-        "match:start"
+        "match:start",
+        "match:finished"
       ],
-      "updated": "2026-11-25T11:12:10+03:00",
-      "match_status": "current"
+      "updated": "2026-11-25T13:50:47+03:00",
+      "match_status": "finished"
     },
     "bo3:134386": {
       "seen": [

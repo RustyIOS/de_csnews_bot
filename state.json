@@ -8623,6 +8623,48 @@
       "url": "https://t.me/raiznews/63318",
       "source": "Telegram / cs2news",
       "marked_at": "2026-11-25T23:01:15+03:00"
+    },
+    "hltv:hltvnews46055": {
+      "status": "posted",
+      "title": "Media: oSee joins Without a Roof",
+      "url": "https://www.hltv.org/news/46055/media-osee-joins-without-a-roof",
+      "source": "HLTV",
+      "marked_at": "2026-11-25T23:11:49+03:00"
+    },
+    "tg:cs2news:63317": {
+      "status": "posted",
+      "title": "🇩🇰 NiKo нужен надзиратель на тренере, чтобы он смог добиться успехов в роли IGL — считает 🇷🇸 kassad",
+      "url": "https://t.me/raiznews/63317",
+      "source": "Telegram / cs2news",
+      "marked_at": "2026-11-25T23:13:05+03:00"
+    },
+    "dust2us:news80288": {
+      "status": "skipped",
+      "title": "GOSH (BC.Game) bomb out of what could be s1mple's last Major",
+      "url": "https://www.dust2.us/news/80288/gosh-bcgame-bomb-out-of-what-could-be-s1mples-last-major",
+      "source": "Dust2.us",
+      "marked_at": "2026-11-25T23:13:05+03:00"
+    },
+    "dust2us:news80285": {
+      "status": "skipped",
+      "title": "M80 stand out in second day of Major; Liquid miss out on flawless run",
+      "url": "https://www.dust2.us/news/80285/m80-stand-out-in-second-day-of-major-liquid-miss-out-on-flawless-run",
+      "source": "Dust2.us",
+      "marked_at": "2026-11-25T23:13:05+03:00"
+    },
+    "tg:cs3news:20487": {
+      "status": "skipped",
+      "title": "🇪🇺 Простите за слитый сценарий продолжения карьеры karrigan:",
+      "url": "https://t.me/cs3news/20487",
+      "source": "Telegram / cs3news",
+      "marked_at": "2026-11-25T23:13:05+03:00"
+    },
+    "tg:cs3news:20482": {
+      "status": "skipped",
+      "title": "‼️ KARRIGAN УШЕЛ ИЗ КОМАНДЫ, УЗНАВ ЧТО FALCONS БОЛЬШЕ НЕ БУДУТ ЕЗДИТЬ НА МЕЙДЖОРЫ.",
+      "url": "https://t.me/cs3news/20482",
+      "source": "Telegram / cs3news",
+      "marked_at": "2026-11-25T23:13:05+03:00"
     }
   },
   "match_announcements": {

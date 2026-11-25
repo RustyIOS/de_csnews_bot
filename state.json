@@ -8497,6 +8497,62 @@
       "url": "https://t.me/raiznews/63254",
       "source": "Telegram / cs2news",
       "marked_at": "2026-11-25T11:03:27+03:00"
+    },
+    "tg:cs2news:63271": {
+      "status": "skipped",
+      "title": "🇦🇺 FlyQuest — чемпионы 🇸🇬 PGL Singapore Major! ",
+      "url": "https://t.me/raiznews/63271",
+      "source": "Telegram / cs2news",
+      "marked_at": "2026-11-25T14:01:28+03:00"
+    },
+    "hltv:hltvnews46047": {
+      "status": "posted",
+      "title": "TYLOO bench Moseyuh",
+      "url": "https://www.hltv.org/news/46047/tyloo-bench-moseyuh",
+      "source": "HLTV",
+      "marked_at": "2026-11-25T14:01:36+03:00"
+    },
+    "hltv:hltvnews46050": {
+      "status": "skipped",
+      "title": "FlyQuest beat Imperial to secure Stage 2 spot",
+      "url": "https://www.hltv.org/news/46050/flyquest-beat-imperial-to-secure-stage-2-spot",
+      "source": "HLTV",
+      "marked_at": "2026-11-25T14:01:36+03:00"
+    },
+    "hltv:hltvnews46048": {
+      "status": "skipped",
+      "title": "9z snap losing streak to send DENDELE packing in Singapore",
+      "url": "https://www.hltv.org/news/46048/9z-snap-losing-streak-to-send-dendele-packing-in-singapore",
+      "source": "HLTV",
+      "marked_at": "2026-11-25T14:01:36+03:00"
+    },
+    "tg:cs2news:63273": {
+      "status": "skipped",
+      "title": "🇦🇺 FlyQuest — чемпионы 🇸🇬 PGL Singapore Major!   ➡️ После выхода австралийцев в следующую стадию со счётом 3-0, у всех игроков в профиле поя",
+      "url": "https://t.me/raiznews/63273",
+      "source": "Telegram / cs2news",
+      "marked_at": "2026-11-25T14:01:36+03:00"
+    },
+    "tg:cs3news:20440": {
+      "status": "skipped",
+      "title": "❗️ FLYQUEST ВЫИГРАЛИ ЭТОТ МЕЙДЖОР — HLTV",
+      "url": "https://t.me/cs3news/20440",
+      "source": "Telegram / cs3news",
+      "marked_at": "2026-11-25T14:01:36+03:00"
+    },
+    "tg:csgo:9935": {
+      "status": "skipped",
+      "title": "😭 НА ЭТО ПЕЧАЛЬНО СМОТРЕТЬ — весь состав BCG попал в топ-10 худших тим.",
+      "url": "https://t.me/csgo/9935",
+      "source": "Telegram / csgo",
+      "marked_at": "2026-11-25T14:01:36+03:00"
+    },
+    "tg:cs3news:20432": {
+      "status": "skipped",
+      "title": "🇧🇷 DENDELE первыми покидают 😎 PGL Major Singapore 2026.",
+      "url": "https://t.me/cs3news/20432",
+      "source": "Telegram / cs3news",
+      "marked_at": "2026-11-25T14:01:36+03:00"
     }
   },
   "match_announcements": {

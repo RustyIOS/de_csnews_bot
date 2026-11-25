@@ -8448,6 +8448,55 @@
       "url": "https://t.me/raiznews/63248",
       "source": "Telegram / cs2news",
       "marked_at": "2026-11-24T23:03:14+03:00"
+    },
+    "dust2us:news80253": {
+      "status": "posted",
+      "title": "Have you ever wanted to watch a CS2 Major in Minecraft? Look no further",
+      "url": "https://www.dust2.us/news/80253/have-you-ever-wanted-to-watch-a-cs2-major-in-minecraft-look-no-further",
+      "source": "Dust2.us",
+      "marked_at": "2026-11-25T11:02:11+03:00"
+    },
+    "hltv:hltvnews46046": {
+      "status": "posted",
+      "title": "Lake: \"We play best when we're most energetic\"",
+      "url": "https://www.hltv.org/news/46046/lake-we-play-best-when-were-most-energetic",
+      "source": "HLTV",
+      "marked_at": "2026-11-25T11:03:27+03:00"
+    },
+    "hltv:hltvnews46045": {
+      "status": "skipped",
+      "title": "JBa comes up clutch in M80 win over HEROIC",
+      "url": "https://www.hltv.org/news/46045/jba-comes-up-clutch-in-m80-win-over-heroic",
+      "source": "HLTV",
+      "marked_at": "2026-11-25T11:03:27+03:00"
+    },
+    "dust2us:news80252": {
+      "status": "skipped",
+      "title": "Wildcard begin PGL Major Singapore with FaZe win, loss in NA derby to Liquid",
+      "url": "https://www.dust2.us/news/80252/wildcard-begin-pgl-major-singapore-with-faze-win-loss-in-na-derby-to-liquid",
+      "source": "Dust2.us",
+      "marked_at": "2026-11-25T11:03:27+03:00"
+    },
+    "dust2us:news80251": {
+      "status": "skipped",
+      "title": "FaZe overcome Wildcard loss for 1-1 record at PGL Major Singapore",
+      "url": "https://www.dust2.us/news/80251/faze-overcome-wildcard-loss-for-1-1-record-at-pgl-major-singapore",
+      "source": "Dust2.us",
+      "marked_at": "2026-11-25T11:03:27+03:00"
+    },
+    "dust2us:news80249": {
+      "status": "skipped",
+      "title": "M80 recover from opening PGL Major Singapore loss to earn 1-1 record after day one",
+      "url": "https://www.dust2.us/news/80249/m80-recover-from-opening-pgl-major-singapore-loss-to-earn-1-1-record-after-day-one",
+      "source": "Dust2.us",
+      "marked_at": "2026-11-25T11:03:27+03:00"
+    },
+    "tg:cs2news:63254": {
+      "status": "skipped",
+      "title": "😳 Какие нахуй FaZe vs. PVISION — смотрим лучший хайлайт в матче дня!",
+      "url": "https://t.me/raiznews/63254",
+      "source": "Telegram / cs2news",
+      "marked_at": "2026-11-25T11:03:27+03:00"
     }
   },
   "match_announcements": {

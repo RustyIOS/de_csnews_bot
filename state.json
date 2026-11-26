@@ -9292,10 +9292,11 @@
     },
     "bo3:134392": {
       "seen": [
-        "match:start"
+        "match:start",
+        "match:finished"
       ],
-      "updated": "2026-11-26T12:01:29+03:00",
-      "match_status": "current"
+      "updated": "2026-11-26T15:01:15+03:00",
+      "match_status": "finished"
     },
     "bo3:134393": {
       "seen": [
@@ -9310,6 +9311,13 @@
         "match:start"
       ],
       "updated": "2026-11-26T14:20:55+03:00",
+      "match_status": "current"
+    },
+    "bo3:134394": {
+      "seen": [
+        "match:start"
+      ],
+      "updated": "2026-11-26T15:02:31+03:00",
       "match_status": "current"
     }
   },

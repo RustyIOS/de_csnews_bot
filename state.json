@@ -9071,6 +9071,55 @@
       "url": "https://www.hltv.org/news/46072/imperial-outlast-wildcard-to-progress-to-stage-2",
       "source": "HLTV",
       "marked_at": "2026-11-27T20:02:21+03:00"
+    },
+    "tg:cs2news:63394": {
+      "status": "skipped",
+      "title": "🔥 Первая стадия 🙇‍♂️ PGL Major Singapore только закончилась, а вторая уже вот-вот начнется!",
+      "url": "https://t.me/raiznews/63394",
+      "source": "Telegram / cs2news",
+      "marked_at": "2026-11-27T23:01:11+03:00"
+    },
+    "hltv:hltvnews46078": {
+      "status": "posted",
+      "title": "rain: \"I'm happy we've managed to get past [the tier 2 grind] now hopefully\"",
+      "url": "https://www.hltv.org/news/46078/rain-im-happy-weve-managed-to-get-past-the-tier-2-grind-now-hopefully",
+      "source": "HLTV",
+      "marked_at": "2026-11-27T23:01:32+03:00"
+    },
+    "tg:cs2news:63391": {
+      "status": "posted",
+      "title": "✅ device подтверждает: rain — БАТЯ!",
+      "url": "https://t.me/raiznews/63391",
+      "source": "Telegram / cs2news",
+      "marked_at": "2026-11-27T23:02:48+03:00"
+    },
+    "dust2us:news80356": {
+      "status": "skipped",
+      "title": "Both M80 and Wildcard eliminated from PGL Major Singapore",
+      "url": "https://www.dust2.us/news/80356/both-m80-and-wildcard-eliminated-from-pgl-major-singapore",
+      "source": "Dust2.us",
+      "marked_at": "2026-11-27T23:02:48+03:00"
+    },
+    "hltv:hltvnews46077": {
+      "status": "skipped",
+      "title": "All 16 teams set for Singapore Stage 2 Fantasy",
+      "url": "https://www.hltv.org/news/46077/all-16-teams-set-for-singapore-stage-2-fantasy",
+      "source": "HLTV",
+      "marked_at": "2026-11-27T23:02:48+03:00"
+    },
+    "tg:acenewscs:17678": {
+      "status": "skipped",
+      "title": "🌟 Самый молодой талант в истории нашей рубрики. Знакомься – 🇺🇦 r0se",
+      "url": "https://t.me/acenewscs/17678",
+      "source": "Telegram / acenewscs",
+      "marked_at": "2026-11-27T23:02:48+03:00"
+    },
+    "tg:cs3news:20595": {
+      "status": "skipped",
+      "title": "Что же значит AZR:S1MPLE?",
+      "url": "https://t.me/cs3news/20595",
+      "source": "Telegram / cs3news",
+      "marked_at": "2026-11-27T23:02:48+03:00"
     }
   },
   "match_announcements": {

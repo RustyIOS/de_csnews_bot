@@ -9717,16 +9717,24 @@
     },
     "bo3:134409": {
       "seen": [
-        "match:start"
+        "match:start",
+        "match:finished"
       ],
-      "updated": "2026-11-28T13:50:50+03:00",
-      "match_status": "current"
+      "updated": "2026-11-28T14:50:56+03:00",
+      "match_status": "finished"
     },
     "bo3:134412": {
       "seen": [
         "match:start"
       ],
       "updated": "2026-11-28T14:42:12+03:00",
+      "match_status": "current"
+    },
+    "bo3:134411": {
+      "seen": [
+        "match:start"
+      ],
+      "updated": "2026-11-28T14:52:12+03:00",
       "match_status": "current"
     }
   },

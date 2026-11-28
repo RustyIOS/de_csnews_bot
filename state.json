@@ -9725,10 +9725,11 @@
     },
     "bo3:134414": {
       "seen": [
-        "match:start"
+        "match:start",
+        "match:finished"
       ],
-      "updated": "2026-11-28T15:42:08+03:00",
-      "match_status": "current"
+      "updated": "2026-11-28T16:50:53+03:00",
+      "match_status": "finished"
     },
     "bo3:134413": {
       "seen": [

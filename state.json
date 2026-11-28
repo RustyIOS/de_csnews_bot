@@ -9514,14 +9514,6 @@
       "updated": "2026-11-25T13:50:47+03:00",
       "match_status": "finished"
     },
-    "bo3:134386": {
-      "seen": [
-        "match:start",
-        "match:finished"
-      ],
-      "updated": "2026-11-25T13:01:09+03:00",
-      "match_status": "finished"
-    },
     "bo3:134389": {
       "seen": [
         "match:start",
@@ -9667,10 +9659,11 @@
     },
     "bo3:134408": {
       "seen": [
-        "match:start"
+        "match:start",
+        "match:finished"
       ],
-      "updated": "2026-11-28T12:20:54+03:00",
-      "match_status": "current"
+      "updated": "2026-11-28T13:31:00+03:00",
+      "match_status": "finished"
     },
     "bo3:134407": {
       "seen": [

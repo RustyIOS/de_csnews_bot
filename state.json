@@ -9667,9 +9667,17 @@
     },
     "bo3:134407": {
       "seen": [
+        "match:start",
+        "match:finished"
+      ],
+      "updated": "2026-11-28T13:40:55+03:00",
+      "match_status": "finished"
+    },
+    "bo3:134410": {
+      "seen": [
         "match:start"
       ],
-      "updated": "2026-11-28T12:22:10+03:00",
+      "updated": "2026-11-28T13:42:11+03:00",
       "match_status": "current"
     }
   },

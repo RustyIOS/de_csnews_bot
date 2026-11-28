@@ -9204,6 +9204,27 @@
       "url": "https://www.hltv.org/news/46083/heavygod-and-r1nkle-power-g2-into-2-0-pool",
       "source": "HLTV",
       "marked_at": "2026-11-28T14:02:54+03:00"
+    },
+    "tg:cs2news:63440": {
+      "status": "posted",
+      "title": "🤝 «Надеюсь, завтра выиграем за выход игру и спокойненько будем ждать следующую стадию» — встретились с 🇷🇺 Ax1Le после двух побед в BO1 матча",
+      "url": "https://t.me/raiznews/63440",
+      "source": "Telegram / cs2news",
+      "marked_at": "2026-11-28T17:01:58+03:00"
+    },
+    "hltv:hltvnews46087": {
+      "status": "skipped",
+      "title": "Astralis defeat NAVI to enter 2-0 pool",
+      "url": "https://www.hltv.org/news/46087/astralis-defeat-navi-to-enter-2-0-pool",
+      "source": "HLTV",
+      "marked_at": "2026-11-28T17:01:58+03:00"
+    },
+    "tg:cs3news:20658": {
+      "status": "skipped",
+      "title": "☹️ Олды прямо сейчас могли всплакнуть, если бы оба клуба не перешли на интернациональные ростеры...",
+      "url": "https://t.me/cs3news/20658",
+      "source": "Telegram / cs3news",
+      "marked_at": "2026-11-28T17:01:58+03:00"
     }
   },
   "match_announcements": {
